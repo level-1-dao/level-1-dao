@@ -1,8 +1,10 @@
 import { Meta } from '../layout/Meta';
-import { Main } from '../templates/Main';
+import { MarketingPage } from '../templates/MarketingPage';
 
 const About = () => (
-  <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
+  <MarketingPage
+    meta={<Meta title="Level1: About" description="About Leve1" />}
+  >
     <p>
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione fuga
       recusandae quidem. Quaerat molestiae blanditiis doloremque possimus labore
@@ -15,7 +17,7 @@ const About = () => (
       voluptatibus distinctio recusandae autem esse explicabo molestias officia
       placeat, accusamus aut saepe.
     </p>
-  </Main>
+  </MarketingPage>
 );
 
 export default About;

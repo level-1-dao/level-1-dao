@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 
 import { Meta } from '../layout/Meta';
-import { Main } from '../templates/Main';
+import { MarketingPage } from '../templates/MarketingPage';
 
 const Index = () => {
   const router = useRouter();
 
   return (
-    <Main
+    <MarketingPage
       meta={
         <Meta
           title="Level1"
@@ -21,8 +21,10 @@ const Index = () => {
           alt="Pixel Heart"
         />
       </a>
-      <h1 className="font-bold text-2xl text-secondary">Press start to begin</h1>
-    </Main>
+      <h1 className="font-bold text-2xl text-secondary">
+        Press start to begin
+      </h1>
+    </MarketingPage>
   );
 };
 

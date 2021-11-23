@@ -14,6 +14,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "daisyui": "1.16.2",
     "next": "^12.0.2",
     "next-seo": "^4.28.1",
     "react": "^17.0.2",

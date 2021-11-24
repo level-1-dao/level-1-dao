@@ -1,7 +1,7 @@
 import { React } from 'react';
 import Link from 'next/link';
 
-import Testimonial from './Testimonial';
+import Testimonial from '../components/Testimonial';
 
 import {
   CashIcon,

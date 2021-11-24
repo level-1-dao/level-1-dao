@@ -2,6 +2,7 @@ import { Meta } from '../layout/Meta.tsx';
 import AppPageTwoColumn from '../layout/AppPageTwoColumn';
 import LearningSplashPage from '../templates/LearningSplashPage';
 import NFT from '../components/NFT';
+import Curriculum from '../components/Curriculum';
 
 const LearningLandingPage = () => (
   <div className="h-full">
@@ -14,7 +15,7 @@ const LearningLandingPage = () => (
       }
       leftColumn={<LearningSplashPage />}
       rightColumn={
-        <div className="flex flex-col space-y-4 items-center w-full px-4 py-10">
+        <div className="flex flex-col space-y-4 items-center w-full px-4">
           {/* <AccessInfo /> */}
           <div className="card glass lg:card-side text-neutral-content">
             <div className="max-w-md card-body">
@@ -30,6 +31,7 @@ const LearningLandingPage = () => (
             </div>
           </div>
           <NFT />
+          <Curriculum />
         </div>
       }
     />

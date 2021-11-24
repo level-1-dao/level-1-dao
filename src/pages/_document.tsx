@@ -6,9 +6,9 @@ import { AppConfig } from '../utils/AppConfig';
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang={AppConfig.locale} data-theme="light">
+      <Html className="h-full" lang={AppConfig.locale} data-theme="dark">
         <Head />
-        <body>
+        <body className="h-full">
           <Main />
           <NextScript />
         </body>

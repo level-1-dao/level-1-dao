@@ -3,11 +3,19 @@ import Link from 'next/link';
 
 import Testimonial from './Testimonial';
 
-import { ChartSquareBarIcon, TicketIcon } from '@heroicons/react/outline';
+import {
+  CashIcon,
+  ChartSquareBarIcon,
+  TicketIcon,
+} from '@heroicons/react/outline';
 
 const LearningSplashPage = () => {
   return (
     <div>
+      <div className="badge badge-info flex">
+        <CashIcon className="h-4 w-4 mr-1" />
+        Receive 100 Level1 tokens on completion
+      </div>
       <h1 className="text-6xl font-bold">What is a DAO?</h1>
       {/* <Instructor /> */}
       <div className="instructor-container flex space-x-2">

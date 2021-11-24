@@ -15,12 +15,12 @@ const Index = () => {
         />
       }
     >
-      <a href="https://github.com/ixartz/Next-js-Boilerplate">
+      <div>
         <img
           src={`${router.basePath}/assets/images/pixel-heart.jpeg`}
           alt="Pixel Heart"
         />
-      </a>
+      </div>
       <h1 className="font-bold text-2xl text-secondary">
         Press start to begin
       </h1>

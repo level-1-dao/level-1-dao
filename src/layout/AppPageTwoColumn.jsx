@@ -1,4 +1,4 @@
-import Header from '../templates/Header';
+import Header from '../components/Header';
 
 const AppPageTwoColumn = (props) => {
   return (

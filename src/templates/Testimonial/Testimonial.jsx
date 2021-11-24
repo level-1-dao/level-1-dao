@@ -14,18 +14,16 @@ const Testimonial = () => {
                 </div>
               </div>
               <div className="ml-4">
-                <div className="text-sm font-medium text-white">
-                  Judith Black
-                </div>
+                <div className="text-sm font-medium">Judith Black</div>
                 <div className="text-sm font-medium text-indigo-200">
                   CEO, Tuple
                 </div>
               </div>
             </div>
           </header>
-          <div className="relative text-lg font-medium text-white md:flex-grow">
+          <div className="relative text-lg font-medium md:flex-grow">
             <svg
-              className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-600"
+              className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-indigo-400"
               fill="currentColor"
               viewBox="0 0 32 32"
               aria-hidden="true"

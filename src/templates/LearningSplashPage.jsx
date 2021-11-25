@@ -14,7 +14,7 @@ const LearningSplashPage = () => {
     <div>
       <div className="badge badge-info flex">
         <CashIcon className="h-4 w-4 mr-1" />
-        Receive 100 Level1 tokens on completion
+        100 Level1 tokens on completion
       </div>
       <h1 className="text-6xl font-bold">What is a DAO?</h1>
       {/* <Instructor /> */}

@@ -1,8 +1,10 @@
-import { Meta } from '../layout/Meta.tsx';
-import AppPageTwoColumn from '../layout/AppPageTwoColumn';
-import LearningSplashPage from '../templates/LearningSplashPage';
-import NFT from '../components/NFT';
-import Curriculum from '../components/Curriculum';
+import { Meta } from '../../layout/Meta.tsx';
+import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
+import LearningSplashPage from '../../templates/LearningSplashPage';
+import NFT from '../../components/NFT';
+import Curriculum from '../../components/Curriculum';
+
+import CurriculumData from '../../mockData/CurriculumData';
 
 const LearningLandingPage = () => (
   <div className="h-full">
@@ -31,7 +33,7 @@ const LearningLandingPage = () => (
             </div>
           </div>
           <NFT />
-          <Curriculum />
+          <Curriculum curriculum={CurriculumData} />
         </div>
       }
     />

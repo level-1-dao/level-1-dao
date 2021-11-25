@@ -18,7 +18,6 @@ const convertToMinutes = (time) => {
 };
 
 const Curriculum = ({ curriculum, active }) => {
-  console.log(curriculum);
   return (
     <div className="curriculum w-full">
       <h2 className="text-xl mb-4">Learning content:</h2>

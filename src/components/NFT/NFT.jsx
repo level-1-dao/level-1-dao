@@ -14,7 +14,7 @@ const NFT = () => {
         />
       </div>
       <div className="p-4 font-bold">
-        <p>Receive "Level1: What is a DAO" NFT badge on completion</p>
+        <p>Receive &quot;Level1: What is a DAO&quot; NFT badge on completion</p>
       </div>
     </div>
   );

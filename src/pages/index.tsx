@@ -15,7 +15,8 @@ const Index = () => {
         setAddress(accounts[0])
         let w3 = new Web3(ethereum)
         setWeb3(w3)
-      }).catch((err) => console.log(err))
+      }).catch((err) => console.log(err)) 
+      //(TODO): trigger popup to connect wallet
     : console.log("Please install MetaMask")
   }, [])
 

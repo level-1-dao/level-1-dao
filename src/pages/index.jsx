@@ -2,7 +2,7 @@ import {useRouter} from 'next/router';
 import React, {useState, useEffect} from 'react';
 import Web3 from 'web3';
 import {Meta} from '../layout/Meta';
-import {MarketingPage} from '../templates/MarketingPage';
+import MarketingPage from '../templates/MarketingPage';
 
 const Index = () => {
   const router = useRouter();
@@ -31,11 +31,7 @@ const Index = () => {
           description="A fun and friendly space for DAO onboarding"
         />
       }
-    >
-      <h1 className="font-bold text-2xl text-secondary">
-        Press start to begin
-      </h1>
-    </MarketingPage>
+    ></MarketingPage>
   );
 };
 

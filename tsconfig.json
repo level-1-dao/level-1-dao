@@ -38,5 +38,5 @@
 
   },
   "exclude": ["./out/**/*", "./node_modules/**/*"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/layout/AppPageTwoColumn.jsx", "src/templates/MarketingPage.jsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/layout/AppPageTwoColumn.jsx", "src/pages/index.jsx", "src/templates/MarketingPage.jsx"]
 }

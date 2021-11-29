@@ -1,4 +1,4 @@
-import { Meta } from '../../layout/Meta.tsx';
+import {Meta} from '../../layout/Meta.tsx';
 import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningSplashPage from '../../templates/LearningSplashPage';
 import NFT from '../../components/NFT';
@@ -11,8 +11,8 @@ const LearningLandingPage = () => (
     <AppPageTwoColumn
       meta={
         <Meta
-          title="Level1"
-          description="A fun and friendly space for DAO onboarding"
+          title="GitcoinDAO Level1"
+          description="Your first steps to contributing to the GitcoinDAO"
         />
       }
       leftColumn={<LearningSplashPage />}
@@ -21,13 +21,10 @@ const LearningLandingPage = () => (
           {/* <AccessInfo /> */}
           <div className="card glass lg:card-side text-neutral-content">
             <div className="max-w-md card-body">
-              <p>
-                This learning module is available to all members of the Level 1
-                DAO.
-              </p>
+              <p>This learning module is available to GitcoinDAO members.</p>
               <div className="card-actions">
                 <button className="btn btn-sm glass rounded-full">
-                  Join Level1 DAO
+                  Join GitcoinDAO
                 </button>
               </div>
             </div>

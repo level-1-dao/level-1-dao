@@ -1,4 +1,4 @@
-import { React } from 'react';
+import {React} from 'react';
 import Link from 'next/link';
 
 import Testimonial from '../components/Testimonial';
@@ -16,17 +16,17 @@ const LearningSplashPage = () => {
         <CashIcon className="h-4 w-4 mr-1" />
         100 Level1 tokens on completion
       </div>
-      <h1 className="text-6xl font-bold">What is a DAO?</h1>
+      <h1 className="text-6xl font-bold">GitcoinDAO Onboarding</h1>
       {/* <Instructor /> */}
       <div className="instructor-container flex space-x-2">
         <div className="avatar">
           <div className="rounded-full w-14 h-14">
-            <img src="http://daisyui.com/tailwind-css-component-profile-1@56w.png" />
+            <img src="https://pbs.twimg.com/profile_images/1457324509321699330/j3kuExBF_400x400.jpg" />
           </div>
         </div>
         <div className="instructor-text">
           <h5 className="text-sm">
-            <span className="text-gray-500">Instructor</span>
+            <span className="text-gray-500">Facilitator</span>
           </h5>
           <p className="text-lg">
             <span>Ray Kanani</span>
@@ -37,7 +37,7 @@ const LearningSplashPage = () => {
         {/* <AccessInfo /> */}
         <div className="access-info-container flex space-x-2">
           <TicketIcon className="h-6 w-6" aria-hidden="true" />
-          <p>Open to members of Level1 DAO</p>
+          <p>Open to members of GitcoinDAO</p>
         </div>
         {/* <NumbersCompleted /> */}
         <div className="numbers-completed-container flex space-x-2">
@@ -55,12 +55,12 @@ const LearningSplashPage = () => {
       <div className="actions flex space-x-2 my-4">
         <Link href="/">
           <a className="btn btn-white btn-outline">
-            <span className="text-sm">Save to learning list</span>
+            <span className="text-sm">Bookmark</span>
           </a>
         </Link>
         <Link href="/">
           <a className="btn btn-primary">
-            <span className="text-sm">Start this learning</span>
+            <span className="text-sm">Start this Level1</span>
           </a>
         </Link>
       </div>
@@ -68,17 +68,21 @@ const LearningSplashPage = () => {
       <div className="details my-4">
         <h2 className="text-xl font-bold">Overview</h2>
         <p className="text-lg">
-          <span>
-            The DAO is a decentralized autonomous organization (DAO) that
-            represents a group of people who have agreed to work together to
-            achieve a common purpose.
-            <br />
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia in
-            officiis quasi autem earum voluptates eveniet nostrum reiciendis
-            nobis veritatis adipisci, ad voluptatibus aut tenetur esse culpa.
-            Alias, natus veritatis!
-          </span>
+          This Level1 module is designed to help you get started with
+          GitcoinDAO.
+          <br />
+          <br />
+          After completing this Level1 you will:
+          <ul className="list-disc list-inside">
+            <li>Have an understanding of the values & mission of GitcoinDAO</li>
+            <li>Have an understanding of how they can earn with GitcoinDAO</li>
+            <li>
+              Have an understanding of how to find opportunities and apply to
+              them
+            </li>
+            <li>Have key contacts to go to for help & other questions</li>
+            <li>Have proper access & permissions to get started</li>
+          </ul>
         </p>
       </div>
       <div className="grid gap-4 grid-cols-2">

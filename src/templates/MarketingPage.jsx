@@ -14,13 +14,13 @@ const MarketingPage = () => {
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-2/3 sm:px-8 xl:pr-16">
-            <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-              <span className="block">Give DAO members</span>{' '}
+            <h1 className="text-6xl uppercase tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+              <span className="block text-accent">Unlock your people's</span>{' '}
               <span className="block text-primary">super powers</span>
             </h1>
-            <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-              Level1 is a fun and friendly onboarding platform for Decentralized
-              Autonomous Organizations (DAOs).
+            <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-2xl md:mt-5 md:max-w-3xl">
+              A fun and friendly onboarding platform that helps DAOs tap into
+              the awesomeness of it's membership.
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">

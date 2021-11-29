@@ -17,7 +17,7 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({ curriculum, active }) => {
+const Curriculum = ({curriculum, active}) => {
   return (
     <div className="curriculum w-full">
       <h2 className="text-xl mb-4">Learning content:</h2>

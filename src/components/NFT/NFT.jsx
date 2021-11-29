@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import Image from 'next/image';
 
 const NFT = () => {
@@ -6,11 +6,13 @@ const NFT = () => {
 
   return (
     <div className="card lg:card-side bordered bg-primary">
-      <div className="relative w-32 h-auto">
+      <div className="relative w-full h-auto">
         <Image
-          src={`${router.basePath}/assets/images/token.png`}
+          src={`${router.basePath}/assets/images/gitcoinavatar.svg`}
           alt="NFT"
-          layout="fill"
+          layout="responsive"
+          width={100}
+          height={100}
         />
       </div>
       <div className="p-4 font-bold">

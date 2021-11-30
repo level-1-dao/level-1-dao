@@ -1,10 +1,10 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.10;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol"; 
 
-contract LevelOne is ERC20, ERC20Detailed {
-    constructor(uint256 initialSupply) ERC20Detailed("LevelOne", "LO", 18) public {
-        _mint(msg.sender, initialSupply);
-    } 
+contract LevelOne is ERC20 {
+        constructor() ERC20("LevelOne", "LO") { 
+            _mint(msg.sender, 1000000); 
+        } 
 }

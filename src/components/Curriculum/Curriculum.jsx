@@ -1,7 +1,7 @@
 import {
   ClipboardListIcon,
   VideoCameraIcon,
-  AnnotationIcon,
+  LinkIcon,
   CashIcon,
 } from '@heroicons/react/solid';
 
@@ -36,7 +36,7 @@ const Curriculum = ({curriculum, active}) => {
               ) : item.contentType === 'quiz' ? (
                 <ClipboardListIcon className="w-6 h-6" />
               ) : (
-                <AnnotationIcon className="w-6 h-6" />
+                <LinkIcon className="w-6 h-6" />
               )}
             </div>
             <div className="curriculum_title-runtime w-full">

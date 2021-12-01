@@ -4,7 +4,7 @@ import LearningSplashPage from '../../templates/LearningSplashPage';
 import NFT from '../../components/NFT';
 import Curriculum from '../../components/Curriculum';
 
-import CurriculumData from '../../mockData/CurriculumData';
+import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 
 const LearningLandingPage = () => (
   <div className="h-full">
@@ -30,7 +30,7 @@ const LearningLandingPage = () => (
             </div>
           </div>
           <NFT />
-          <Curriculum curriculum={CurriculumData} />
+          <Curriculum curriculum={GitcoinCurriculumData} />
         </div>
       }
     />

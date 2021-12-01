@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: MIT 
 pragma solidity ^0.8.10;   
 
+interface LevelOneToken {  
+    //add needed function signatures
+
+} 
+
+interface LevenOneNFT { 
+    //add needed function signatures 
+}
+
 contract Learn2Earn {  
     //internal values
     // levelone token smart contract address  

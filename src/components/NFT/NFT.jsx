@@ -6,9 +6,9 @@ const NFT = () => {
 
   return (
     <div className="card lg:card-side bordered bg-primary">
-      <div className="relative w-full h-auto">
+      <div className="relative w-60 h-auto">
         <Image
-          src={`${router.basePath}/assets/images/gitcoinavatar.svg`}
+          src={`${router.basePath}/assets/images/thunderbolt.png`}
           alt="NFT"
           layout="responsive"
           width={100}
@@ -16,7 +16,10 @@ const NFT = () => {
         />
       </div>
       <div className="p-4 font-bold">
-        <p>Receive &quot;Level1: What is a DAO&quot; NFT badge on completion</p>
+        <p>
+          Receive &quot;Level1: GitcoinDAO Onboarding&quot; NFT badge on
+          completion
+        </p>
       </div>
     </div>
   );

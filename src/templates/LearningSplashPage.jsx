@@ -72,18 +72,17 @@ const LearningSplashPage = () => {
           GitcoinDAO.
           <br />
           <br />
-          After completing this Level1 you will:
-          <ul className="list-disc list-inside">
-            <li>Have an understanding of the values & mission of GitcoinDAO</li>
-            <li>Have an understanding of how they can earn with GitcoinDAO</li>
-            <li>
-              Have an understanding of how to find opportunities and apply to
-              them
-            </li>
-            <li>Have key contacts to go to for help & other questions</li>
-            <li>Have proper access & permissions to get started</li>
-          </ul>
         </p>
+        After completing this Level1 you will:
+        <ul className="list-disc list-inside">
+          <li>Have an understanding of the values & mission of GitcoinDAO</li>
+          <li>Have an understanding of how they can earn with GitcoinDAO</li>
+          <li>
+            Have an understanding of how to find opportunities and apply to them
+          </li>
+          <li>Have key contacts to go to for help & other questions</li>
+          <li>Have proper access & permissions to get started</li>
+        </ul>
       </div>
       <div className="grid gap-4 grid-cols-2">
         <Testimonial />

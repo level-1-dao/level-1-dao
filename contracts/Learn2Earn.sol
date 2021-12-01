@@ -2,12 +2,20 @@
 pragma solidity ^0.8.10;   
 
 interface LevelOneToken {  
-    //add needed function signatures
+    function approve(address spender, uint256 amount) external returns (bool); 
 
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) external returns (bool); 
+
+    function balanceOf(address account) external view returns (uint256);
 } 
 
 interface LevenOneNFT { 
-    //add needed function signatures 
+    function awardCertificate(address learner, string memory tokenURI) external view returns (uint256); 
+    function balanceOf(address owner) external view returns (uint256);
 }
 
 contract Learn2Earn {  
@@ -16,7 +24,12 @@ contract Learn2Earn {
     address private levelOneContract; //add the actual test net address
 
     // nft smart contract address 
-    address private levelOneNftContract; // add the actual testnet address
+    address private levelOneNftContract; // add the actual testnet address 
+
+    //approve this smart contract as a spender for the L1 token contract in the construction
+    constructor() { 
+
+    }
 
     //functions 
     //award user(currentAddress, amountOfTokens)  

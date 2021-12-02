@@ -1,8 +1,12 @@
 import React from 'react';
+import {useRouter} from 'next/router';
+import Image from 'next/image';
 
 import ReactPlayer from 'react-player';
 
 const LearningModule = ({curriculum}) => {
+  const router = useRouter();
+
   return (
     <div>
       {/* <VideoPlayer /> */}
@@ -17,8 +21,12 @@ const LearningModule = ({curriculum}) => {
         </div>
       )}
       {curriculum.contentType === 'image' && (
-        <div className="image-container">
-          <img src={curriculum.link} alt="content" />
+        <div className="relative">
+          <img
+            src={`${router.basePath}/assets/images/${curriculum.link}`}
+            layout="fill"
+            alt="content"
+          />
         </div>
       )}
       {curriculum.contentType === 'quiz' && (
@@ -29,6 +37,9 @@ const LearningModule = ({curriculum}) => {
                 <span className="text-xl">{curriculum.question}</span>
               </label>
               <textarea className="textarea h-24"></textarea>
+              <div className="mt-8 flex justify-end">
+                <button className="btn btn-primary">Submit</button>
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@ const NFT = () => {
   const router = useRouter();
 
   return (
-    <div className="card lg:card-side bordered bg-primary">
+    <div className="card w-full lg:card-side bordered bg-primary text-primary-content">
       <div className="relative w-60 h-auto">
         <Image
           src={`${router.basePath}/assets/images/thunderbolt.png`}
@@ -13,6 +13,7 @@ const NFT = () => {
           layout="responsive"
           width={100}
           height={100}
+          priority={true}
         />
       </div>
       <div className="p-4 font-bold">

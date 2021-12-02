@@ -26,7 +26,7 @@ const Curriculum = ({curriculum, active}) => {
           <div
             key={item.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              active === item.id ? 'bg-primary' : ''
+              active === item.id ? 'bg-accent text-accent-content' : ''
             }`}
           >
             <div className="curriculum_id">{item.id}</div>
@@ -48,7 +48,11 @@ const Curriculum = ({curriculum, active}) => {
                   {convertToMinutes(item.time)}
                 </div>
                 <div className="justify-end">
-                  <div className="badge badge-info">
+                  <div
+                    className={`badge ${
+                      active !== item.id ? 'badge-info' : ''
+                    }`}
+                  >
                     <CashIcon className="h-4 w-4 mr-1" />
                     {item.tokens}
                   </div>

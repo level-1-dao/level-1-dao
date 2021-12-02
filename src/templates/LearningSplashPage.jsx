@@ -58,7 +58,7 @@ const LearningSplashPage = () => {
             <span className="text-sm">Bookmark</span>
           </a>
         </Link>
-        <Link href="/">
+        <Link href="/learning/go">
           <a className="btn btn-primary">
             <span className="text-sm">Start this Level1</span>
           </a>

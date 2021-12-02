@@ -59,7 +59,7 @@ const GitcoinCurriculumData = [
       'Select your first task and project to get started as a member of the DAO',
     contentType: 'image',
     time: 300,
-    link: 'https://link.to.curriculum',
+    link: 'GitcoinDAO-screenshot.png',
     tokens: 20,
   },
   {
@@ -69,7 +69,7 @@ const GitcoinCurriculumData = [
       'Register for dRewards and get a free token to start working on your first task and project',
     contentType: 'image',
     time: '--',
-    link: 'https://link.to.curriculum',
+    link: 'GitcoinDAO.png',
     tokens: 10,
   },
   {

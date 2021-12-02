@@ -35,9 +35,11 @@ contract Learn2Earn {
     //award user(currentAddress, amountOfTokens)  
     function awardUser(address learner, uint256 tokenAmount) public returns (uint256) { 
 
-    }
+    }   
 
-    // awardNft(currentAddress, nft)  This may not be neccessary. User could just directly mint from the smart contract.  
+    function awardCertificate(address learner, string memory tokenURI) external view returns (uint256) { 
+        
+    }
 
     //check if user is apart of a dao. just take gitcoin
     function isDaoHolder(address learner, address daoToken) public returns (bool) { 

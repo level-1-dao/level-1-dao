@@ -11,7 +11,7 @@ function classNames(...classes) {
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [walletConnected, setWalletConnected] = useState(false);
+  const [walletConnected, setWalletConnected] = useState(true);
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
@@ -260,7 +260,11 @@ const Header = () => {
             </div>
           </Disclosure.Panel>
           {/* Slideout */}
-          <Slideout open={isOpen} setOpen={setIsOpen} />
+          <Slideout
+            open={isOpen}
+            setOpen={setIsOpen}
+            walletConnected={walletConnected}
+          />
         </>
       )}
     </Disclosure>

@@ -17,6 +17,7 @@
     "@headlessui/react": "1.4.2",
     "@heroicons/react": "1.0.5",
     "@superfluid-finance/js-sdk": "^0.5.7",
+    "@tailwindcss/aspect-ratio": "0.3.0",
     "@tailwindcss/forms": "0.3.4",
     "@truffle/contract": "^4.3.42",
     "daisyui": "1.16.2",

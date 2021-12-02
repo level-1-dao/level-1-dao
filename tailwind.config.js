@@ -44,5 +44,7 @@ module.exports = {
   },
   variants: {},
   // eslint-disable-next-line global-require
-  plugins: [require('daisyui'), require('@tailwindcss/forms')],
+  plugins: [
+    require('daisyui', '@tailwindcss/forms', '@tailwindcss/aspect-ratio'),
+  ],
 };

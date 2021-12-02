@@ -1,30 +1,53 @@
 import React from 'react';
+import {useRouter} from 'next/router';
+import Image from 'next/image';
 
 import ReactPlayer from 'react-player';
 
-const LearningModule = () => {
+const LearningModule = ({curriculum}) => {
+  const router = useRouter();
+
   return (
     <div>
       {/* <VideoPlayer /> */}
-      <div className="video-container">
-        <ReactPlayer url="https://www.youtube.com/watch?v=KHm0uUPqmVE" />
-      </div>
+      {curriculum.contentType === 'video' && (
+        <div className="video-container">
+          <ReactPlayer url="https://www.youtube.com/watch?v=KHm0uUPqmVE" />
+        </div>
+      )}
+      {curriculum.contentType === 'text' && (
+        <div className="text-container">
+          <p>{curriculum.content}</p>
+        </div>
+      )}
+      {curriculum.contentType === 'image' && (
+        <div className="relative">
+          <img
+            src={`${router.basePath}/assets/images/${curriculum.link}`}
+            layout="fill"
+            alt="content"
+          />
+        </div>
+      )}
+      {curriculum.contentType === 'quiz' && (
+        <div className="quiz-container">
+          <div className="p-10 card bg-base-200">
+            <div className="form-control">
+              <label className="label">
+                <span className="text-xl">{curriculum.question}</span>
+              </label>
+              <textarea className="textarea h-24"></textarea>
+              <div className="mt-8 flex justify-end">
+                <button className="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       {/* <Details /> */}
       <div className="details my-4">
         <h2 className="text-xl font-bold">Overview</h2>
-        <p className="text-lg">
-          <span>
-            The DAO is a decentralized autonomous organization (DAO) that
-            represents a group of people who have agreed to work together to
-            achieve a common purpose.
-            <br />
-            <br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia in
-            officiis quasi autem earum voluptates eveniet nostrum reiciendis
-            nobis veritatis adipisci, ad voluptatibus aut tenetur esse culpa.
-            Alias, natus veritatis!
-          </span>
-        </p>
+        <p className="text-lg">{curriculum.description}</p>
       </div>
     </div>
   );

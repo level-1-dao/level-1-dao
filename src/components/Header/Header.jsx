@@ -1,16 +1,21 @@
-import { Fragment } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { SearchIcon } from '@heroicons/react/solid';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import {Fragment, useState} from 'react';
+import {Disclosure, Menu, Transition} from '@headlessui/react';
+import {SearchIcon} from '@heroicons/react/solid';
+import {SparklesIcon, MenuIcon, XIcon} from '@heroicons/react/outline';
+import Link from 'next/link';
+import Slideout from '../Header/Slideout';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [walletConnected, setWalletConnected] = useState(false);
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
-      {({ open }) => (
+      {({open}) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div className="flex justify-between h-16">
@@ -21,9 +26,11 @@ const Header = () => {
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                     alt="Workflow"
                   />
-                  <h3 className="hidden lg:block h-8 w-auto text-xl font-bold text-primary">
-                    Level1
-                  </h3>
+                  <Link href="/" passHref>
+                    <h3 className="hidden lg:block h-8 w-auto text-xl font-bold text-primary cursor-pointer">
+                      Level1
+                    </h3>
+                  </Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
@@ -87,13 +94,19 @@ const Header = () => {
                 </Disclosure.Button>
               </div>
               <div className="hidden lg:ml-4 lg:flex lg:items-center">
-                <button
-                  type="button"
-                  className="flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+                <div className="relative">
+                  {!walletConnected && (
+                    <div className="h-2 w-2 rounded-full bg-info absolute top-0 right-0"></div>
+                  )}
+                  <button
+                    type="button"
+                    className="flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    onClick={() => setIsOpen(!isOpen)}
+                  >
+                    <span className="sr-only">View notifications</span>
+                    <SparklesIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="ml-4 relative flex-shrink-0">
@@ -116,9 +129,9 @@ const Header = () => {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="z-40 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
-                        {({ active }) => (
+                        {({active}) => (
                           <a
                             href="#"
                             className={classNames(
@@ -131,7 +144,7 @@ const Header = () => {
                         )}
                       </Menu.Item>
                       <Menu.Item>
-                        {({ active }) => (
+                        {({active}) => (
                           <a
                             href="#"
                             className={classNames(
@@ -144,7 +157,7 @@ const Header = () => {
                         )}
                       </Menu.Item>
                       <Menu.Item>
-                        {({ active }) => (
+                        {({active}) => (
                           <a
                             href="#"
                             className={classNames(
@@ -164,7 +177,7 @@ const Header = () => {
           </div>
 
           <Disclosure.Panel className="lg:hidden">
-            <div className="pt-2 pb-3 space-y-1">
+            <div className="pt-2 pb-3 space-y-1 z-40">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
               <Disclosure.Button
                 as="a"
@@ -215,9 +228,10 @@ const Header = () => {
                 <button
                   type="button"
                   className="ml-auto flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  onClick={() => setIsOpen(!isOpen)}
                 >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <span className="sr-only">Your wallet</span>
+                  <SparklesIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
               </div>
               <div className="mt-3 space-y-1">
@@ -245,6 +259,12 @@ const Header = () => {
               </div>
             </div>
           </Disclosure.Panel>
+          {/* Slideout */}
+          <Slideout
+            open={isOpen}
+            setOpen={setIsOpen}
+            walletConnected={walletConnected}
+          />
         </>
       )}
     </Disclosure>

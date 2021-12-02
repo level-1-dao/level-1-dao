@@ -1,2 +1,3 @@
 import Header from './Header';
-export default Header;
+import Slideout from './Slideout';
+export {Header, Slideout};

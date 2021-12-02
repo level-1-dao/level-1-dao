@@ -22,7 +22,6 @@ const LearningLandingPage = () => {
 
   const curriculumSize = GitcoinCurriculumData.length;
 
-
   return (
     <div className="h-full">
       <AppPageTwoColumn
@@ -41,13 +40,11 @@ const LearningLandingPage = () => {
           <div className="flex flex-col space-y-4 items-center w-full px-4">
             <button className="btn btn-accent btn-outline text-left w-full">
               L1 tokens collected:
-
               <div className="badge ml-2">
                 <span className="font-mono text-lg countdown">
                   <span style={{'--value': tokensCollected}}></span>
                 </span>
               </div>
-
             </button>
             {/* Temporary Curriculum Progress Stepper UI */}
             {curriculumProgress < curriculumSize ? (

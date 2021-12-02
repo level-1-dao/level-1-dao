@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import Header from '../components/Header';
+import {Header} from '../components/Header';
 
 import Image from 'next/image';
 

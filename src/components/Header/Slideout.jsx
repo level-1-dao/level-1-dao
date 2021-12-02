@@ -1,11 +1,6 @@
 import {Fragment} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
-import {
-  SparklesIcon,
-  PlusSmIcon,
-  HeartIcon,
-  PencilIcon,
-} from '@heroicons/react/outline';
+import {SparklesIcon} from '@heroicons/react/outline';
 
 const wallets = [
   {
@@ -62,9 +57,9 @@ const Slideout = ({open, setOpen, walletConnected}) => {
                       </div>
                       <div className="mt-1">
                         <p className="text-sm">
-                          Connect your wallet and you'll be able to collect and
-                          store Level1 tokens AND you'll be able to store your
-                          exclusive super cool completion NFTs.
+                          Connect your wallet and you&apos;ll be able to collect
+                          and store Level1 tokens AND store your exclusive super
+                          cool completion NFTs.
                         </p>
                       </div>
                     </div>

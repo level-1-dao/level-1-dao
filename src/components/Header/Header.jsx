@@ -11,7 +11,7 @@ function classNames(...classes) {
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(true);
-  const [walletConnected, setWalletConnected] = useState(true);
+  const [walletConnected, setWalletConnected] = useState(false);
 
   return (
     <Disclosure as="nav" className="bg-white shadow">

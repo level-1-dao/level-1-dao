@@ -13,6 +13,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [walletConnected, setWalletConnected] = useState(false);
 
+  const connectWallet = () => {
+    setWalletConnected(true);
+  };
+
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({open}) => (
@@ -264,6 +268,7 @@ const Header = () => {
             open={isOpen}
             setOpen={setIsOpen}
             walletConnected={walletConnected}
+            connectWallet={connectWallet}
           />
         </>
       )}

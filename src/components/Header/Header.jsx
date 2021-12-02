@@ -10,7 +10,7 @@ function classNames(...classes) {
 }
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
 
   const connectWallet = () => {

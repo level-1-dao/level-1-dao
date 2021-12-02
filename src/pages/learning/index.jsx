@@ -1,7 +1,7 @@
 import {Meta} from '../../layout/Meta.tsx';
 import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningSplashPage from '../../templates/LearningSplashPage';
-import NFT from '../../components/NFT';
+import {NFT} from '../../components/NFT';
 import Curriculum from '../../components/Curriculum';
 
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';

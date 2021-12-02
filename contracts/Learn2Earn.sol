@@ -4,16 +4,12 @@ pragma solidity ^0.8.10;
 interface LevelOneToken {  
     function approve(address spender, uint256 amount) external returns (bool); 
 
-    function transferFrom(
-        address sender,
-        address recipient,
-        uint256 amount
-    ) external returns (bool); 
+    function transfer(address recipient, uint256 amount) external returns (bool) ; 
 
     function balanceOf(address account) external view returns (uint256);
 } 
 
-interface LevenOneNFT { 
+interface LevelOneNFT { 
     function awardCertificate(address learner, string memory tokenURI) external view returns (uint256); 
     function balanceOf(address owner) external view returns (uint256);
 }
@@ -26,31 +22,38 @@ contract Learn2Earn {
     // nft smart contract address 
     address private levelOneNftContract; // add the actual testnet address 
 
-    //approve this smart contract as a spender for the L1 token contract in the construction
+    //(TODO): Adam - approve this smart contract as a spender for the L1 token contract in the construction
     constructor() { 
 
     }
 
     //functions 
-    //award user(currentAddress, amountOfTokens)  
-    function awardUser(address learner, uint256 tokenAmount) public returns (uint256) { 
-
+    function awardUser(address learner, uint256 tokenAmount) public returns (bool)  { 
+        return LevelOneToken(levelOneContract).transfer(learner, tokenAmount);
     }   
 
     function awardCertificate(address learner, string memory tokenURI) external view returns (uint256) { 
-        
+        return LevelOneNFT(levelOneNftContract).awardCertificate(learner, tokenURI);
     }
 
-    //check if user is apart of a dao. just take gitcoin
+    //(TODO): Adam - check if user is apart of a dao. just use gitcoin for testing
     function isDaoHolder(address learner, address daoToken) public returns (bool) { 
 
     }
 
-    function hasLevelOneToken(address learner) public { 
-
+    function hasLevelOneToken(address learner) public view returns (bool) {  
+        uint tokenAmount = LevelOneToken(levelOneContract).balanceOf(learner);
+        if (tokenAmount > 0) { 
+            return true;
+        } 
+        return false ;
     }
 
-    function hasLevelOneNft(address learner) public { 
-
+    function hasLevelOneNft(address learner) public view returns (bool) {  
+        uint nftAmount = LevelOneNFT(levelOneNftContract).balanceOf(learner);  
+        if (nftAmount > 0) { 
+            return true;
+        } 
+        return false ;
     }
 }

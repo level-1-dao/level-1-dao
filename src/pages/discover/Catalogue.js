@@ -58,6 +58,36 @@ const levels = [
   },
 ];
 
+const emergingLevels = [
+  {
+    id: 1,
+    name: 'Trauma Informed',
+    href: '#',
+    imageSrc: '/assets/images/logos/culture.jpeg',
+    imageAlt: 'Aragon Network DAO Join the Fight',
+    description:
+      'Gain awareness of what it means to go through trauma and how it impacts the way we interact with each other.',
+  },
+  {
+    id: 2,
+    name: 'Mental Health First Aid',
+    href: '#',
+    imageSrc: '/assets/images/logos/mental-health-matters.png',
+    imageAlt: 'Gitcoin DAO Logo',
+    description:
+      'Learn how to get the most out of your mental health and how to help others.',
+  },
+  {
+    id: 3,
+    name: 'Growth Mindset',
+    href: '#',
+    imageSrc: '/assets/images/logos/growth-mindset.png',
+    imageAlt: 'Bankless DAO Logo',
+    description:
+      'Learn about the growth mindset with tips and tricks on navigating the unknown.',
+  },
+];
+
 const microLevels = [
   {
     id: 1,
@@ -66,16 +96,16 @@ const microLevels = [
     imageSrc: '/assets/images/logos/discord-logo.jpeg',
     imageAlt: 'Aragon Network DAO Join the Fight',
     description:
-      'An interactive introduction to the Aragon Network DAO and the Ambassador program.',
+      'A tool used by many communities. Learn the ins and outs, tips and tricks and help others do the same.',
   },
   {
     id: 2,
     name: 'Git: Version Control',
     href: '#',
-    imageSrc: '/assets/images/logos/git.png',
+    imageSrc: '/assets/images/logos/git-logo.jpeg',
     imageAlt: 'Git Logo',
     description:
-      'A short interactive learning module to help you get familiar with the GitcoinDAO tools.',
+      'Fork, pull, and merge. Git is a great way to collaborate on code, text and other documents.',
   },
   {
     id: 3,
@@ -90,8 +120,8 @@ const microLevels = [
     id: 4,
     name: 'NFTs',
     href: '#',
-    imageSrc: '/assets/images/logos/she256.svg',
-    imageAlt: 'She256 Logo',
+    imageSrc: '/assets/images/logos/nft-lego-logo.png',
+    imageAlt: 'NFT Cover',
     description:
       'A fun, interactive learning module that shows you how to start your own She256 Fellowship.',
   },
@@ -99,7 +129,7 @@ const microLevels = [
     id: 5,
     name: 'POAPs',
     href: '#',
-    imageSrc: '/assets/images/logos/harmony-logo.png',
+    imageSrc: '/assets/images/logos/poap-wallpaper.jpeg',
     imageAlt: 'Harmony Logo',
     description:
       'A Level1 guide to layer2. Learn about roll-ups and cross-chain transactions.',
@@ -111,7 +141,10 @@ const Catalogue = () => {
     <div className="bg-base">
       {/* Popular */}
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="font-bold text-2xl mb-8">Popular levels:</h2>
+        <h2 className="font-bold text-3xl text-primary">Popular:</h2>
+        <p className="text-lg mb-8">
+          You&#39;re in good company. Here are some of the most popular Level1s.
+        </p>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-24">
           {levels.map((level) => (
             <Link key={level.id} href={level.href}>
@@ -132,9 +165,38 @@ const Catalogue = () => {
           ))}
         </div>
       </div>
+      {/* Emerging */}
+      <div className="max-w-2xl mx-auto pb-16 px-4 py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="font-bold text-3xl text-primary">Emerging:</h2>
+        <p className="text-lg mb-8">
+          Lead the way with these up and coming Level1s.
+        </p>
+        <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-24">
+          {emergingLevels.map((level) => (
+            <Link key={level.id} href={level.href}>
+              <a className="group">
+                <div className="relative w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
+                  <Image
+                    src={level.imageSrc}
+                    alt={level.imageAlt}
+                    layout="fill"
+                  />
+                </div>
+                <h3 className="mt-4 text-lg font-medium  text-base-content">
+                  {level.name}
+                </h3>
+                <p className="mt-1 text-base-content">{level.description}</p>
+              </a>
+            </Link>
+          ))}
+        </div>
+      </div>
       {/* Micro Levels */}
       <div className="max-w-2xl pb-16 mx-auto py-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="font-bold text-2xl mb-8">Micro levels:</h2>
+        <h2 className="font-bold text-3xl text-primary">Micro:</h2>
+        <p className="text-lg mb-8">
+          Level1s that take 20 minutes or less to complete
+        </p>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 xl:gap-x-12">
           {microLevels.map((level) => (
             <Link key={level.id} href={level.href}>

@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import {Header} from '../components/Header';
+import Header from '../components/Header';
 
 import Image from 'next/image';
 
@@ -51,7 +51,7 @@ const MarketingPage = () => {
             src={`${router.basePath}/assets/images/cat_hero_bold.png`}
             alt=""
             layout="fill"
-            priority={true}
+            priority
           />
         </div>
       </main>

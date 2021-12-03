@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const products = [
+const levels = [
   {
     id: 1,
     name: 'Aragon Ambassador Program',
@@ -70,20 +70,20 @@ const Catalogue = () => {
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="font-bold text-2xl mb-8">Popular levels:</h2>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-24">
-          {products.map((product) => (
-            <Link key={product.id} href={product.href}>
+          {levels.map((level) => (
+            <Link key={level.id} href={level.href}>
               <a className="group">
-                <div className="relative w-full h-36 bg-gray-200 rounded-lg overflow-hidden group-hover:opacity-75">
+                <div className="relative w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
                   <Image
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
+                    src={level.imageSrc}
+                    alt={level.imageAlt}
                     layout="fill"
                   />
                 </div>
                 <h3 className="mt-4 text-lg font-medium  text-base-content">
-                  {product.name}
+                  {level.name}
                 </h3>
-                <p className="mt-1 text-base-content">{product.description}</p>
+                <p className="mt-1 text-base-content">{level.description}</p>
               </a>
             </Link>
           ))}

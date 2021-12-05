@@ -36,12 +36,19 @@ const LearningLandingPage = () => {
 
   async function awardUser() {
     const learnerAddress = await web3.eth.getAccounts();
-    const receipt = await learn2EarnInstance.methods
+    const levelOneAward = await learn2EarnInstance.methods
       .awardUser(learnerAddress, 90)
       .send({
         from: learnerAddress,
       });
-    console.log(receipt);
+    //TODO: Create method for token uri for nft
+    const nftAward = await learn2EarnInstance.methods
+      .awardCertificate(learnerAddress, 90)
+      .send({
+        from: learnerAddress,
+      });
+    console.log(levelOneAward);
+    console.log(nftAward);
   }
 
   return (

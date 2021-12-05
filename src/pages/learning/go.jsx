@@ -4,7 +4,9 @@ import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
 import Web3 from 'web3';
+
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
+import {learn2EarnAbi} from '../../mockData/SmartContractAbi';
 
 const LearningLandingPage = () => {
   const [curriculumProgress, setCurriculumProgress] = useState(1);
@@ -20,10 +22,27 @@ const LearningLandingPage = () => {
     addTokens(tokens);
   };
 
-  const curriculumSize = GitcoinCurriculumData.length; 
+  const curriculumSize = GitcoinCurriculumData.length;
+  //(TODO) Place this link inside .env file!
+  const web3 = new Web3(
+    'https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW'
+  );
+  let learn2EarnInstance = async () => {
+    return await new window.web3.eth.Contract(
+      learn2EarnAbi,
+      learn2EarnContractAddress
+    );
+  };
 
-  const web3 = new Web3('https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW') 
-  
+  async function awardUser() {
+    const learnerAddress = await web3.eth.getAccounts();
+    const receipt = await learn2EarnInstance.methods
+      .awardUser(learnerAddress, 90)
+      .send({
+        from: learnerAddress,
+      });
+    console.log(receipt);
+  }
 
   return (
     <div className="h-full">
@@ -69,10 +88,7 @@ const LearningLandingPage = () => {
             ) : (
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center">
-                  <div
-                    className="btn"
-                    onClick={() => alert('You finished learning module')}
-                  >
+                  <div className="btn" onClick={awardUser()}>
                     Finish learning module
                   </div>
                 </div>

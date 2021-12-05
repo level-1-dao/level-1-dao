@@ -1,6 +1,7 @@
 import React from 'react';
 import {useRouter} from 'next/router';
 import Image from 'next/image';
+import {Input, Feed} from '../components/LearnWith';
 
 import ReactPlayer from 'react-player';
 
@@ -48,6 +49,12 @@ const LearningModule = ({curriculum}) => {
       <div className="details my-4">
         <h2 className="text-xl font-bold">Overview</h2>
         <p className="text-lg">{curriculum.description}</p>
+      </div>
+      <div className="divider"></div>
+      {/* Learn with */}
+      <div className="learn-with-container space-y-12 sm:px-2 lg:px-8">
+        <Input />
+        <Feed />
       </div>
     </div>
   );

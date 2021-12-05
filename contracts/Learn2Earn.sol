@@ -28,7 +28,7 @@ contract Learn2Earn {
     }
 
     //functions 
-    function awardUser(address learner, uint256 tokenAmount) public returns (bool)  { 
+    function awardUser(address learner, uint256 tokenAmount) public payable returns (bool)  { 
         return LevelOneToken(levelOneContract).transfer(learner, tokenAmount);
     }   
 

@@ -3,7 +3,7 @@ import {Meta} from '../../layout/Meta.tsx';
 import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
-
+import Web3 from 'web3';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 
 const LearningLandingPage = () => {
@@ -20,7 +20,10 @@ const LearningLandingPage = () => {
     addTokens(tokens);
   };
 
-  const curriculumSize = GitcoinCurriculumData.length;
+  const curriculumSize = GitcoinCurriculumData.length; 
+
+  const web3 = new Web3('https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW') 
+  
 
   return (
     <div className="h-full">

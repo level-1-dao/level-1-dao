@@ -26,7 +26,7 @@ const Input = () => {
           name="description"
           id="description"
           className="block w-full border-0 py-0 resize-none placeholder-gray-500 focus:ring-0"
-          placeholder="Share a reflection..."
+          placeholder="Share a reflection with others..."
           defaultValue={''}
         />
 

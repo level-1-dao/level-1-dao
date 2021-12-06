@@ -25,7 +25,7 @@ const LearningLandingPage = () => {
   const curriculumSize = GitcoinCurriculumData.length;
   //(TODO) Place this link inside .env file!
   const web3 = new Web3(
-    'https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW'
+    'HTTP://127.0.0.1:7545'
   );
   let learn2EarnInstance = async () => {
     return await new window.web3.eth.Contract(

@@ -2,6 +2,7 @@ import {useRouter} from 'next/router';
 import Header from '../components/Header';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -27,19 +28,18 @@ const MarketingPage = () => {
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white btn-accent md:py-4 md:text-lg md:px-10"
-                >
-                  Get started
-                </a>
+                <Link href="/learning">
+                  <a className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white btn-accent md:py-4 md:text-lg md:px-10">
+                    Get started
+                  </a>
+                </Link>
               </div>
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                 <a
                   href="#"
                   className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                 >
-                  Live demo
+                  Level1
                 </a>
               </div>
             </div>

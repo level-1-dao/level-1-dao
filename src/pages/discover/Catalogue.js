@@ -10,15 +10,17 @@ const levels = [
     imageAlt: 'Aragon Network DAO Join the Fight',
     description:
       'An interactive introduction to the Aragon Network DAO and the Ambassador program.',
+    comingSoon: true,
   },
   {
     id: 2,
     name: 'Gitcoin DAO Tools',
-    href: '#',
+    href: '/learning',
     imageSrc: '/assets/images/logos/gitcoinDAO.png',
     imageAlt: 'Gitcoin DAO Logo',
     description:
       'A short interactive learning module to help you get familiar with the GitcoinDAO tools.',
+    comingSoon: false,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const levels = [
     imageAlt: 'Bankless DAO Logo',
     description:
       'Learn about the mission, vision, values and how to get started in the role that feels best for you.',
+    comingSoon: true,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ const levels = [
     imageAlt: 'She256 Logo',
     description:
       'A fun, interactive learning module that shows you how to start your own She256 Fellowship.',
+    comingSoon: true,
   },
   {
     id: 5,
@@ -46,6 +50,7 @@ const levels = [
     imageAlt: 'Harmony Logo',
     description:
       'A Level1 guide to layer2. Learn about roll-ups and cross-chain transactions.',
+    comingSoon: true,
   },
   {
     id: 6,
@@ -55,6 +60,7 @@ const levels = [
     imageAlt: 'Mintgate Logo',
     description:
       'Token-gated whaat? Learn about the mintgate and how to get started.',
+    comingSoon: true,
   },
 ];
 
@@ -67,6 +73,7 @@ const emergingLevels = [
     imageAlt: 'Aragon Network DAO Join the Fight',
     description:
       'Gain awareness of what it means to go through trauma and how it impacts the way we interact with each other.',
+    comingSoon: true,
   },
   {
     id: 2,
@@ -76,6 +83,7 @@ const emergingLevels = [
     imageAlt: 'Gitcoin DAO Logo',
     description:
       'Learn how to get the most out of your mental health and how to help others.',
+    comingSoon: true,
   },
   {
     id: 3,
@@ -85,6 +93,7 @@ const emergingLevels = [
     imageAlt: 'Bankless DAO Logo',
     description:
       'Learn about the growth mindset with tips and tricks on navigating the unknown.',
+    comingSoon: true,
   },
 ];
 
@@ -97,6 +106,7 @@ const microLevels = [
     imageAlt: 'Aragon Network DAO Join the Fight',
     description:
       'A tool used by many communities. Learn the ins and outs, tips and tricks and help others do the same.',
+    comingSoon: true,
   },
   {
     id: 2,
@@ -106,6 +116,7 @@ const microLevels = [
     imageAlt: 'Git Logo',
     description:
       'Fork, pull, and merge. Git is a great way to collaborate on code, text and other documents.',
+    comingSoon: true,
   },
   {
     id: 3,
@@ -115,6 +126,7 @@ const microLevels = [
     imageAlt: 'Wallet image',
     description:
       'Learn about the mission, vision, values and how to get started in the role that feels best for you.',
+    comingSoon: true,
   },
   {
     id: 4,
@@ -124,6 +136,7 @@ const microLevels = [
     imageAlt: 'NFT Cover',
     description:
       'A fun, interactive learning module that shows you how to start your own She256 Fellowship.',
+    comingSoon: true,
   },
   {
     id: 5,
@@ -133,6 +146,7 @@ const microLevels = [
     imageAlt: 'Harmony Logo',
     description:
       'A Level1 guide to layer2. Learn about roll-ups and cross-chain transactions.',
+    comingSoon: true,
   },
 ];
 
@@ -160,6 +174,17 @@ const Catalogue = () => {
                   {level.name}
                 </h3>
                 <p className="mt-1 text-base-content">{level.description}</p>
+                {level.comingSoon ? (
+                  <div className="status mt-2">
+                    <div className="badge badge-secondary badge-outline">
+                      Coming Soon
+                    </div>
+                  </div>
+                ) : (
+                  <div className="status mt-2">
+                    <div className="badge badge-primary badge-outline">New</div>
+                  </div>
+                )}
               </a>
             </Link>
           ))}
@@ -186,6 +211,17 @@ const Catalogue = () => {
                   {level.name}
                 </h3>
                 <p className="mt-1 text-base-content">{level.description}</p>
+                {level.comingSoon ? (
+                  <div className="status mt-2">
+                    <div className="badge badge-secondary badge-outline">
+                      Coming Soon
+                    </div>
+                  </div>
+                ) : (
+                  <div className="status mt-2">
+                    <div className="badge badge-primary badge-outline">New</div>
+                  </div>
+                )}
               </a>
             </Link>
           ))}
@@ -212,6 +248,17 @@ const Catalogue = () => {
                   {level.name}
                 </h3>
                 <p className="mt-1 text-base-content">{level.description}</p>
+                {level.comingSoon ? (
+                  <div className="status mt-2">
+                    <div className="badge badge-secondary badge-outline">
+                      Coming Soon
+                    </div>
+                  </div>
+                ) : (
+                  <div className="status mt-2">
+                    <div className="badge badge-primary badge-outline">New</div>
+                  </div>
+                )}
               </a>
             </Link>
           ))}

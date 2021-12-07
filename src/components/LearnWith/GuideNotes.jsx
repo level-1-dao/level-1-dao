@@ -37,7 +37,7 @@ const GuideNotes = ({notes}) => {
                       />
                     </div>
                     <div className="leading-6 space-y-1">
-                      <h3 className="font-medium text-primary">
+                      <h3 className="font-medium text-primary text-lg">
                         {person.name}
                       </h3>
                       <p className="text">{person.role}</p>

@@ -149,7 +149,7 @@ const Catalogue = () => {
           {levels.map((level) => (
             <Link key={level.id} href={level.href}>
               <a className="group">
-                <div className="relative w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
+                <div className="relative bg-gray-300 w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
                   <Image
                     src={level.imageSrc}
                     alt={level.imageAlt}

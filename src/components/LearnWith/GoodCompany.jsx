@@ -38,9 +38,9 @@ const GoodCompany = () => {
                 <div className="space-y-2">
                   <div className="text-xs font-medium lg:text-sm">
                     <h3>{person.name}</h3>
-                    <p className="text-indigo-600 cursor-pointer">
-                      <HandIcon className="inline-block h-5 w-5" />
-                      {person.role}
+                    <p className="text-accent cursor-pointer flex justify-center space-x-1">
+                      <p>{person.role}</p>
+                      <HandIcon className="h-5 w-5" />
                     </p>
                   </div>
                 </div>

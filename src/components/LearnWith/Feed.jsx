@@ -39,30 +39,30 @@ const Feed = () => {
             <div className="relative pb-8">
               {activityItemIdx !== activity.length - 1 ? (
                 <span
-                  className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"
+                  className="absolute top-5 left-8 -ml-px h-full w-0.5 bg-gray-200"
                   aria-hidden="true"
                 />
               ) : null}
-              <div className="relative flex items-start space-x-3">
+              <div className="relative flex items-start space-x-6">
                 <div className="relative">
                   <img
-                    className="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white"
+                    className="h-16 w-16 rounded-full bg-gray-400 flex items-center justify-center ring-4 ring-base-content"
                     src={activityItem.imageUrl}
                     alt=""
                   />
                 </div>
                 <div className="min-w-0 flex-1">
                   <div>
-                    <div className="text">
+                    <div className="text-lg">
                       <a
                         href={activityItem.person.href}
-                        className="font-medium text-gray-900"
+                        className="font-medium text-primary"
                       >
                         {activityItem.person.name}
                       </a>
                     </div>
-                    <p className="mt-0.5 text text-gray-500">
-                      Shared {activityItem.tag}
+                    <p className="mt-0.5 text text-base-content">
+                      Shared a {activityItem.tag}
                     </p>
                   </div>
                   <div className="mt-2 text-lg">

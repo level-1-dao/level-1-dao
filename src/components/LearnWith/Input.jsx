@@ -3,9 +3,9 @@ import {Listbox, Transition} from '@headlessui/react';
 import {PaperClipIcon, TagIcon} from '@heroicons/react/solid';
 
 const labels = [
-  {name: '💭 Reflection', value: 'reflection'},
-  {name: '💡 Now I know', value: 'nowIKnow'},
-  {name: '🤔 Wish I knew', value: 'question'},
+  {name: 'Reflection', value: 'reflection'},
+  {name: 'Now I know', value: 'nowIKnow'},
+  {name: 'Wish I knew', value: 'question'},
 ];
 
 function classNames(...classes) {
@@ -25,7 +25,7 @@ const Input = () => {
           rows={2}
           name="description"
           id="description"
-          className="block w-full border-0 py-0 resize-none placeholder-gray-500 focus:ring-0"
+          className="textarea textarea-ghost w-full text-xl"
           placeholder="Share a reflection with others..."
           defaultValue={''}
         />
@@ -57,19 +57,14 @@ const Input = () => {
               <>
                 <Listbox.Label className="sr-only">Add a label</Listbox.Label>
                 <div className="relative">
-                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 bg-gray-50 text-sm font-medium text-gray-500 whitespace-nowrap hover:bg-gray-100 sm:px-3">
+                  <Listbox.Button className="relative inline-flex items-center rounded-full py-2 px-2 text-sm font-medium whitespace-nowrap hover:border-accent border sm:px-3">
                     <TagIcon
-                      className={classNames(
-                        labelled.value === null
-                          ? 'text-gray-300'
-                          : 'text-gray-500',
-                        'flex-shrink-0 h-5 w-5 sm:-ml-1'
-                      )}
+                      className="text-base-content flex-shrink-0 h-5 w-5 sm:-ml-1"
                       aria-hidden="true"
                     />
                     <span
                       className={classNames(
-                        labelled.value === null ? '' : 'text-gray-900',
+                        labelled.value === null ? '' : 'text-base-content',
                         'hidden truncate sm:ml-2 sm:block'
                       )}
                     >
@@ -84,20 +79,20 @@ const Input = () => {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-white shadow max-h-56 rounded-lg py-3 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
+                    <Listbox.Options className="absolute right-0 z-10 mt-1 w-52 bg-base-100 text-base-content shadow max-h-56 rounded-lg py-3 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm">
                       {labels.map((label) => (
                         <Listbox.Option
                           key={label.value}
                           className={({active}) =>
                             classNames(
-                              active ? 'bg-gray-100' : 'bg-white',
+                              active ? 'bg-accent' : 'bg-base-100',
                               'cursor-default select-none relative py-2 px-3'
                             )
                           }
                           value={label}
                         >
                           <div className="flex items-center">
-                            <span className="block font-medium truncate">
+                            <span className="block font-medium truncate text-base-content">
                               {label.name}
                             </span>
                           </div>

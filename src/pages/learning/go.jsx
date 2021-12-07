@@ -3,6 +3,7 @@ import {Meta} from '../../layout/Meta.tsx';
 import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
+import {Modal} from '../../components/NFT';
 
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 
@@ -82,6 +83,7 @@ const LearningLandingPage = () => {
           </div>
         }
       />
+      <Modal />
     </div>
   );
 };

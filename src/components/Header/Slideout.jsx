@@ -24,7 +24,7 @@ const wallets = [
   },
 ];
 
-const Slideout = ({open, setOpen, walletConnected}) => {
+const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -71,7 +71,7 @@ const Slideout = ({open, setOpen, walletConnected}) => {
                         className="flex-1 divide-y divide-gray-200 overflow-y-auto"
                       >
                         {wallets.map((wallet) => (
-                          <li key={wallet.name}>
+                          <li key={wallet.name} onClick={() => connectWallet()}>
                             <div className="relative group py-6 px-5 flex items-center cursor-pointer">
                               <div
                                 className="absolute inset-0 group-hover:bg-gray-50"

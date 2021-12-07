@@ -1,6 +1,7 @@
 import React from 'react';
 import {useRouter} from 'next/router';
 import Image from 'next/image';
+import {Input, Feed, GoodCompany, GuideNotes} from '../components/LearnWith';
 
 import ReactPlayer from 'react-player';
 
@@ -8,7 +9,7 @@ const LearningModule = ({curriculum}) => {
   const router = useRouter();
 
   return (
-    <div>
+    <div className="px-2 sm:px-4">
       {/* <VideoPlayer /> */}
       {curriculum.contentType === 'video' && (
         <div className="video-container">
@@ -44,10 +45,13 @@ const LearningModule = ({curriculum}) => {
           </div>
         </div>
       )}
-      {/* <Details /> */}
-      <div className="details my-4">
-        <h2 className="text-xl font-bold">Overview</h2>
-        <p className="text-lg">{curriculum.description}</p>
+
+      {/* Learn with */}
+      <div className="learn-with-container space-y-12 py-12">
+        <GuideNotes notes={curriculum.description} />
+        <GoodCompany />
+        <Input />
+        <Feed />
       </div>
     </div>
   );

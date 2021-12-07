@@ -21,15 +21,15 @@ const LearningSplashPage = () => {
       <div className="instructor-container flex space-x-2">
         <div className="avatar">
           <div className="rounded-full w-14 h-14">
-            <img src="https://pbs.twimg.com/profile_images/1457324509321699330/j3kuExBF_400x400.jpg" />
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" />
           </div>
         </div>
         <div className="instructor-text">
           <h5 className="text-sm">
-            <span className="text-gray-500">Facilitator</span>
+            <span className="text-gray-500">Guide</span>
           </h5>
           <p className="text-lg">
-            <span>Ray Kanani</span>
+            <span>Leslie Alexander</span>
           </p>
         </div>
       </div>

@@ -3,8 +3,9 @@ import {Meta} from '../../layout/Meta.tsx';
 import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
-import Web3 from 'web3';
-
+import Web3 from 'web3'; 
+import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
+import { useEffect } from 'react';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 import {learn2EarnAbi} from '../../mockData/SmartContractAbi';
 
@@ -26,26 +27,28 @@ const LearningLandingPage = () => {
   //(TODO) Place this link inside .env file!
   const web3 = new Web3(
     'HTTP://127.0.0.1:7545'
-  );
-  let learn2EarnInstance = async () => {
-    return await new window.web3.eth.Contract(
-      learn2EarnAbi,
-      learn2EarnContractAddress
+  ); 
+  //(TODO): not getting the correct netork id
+  const id = web3.eth.net.getId();  
+  console.log(id);  
+  //(TODO): Replace network id
+  const deployedNetwork = Learn2Earn.networks[5777];
+  let learn2EarnInstance = new web3.eth.Contract(
+      Learn2Earn.abi,
+      deployedNetwork.address
     );
-  };
 
   async function awardUser() {
     const learnerAddress = await web3.eth.getAccounts();
     const levelOneAward = await learn2EarnInstance.methods
-      .awardUser(learnerAddress, 90)
+      .awardUser(learnerAddress[0], 90)
       .send({
-        from: learnerAddress,
+        from: learnerAddress[0],
       });
-    //TODO: Create method for token uri for nft
     const nftAward = await learn2EarnInstance.methods
-      .awardCertificate(learnerAddress, 90)
+      .awardCertificate(learnerAddress[0], 90)
       .send({
-        from: learnerAddress,
+        from: learnerAddress[0],
       });
     console.log(levelOneAward);
     console.log(nftAward);
@@ -95,7 +98,7 @@ const LearningLandingPage = () => {
             ) : (
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center">
-                  <div className="btn" onClick={awardUser()}>
+                  <div className="btn" onClick={() => awardUser()}>
                     Finish learning module
                   </div>
                 </div>

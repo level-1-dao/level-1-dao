@@ -5,8 +5,8 @@ const NFT = () => {
   const router = useRouter();
 
   return (
-    <div className="card w-full lg:card-side bordered bg-primary text-primary-content">
-      <div className="relative w-60 h-auto">
+    <div className="flex items-center rounded-lg border border-base-content text-base-content">
+      <div className="relative w-48 h-auto">
         <Image
           src={`${router.basePath}/assets/images/thunderbolt.png`}
           alt="NFT"
@@ -17,10 +17,7 @@ const NFT = () => {
         />
       </div>
       <div className="p-4 font-bold">
-        <p>
-          Receive &quot;Level1: GitcoinDAO Onboarding&quot; NFT badge on
-          completion
-        </p>
+        <p>Receive GitcoinDAO NFT badge on completion.</p>
       </div>
     </div>
   );

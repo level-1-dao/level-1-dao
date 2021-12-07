@@ -33,7 +33,7 @@ const LearningLandingPage = () => (
                 <p>This learning module is available to GitcoinDAO members.</p>
                 <div className="card-actions">
                   <button className="btn btn-sm glass rounded-full">
-                    Join GitcoinDAO
+                    Learn More
                   </button>
                 </div>
               </div>

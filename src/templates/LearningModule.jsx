@@ -13,7 +13,7 @@ const LearningModule = ({curriculum}) => {
       {/* <VideoPlayer /> */}
       {curriculum.contentType === 'video' && (
         <div className="video-container">
-          <ReactPlayer url="https://www.youtube.com/watch?v=KHm0uUPqmVE" />
+          <ReactPlayer url={curriculum.link} />
         </div>
       )}
       {curriculum.contentType === 'text' && (

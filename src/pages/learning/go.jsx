@@ -9,8 +9,12 @@ import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 
 const LearningLandingPage = () => {
   const [curriculumProgress, setCurriculumProgress] = useState(1);
-
   const [tokensCollected, setTokensCollected] = useState(0);
+  const [nftModalOpen, setNftModalOpen] = useState(false);
+
+  const handleNftModal = (state) => {
+    setNftModalOpen(state);
+  };
 
   const addTokens = (tokens) => {
     setTokensCollected(tokensCollected + tokens);
@@ -35,6 +39,7 @@ const LearningLandingPage = () => {
         leftColumn={
           <LearningModule
             curriculum={GitcoinCurriculumData[curriculumProgress - 1]}
+            triggerModal={handleNftModal}
           />
         }
         rightColumn={
@@ -83,7 +88,7 @@ const LearningLandingPage = () => {
           </div>
         }
       />
-      <Modal />
+      <Modal setOpen={handleNftModal} open={nftModalOpen} />
     </div>
   );
 };

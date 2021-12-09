@@ -3,9 +3,7 @@ import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import Image from 'next/image';
 
-const Modal = () => {
-  const [open, setOpen] = useState(true);
-
+const Modal = ({open, setOpen}) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog

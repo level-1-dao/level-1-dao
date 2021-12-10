@@ -2,25 +2,31 @@ import {Fragment} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import {SparklesIcon} from '@heroicons/react/outline';
 
+import Link from 'next/link';
+
 const wallets = [
   {
     name: 'Metamask',
     imageUrl: 'https://opensea.io/static/images/logos/metamask-alternative.png',
+    comingSoon: false,
   },
   {
     name: 'Coinbase Wallet',
     imageUrl:
       'https://storage.opensea.io/static/wallets/walletlink/walletlink-alternative.png',
+    comingSoon: true,
   },
   {
     name: 'Wallet Connect',
     imageUrl:
       'https://storage.opensea.io/static/wallets/walletconnect/walletconnect-alternative.png',
+    comingSoon: true,
   },
   {
     name: 'Formatic',
     imageUrl:
       'https://storage.googleapis.com/opensea-static/logos/fortmatic-alternative.png',
+    comingSoon: true,
   },
 ];
 
@@ -56,10 +62,17 @@ const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
                         </Dialog.Title>
                       </div>
                       <div className="mt-1">
-                        <p className="text-sm">
+                        <p className="text-base">
                           Connect your wallet and you&apos;ll be able to collect
                           and store Level1 tokens AND store your exclusive super
                           cool completion NFTs.
+                        </p>
+                        <br />
+                        <p className="text-sm">
+                          Unsure what a wallet is?{' '}
+                          <Link href="/discover#micro">
+                            <a>We have Level1 for that</a>
+                          </Link>
                         </p>
                       </div>
                     </div>
@@ -90,6 +103,11 @@ const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
                                     {wallet.name}
                                   </p>
                                 </div>
+                                {wallet.comingSoon && (
+                                  <div className="ml-4 badge badge-secondary badge-outline">
+                                    Coming Soon
+                                  </div>
+                                )}
                               </div>
                             </div>
                           </li>
@@ -108,13 +126,13 @@ const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
                         </div>
                         <div className="h-40 w-40 overflow-hidden">
                           <img
-                            src="/assets/images/coins.png"
+                            src="/assets/images/L1-token.png"
                             alt="tokens image"
                             className="object-cover"
                           />
                         </div>
                         <div>
-                          <h3 className="font-medium text-gray-900">
+                          <h3 className="font-medium text-gray-900 -mt-8">
                             Tokens collected:
                           </h3>
                           <dl className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">

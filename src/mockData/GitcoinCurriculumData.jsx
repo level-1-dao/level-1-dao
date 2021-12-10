@@ -1,36 +1,35 @@
 const GitcoinCurriculumData = [
   {
     id: 1,
-    title: 'Introduction: A quick overview on the onboarding journey',
+    title: 'Welcome!',
     description:
-      'Get to know instructor and the journey you are going to go on',
-    contentType: 'video',
+      'We are so excited you are here! I will be your guide on this short interactive Level1 on Gitcoin DAO. My name is Leslie and I am a community manager at Gitcoin. I have been here for only a few months but have had a bigger impact in that short amount of time than in previous roles. This is because we operate in a decentralize way. That means anyone, yes that means you, can make huuuge impact on our mission on any day of the year. We hope this Level1 will be a great introduction to Gitcoin and how you will have a huge impact on us as members and the overall Gitcoin community.',
+    contentType: 'image',
     time: 120,
-    link: 'https://link.to.curriculum',
+    link: '/welcome.jpg',
     tokens: 10,
   },
   {
     id: 2,
-    title: 'Get to know you: Share a bit about yourself',
+    title: 'A quick intro to Gitcoin',
     description:
-      'A space to get to know you and your motivation for joining the community',
-    contentType: 'quiz',
-    time: '--',
-    type: 'open',
-    question:
-      "We'd love to get to know you better. Use this space to share a bit about yourself. Some things you could include are how you learned about Gitcoin, what you hope to get out of being a member and where you're located.",
+      'GitcoinDAO is a community of internet citizens who builds & funds digital public goods, like Open Source Software. So far we’ve funded $40mm of open source software, & are currently moving about $6mm/quarter to OSS devs. We are just getting started.',
+    contentType: 'video',
+    time: '21',
+    link: 'https://www.youtube.com/watch?v=UeP2S962kVs',
     tokens: 10,
   },
   {
     id: 3,
-    title:
-      'Tasks and Projects: Learn about where to find what tasks and proejcts members are working on',
+    title: 'Check-in: What are you most excited about by joining Gitcoin DAO?',
     description:
       'An opportunity to learn about what tasks and projects members are working on',
-    contentType: 'video',
-    time: 330,
-    link: 'https://link.to.curriculum',
-    tokens: 5,
+    contentType: 'quiz',
+    type: 'open',
+    question:
+      "We'd love to get to know you better. Use this space to share a bit about yourself. Some things you could include are how you learned about Gitcoin, what you hope to get out of being a member and where you're located.",
+    time: '--',
+    tokens: 15,
   },
   {
     id: 4,
@@ -44,52 +43,43 @@ const GitcoinCurriculumData = [
   },
   {
     id: 5,
-    title: 'dRewards: What is it and how to join?',
-    description:
-      'dRewards is a platform that rewards contributors to the DAO with tokens',
-    contentType: 'video',
-    time: 120,
-    link: 'https://link.to.curriculum',
-    tokens: 20,
-  },
-  {
-    id: 6,
     title: 'Select your first task and project',
     description:
       'Select your first task and project to get started as a member of the DAO',
     contentType: 'image',
     time: 300,
-    link: 'GitcoinDAO-screenshot.png',
+    link: '/GitcoinDAO-screenshot.png',
     tokens: 20,
   },
   {
-    id: 7,
+    id: 6,
     title: 'Register for dRewards',
     description:
       'Register for dRewards and get a free token to start working on your first task and project',
     contentType: 'image',
     time: '--',
-    link: 'GitcoinDAO.png',
+    link: '/logos/GitcoinDAO.png',
+    tokens: 10,
+  },
+  {
+    id: 7,
+    title: 'Receive your first dReward',
+    description:
+      'Now you are an official contributor with a verifiable onchain history!',
+    contentType: 'image',
+    time: '--',
+    link: '/logos/GitcoinDAO.png',
     tokens: 10,
   },
   {
     id: 8,
-    title: 'Receive your first dReward',
-    description:
-      'Now you are an official contributor with a verifiable onchain history!',
-    contentType: 'video',
-    time: 520,
-    link: 'https://link.to.curriculum',
-    tokens: 10,
-  },
-  {
-    id: 9,
     title:
       'Wrap up: You are comfortable with streams, squads, and dRewards and are ready to rock and roll.',
-    description: 'Woot woot! You are ready to rock and roll!',
+    description:
+      'Woot woot! You are ready to rock and roll! Looking forward to seeing you on the DAO side! Remember to high-five those you have learned alongside with.',
     contentType: 'video',
     time: 300,
-    link: 'https://link.to.curriculum',
+    link: 'https://youtu.be/OnoNITE-CLc?t=64',
     tokens: 20,
   },
 ];

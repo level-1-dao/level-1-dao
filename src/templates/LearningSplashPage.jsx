@@ -53,7 +53,7 @@ const LearningSplashPage = () => {
       </div>
       {/* <Actions /> */}
       <div className="actions flex space-x-2 my-4">
-        <Link href="/">
+        <Link href="#">
           <a className="btn btn-white btn-outline">
             <span className="text-sm">Bookmark</span>
           </a>
@@ -85,8 +85,18 @@ const LearningSplashPage = () => {
         </ul>
       </div>
       <div className="grid gap-4 grid-cols-2">
-        <Testimonial />
-        <Testimonial />
+        <Testimonial
+          avatar="https://picsum.photos/id/338/200/300"
+          name="Cary Ann"
+          role="Completed"
+          testimonial="This was great. I learned a lot and I'm really excited to continue learning."
+        />
+        <Testimonial
+          avatar="https://picsum.photos/id/433/200/300"
+          name="James Dean"
+          role="In progress"
+          testimonial="Thank you for putting this information in easy to absorb bite sizes. I'm excited to see what comes next!"
+        />
       </div>
     </div>
   );

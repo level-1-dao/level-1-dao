@@ -5,7 +5,7 @@ import {Input, Feed, GoodCompany, GuideNotes} from '../components/LearnWith';
 
 import ReactPlayer from 'react-player';
 
-const LearningModule = ({curriculum}) => {
+const LearningModule = ({curriculum, triggerModal}) => {
   const router = useRouter();
 
   return (
@@ -13,7 +13,7 @@ const LearningModule = ({curriculum}) => {
       {/* <VideoPlayer /> */}
       {curriculum.contentType === 'video' && (
         <div className="video-container">
-          <ReactPlayer url="https://www.youtube.com/watch?v=KHm0uUPqmVE" />
+          <ReactPlayer url={curriculum.link} />
         </div>
       )}
       {curriculum.contentType === 'text' && (
@@ -39,7 +39,12 @@ const LearningModule = ({curriculum}) => {
               </label>
               <textarea className="textarea h-24"></textarea>
               <div className="mt-8 flex justify-end">
-                <button className="btn btn-primary">Submit</button>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => triggerModal(true)}
+                >
+                  Submit
+                </button>
               </div>
             </div>
           </div>

@@ -228,7 +228,10 @@ const Catalogue = () => {
         </div>
       </div>
       {/* Micro Levels */}
-      <div className="max-w-2xl pb-16 mx-auto py-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div
+        className="max-w-2xl pb-16 mx-auto py-4 px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+        id="micro"
+      >
         <h2 className="font-bold text-3xl text-primary">Micro:</h2>
         <p className="text-lg mb-8">
           Level1s that take 20 minutes or less to complete

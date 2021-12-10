@@ -7,7 +7,10 @@ import Web3 from 'web3';
 import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
 import { useEffect } from 'react';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
-import {learn2EarnAbi} from '../../mockData/SmartContractAbi';
+import { ethers  } from 'ethers'; 
+import { createAlchemyWeb3 } from '@alch/alchemy-web3'; 
+import { env } from 'process';
+import { create } from 'combined-stream';
 
 const LearningLandingPage = () => {
   const [curriculumProgress, setCurriculumProgress] = useState(1);
@@ -24,34 +27,34 @@ const LearningLandingPage = () => {
   };
 
   const curriculumSize = GitcoinCurriculumData.length;
-  //(TODO) Place this link inside .env file!
-  const web3 = new Web3(
-    'HTTP://127.0.0.1:7545'
-  ); 
-  //(TODO): not getting the correct netork id
+  const web3 = createAlchemyWeb3('https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW'); 
+
   const id = web3.eth.net.getId();  
-  console.log(id);  
-  //(TODO): Replace network id
-  const deployedNetwork = Learn2Earn.networks[5777];
+
+  const deployedNetwork = Learn2Earn.networks[4];
   let learn2EarnInstance = new web3.eth.Contract(
       Learn2Earn.abi,
       deployedNetwork.address
     );
 
-  async function awardUser() {
-    const learnerAddress = await web3.eth.getAccounts();
-    const levelOneAward = await learn2EarnInstance.methods
+  async function awardUser() {    
+      const learnerAddress = await web3.eth.getAccounts();
+       const levelOneAward = await learn2EarnInstance.methods
       .awardUser(learnerAddress[0], 90)
       .send({
         from: learnerAddress[0],
-      });
+      }); 
+      return levelOneAward.status;
+};  
+
+  async function awardNFT() {  
+    const learnerAddress = await web3.eth.getAccounts();
     const nftAward = await learn2EarnInstance.methods
-      .awardCertificate(learnerAddress[0], 90)
+      .awardCertificate(learnerAddress[0], 'https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N' )
       .send({
         from: learnerAddress[0],
-      });
-    console.log(levelOneAward);
-    console.log(nftAward);
+      }); 
+      return nftAward.status;
   }
 
   return (

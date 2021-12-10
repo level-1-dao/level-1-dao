@@ -43,7 +43,8 @@ const LearningLandingPage = () => {
       .awardUser(learnerAddress[0], 90)
       .send({
         from: learnerAddress[0],
-      }); 
+      });  
+      console.log(levelOneAward)
       return levelOneAward.status;
 };  
 

@@ -4,6 +4,7 @@ import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
 import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
+import {Modal} from '../../components/NFT';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 import { createAlchemyWeb3 } from '@alch/alchemy-web3'; 
 
@@ -109,6 +110,7 @@ const LearningLandingPage = () => {
           </div>
         }
       />
+      <Modal />
     </div>
   );
 };

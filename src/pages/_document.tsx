@@ -6,7 +6,7 @@ import {AppConfig} from '../utils/AppConfig';
 class MyDocument extends Document {
   render() {
     return (
-      <Html className="h-full" lang={AppConfig.locale} data-theme="dark">
+      <Html className="h-full" lang={AppConfig.locale} data-theme="synthwave">
         <Head />
         <body className="h-full">
           <Main />

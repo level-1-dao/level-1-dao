@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Testimonial = () => {
   return (
     <section className="card bordered">
@@ -6,10 +8,11 @@ const Testimonial = () => {
           <header className="mb-8">
             <div className="flex items-start">
               <div className="avatar">
-                <div className="rounded-full w-10 h-10 ring ring-gray-400 ring-offset-base-100 ring-offset-2">
-                  <img
+                <div className="relative rounded-full w-10 h-10 ring ring-gray-400 ring-offset-base-100 ring-offset-2">
+                  <Image
                     src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
+                    layout="fill"
                   />
                 </div>
               </div>

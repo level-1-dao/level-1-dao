@@ -23,12 +23,13 @@ contract Learn2Earn {
     address private levelOneNftContract; // add the actual testnet address 
 
     //(TODO): Adam - approve this smart contract as a spender for the L1 token contract in the construction
-    constructor() { 
-
+    constructor(address tokenContract, address nftContract) {  
+        levelOneContract = tokenContract; 
+        levelOneNftContract = nftContract;
     }
 
     //functions 
-    function awardUser(address learner, uint256 tokenAmount) public returns (bool)  { 
+    function awardUser(address learner, uint256 tokenAmount) public payable returns (bool)  { 
         return LevelOneToken(levelOneContract).transfer(learner, tokenAmount);
     }   
 

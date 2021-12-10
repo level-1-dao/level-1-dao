@@ -2,13 +2,13 @@ import {Fragment, useState} from 'react';
 import {Disclosure, Menu, Transition} from '@headlessui/react';
 import {SparklesIcon, MenuIcon, XIcon} from '@heroicons/react/outline';
 import Link from 'next/link';
-import Slideout from '../Header/Slideout';
+import Slideout from '../NavBar/Slideout';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Header = () => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
 
@@ -202,4 +202,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

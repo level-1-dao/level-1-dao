@@ -1,4 +1,4 @@
-import Header from './Header';
+import NavBar from './NavBar';
 import Slideout from './Slideout';
-export default Header;
+export default NavBar;
 export {Slideout};

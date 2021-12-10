@@ -1,5 +1,5 @@
 import {useRouter} from 'next/router';
-import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,7 +12,7 @@ const MarketingPage = () => {
   const router = useRouter();
   return (
     <div className="relative bg-base">
-      <Header />
+      <NavBar />
 
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">

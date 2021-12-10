@@ -6,7 +6,7 @@ import Curriculum from '../../components/Curriculum';
 import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
 import {Modal} from '../../components/NFT';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
-import { createAlchemyWeb3 } from '@alch/alchemy-web3'; 
+import {createAlchemyWeb3} from '@alch/alchemy-web3';
 
 const LearningLandingPage = () => {
   const [curriculumProgress, setCurriculumProgress] = useState(1);
@@ -27,34 +27,39 @@ const LearningLandingPage = () => {
   };
 
   const curriculumSize = GitcoinCurriculumData.length;
-  const web3 = createAlchemyWeb3('https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW'); 
+  const web3 = createAlchemyWeb3(
+    'https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW'
+  );
 
-  const id = web3.eth.net.getId();  
+  const id = web3.eth.net.getId();
 
   const deployedNetwork = Learn2Earn.networks[4];
   let learn2EarnInstance = new web3.eth.Contract(
-      Learn2Earn.abi,
-      deployedNetwork.address
-    );
+    Learn2Earn.abi,
+    deployedNetwork.address
+  );
 
-  async function awardUser() {    
-      const learnerAddress = await web3.eth.getAccounts();
-       const levelOneAward = await learn2EarnInstance.methods
+  async function awardUser() {
+    const learnerAddress = await web3.eth.getAccounts();
+    const levelOneAward = await learn2EarnInstance.methods
       .awardUser(learnerAddress[0], 90)
       .send({
         from: learnerAddress[0],
-      });  
-      return levelOneAward.status;
-};  
+      });
+    return levelOneAward.status;
+  }
 
-  async function awardNFT() {  
+  async function awardNFT() {
     const learnerAddress = await web3.eth.getAccounts();
     const nftAward = await learn2EarnInstance.methods
-      .awardCertificate(learnerAddress[0], 'https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N' )
+      .awardCertificate(
+        learnerAddress[0],
+        'https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N'
+      )
       .send({
         from: learnerAddress[0],
-      }); 
-      return nftAward.status;
+      });
+    return nftAward.status;
   }
 
   return (

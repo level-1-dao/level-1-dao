@@ -3,14 +3,9 @@ import {Meta} from '../../layout/Meta.tsx';
 import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
-import Web3 from 'web3'; 
 import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
-import { useEffect } from 'react';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
-import { ethers  } from 'ethers'; 
 import { createAlchemyWeb3 } from '@alch/alchemy-web3'; 
-import { env } from 'process';
-import { create } from 'combined-stream';
 
 const LearningLandingPage = () => {
   const [curriculumProgress, setCurriculumProgress] = useState(1);
@@ -44,7 +39,6 @@ const LearningLandingPage = () => {
       .send({
         from: learnerAddress[0],
       });  
-      console.log(levelOneAward)
       return levelOneAward.status;
 };  
 

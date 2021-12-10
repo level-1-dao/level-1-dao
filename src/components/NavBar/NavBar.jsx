@@ -42,6 +42,13 @@ const NavBar = () => {
                     </a>
                   </Link>
                 </div>
+                <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
+                  <Link href="/about" passHref>
+                    <a className="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      About
+                    </a>
+                  </Link>
+                </div>
               </div>
               <div className="flex items-center lg:hidden">
                 {/* Mobile menu button */}

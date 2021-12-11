@@ -1,4 +1,4 @@
-import Navbar from '../../components/Navbar';
+import NavBar from '../../components/NavBar';
 
 const stats = [
   {label: 'Founded', value: 'During the DAO Global Hackathon 2021'},
@@ -48,7 +48,7 @@ const values = [
 const index = () => {
   return (
     <div className="about-page">
-      <Navbar />
+      <NavBar />
       <div className="relative sm:py-4">
         <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start">
           <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
@@ -65,7 +65,7 @@ const index = () => {
                   for members to use those skills to create value.
                 </p>
                 <p className="text-2xl">
-                  Similar to when a player loads a new videogame, Level1 is the
+                  Similar to when a player loads a new video game, Level1 is the
                   space that provides players with the confidence to navigate
                   new worlds, powers, roles, rewards and missions.
                 </p>

@@ -94,12 +94,33 @@ const PopUp = ({
                   </div>
                   <br />
                   <p className="text-base">
-                    Let's mint your NFT and add your Level1 tokens to your
+                    Let&#39;s mint your NFT and add your Level1 tokens to your
                     wallet.
                   </p>
                 </div>
               </div>
               <div className="space-y-2 mt-5 sm:mt-6">
+                <div className="alert alert-warning">
+                  <div className="flex-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      className="w-6 h-6 mx-2 stroke-current"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                      ></path>
+                    </svg>
+                    <label>
+                      Make sure your wallet is connected to the Rinkeby Test
+                      Network for demo.
+                    </label>
+                  </div>
+                </div>
                 <button
                   type="button"
                   className={
@@ -113,7 +134,7 @@ const PopUp = ({
                   onClick={() => awardTokens()}
                   disabled={addTokensComplete}
                 >
-                  Add Tokens
+                  {addTokensComplete ? 'Tokens Added' : 'Add Tokens'}
                   {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button>
                 <button

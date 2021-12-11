@@ -3,6 +3,7 @@ import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import Image from 'next/image';
 import {CheckIcon} from '@heroicons/react/solid';
+import Link from 'next/link';
 
 const PopUp = ({
   open,
@@ -127,6 +128,13 @@ const PopUp = ({
                   Mint NFT
                 </button>
               </div>
+              {addTokensComplete && (
+                <div className="text-center mt-4">
+                  <Link href="/discover">
+                    <a className="text-info">Discover more Level1s</a>
+                  </Link>
+                </div>
+              )}
             </div>
           </Transition.Child>
         </div>

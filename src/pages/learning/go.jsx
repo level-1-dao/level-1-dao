@@ -54,28 +54,42 @@ const LearningLandingPage = () => {
         .send({
           from: learnerAddress[0],
         });
+      if (levelOneAward.status) {
+        setAddTokensComplete(true);
+        setAddingTokens(false);
+      }
       return levelOneAward.status;
     } catch (error) {
       console.log(error);
       setAddingTokens(false);
       return;
     }
-    if (levelOneAward.status) {
-      setAddTokensComplete(true);
-    }
+    return;
   }
 
   async function awardNFT() {
-    const learnerAddress = await web3.eth.getAccounts();
-    const nftAward = await learn2EarnInstance.methods
-      .awardCertificate(
-        learnerAddress[0],
-        'https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N'
-      )
-      .send({
-        from: learnerAddress[0],
-      });
-    return nftAward.status;
+    setMinting(true);
+    try {
+      const learnerAddress = await web3.eth.getAccounts();
+      const nftAward = await learn2EarnInstance.methods
+        .awardCertificate(
+          learnerAddress[0],
+          'https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N'
+        )
+        .send({
+          from: learnerAddress[0],
+        });
+      if (nftAward.status) {
+        setMintComplete(true);
+        setMinting(false);
+      }
+      return nftAward.status;
+    } catch (error) {
+      console.log(error);
+      setMinting(false);
+      return;
+    }
+    return;
   }
 
   return (

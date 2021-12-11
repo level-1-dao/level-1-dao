@@ -2,6 +2,7 @@
 import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import Image from 'next/image';
+import {CheckIcon} from '@heroicons/react/solid';
 
 const PopUp = ({
   open,
@@ -102,16 +103,24 @@ const PopUp = ({
                   type="button"
                   className={
                     `btn btn-primary btn-outline btn-block` +
-                    (addingTokens ? ' loading' : '')
+                    (addingTokens
+                      ? ' loading'
+                      : addTokensComplete
+                      ? ' opacity-50 '
+                      : '')
                   }
                   onClick={() => awardTokens()}
                   disabled={addTokensComplete}
                 >
                   Add Tokens
+                  {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button>
                 <button
                   type="button"
-                  className="btn btn-accent btn-outline btn-block"
+                  className={
+                    `btn btn-accent btn-outline btn-block` +
+                    (minting ? ' loading' : mintComplete ? ' opacity-50 ' : '')
+                  }
                   onClick={() => mintNft()}
                   disabled={mintComplete}
                 >

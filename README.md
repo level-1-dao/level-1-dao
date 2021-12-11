@@ -43,7 +43,7 @@ Our main concern was around preventing users from abusing the Learn2Earn model t
 There's about 3 layers of protection we can take to prevent this happening. The first is making sure we have an air tight UI to prevent users from being able to trigger transactions more than once. The next layer would be having a check in our Learn2Earn contract to ensure a wallet address hasn't taken a course before. However, what if someone just switches their wallet to get more level 1 tokens? This is where our ideas surrounded by tokenomics come in. While we don't want the Level 1 Tokens to be worthless, we will have to have tokenomics in place that essentially don't incentivze bad actors to sit through our courses multiple times to rack up on Level 1 tokens. 
 Some ideas we have considered for our tokenomics/ux
 - Burning Level 1 tokens after a wallet has exceeded a pre-determined token ownership limit. (sum of all token awards from courses)
-- Minting Level 1 tokens at a frequeny that cause for there to be a low incentive to hold the tokens for a long time. This may also be useful for helping users get immediate value out of Level 1 tokens.(i.e. L1 tokens getting switched to eth or a stable coin after holding for a certain amount of time) 
+- Minting Level 1 tokens at a frequeny that cause for there to be a low incentive to hold the tokens for a long time. This inflationary practice will allow Level 1 tokens to not necessarily be "worthless", but rather it will make gaming our system not worth the effort. 
 
 
 ## Level 1 Token 

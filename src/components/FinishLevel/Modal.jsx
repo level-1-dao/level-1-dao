@@ -1,9 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import {Fragment} from 'react';
+import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import Image from 'next/image';
 
-const Modal = ({open, setOpen}) => {
+const PopUp = ({open, setOpen}) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -43,47 +43,65 @@ const Modal = ({open, setOpen}) => {
             <div className="inline-block align-bottom bg-base-100 text-base-content rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
               <div className="text-center sm:mt-5">
                 <Dialog.Title as="h3" className="text-2xl leading-6 font-bold">
-                  Woot Woot! (or Woof Woof!)
+                  Congrats!
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-lg">
-                    You&#39;ve collected your first NFT.
-                  </p>
-                </div>
-                <div className="relative h-72 w-72 mx-auto flex items-center justify-center">
-                  <Image
-                    src="/assets/images/Husky-First-NFT.png"
-                    alt="NFT"
-                    layout="fill"
-                  />
-                </div>
-                <div className="mt-2">
-                  <p className="text-lg font-bold">Helpful Husky</p>
-                  <p className="text-base">
-                    People who have this NFT have helped others along the
-                    learning journey.
+                    You&#39;ve finished you&#39;re first Level1!
                   </p>
                   <br />
                   <p className="text-base">
-                    As the 232nd person to collect this NFT, you are in good
-                    company.
+                    You learned with 4 other people. Received 5 high-fives and
+                    gave out 8 high-fives.
+                  </p>
+                </div>
+                <div className="mt-12">
+                  <p className="text-lg font-bold">
+                    Along your journey, you collected
+                  </p>
+                  <div className="lg:grid p-6 lg:grid-cols-2 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
+                    <div className="flex-col items-center justify-center">
+                      <div className="mx-auto relative h-32 w-32">
+                        <Image
+                          src="/assets/images/Husky-First-NFT.png"
+                          alt="NFT"
+                          layout="fill"
+                        />
+                      </div>
+                      <p className="text-lg">Helpful Husky NFT</p>
+                    </div>
+                    <div className="flex-col items-center justify-center">
+                      <div className="mx-auto relative h-32 w-32">
+                        <Image
+                          src="/assets/images/L1-token.png"
+                          alt="L1 Tokens"
+                          layout="fill"
+                        />
+                      </div>
+                      <p className="text-lg">90 Level1 Tokens</p>
+                    </div>
+                  </div>
+                  <br />
+                  <p className="text-base">
+                    Let's mint your NFT and add your Level1 tokens to your
+                    wallet.
                   </p>
                 </div>
               </div>
               <div className="space-y-2 mt-5 sm:mt-6">
                 <button
                   type="button"
-                  className="btn btn-primary btn-block"
+                  className="btn btn-primary btn-outline btn-block"
                   onClick={() => setOpen(false)}
                 >
-                  Awesome!
+                  Add Tokens
                 </button>
                 <button
                   type="button"
                   className="btn btn-accent btn-outline btn-block"
                   onClick={() => setOpen(false)}
                 >
-                  Share achievement
+                  Mint NFT
                 </button>
               </div>
             </div>
@@ -94,4 +112,4 @@ const Modal = ({open, setOpen}) => {
   );
 };
 
-export default Modal;
+export default PopUp;

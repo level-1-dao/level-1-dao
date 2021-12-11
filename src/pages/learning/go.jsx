@@ -5,6 +5,7 @@ import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
 import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
 import {Modal} from '../../components/NFT';
+import PopUp from '../../components/FinishLevel/Modal';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
 import {createAlchemyWeb3} from '@alch/alchemy-web3';
 
@@ -120,7 +121,8 @@ const LearningLandingPage = () => {
           </div>
         }
       />
-      <Modal setOpen={handleNftModal} open={nftModalOpen} />
+      {/* <Modal setOpen={handleNftModal} open={nftModalOpen} /> */}
+      <PopUp setOpen={handleNftModal} open={nftModalOpen} />
     </div>
   );
 };

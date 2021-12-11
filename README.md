@@ -33,8 +33,11 @@ We would imagine that your first thought after learning about a platform with on
 ### Level 1 Mobile App 
 While our platform is catered towards people already in Web3, we recognize that a huge userbase is being left out by not having a mobile component for a platform like this. Our current UI does transfer well to the MetaMask mobile app, however native mobile applications will allow us to leverage a better user experience for users.  
 
-### Gating Discords Through Our Level 1 NFT 
-We are also working towards building a discord bot that gates new DAO members from Discords unless they own the NFT for the onboarding course for Level 1.
+### Unlock Discord Channels Through Our Level 1 NFT 
+We are working towards building a discord bot that allows users to be recognized for their Level1 accomplishments through unlocked community discord channels and Level1 activity feed channels.
+
+### User accounts, profile pages, commenting, high fives, and other Web2 type functionality
+We have the schema and the tech stack defined for these items and plan to implement over the next few weeks. Our focus for the hackathon was shaping out the idea and implementing Web3 functionality.
 
 ## Security Concerns 
 Our main concern was around preventing users from abusing the Learn2Earn model to earn more tokens than they're allowed to win.
@@ -47,12 +50,12 @@ Some ideas we have considered for our tokenomics/ux
 
 
 ## Level 1 Token 
-We know, we know. *Another* cryptocurrency, the last thing we want to is make this a moonshot project!(add reasons for level 1 token)
+We know, we know. *Another* cryptocurrency, the last thing we want to is make this a moonshot project! Level1 token will convert to a governance token as we move towards decentralized ownership. Level1 tokens are issued to learners and guides. We believe these folx are in the best position to shape the direction of the platform.
 
 ## Level 1 NFT  
-The Level 1 NFT simply serves as a point of reference for users to have showing proof of having finished a particular course on website. We hope to leverage the NFTs users awarded for by gating discord communities, creating incentive to participate in more courses on the platform through awards from nft ownership, and creating a community amongst Level 1 users.   
+The Level 1 NFT serves as a point of reference for users to have proof of having finished a particular course on website. NFTs awarded can unlock Discord channels and maintain a learners momentum by recognizing them for their accomplishments. We also find it a great way to create a community within Level1 and hope to be able to show people others who have collected a numbered version of the NFT.   
 <p align="center">
- <img src="public/assets/images/Dog_2_3.png?raw=true" alt="Next js starter banner">
+ <img src="public/assets/images/Dog_2_3.png?raw=true" alt="Level1 Mascot">
 </p>
 
 # Thank You For Spending Time With Our Project! 

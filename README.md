@@ -1,7 +1,7 @@
 # Level 1
 
 <p align="center">
- <img src="public/assets/images/nextjs-starter-banner.png?raw=true" alt="Next js starter banner">
+ <img src="public/assets/images/L1_Mascots_1.png?raw=true" alt="Next js starter banner">
 </p>
 
 🚀 Boilerplate and Starter for Next.js, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Netlify, PostCSS, Tailwind CSS.

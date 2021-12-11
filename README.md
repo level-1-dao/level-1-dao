@@ -37,15 +37,17 @@ While our platform is catered towards people already in Web3, we recognize that 
 We are also working towards building a discord bot that gates new DAO members from Discords unless they own the NFT for the onboarding course for Level 1.
 
 ## Security Concerns 
-- Users abusing the Learn2Earn model to earn more tokens than they're allowed to win 
-There's about 3 layers of protection we can take to prevent this happening. This first is making sure we have an air tight UI to prevent users from being able to trigger transactions more than once for example. The next layer would be having a check in our Learn2Earn contract to ensure a wallet address hasn't taken a course before of course. However, what if someone just switches their wallet to get more level 1 tokens? This is where our ideas surrounded by tokenomics come in. While we don't want the Level 1 Tokens to be worthless, we will have to have tokenomics in place that essentially don't incentivze bad actors to sit through our courses multiple times to rack up on Level 1 tokens. 
+Our main concern was around preventing users from abusing the Learn2Earn model to earn more tokens than they're allowed to win.
+
+
+There's about 3 layers of protection we can take to prevent this happening. The first is making sure we have an air tight UI to prevent users from being able to trigger transactions more than once. The next layer would be having a check in our Learn2Earn contract to ensure a wallet address hasn't taken a course before. However, what if someone just switches their wallet to get more level 1 tokens? This is where our ideas surrounded by tokenomics come in. While we don't want the Level 1 Tokens to be worthless, we will have to have tokenomics in place that essentially don't incentivze bad actors to sit through our courses multiple times to rack up on Level 1 tokens. 
 Some ideas we have considered for our tokenomics/ux
 - Burning Level 1 tokens after a wallet has exceeded a pre-determined token ownership limit. (sum of all token awards from courses)
-- Minting Level 1 tokens at a frequeny that cause for there to be a low incentive to hold the tokens for a long time. This may also be useful for helping users get immediate value out of Level 1 tokens. 
+- Minting Level 1 tokens at a frequeny that cause for there to be a low incentive to hold the tokens for a long time. This may also be useful for helping users get immediate value out of Level 1 tokens.(i.e. L1 tokens getting switched to eth or a stable coin after holding for a certain amount of time) 
 
 
 ## Level 1 Token 
-We know, we know. *Another* cryptocurrency 🙄, the last thing we want to is make this a moonshot project!(add reasons for level 1 token)
+We know, we know. *Another* cryptocurrency, the last thing we want to is make this a moonshot project!(add reasons for level 1 token)
 
 ## Level 1 NFT  
 The Level 1 NFT simply serves as a point of reference for users to have showing proof of having finished a particular course on website. We hope to leverage the NFTs users awarded for by gating discord communities, creating incentive to participate in more courses on the platform through awards from nft ownership, and creating a community amongst Level 1 users.   

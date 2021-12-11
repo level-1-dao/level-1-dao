@@ -1,156 +1,66 @@
-# Boilerplate and Starter for Next JS 12+, Tailwind CSS 2.0 and TypeScript [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40Ixartz)](https://twitter.com/ixartz)
+# Level 1  
+### A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership. 
+### Watch our presentation explaining Level 1 more in depth here here -> [Video](https://youtu.be/labhduL_v0Y)
+### Our DApp is currently live on Rinkeby Testnet. Check it out the Gitcoin onboarding course under the 'Discover' tab -> [Level 1 DApp](https://level1.vercel.app/)  
+
 
 <p align="center">
-  <a href="https://creativedesignsguru.com/demo/Nextjs-Boilerplate/"><img src="public/assets/images/nextjs-starter-banner.png?raw=true" alt="Next js starter banner"></a>
+ <img src="public/assets/images/L1_Mascots_1.png?raw=true" alt="Next js starter banner">
 </p>
 
-🚀 Boilerplate and Starter for Next.js, Tailwind CSS and TypeScript ⚡️ Made with developer experience first: Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged, VSCode, Netlify, PostCSS, Tailwind CSS.
+## Tech Used
 
-Clone this project and use it to create your own [Next.js](https://nextjs.org) project. You can check a [Next js templates demo](https://creativedesignsguru.com/demo/Nextjs-Boilerplate/).
+- Web3 Js 
+- Solidity 
+- Alchemy(Ethereum Node Provider) 
+- Next.js 
+- Vercel
+- Open Zeppelin
+- Truffle 
+- Ipfs
 
-### Features
+### Smart Contracts(Currently Only on Rinkeby Testnet)
 
-Developer experience first:
+- [Level1Token Contract](https://rinkeby.etherscan.io/address/0xea5Bd7D2aBe3c8546D70c470A65422CC322266E4)
+- [Level1NFT Contract](https://rinkeby.etherscan.io/address/0x278C8D7ae2694f888894EA4817eCdB84bc5E6781)
+- [Learn2Earn Contract](https://rinkeby.etherscan.io/address/0x45b3fe142ba8c4d55b1f726a24d7ea335516680c)
 
-- 🔥 [Next.js](https://nextjs.org) for Static Site Generator
-- 🎨 Integrate with [Tailwind CSS](https://tailwindcss.com) (w/ JIT mode)
-- 💅 PostCSS for processing Tailwind CSS and integrated to `styled-jsx`
-- 🎉 Type checking [TypeScript](https://www.typescriptlang.org)
-- ✅ Strict Mode for TypeScript and React 17
-- ✏️ Linter with [ESLint](https://eslint.org) (default NextJS, NextJS Core Web Vitals and Airbnb configuration)
-- 🛠 Code Formatter with [Prettier](https://prettier.io)
-- 🦊 Husky for Git Hooks
-- 🚫 Lint-staged for running linters on Git staged files
-- 🗂 VSCode configuration: Debug, Settings, Tasks and extension for PostCSS, ESLint, Prettier, TypeScript
-- 🤖 SEO metadata, JSON-LD and Open Graph tags with Next SEO
-- ⚙️ [Bundler Analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
-- 🖱️ One click deployment with Vercel or Netlify (or manual deployment to any hosting services)
-- 🌈 Include a FREE minimalist theme
-- 💯 Maximize lighthouse score
+## Fast Follows Before Mainnet Launch
 
-Built-in feature from Next.js:
+### Building A Gasless DApp for users  
+We would imagine that your first thought after learning about a platform with onboarding users through a Learn2Earn model was "What about the gas fees?". We weren't able to cram this into the scope of the hackathon, but we are doing a fast follow on this for a mainnet launch. We are currently working on incorparating GSN(Gas Station Network), to create a gasless experience for our users. This is a major drawback to our platform currently and definitely serves as our top priority.
 
-- ☕ Minify HTML & CSS
-- 💨 Live reload
-- ✅ Cache busting
+### Level 1 Mobile App 
+While our platform is catered towards people already in Web3, we recognize that a huge userbase is being left out by not having a mobile component for a platform like this. Our current UI does transfer well to the MetaMask mobile app, however native mobile applications will allow us to leverage a better user experience for users.  
 
-### Philosophy
+### Unlock Discord Channels Through Our Level 1 NFT 
+We are working towards building a discord bot that allows users to be recognized for their Level1 accomplishments through unlocked community discord channels and Level1 activity feed channels.
 
-- Minimal code
-- SEO-friendly
-- 🚀 Production-ready
+### User accounts, profile pages, commenting, high fives, and other Web2 type functionality
+We have the schema and the tech stack defined for these items and plan to implement over the next few weeks. Our focus for the hackathon was shaping out the idea and implementing Web3 functionality.
 
-### Nextless.js SaaS Boilerplate
+## Security Concerns 
+Our main concern was around preventing users from abusing the Learn2Earn model to earn more tokens than they're allowed to win.
 
-Building your SaaS product faster with [Nextless JS SaaS Boilerplate](https://nextlessjs.com).
 
-[![Nextless React SaaS Boilerplate](https://nextlessjs.com/assets/images/hero-image.png)](https://nextlessjs.com)
+There's about 3 layers of protection we can take to prevent this happening. The first is making sure we have an air tight UI to prevent users from being able to trigger transactions more than once. The next layer would be having a check in our Learn2Earn contract to ensure a wallet address hasn't taken a course before. However, what if someone just switches their wallet to get more level 1 tokens? This is where our ideas surrounded by tokenomics come in. While we don't want the Level 1 Tokens to be worthless, we will have to have tokenomics in place that essentially don't incentivze bad actors to sit through our courses multiple times to rack up on Level 1 tokens. 
+Some ideas we have considered for our tokenomics/ux
+- Burning Level 1 tokens after a wallet has exceeded a pre-determined token ownership limit. (sum of all token awards from courses)
+- Minting Level 1 tokens at a frequeny that cause for there to be a low incentive to hold the tokens for a long time. This inflationary practice will allow Level 1 tokens to not necessarily be "worthless", but rather it will make gaming our system not worth the effort. 
 
-### Premium Themes
 
-| [Green Nextjs Landing Page Template](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [Purple Saas Nextjs Theme](https://creativedesignsguru.com/landing-purple-modern-react-theme/) |
-| --- | --- |
-| [![Green Nextjs Landing Page Template](https://creativedesignsguru.com/assets/images/themes/landing-green-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [![Blue Landing Page Nextjs Theme](https://creativedesignsguru.com/assets/images/themes/landing-blue-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-blue-modern-react-theme/) |
+## Level 1 Token 
+We know, we know. *Another* cryptocurrency, the last thing we want to is make this a moonshot project! Level1 token will convert to a governance token as we move towards decentralized ownership. Level1 tokens are issued to learners and guides. We believe these folx are in the best position to shape the direction of the platform.
 
-Find more [Nextjs Themes](https://creativedesignsguru.com/category/nextjs/).
+## Level 1 NFT  
+The Level 1 NFT serves as a point of reference for users to have proof of having finished a particular course on website. NFTs awarded can unlock Discord channels and maintain a learners momentum by recognizing them for their accomplishments. We also find it a great way to create a community within Level1 and hope to be able to show people others who have collected a numbered version of the NFT.   
+<p align="center">
+ <img src="public/assets/images/Dog_2_3.png?raw=true" alt="Level1 Mascot">
+</p>
 
-### Requirements
+# Thank You For Spending Time With Our Project! 
+Have any questions or inquiries? 
+Reach out to the team on Twitter 
+### @raykanani
+### @atj3097 
 
-- Node.js and npm
-
-### Getting started
-
-Run the following command on your local environment:
-
-```
-git clone --depth=1 https://github.com/ixartz/Next-js-Boilerplate.git my-project-name
-cd my-project-name
-npm install
-```
-
-Then, you can run locally in development mode with live reload:
-
-```
-npm run dev
-```
-
-Open http://localhost:3000 with your favorite browser to see your project.
-
-```
-.
-├── README.md                # README file
-├── next.config.js           # Next JS configuration
-├── public                   # Public folder
-│   └── assets
-│       └── images           # Image used by default template
-├── src
-│   ├── layout               # Atomic layout components
-│   ├── pages                # Next JS pages
-│   ├── styles               # PostCSS style folder with Tailwind
-│   ├── templates            # Default template
-│   └── utils                # Utility folder
-├── tailwind.config.js       # Tailwind CSS configuration
-└── tsconfig.json            # TypeScript configuration
-```
-
-### Customization
-
-You can easily configure Next js Boilerplate. Please change the following file:
-
-- `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-16x16.png` and `public/favicon-32x32.png`: your website favicon, you can generate from https://favicon.io/favicon-converter/
-- `src/styles/main.css`: your CSS file using Tailwind CSS
-- `src/utils/AppConfig.ts`: configuration file
-- `src/templates/Main.tsx`: default theme
-
-### Deploy to production
-
-You can see the results locally in production mode with:
-
-```
-$ npm run build
-$ npm run start
-```
-
-The generated HTML and CSS files are minified (built-in feature from Next js). It will also removed unused CSS from [Tailwind CSS](https://tailwindcss.com).
-
-You can create an optimized production build with:
-
-```
-npm run build-prod
-```
-
-Now, your blog is ready to be deployed. All generated files are located at `out` folder, which you can deploy with any hosting service.
-
-### Deploy to Netlify
-
-Clone this repository on own GitHub account and deploy to Netlify:
-
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ixartz/Next-js-Boilerplate)
-
-### Deploy to Vercel
-
-Deploy this Next JS Boilerplate on Vercel in one click:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fixartz%2FNext-js-Boilerplate)
-
-### VSCode information (optional)
-
-If you are VSCode users, you can have a better integration with VSCode by installing the suggested extension in `.vscode/extension.json`. The starter code comes up with Settings for a seamless integration with VSCode. The Debug configuration is also provided for frontend and backend debugging experience.
-
-Pro tips: if you need a project wide type checking with TypeScript, you can run a build with <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>B</kbd> on Mac.
-
-### Contributions
-
-Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
-
-### License
-
-Licensed under the MIT License, Copyright © 2020
-
-See [LICENSE](LICENSE) for more information.
-
----
-
-Made with ♥ by [CreativeDesignsGuru](https://creativedesignsguru.com) [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/cloudposse.svg?style=social&label=Follow%20%40Ixartz)](https://twitter.com/ixartz)
-
-[![Sponsor Next JS Boilerplate](https://cdn.buymeacoffee.com/buttons/default-red.png)](https://www.buymeacoffee.com/ixartz)

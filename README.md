@@ -58,6 +58,6 @@ The Level 1 NFT simply serves as a point of reference for users to have showing 
 #### Thank You For Spending Time With Our Project! 
 Have any questions or inquiries? 
 Reach out to the team on Twitter 
-@raykanani
-@atj3097 
+##### @raykanani
+##### @atj3097 
 

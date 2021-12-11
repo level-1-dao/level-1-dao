@@ -17,9 +17,9 @@
 
 ### Smart Contracts
 
-- Level1Token Contract
-- Level1NFT Contract
-- Learn2Earn Contract
+- (Level1Token Contract)[https://rinkeby.etherscan.io/address/0xea5Bd7D2aBe3c8546D70c470A65422CC322266E4]
+- (Level1NFT Contract)[https://rinkeby.etherscan.io/address/0x278C8D7ae2694f888894EA4817eCdB84bc5E6781]
+- Learn2Earn Contract(Rinkeby Testnet)[https://rinkeby.etherscan.io/address/0x45b3fe142ba8c4d55b1f726a24d7ea335516680c]
 
 ### Requirements
 

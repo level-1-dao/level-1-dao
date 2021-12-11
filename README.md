@@ -55,6 +55,4 @@ The Level 1 NFT simply serves as a point of reference for users to have showing 
  <img src="public/assets/images/Dog_2_3.png?raw=true" alt="Next js starter banner">
 </p>
 
-# Running our DApp locally
-
 

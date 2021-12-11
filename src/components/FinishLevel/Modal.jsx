@@ -3,7 +3,16 @@ import {Fragment, useState} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import Image from 'next/image';
 
-const PopUp = ({open, setOpen}) => {
+const PopUp = ({
+  open,
+  setOpen,
+  mintNft,
+  awardTokens,
+  minting,
+  addingTokens,
+  mintComplete,
+  addTokensComplete,
+}) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -92,14 +101,18 @@ const PopUp = ({open, setOpen}) => {
                 <button
                   type="button"
                   className="btn btn-primary btn-outline btn-block"
-                  onClick={() => setOpen(false)}
+                  onClick={() => awardTokens()}
+                  loading={addingTokens}
+                  disabled={addTokensComplete}
                 >
                   Add Tokens
                 </button>
                 <button
                   type="button"
                   className="btn btn-accent btn-outline btn-block"
-                  onClick={() => setOpen(false)}
+                  onClick={() => mintNft()}
+                  loading={minting}
+                  disabled={mintComplete}
                 >
                   Mint NFT
                 </button>

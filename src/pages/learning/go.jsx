@@ -13,6 +13,11 @@ const LearningLandingPage = () => {
   const [curriculumProgress, setCurriculumProgress] = useState(1);
   const [tokensCollected, setTokensCollected] = useState(0);
   const [nftModalOpen, setNftModalOpen] = useState(false);
+  const [finishedLevel, setFinishedLevel] = useState(false);
+  const [minting, setMinting] = useState(false);
+  const [addingTokens, setAddingTokens] = useState(false);
+  const [mintComplete, setMintComplete] = useState(false);
+  const [addTokensComplete, setAddTokensComplete] = useState(false);
 
   const handleNftModal = (state) => {
     setNftModalOpen(state);
@@ -108,7 +113,7 @@ const LearningLandingPage = () => {
             ) : (
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center">
-                  <div className="btn" onClick={() => awardUser()}>
+                  <div className="btn" onClick={() => setFinishedLevel(true)}>
                     Finish learning module
                   </div>
                 </div>
@@ -121,8 +126,17 @@ const LearningLandingPage = () => {
           </div>
         }
       />
-      {/* <Modal setOpen={handleNftModal} open={nftModalOpen} /> */}
-      <PopUp setOpen={handleNftModal} open={nftModalOpen} />
+      <Modal setOpen={handleNftModal} open={nftModalOpen} />
+      <PopUp
+        setOpen={setFinishedLevel}
+        open={finishedLevel}
+        awardTokens={awardUser}
+        mintNft={awardNFT}
+        minting={minting}
+        addingTokens={addingTokens}
+        mintComplete={mintComplete}
+        addTokensComplete={addTokensComplete}
+      />
     </div>
   );
 };

@@ -34,7 +34,7 @@ We would imagine that your first thought after learning about a platform with on
 While our platform is catered towards people already in Web3, we recognize that a huge userbase is being left out by not having a mobile component for a platform like this. Our current UI does transfer well to the MetaMask mobile app, however native mobile applications will allow us to leverage a better user experience for users.  
 
 ### Gating Discords Through Our Level 1 NFT 
-What if we could have DAOs gate their discords by requiring new members to have our Level 1 NFT 🤔  
+We are also working towards building a discord bot that gates new DAO members from Discords unless they own the NFT for the onboarding course for Level 1.
 
 ## Security Concerns 
 - Users abusing the Learn2Earn model to earn more tokens than they're allowed to win 

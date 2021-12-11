@@ -1,12 +1,11 @@
-# Level 1 
+# Level 1  
+### A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership.
 ### Our DApp is currently live on Rinkeby Testnet. Check it out! -> [Level 1 DApp](https://level1.vercel.app/)
 
 
 <p align="center">
  <img src="public/assets/images/L1_Mascots_1.png?raw=true" alt="Next js starter banner">
 </p>
-
-### A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership.
 
 ## Tech Used
 

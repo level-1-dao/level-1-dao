@@ -37,7 +37,7 @@ While our platform is catered towards people already in Web3, we recognize that 
 What if we could have DAOs gate their discords by requiring new members to have our Level 1 NFT 🤔
 
 ## Level 1 Token 
-We know, we know. 'Another' crypto currency. 
+We know, we know. *Another cryptocurrency* 🙄, the last thing we want to is moonshot you to death. 
 ## Level 1 NFT 
 
 ## Security Concerns 

@@ -94,7 +94,7 @@ const PopUp = ({
                   </div>
                   <br />
                   <p className="text-base">
-                    Let's mint your NFT and add your Level1 tokens to your
+                    Let&#39;s mint your NFT and add your Level1 tokens to your
                     wallet.
                   </p>
                 </div>

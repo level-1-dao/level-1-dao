@@ -1,7 +1,7 @@
 # Level 1  
 ### A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership. 
 ### Watch our presentation explaining Level 1 more in depth here here -> [Video](https://youtu.be/labhduL_v0Y)
-### Our DApp is currently live on Rinkeby Testnet. Check it out the Gitcoin onboarding course under the 'Discover' tab -> [Level 1 DApp](https://level1.vercel.app/)  
+### Our DApp is currently live on Rinkeby Testnet. Check out the *Gitcoin DAO Tools* onboarding course under the 'Discover' tab -> [Level 1 DApp](https://level1.vercel.app/)  
 
 
 <p align="center">

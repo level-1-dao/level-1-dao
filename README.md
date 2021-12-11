@@ -28,7 +28,7 @@
 ## Fast Follows Before Mainnet Launch
 
 ### Building A Gasless DApp for users  
-We would imagine that your first thought after learning about a platform with onboarding users through a Learn2Earn model was what about the gas fees? We weren't able to cram this into the scope of the hackathon, but we are doing a fast follow on this for a mainnet launch. We are currently working on incorparating GSN(Gas Station Network), to create a gasless experience for our users. This is a major drawback to our platform currently and definitely serves as our top priority. 
+We would imagine that your first thought after learning about a platform with onboarding users through a Learn2Earn model was "What about the gas fees?". We weren't able to cram this into the scope of the hackathon, but we are doing a fast follow on this for a mainnet launch. We are currently working on incorparating GSN(Gas Station Network), to create a gasless experience for our users. This is a major drawback to our platform currently and definitely serves as our top priority.
 
 ### Level 1 Mobile App 
 While our platform is catered towards people already in Web3, we recognize that a huge userbase is being left out by not having a mobile component for a platform like this. Our current UI does transfer well to the MetaMask mobile app, however native mobile applications will allow us to leverage a better user experience for users.  

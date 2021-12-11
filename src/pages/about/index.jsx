@@ -65,7 +65,7 @@ const index = () => {
                   for members to use those skills to create value.
                 </p>
                 <p className="text-2xl">
-                  Similar to when a player loads a new videogame, Level1 is the
+                  Similar to when a player loads a new video game, Level1 is the
                   space that provides players with the confidence to navigate
                   new worlds, powers, roles, rewards and missions.
                 </p>

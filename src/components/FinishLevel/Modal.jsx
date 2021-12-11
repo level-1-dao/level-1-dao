@@ -113,7 +113,7 @@ const PopUp = ({
                   onClick={() => awardTokens()}
                   disabled={addTokensComplete}
                 >
-                  Add Tokens
+                  {addTokensComplete ? 'Tokens Added' : 'Add Tokens'}
                   {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button>
                 <button

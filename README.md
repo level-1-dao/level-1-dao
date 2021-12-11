@@ -39,7 +39,8 @@ What if we could have DAOs gate their discords by requiring new members to have 
 ## Level 1 Token 
 We know, we know. *Another* cryptocurrency 🙄, the last thing we want to is make this a moonshot project!(add reasons for level 1 token)
 
-## Level 1 NFT 
+## Level 1 NFT  
+The Level 1 NFT simply serves as a point of reference for users to have showing proof of having finished a particular course on website. We hope to leverage this by gating discord communities, creating incentive to participate in more courses on the platform through awards from nft ownership, and creating a community amongst Level 1 users.  
 
 ## Security Concerns 
 

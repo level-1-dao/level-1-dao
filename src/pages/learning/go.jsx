@@ -4,6 +4,7 @@ import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningModule from '../../templates/LearningModule';
 import Curriculum from '../../components/Curriculum';
 import Learn2Earn from '../../../build/contracts/Learn2Earn.json';
+import Level1Completion from '../../../build/contracts/Level1Completion.json';
 import {Modal} from '../../components/NFT';
 import PopUp from '../../components/FinishLevel/Modal';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
@@ -45,6 +46,12 @@ const LearningLandingPage = () => {
     deployedNetwork.address
   );
 
+  const level1NFTDeployedNetwork = Level1Completion.networks[4];
+  let level1NFTInstance = new web3.eth.Contract(
+    Level1Completion.abi,
+    level1NFTDeployedNetwork.address
+  );
+
   async function awardUser() {
     setAddingTokens(true);
     try {
@@ -71,7 +78,7 @@ const LearningLandingPage = () => {
     setMinting(true);
     try {
       const learnerAddress = await web3.eth.getAccounts();
-      const nftAward = await learn2EarnInstance.methods
+      const nftAward = await level1NFTInstance.methods
         .awardCertificate(
           learnerAddress[0],
           'https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N'

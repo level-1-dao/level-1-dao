@@ -1,5 +1,5 @@
 # Level 1 
-#### Our DApp is currently live on Rinkeby Testnet. Check it out! -> [Level 1](https://level1.vercel.app/)
+### Our DApp is currently live on Rinkeby Testnet. Check it out! -> [Level 1 DApp](https://level1.vercel.app/)
 
 
 <p align="center">

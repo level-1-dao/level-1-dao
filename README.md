@@ -4,7 +4,7 @@
  <img src="public/assets/images/L1_Mascots_1.png?raw=true" alt="Next js starter banner">
 </p>
 
-A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership.
+#### A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership.
 
 ### Features
 

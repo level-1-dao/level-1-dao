@@ -2,13 +2,13 @@ import {Fragment, useState} from 'react';
 import {Disclosure, Menu, Transition} from '@headlessui/react';
 import {SparklesIcon, MenuIcon, XIcon} from '@heroicons/react/outline';
 import Link from 'next/link';
-import Slideout from '../Header/Slideout';
+import Slideout from '../NavBar/Slideout';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Header = () => {
+const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
 
@@ -39,6 +39,13 @@ const Header = () => {
                   <Link href="/discover" passHref>
                     <a className="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                       Discover
+                    </a>
+                  </Link>
+                </div>
+                <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
+                  <Link href="/about" passHref>
+                    <a className="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                      About
                     </a>
                   </Link>
                 </div>
@@ -202,4 +209,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;

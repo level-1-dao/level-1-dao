@@ -1,10 +1,10 @@
-import Header from '../../components/header';
+import NavBar from '../../components/NavBar';
 import Catalogue from './Catalogue';
 
 const index = () => {
   return (
     <div>
-      <Header />
+      <NavBar />
       <Catalogue />
     </div>
   );

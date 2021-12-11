@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import {Fragment, useState} from 'react';
+import {Fragment} from 'react';
 import {Dialog, Transition} from '@headlessui/react';
 import Image from 'next/image';
 

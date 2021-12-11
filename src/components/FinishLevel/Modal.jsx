@@ -146,7 +146,8 @@ const PopUp = ({
                   onClick={() => mintNft()}
                   disabled={mintComplete}
                 >
-                  Mint NFT
+                  {mintComplete ? 'Minted NFT' : 'Mint NFT'}
+                  {mintComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button>
               </div>
               {addTokensComplete && (

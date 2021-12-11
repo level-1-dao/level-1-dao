@@ -76,7 +76,7 @@ const GitcoinCurriculumData = [
     title:
       'Wrap up: You are comfortable with streams, squads, and dRewards and are ready to rock and roll.',
     description:
-      'Woot woot! You are ready to rock and roll! Looking forward to seeing you on the DAO side! Remember to high-five those you have learned alongside with.',
+      'Woot woot! You are ready to rock and roll! Looking forward to seeing you on the DAO side! Remember to high five those you have learned alongside with.',
     contentType: 'video',
     time: 300,
     link: 'https://youtu.be/OnoNITE-CLc?t=64',

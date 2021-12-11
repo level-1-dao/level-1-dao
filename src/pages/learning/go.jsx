@@ -46,13 +46,23 @@ const LearningLandingPage = () => {
   );
 
   async function awardUser() {
-    const learnerAddress = await web3.eth.getAccounts();
-    const levelOneAward = await learn2EarnInstance.methods
-      .awardUser(learnerAddress[0], 90)
-      .send({
-        from: learnerAddress[0],
-      });
-    return levelOneAward.status;
+    setAddingTokens(true);
+    try {
+      const learnerAddress = await web3.eth.getAccounts();
+      const levelOneAward = await learn2EarnInstance.methods
+        .awardUser(learnerAddress[0], 90)
+        .send({
+          from: learnerAddress[0],
+        });
+      return levelOneAward.status;
+    } catch (error) {
+      console.log(error);
+      setAddingTokens(false);
+      return;
+    }
+    if (levelOneAward.status) {
+      setAddTokensComplete(true);
+    }
   }
 
   async function awardNFT() {

@@ -60,8 +60,8 @@ const PopUp = ({
                   </p>
                   <br />
                   <p className="text-base">
-                    You learned with 4 other people. Received 5 high-fives and
-                    gave out 8 high-fives.
+                    You learned with 4 other people. Received 5 high fives and
+                    gave out 8 high fives.
                   </p>
                 </div>
                 <div className="mt-12">
@@ -100,9 +100,11 @@ const PopUp = ({
               <div className="space-y-2 mt-5 sm:mt-6">
                 <button
                   type="button"
-                  className="btn btn-primary btn-outline btn-block"
+                  className={
+                    `btn btn-primary btn-outline btn-block` +
+                    (addingTokens ? ' loading' : '')
+                  }
                   onClick={() => awardTokens()}
-                  loading={addingTokens}
                   disabled={addTokensComplete}
                 >
                   Add Tokens
@@ -111,7 +113,6 @@ const PopUp = ({
                   type="button"
                   className="btn btn-accent btn-outline btn-block"
                   onClick={() => mintNft()}
-                  loading={minting}
                   disabled={mintComplete}
                 >
                   Mint NFT

@@ -47,8 +47,8 @@ const LearningLandingPage = () => {
   );
 
   const level1NFTDeployedNetwork = Level1Completion.networks[4];
-  let level1NFTInstance = new web3.eth.Contract( 
-    Level1Completion.abi, 
+  let level1NFTInstance = new web3.eth.Contract(
+    Level1Completion.abi,
     level1NFTDeployedNetwork.address
   );
 

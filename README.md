@@ -8,37 +8,18 @@
 
 ## Tech Used
 
-- Web3 Js
-- Alchemy(Ethereum Node Provider)
+- Web3 Js 
+- Solidity 
+- Alchemy(Ethereum Node Provider) 
 - Next.js
 - Open Zeppelin
 - Truffle
 
-Built-in feature from Next.js:
+### Smart Contracts
 
-- ☕ Minify HTML & CSS
-- 💨 Live reload
-- ✅ Cache busting
-
-### Philosophy
-
-- Minimal code
-- SEO-friendly
-- 🚀 Production-ready
-
-### Nextless.js SaaS Boilerplate
-
-Building your SaaS product faster with [Nextless JS SaaS Boilerplate](https://nextlessjs.com).
-
-[![Nextless React SaaS Boilerplate](https://nextlessjs.com/assets/images/hero-image.png)](https://nextlessjs.com)
-
-### Premium Themes
-
-| [Green Nextjs Landing Page Template](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [Purple Saas Nextjs Theme](https://creativedesignsguru.com/landing-purple-modern-react-theme/) |
-| --- | --- |
-| [![Green Nextjs Landing Page Template](https://creativedesignsguru.com/assets/images/themes/landing-green-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-green-modern-nextjs-theme/) | [![Blue Landing Page Nextjs Theme](https://creativedesignsguru.com/assets/images/themes/landing-blue-modern-nextjs-theme-xs.png)](https://creativedesignsguru.com/landing-blue-modern-react-theme/) |
-
-Find more [Nextjs Themes](https://creativedesignsguru.com/category/nextjs/).
+- Level1Token Contract
+- Level1NFT Contract
+- Learn2Earn Contract
 
 ### Requirements
 

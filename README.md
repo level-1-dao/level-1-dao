@@ -6,11 +6,11 @@
 
 #### A fun and friendly learning and development platform designed for decentralized communities to tap into the full awesomeness of their membership.
 
-### Tech Used
+## Tech Used
 
 - Web3 Js
 - Alchemy(Ethereum Node Provider)
-- Next JS
+- Next.js
 - Open Zeppelin
 - Truffle
 

@@ -111,4 +111,4 @@ Upon completion, learners are able to mint a **Level1 or custom NFT**
 We are still working on the optimal format of the NFT. Currently we're thinking MP4, SVG or PNG is suitable. We will work with you to set the NFT up.
 
 ---
-As a guide you will change people's lives. We all remember those that gave us the confidence to jump in. Although learning journeys are long and bumpy, it's the first steps that we recognize as the steps that changed everything. They are often the hardest to take but the most meaningful. We appreciate the value you're providing and are here to support you in any way we can.
+As a guide you will change people's lives. Although learning journeys are long with highs and lows, it's the first steps that we recognize as the steps that changed everything. They are often the hardest to take but the most meaningful. We remember those that were by our side when taking the leap. We appreciate the value you're providing and are here to support you in any way we can.

@@ -26,9 +26,9 @@ Level1 can potentially fill a gap in today's learning landscape by serving those
 
 # Players
 - **Guides:**
-Every Level has a humxn guide. This person has take the time to curate a set of content that they feel will help folx gain the confidence participate in a particular topic. Guides introduce the level and help learners orient themselves. They provide prompts throughout the learning journey for learners to share reflections with each other. Guides can make themselves available for answering learners questions. However, this is not as important as providing learners with the tools and community to be able to answer questions that they might have now and in the future.
+Every Level has a humxn guide. This person has taken the time to curate a set of content that they feel will help folx gain the confidence participate in a particular topic. Guides introduce the level and help learners orient themselves. They provide prompts throughout for learners to share reflections with other learners. Guides can make themselves available for answering learners questions but it is not mandatory. An important function of guides is to provide tools and community space for learners to be able to answer questions they might have now and in the future without relying on a single point of knowledge.
 
-We encourage all to be a guide at a topic they're passionate about. We provide tools for guides to design compassionate, comfortable, fun learning journeys.
+We believe anyone can be a guide on a topic they're passionate about. We provide tools for guides to design compassionate, comfortable, fun learning journeys.
 
 - **Learners:**
 The hero of Level1. Learners have taken the big first step to learn about something currently unknown. We recognize that past learning experiences learners carry with them might trigger certain feelings along the way. Our compassion for the energy learners put in during this stage of their journey needs to show at every step.
@@ -42,50 +42,61 @@ We hope to able to open up the supporting cast to a larger Level1 community once
 - **Cooperative:**
 Our focus is on the success of the collective. This means we do not have benchmarks, "leader"boards, tests, quizes or grades. We stay away from comparisons and use our energy towards celebrating where we are in this moment.
 
-We find polls and reflection prompts celebrate the feelings of those on the learning journey which helps learners learn from each other and provides improved learning outcomes over right/wrong test formats.
+We find polls and reflection prompts help learners learn from each other, which provide improved improved learning outcomes over right/wrong test formats.
 
 - **Accessible:**
-Level1 works towards being a space that all can be their best selves in. 
+Level1 works towards being a space that all can be their best selves within. 
   - This means content is consumable in different languages, regions, and formats including screen readers, dynamic font sizes and high-contrast colors. 
   - Content is bite-sized.
-    - Currently this means each component of a learning journey is less than 10 minutes long and a learning journey is less than 50 minutes in total.
-  - The entire platform can be navigated via keyboard only
+    - Currently this means each component of a learning journey is less than 10 minutes long and a learning journey in total is less than 50 minutes.
+  - The entire platform can be navigated via keyboard input only
 
 - **Language:**
 We recognize the words we use are powerful. Therefor we are constantly auditing the language used in the platform to ensure it aligns to the mission, vision and values of Level1.
   - Words we don't use: Class, Lesson, Grade, Results, Expert, Newbie, Noob, Test, Quiz
   - Symbols we don't use: Checkmarks, X
-  - Words we find are aligned to mission: Learning journey, Guide, Feeling, 
+  - Words we find are aligned to mission: Learning journey, Guide, Feelings. 
 
-We frequently audit the language we use as performance based language is something many of us are used to using which goes against the Level1 mission, vision and values.
+We frequently audit the platform to remove any performance based language that might find it's way in.
 
 - **Witness the power of the learner:**
-Every step a learner takes towards learning something new is a powerful one. We build experiences that work to show learners and celebrate how powerful they are.
+Every step a learner takes towards learning something new is a powerful one. We build experiences that celebrate how powerful learners are.
 
 - **Everyone can be a guide:**
-Any Level1 can be branched. This means Level1 content can be moved into another Level1. What does not move over is content made by the Guide. When a Level1 is branched, the inspiration chain is maintained and attributed. This means is Ray's Level1 is branched, learners going through the new Level1 will see that the inspiration of this Level1 came from Ray's guided Level1.
+Any Level1 can be branched. This means Level1 content, that was not originally generated by the guide, can be moved into another Level1. When a Level1 is branched, the inspiration chain is maintained and attributed. This means when a Level1 that Ray created is branched, learners will see that the inspiration of this new Level1 came from Ray's guided Level1.
+
+We will explore ways guides can be rewarded for learning outcomes that happen down the chain.
 
 - **Two-way conversations:**
-Every Level1 will have space to create a two-way dialogue. This can be learners providing feedback to guides as well as learners supporting each other through high-fives, sharing reflections and asking and answering questions.
+Every Level1 will have space to create a two-way dialogue. This can be learners providing feedback to guides as well as learners supporting each other.
 
 - **Fun:**
-"If it aint fun, what's the point" - Ben and Jerry's bumper sticker. A measure on if we've created a low-stakes environment is how much fun are people having. Creating space for play, laughter, and experimentation is important to us. Some thoughts we have here revolve around designing forgiving environments. Things like soft edges, plaful mascots, easy navigation, undo, saved progress, progress bars and invisibility cloak could provide space that is comfortable for fun.
+"If it aint fun, what's the point" - Ben and Jerry's bumper sticker. A measure on if we've created a low-stakes environment is how much fun people are having. Creating space for play, laughter, and experimentation is important to us. Some thoughts we have here revolve around designing forgiving environments. Inspireation from physical play spaces excite us to explore soft edges, plaful mascots, custom themes, easy navigation, undo and saved progress functions.
 
 # Level design
-As a guide you are likely passionate about helping others learn about a topic that has brought joy into your life. We encourage you to harness this passion and integrate it into the design of your Level1.
+As a guide you are likely passionate about introducing a topic that has brought joy into your life. We encourage you to harness this passion and integrate it into the design of your Level1.
 
-When a learner clicks on your level, the first thing they'll see is the **overview page**. There are a few important elements on this page for you to be aware of.
+When a learner clicks on your level, the first thing they'll see is the **overview page**. There are a few important elements on this page to take not of.
+
+<p align="center">
+ <img src="public/assets/screenshots/1.png?raw=true" alt="Level1 Overview Page Screenshot">
+</p>
+
 - **Your profile:**
-This is displayed to show learners who the guide on this Level is. 
+This is displayed to show learners who the guide on the Level is. 
   - We recommend using a name that matches other names you use on other social platforms. We also recommend using a picture of yourself or an avatar that you frequently use on other social platforms.
 - **Learning outcomes:**
-This is where learners can see what they should expect to get from completing this Level1. 
-  - We recommend a few bullet points that demonstrate understanding of terminology, what resources they'll be able to connect with (including humxns and documentation), and what you hope they'll feel comfortable taking on after completing
+This is where learners can see what super powers they'll have after completing this Level1. 
+  - We recommend a few bullet points that demonstrate understanding of terminology, what resources they'll be able to connect with (including humxns and documentation), and what you hope they'll feel comfortable taking on after completing.
 - **Learning journey:**
 Learners will be able to see each module in the learning journey.
   - It is important that each module in the learning journey is 5 minutes or less and that the learning journey is 50 minutes or less. This ensures learners maintain their attention and can achieve completion of journey within a day.
 
 When a learner clicks to start a Level1, they are able to navigate through the **learning journey**. Below are important elements of a Level1 learning journey.
+
+<p align="center">
+ <img src="public/assets/screenshots/2.png?raw=true" alt="Level1 Learning Journey Screenshot">
+</p>
 
 - **Introduction:**
 This should come from the guide. We encourage video whenever possible. 

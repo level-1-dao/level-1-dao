@@ -9,7 +9,7 @@ A world where learning something new is comfortable.
 In order for learning to occur, learners must feel safe to explore. This means creating low-stakes environments without worry of judgement, loss, or harm.
 
 - **Guided:**
-We learn better together. We priortize opportunities for humxns to directly help each other over automated experiences.
+We learn better together. We prioritize opportunities for humxns to directly help each other over automated experiences.
 
 - **Play:**
 Learn by doing helps humxns retain information. Level1 prioritizes interactive self-paced learning experiences.
@@ -20,7 +20,7 @@ Learners, guides and content creators give their most valued resource to this sp
 # Hypothesis
 Centralized learning platforms allow learners to connect with instructors in a 1 (instructor) to many (students) format. This mimics most top-down education institutions and is familiar to those teaching and learning. This centralized structure, although familiar, is limited in that learnings flow from few to many. This means that the teaching style and biases are projected on to learners. It also means relationships in this 1-to-many format can be superficial as it is difficult for an instructor to maintain meaningful relationships with so many students.
 
-Decentralized learning platforms allow learners to engage with a community in order to learn new skills and perspectives. This allows for a many-to-many learning flow to occur. Many of these learning communities have been established organically, created by the community to fill a particular need. The rules, roles, rewards and content format is often unclear as the community works to define it's standard work processes.
+Decentralized learning platforms allow learners to engage with a community in order to learn new skills and perspectives. This allows for a many-to-many learning flow to occur. Many of these learning communities have been established organically, created by the community to fill a particular need. The rules, roles, rewards and content format is often unclear as the community works to define its standard work processes.
 
 Level1 can potentially fill a gap in today's learning landscape by serving those that are not currently served by both centralized and decentralized learning platforms. With a clear mission, vision, and values and rails, players, recognition and level format we should be able to provide a space for people to guide each other through learning journeys across a variety of topics. We hope to be an opinionated decentralized learning platform with clear paths on how folx can inform and update those opinions when needed.
 
@@ -40,7 +40,7 @@ We hope to able to open up the supporting cast to a larger Level1 community once
 
 # Rails
 - **Cooperative:**
-Our focus is on the success of the collective. This means we do not have benchmarks, "leader"boards, tests, quizes or grades. We stay away from comparisons and use our energy towards celebrating where we are in this moment.
+Our focus is on the success of the collective. This means we do not have benchmarks, "leader"boards, tests, quizzes or grades. We stay away from comparisons and use our energy towards celebrating where we are in this moment.
 
 We find polls and reflection prompts help learners learn from each other, which provide improved improved learning outcomes over right/wrong test formats.
 
@@ -57,7 +57,7 @@ We recognize the words we use are powerful. Therefor we are constantly auditing 
   - Symbols we don't use: Checkmarks, X
   - Words we find are aligned to mission: Learning journey, Guide, Feelings. 
 
-We frequently audit the platform to remove any performance based language that might find it's way in.
+We frequently audit the platform to remove any performance based language that might find its way in.
 
 - **Witness the power of the learner:**
 Every step a learner takes towards learning something new is a powerful one. We build experiences that celebrate how powerful learners are.
@@ -71,12 +71,12 @@ We will explore ways guides can be rewarded for learning outcomes that happen do
 Every Level1 will have space to create a two-way dialogue. This can be learners providing feedback to guides as well as learners supporting each other.
 
 - **Fun:**
-"If it aint fun, what's the point" - Ben and Jerry's bumper sticker. A measure on if we've created a low-stakes environment is how much fun people are having. Creating space for play, laughter, and experimentation is important to us. Some thoughts we have here revolve around designing forgiving environments. Inspireation from physical play spaces excite us to explore soft edges, plaful mascots, custom themes, easy navigation, undo and saved progress functions.
+"If it ain't fun, what's the point" - Ben and Jerry's bumper sticker. A measure on if we've created a low-stakes environment is how much fun people are having. Creating space for play, laughter, and experimentation is important to us. Some thoughts we have here revolve around designing forgiving environments. Inspireation from physical play spaces excite us to explore soft edges, plaful mascots, custom themes, easy navigation, undo and saved progress functions.
 
 # Level design
 As a guide you are likely passionate about introducing a topic that has brought joy into your life. We encourage you to harness this passion and integrate it into the design of your Level1.
 
-When a learner clicks on your level, the first thing they'll see is the **overview page**. There are a few important elements on this page to take not of.
+When a learner clicks on your level, the first thing they'll see is the **overview page**. There are a few important elements on this page to take note of.
 
 <p align="center">
  <img src="public/assets/screenshots/1.png?raw=true" alt="Level1 Overview Page Screenshot">

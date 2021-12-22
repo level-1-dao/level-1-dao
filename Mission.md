@@ -9,7 +9,7 @@ A world where learning something new is comfortable.
 In order for learning to occur, learners must feel safe to explore. This means creating low-stakes environments without worry of judgement, loss, or harm.
 
 - **Guided:**
-We learn better together. We priortize opportunities for humxns to directly help each other over coded experiences.
+We learn better together. We priortize opportunities for humxns to directly help each other over automated experiences.
 
 - **Play:**
 Learn by doing helps humxns retain information. Level1 prioritizes interactive self-paced learning experiences.

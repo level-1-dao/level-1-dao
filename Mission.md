@@ -5,16 +5,16 @@ A low-stakes space for people to learn from each other.
 A world where learning something new is comfortable.
 
 # Values
-- Safe
+- **Safe:**
 In order for learning to occur, learners must feel safe to explore. This means creating low-stakes environments without worry of judgement, loss, or harm.
 
-- Guided
+- **Guided:**
 We learn better together. We priortize opportunities for humxns to directly help each other over coded experiences.
 
-- Play
+- **Play:**
 Learn by doing helps humxns retain information. Level1 prioritizes interactive self-paced learning experiences.
 
-- Seen
+- **Seen:**
 Learners, guides and content creators give their most valued resource to this space, time. We see and appreciate this at every touchpoint.
 
 # Hypothesis
@@ -25,33 +25,33 @@ Decentralized learning platforms allow learners to engage with a community in or
 Level1 can potentially fill a gap in today's learning landscape by serving those that are not currently served by both centralized and decentralized learning platforms. With a clear mission, vision, and values that define the rails, characters, recognition and level format we should be able to provide a space for people to guide each other through learning journeys across a variety of topics. We hope to be an opinionated decentralized learning platform with a clear path to how folx can inform and update those opinions when needed.
 
 # Characters
-- Guides
+- **Guides:**
 Every Level has a humxn guide. This person has take the time to curate a set of content that they feel will help folx gain the confidence participate in a particular topic. Guides introduce the level and help learners orient themselves. They provide prompts throughout the learning journey for learners to share reflections with each other. Guides can make themselves available for answering learners questions. However, this is not as important as providing learners with the tools and community to be able to answer questions that they might have now and in the future.
 
 We encourage all to be a guide at a topic they're passionate about. We provide tools for guides to design compassionate, comfortable, fun learning journeys.
 
-- Learners
+- **Learners:**
 The hero of Level1. Learners have taken the big first step to learn about something currently unknown. We recognize that past learning experiences learners carry with them might trigger certain feelings along the way. Our compassion for the energy learners put in during this stage of their journey needs to show at every step.
 
-- Supporting cast
+- **Supporting cast:**
 Supporting cast members include designers, developers, advisors and advocates. They are themselves guides and learners and spend time listening and observing these groups in order to make updates to the platform that provide outcomes that the group has agreed are important.
 
 We hope to able to open up the supporting cast to a larger Level1 community once standard working practices have been more defined.
 
 # Rails
-- Cooperative
+- **Cooperative:**
 Our focus is on the success of the collective. This means we do not have benchmarks, "leader"boards, tests, quizes or grades. We stay away from comparisons and use our energy towards celebrating where we are in this moment.
 
 * It might be surprising that we don't have quizes. We find polls and reflection prompts celebrate the feelings of those on the learning journey which helps learners learn from each other and provides improved learning outcomes over right/wrong test formats.
 
-- Accessible
+- **Accessible:**
 Level1 works towards being a space that all can be their best selves in. 
   - This means content is consumable in different languages, regions, and formats including screen readers, dynamic font sizes and high-contrast colors. 
   - Content is bite-sized.
     - Currently this means each component of a learning journey is less than 10 minutes long and a learning journey is less than 50 minutes in total.
   - The entire platform can be navigated via keyboard only
 
-- Language
+- **Language:**
 We recognize the words we use are powerful. Therefor we are constantly auditing the language used in the platform to ensure it aligns to the mission, vision and values of Level1.
   - Words we don't use: Class, Lesson, Grade, Results, Expert, Newbie, Noob, Test, Quiz
   - Symbols we don't use: Checkmarks, X
@@ -59,35 +59,35 @@ We recognize the words we use are powerful. Therefor we are constantly auditing 
 
 * We frequently audit the language we use as performance based language is something many of us are used to using which goes against the Level1 mission, vision and values.
 
-- Witness the power of the learner
+- **Witness the power of the learner:**
 Every step a learner takes towards learning something new is a powerful one. We build experiences that work to show learners and celebrate how powerful they are.
 
-- Everyone can be a guide
+- **Everyone can be a guide:**
 Any Level1 can be branched. This means Level1 content can be moved into another Level1. What does not move over is content made by the Guide. When a Level1 is branched, the inspiration chain is maintained and attributed. This means is Ray's Level1 is branched, learners going through the new Level1 will see that the inspiration of this Level1 came from Ray's guided Level1.
 
-- Two-way conversations
+- **Two-way conversations:**
 Every Level1 will have space to create a two-way dialogue. This can be learners providing feedback to guides as well as learners supporting each other through high-fives, sharing reflections and asking and answering questions.
 
-- Fun
+- **Fun:**
 "If it aint fun, what's the point" - Ben and Jerry's bumper sticker. A measure on if we've created a low-stakes environment is how much fun are people having. Creating space for play, laughter, and experimentation is important to us. Some thoughts we have here revolve around designing forgiving environments. Things like soft edges, plaful mascots, easy navigation, undo, saved progress, progress bars and invisibility cloak could provide space that is comfortable for fun.
 
 # Level design
 As a guide you are likely passionate about helping others learn about a topic that has brought joy into your life. We encourage you to harness this passion and integrate it into the design of your Level1.
 
 When a learner clicks on your level, the first thing they'll see is the **overview page**. There are a few important elements on this page for you to be aware of.
-- Your profile
+- **Your profile:**
 This is displayed to show learners who the guide on this Level is. 
   - We recommend using a name that matches other names you use on other social platforms. We also recommend using a picture of yourself or an avatar that you frequently use on other social platforms.
-- Learning outcomes
+- **Learning outcomes:**
 This is where learners can see what they should expect to get from completing this Level1. 
   - We recommend a few bullet points that demonstrate understanding of terminology, what resources they'll be able to connect with (including humxns and documentation), and what you hope they'll feel comfortable taking on after completing
-- Learning journey
+- **Learning journey:**
 Learners will be able to see each module in the learning journey.
   - It is important that each module in the learning journey is 5 minutes or less and that the learning journey is 50 minutes or less. This ensures learners maintain their attention and can achieve completion of journey within a day.
 
 When a learner clicks to start a Level1, they are able to navigate through the **learning journey**. Below are important elements of a Level1 learning journey.
 
-- Introduction
+- **Introduction:**
 This should come from the guide. We encourage video whenever possible. 
   - Start with gratitude and appreciate for the learner who has made the choice to go on this journey with you. 
   - Share your story. Why are you passionate about this topic. 
@@ -95,7 +95,7 @@ This should come from the guide. We encourage video whenever possible.
   
 * We recognize guides might not have time to answer learner's questions. This is okay. The introduciton is a great space to emphasize that learners can support each other and that they'll be able to get to know other learners along the way as they share their reflections.
 
-- Content
+- **Content:**
 This can be YouTube videos, links to blog posts, reflection prompts or polls.
   - All content should have a note from the guide. We recommend sharing why you chose this content, what you got out of it and things learners could reflect on.
   - YouTube videos should include the start and end timestamp
@@ -103,11 +103,11 @@ This can be YouTube videos, links to blog posts, reflection prompts or polls.
   - Reflection prompts are a question with a free-form text field for learners to fill in
   - Polls provide learners with a few pre-set options and an other fill in the blank option to select from
 
-- Celebration
+- **Celebration:**
 This is the final part of the Level1 learning journey. It's a great place for a video from the guide to bask in the greatness of the learners. Appreciate the journey they've gone on, recap the learning outcomes and emphasize that others are on this journey with them.
   - At the end of a Level1, learners are shown a look-back at their journey. This includes reflections, questions that they helped answer, high-fives they gave and received. They also are presented with an NFT certificate that memorializes their accomplishment.
 
 Upon completion, learners are able to mint a **Level1 or custom NFT**
 We are still working on the optimal format of the NFT. Currently we're thinking MP4, SVG or PNG is suitable. We will work with you to set the NFT up.
-
+---
 As a guide you will change people's lives. We all remember those that gave us the confidence to jump in. Although learning journeys are long and bumpy, it's the first steps that we recognize as the steps that changed everything. They are often the hardest to take but the most meaningful. We appreciate the value you're providing and are here to support you in any way we can.

@@ -104,7 +104,7 @@ This should come from the guide. We encourage video whenever possible.
   - Share your story. Why are you passionate about this topic. 
   - Lastly, share how learners can ask questions and get support along the way. 
   
-* We recognize guides might not have time to answer learner's questions. This is okay. The introduciton is a great space to emphasize that learners can support each other and that they'll be able to get to know other learners along the way as they share their reflections.
+We recognize guides might not have time to answer learner's questions. This is okay. The introduciton is a great space to emphasize that learners can support each other and that they'll be able to get to know other learners along the way as they share their reflections.
 
 - **Content:**
 This can be YouTube videos, links to blog posts, reflection prompts or polls.
@@ -122,4 +122,4 @@ Upon completion, learners are able to mint a **Level1 or custom NFT**
 We are still working on the optimal format of the NFT. Currently we're thinking MP4, SVG or PNG is suitable. We will work with you to set the NFT up.
 
 ---
-As a guide you will change people's lives. Although learning journeys are long with highs and lows, it's the first steps that we recognize as the steps that changed everything. They are often the hardest to take but the most meaningful. We remember those that were by our side when taking the leap. We appreciate the value you're providing and are here to support you in any way we can.
+Learning journeys are ongoing with highs and lows. It's the first steps on that journey that are often the scariest to take but the most meaningful. We remember those that provided us safety when taking the leap. We appreciate the incredible value you're providing as a guide and are here to support you in any way we can. As a Level1 guide, you will change people's lives.

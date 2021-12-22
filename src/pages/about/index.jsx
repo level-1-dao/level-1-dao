@@ -34,14 +34,14 @@ const values = [
       'We learn better together. We priortize opportunities for humxns to directly help each other over coded experiences.',
   },
   {
-    name: 'Play-based',
+    name: 'Play',
     description:
       'Learn by doing is a great way for humxns to retain information. Level1s all have interactive learning experiences.',
   },
   {
-    name: 'Recognition',
+    name: 'Seen',
     description:
-      'Learners, guides and content creators give their most valued resource to us, time. We recognize this at every step. Level1 issues L1 tokens to all those that contribue their time to the learning network.',
+      'Learners, guides and content creators give their most valued resource to this space, time. We see and appreciate this at every touchpoint.',
   },
 ];
 

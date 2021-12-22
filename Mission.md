@@ -42,7 +42,7 @@ We hope to able to open up the supporting cast to a larger Level1 community once
 - **Cooperative:**
 Our focus is on the success of the collective. This means we do not have benchmarks, "leader"boards, tests, quizes or grades. We stay away from comparisons and use our energy towards celebrating where we are in this moment.
 
-* It might be surprising that we don't have quizes. We find polls and reflection prompts celebrate the feelings of those on the learning journey which helps learners learn from each other and provides improved learning outcomes over right/wrong test formats.
+We find polls and reflection prompts celebrate the feelings of those on the learning journey which helps learners learn from each other and provides improved learning outcomes over right/wrong test formats.
 
 - **Accessible:**
 Level1 works towards being a space that all can be their best selves in. 
@@ -57,7 +57,7 @@ We recognize the words we use are powerful. Therefor we are constantly auditing 
   - Symbols we don't use: Checkmarks, X
   - Words we find are aligned to mission: Learning journey, Guide, Feeling, 
 
-* We frequently audit the language we use as performance based language is something many of us are used to using which goes against the Level1 mission, vision and values.
+We frequently audit the language we use as performance based language is something many of us are used to using which goes against the Level1 mission, vision and values.
 
 - **Witness the power of the learner:**
 Every step a learner takes towards learning something new is a powerful one. We build experiences that work to show learners and celebrate how powerful they are.
@@ -109,5 +109,6 @@ This is the final part of the Level1 learning journey. It's a great place for a 
 
 Upon completion, learners are able to mint a **Level1 or custom NFT**
 We are still working on the optimal format of the NFT. Currently we're thinking MP4, SVG or PNG is suitable. We will work with you to set the NFT up.
+
 ---
 As a guide you will change people's lives. We all remember those that gave us the confidence to jump in. Although learning journeys are long and bumpy, it's the first steps that we recognize as the steps that changed everything. They are often the hardest to take but the most meaningful. We appreciate the value you're providing and are here to support you in any way we can.

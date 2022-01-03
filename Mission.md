@@ -53,7 +53,7 @@ Level1 works towards being a space that all can be their best selves within.
 
 - **Language:**
 We recognize the words we use are powerful. Therefor we are constantly auditing the language used in the platform to ensure it aligns to the mission, vision and values of Level1.
-  - Words we don't use: Class, Lesson, Grade, Results, Expert, Newbie, Noob, Test, Quiz
+  - Words we don't use: Master, Class, Lesson, Grade, Results, Expert, Newbie, Noob, Test, Quiz
   - Symbols we don't use: Checkmarks, X
   - Words we find are aligned to mission: Learning journey, Guide, Feelings. 
 

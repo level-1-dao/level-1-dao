@@ -12,6 +12,6 @@ module.exports = withBundleAnalyzer({
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
   images: {
-    domains: ['tailwindui.com', 'images.unsplash.com', 'picsum.photos'],
+    domains: ['tailwindui.com', 'images.unsplash.com', 'picsum.photos','lh3.googleusercontent.com', 's.gravatar.com'],
   },
 });

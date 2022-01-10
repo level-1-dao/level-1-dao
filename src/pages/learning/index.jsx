@@ -3,8 +3,10 @@ import AppPageTwoColumn from '../../layout/AppPageTwoColumn';
 import LearningSplashPage from '../../templates/LearningSplashPage';
 import {NFT} from '../../components/NFT';
 import Curriculum from '../../components/Curriculum';
-
+import Loading from '../../components/Loading';
+import ErrorMessage from '../../components/ErrorMessage';
 import GitcoinCurriculumData from '../../mockData/GitcoinCurriculumData';
+import { withPageAuthRequired } from '@auth0/nextjs-auth0';
 
 const LearningLandingPage = () => (
   <div className="h-full">
@@ -47,4 +49,7 @@ const LearningLandingPage = () => (
   </div>
 );
 
-export default LearningLandingPage;
+export default withPageAuthRequired(LearningLandingPage, {
+  onRedirecting: () => <Loading />,
+  onError: error => <ErrorMessage>{error.message}</ErrorMessage>
+});

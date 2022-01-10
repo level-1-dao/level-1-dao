@@ -41,14 +41,14 @@ const NavBar = () => {
                   </Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                  <Link href="/discover" passHref>
+                  <Link href="/discover">
                     <a className="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                       Discover
                     </a>
                   </Link>
                 </div>
                 <div className="hidden lg:ml-6 lg:flex lg:space-x-8">
-                  <Link href="/about" passHref>
+                  <Link href="/about">
                     <a className="border-transparent text-gray-500 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                       About
                     </a>
@@ -108,41 +108,50 @@ const NavBar = () => {
                   <Menu.Items className="z-40 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                     <Menu.Item>
                       {({active}) => (
-                        <a
+                        <Link
                           href="/profile"
+                        >
+                        <a 
                           className={classNames(
                             active ? 'bg-gray-100' : '',
                             'block px-4 py-2 text-sm text-gray-700'
                           )}
-                        >
+                          >
                           Your Profile
-                        </a>
+                          </a>
+                        </Link>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({active}) => (
-                        <a
+                        <Link
                           href="#"
+                        >
+                        <a
                           className={classNames(
                             active ? 'bg-gray-100' : '',
                             'block px-4 py-2 text-sm text-gray-700'
                           )}
-                        >
+                          >
                           Settings
-                        </a>
+                          </a>
+                        </Link>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({active}) => (
-                        <a
+                        <Link
                           href="/api/auth/logout"
+                        >
+                        <a 
                           className={classNames(
                             active ? 'bg-gray-100' : '',
                             'block px-4 py-2 text-sm text-gray-700'
                           )}
-                        >
+                          >
                           Sign out
-                        </a>
+                          </a>
+                        </Link>
                       )}
                     </Menu.Item>
                   </Menu.Items>

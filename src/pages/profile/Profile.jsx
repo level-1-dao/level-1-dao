@@ -1,41 +1,18 @@
-import React from 'react';
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0';
-import Loading from '../../components/Loading';
-import ErrorMessage from '../../components/ErrorMessage';
+import React from "react";
+import {useUser, withPageAuthRequired} from "@auth0/nextjs-auth0";
+import ProfileForm from "./ProfileForm";
+import Loading from "../../components/Loading";
+import ErrorMessage from "../../components/ErrorMessage";
 
 function Profile() {
-  const { user, isLoading } = useUser();
+  const {user, isLoading} = useUser();
 
   return (
     <div className="relative sm:py-4">
-      <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-24 lg:items-start">
-        <div className="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
+      <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-24 lg:items-start card card-bordered shadow-2xl p-12">
+        <div className="relative mx-auto max-w-md sm:max-w-3xl">
           {isLoading && <Loading />}
-          {user && (
-            <div className="pt-12 sm:pt-16 lg:pt-20">
-              <h2 className="text-2xl text-primary font-extrabold tracking-tight">
-                Profile
-              </h2>
-              <img
-                className="object-cover shadow-lg rounded-lg w-100 h-100"
-                src={user.picture}
-                alt=""                
-                width={120}
-              />
-              <div className="sm:col-span-2">
-                <div className="space-y-4">
-                  <div className="text-lg text-accent leading-6 font-medium space-y-1">
-                    <h3>Name: {user.name}</h3>
-                  </div>
-                  <div className="text-lg">
-                    <p className="text-base-content">Email: {user.email}</p>
-                    <p className="text-base-content">Verified : {user.email_verified ? "Yes" : "No"}</p>
-                    <p className="text-base-content">JSON: {JSON.stringify(user,null, 2)}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          {user && <ProfileForm user={user} />}
         </div>
       </div>
     </div>
@@ -44,7 +21,7 @@ function Profile() {
 
 export default withPageAuthRequired(Profile, {
   onRedirecting: () => <Loading />,
-  onError: error => <ErrorMessage>{error.message}</ErrorMessage>
+  onError: (error) => <ErrorMessage>{error.message}</ErrorMessage>,
 });
 
 /*

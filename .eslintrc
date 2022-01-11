@@ -1,6 +1,6 @@
 {
   "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
   "rules": {
-    "prettier/prettier": 0
+    "prettier/prettier": "warn"
   }
 }

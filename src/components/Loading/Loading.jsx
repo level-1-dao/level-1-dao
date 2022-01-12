@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Loading = () => (
+const Loading = ({width=60, height=80}) => (
   <div className="spinner d-flex align-items-center justify-content-center w-100 h-100" data-testid="loading">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="120"
-      height="120"
+      width={width}
+      height={height}
       className="uil-ring"
       preserveAspectRatio="xMidYMid"
       viewBox="0 0 100 100">

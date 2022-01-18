@@ -1,7 +1,7 @@
-import {useRouter} from "next/router";
-import React, {useState, useEffect} from "react";
+import { useRouter } from "next/router";
+import React, { useState, useEffect } from "react";
 import Web3 from "web3";
-import {Meta} from "../layout/Meta";
+import { Meta } from "../layout/Meta";
 import MarketingPage from "../templates/MarketingPage";
 
 const Index = () => {
@@ -12,7 +12,7 @@ const Index = () => {
   useEffect(() => {
     window.ethereum
       ? ethereum
-          .request({method: "eth_requestAccounts"})
+          .request({ method: "eth_requestAccounts" })
           .then((accounts) => {
             setAddress(accounts[0]);
             let w3 = new Web3(ethereum);

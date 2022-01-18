@@ -1,9 +1,9 @@
 /* This example requires Tailwind CSS v2.0+ */
-import {Fragment, useState} from 'react';
-import {Dialog, Transition} from '@headlessui/react';
-import Image from 'next/image';
-import {CheckIcon} from '@heroicons/react/solid';
-import Link from 'next/link';
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import Image from "next/image";
+import { CheckIcon } from "@heroicons/react/solid";
+import Link from "next/link";
 
 const PopUp = ({
   open,
@@ -126,27 +126,27 @@ const PopUp = ({
                   className={
                     `btn btn-primary btn-outline btn-block` +
                     (addingTokens
-                      ? ' loading'
+                      ? " loading"
                       : addTokensComplete
-                      ? ' opacity-50 '
-                      : '')
+                      ? " opacity-50 "
+                      : "")
                   }
                   onClick={() => awardTokens()}
                   disabled={addTokensComplete}
                 >
-                  {addTokensComplete ? 'Tokens Added' : 'Add Tokens'}
+                  {addTokensComplete ? "Tokens Added" : "Add Tokens"}
                   {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button>
                 <button
                   type="button"
                   className={
                     `btn btn-accent btn-outline btn-block` +
-                    (minting ? ' loading' : mintComplete ? ' opacity-50 ' : '')
+                    (minting ? " loading" : mintComplete ? " opacity-50 " : "")
                   }
                   onClick={() => mintNft()}
                   disabled={mintComplete}
                 >
-                  {mintComplete ? 'Minted NFT' : 'Mint NFT'}
+                  {mintComplete ? "Minted NFT" : "Mint NFT"}
                   {mintComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button>
               </div>

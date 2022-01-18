@@ -1,3 +1,12 @@
+import Image from "next/image";
+import { useQuery, gql } from "@apollo/client";
+
+// const UPDATE_SETTINGS = gql`
+//   mutation updateSettings($input: UpdateSettingsInput!) {
+//     updateSettings(input: $input) {
+//     }
+//   }`;
+
 const ProfileForm = ({ user }) => {
   return (
     <form className="space-y-8">
@@ -13,7 +22,13 @@ const ProfileForm = ({ user }) => {
           </label>
           <div className="avatar">
             <div className="mb-8 rounded-full w-24 h-24">
-              <img src={user.avatar} alt="user profile image" />
+              <Image
+                src={user.avatar}
+                alt="NFT"
+                layout="responsive"
+                width={200}
+                height={200}
+              />
             </div>
           </div>
         </div>

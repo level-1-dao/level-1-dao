@@ -1,4 +1,4 @@
-const ProfileForm = ({user}) => {
+const ProfileForm = ({ user }) => {
   return (
     <form className="space-y-8">
       <div>
@@ -13,7 +13,7 @@ const ProfileForm = ({user}) => {
           </label>
           <div className="avatar">
             <div className="mb-8 rounded-full w-24 h-24">
-              <img src={user.picture} alt="user profile image" />
+              <img src={user.avatar} alt="user profile image" />
             </div>
           </div>
         </div>
@@ -29,7 +29,11 @@ const ProfileForm = ({user}) => {
               autoComplete="given-name"
               className="input input-bordered w-full"
               disabled
-              value={user.name}
+              value={
+                user.firstName
+                  ? `${user.firstName} ${user.lastName}`
+                  : user.username
+              }
             />
           </div>
         </div>
@@ -62,7 +66,7 @@ const ProfileForm = ({user}) => {
               autoComplete="country-name"
               className="select select-bordered w-full max-w-xs"
               disabled
-              value={user["https://level-1.vercel.app/country"]}
+              value={user.country}
             >
               <option>United States</option>
               <option>Canada</option>

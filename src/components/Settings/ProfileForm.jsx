@@ -1,15 +1,36 @@
+import { useState } from "react";
 import Image from "next/image";
-import { useQuery, gql } from "@apollo/client";
-
-// const UPDATE_SETTINGS = gql`
-//   mutation updateSettings($input: UpdateSettingsInput!) {
-//     updateSettings(input: $input) {
-//     }
-//   }`;
+import { useMutation } from '../../lib/apollo';
+import { UPDATE_SETTINGS } from './graphql';
 
 const ProfileForm = ({ user }) => {
+  const [newsletter, setNewsletter] = useState(user.newsletter || false);
+  const [journeyUpdates, setJourneyUpdates] = useState(user.journeyUpdates || false);
+
+  const { load: updateSettings, loading, error } = useMutation(UPDATE_SETTINGS, {
+    onCompleted: data => {
+      // TODO - show alert/toast
+      console.log("update setting ", data);
+    },
+    onError: (error) => {
+      // TODO - show alert/toast
+      console.log("update setting error", error)
+    },
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateSettings({
+      variables: {
+        id: user.id,
+        newsletter: newsletter,
+        journeyUpdates: journeyUpdates,
+      },
+    });
+  }
+
   return (
-    <form className="space-y-8">
+    <form className="space-y-8" onSubmit={handleSubmit}>
       <div>
         <h3 className="text-2xl leading-6 font-medium text-primary">
           Your Level1 Profile Information
@@ -130,6 +151,8 @@ const ProfileForm = ({ user }) => {
                     id="newsletter"
                     name="newsletter"
                     type="checkbox"
+                    checked={newsletter}
+                    onChange={(e) => setNewsletter(e.target.checked)}
                     className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                   />
                 </div>
@@ -149,6 +172,8 @@ const ProfileForm = ({ user }) => {
                     id="journey-updates"
                     name="journey-updates"
                     type="checkbox"
+                    checked={journeyUpdates}
+                    onChange={(e) => setJourneyUpdates(e.target.checked)}
                     className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded"
                   />
                 </div>
@@ -172,7 +197,7 @@ const ProfileForm = ({ user }) => {
           <button type="button" className="btn btn-secondary">
             Cancel
           </button>
-          <button type="submit" className="ml-3 btn btn-primary">
+          <button type="submit" className="ml-3 btn btn-primary" disabled={loading}>
             Save
           </button>
         </div>

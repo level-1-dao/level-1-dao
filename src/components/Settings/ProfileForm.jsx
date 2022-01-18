@@ -1,20 +1,26 @@
 import { useState } from "react";
 import Image from "next/image";
-import { useMutation } from '../../lib/apollo';
-import { UPDATE_SETTINGS } from './graphql';
+import { useMutation } from "../../lib/apollo";
+import { UPDATE_SETTINGS } from "../../lib/graphql";
 
 const ProfileForm = ({ user }) => {
   const [newsletter, setNewsletter] = useState(user.newsletter || false);
-  const [journeyUpdates, setJourneyUpdates] = useState(user.journeyUpdates || false);
+  const [journeyUpdates, setJourneyUpdates] = useState(
+    user.journeyUpdates || false
+  );
 
-  const { load: updateSettings, loading, error } = useMutation(UPDATE_SETTINGS, {
-    onCompleted: data => {
+  const {
+    load: updateSettings,
+    loading,
+    error,
+  } = useMutation(UPDATE_SETTINGS, {
+    onCompleted: (data) => {
       // TODO - show alert/toast
       console.log("update setting ", data);
     },
     onError: (error) => {
       // TODO - show alert/toast
-      console.log("update setting error", error)
+      console.log("update setting error", error);
     },
   });
 
@@ -27,7 +33,7 @@ const ProfileForm = ({ user }) => {
         journeyUpdates: journeyUpdates,
       },
     });
-  }
+  };
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit}>
@@ -197,7 +203,11 @@ const ProfileForm = ({ user }) => {
           <button type="button" className="btn btn-secondary">
             Cancel
           </button>
-          <button type="submit" className="ml-3 btn btn-primary" disabled={loading}>
+          <button
+            type="submit"
+            className="ml-3 btn btn-primary"
+            disabled={loading}
+          >
             Save
           </button>
         </div>

@@ -4,8 +4,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import { ProfileForm } from "../../components/Settings";
-import { GET_USERS } from './graphql';
-
+import { GET_USERS } from "../../lib/graphql";
 
 function Profile() {
   const { loading, error, data } = useQuery(GET_USERS);

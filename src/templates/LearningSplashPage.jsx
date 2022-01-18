@@ -1,13 +1,13 @@
-import {React} from 'react';
-import Link from 'next/link';
+import { React } from "react";
+import Link from "next/link";
 
-import Testimonial from '../components/Testimonial';
+import Testimonial from "../components/Testimonial";
 
 import {
   CashIcon,
   ChartSquareBarIcon,
   TicketIcon,
-} from '@heroicons/react/outline';
+} from "@heroicons/react/outline";
 
 const LearningSplashPage = () => {
   return (
@@ -42,7 +42,7 @@ const LearningSplashPage = () => {
         {/* <NumbersCompleted /> */}
         <div className="numbers-completed-container flex space-x-2">
           <ChartSquareBarIcon className="h-6 w-6" aria-hidden="true" />
-          <p>734 people completed this lesson</p>
+          <p>734 people completed this learning journey</p>
         </div>
         {/* <UpdatedOn /> */}
         <div className="updated-on-container flex space-x-2">

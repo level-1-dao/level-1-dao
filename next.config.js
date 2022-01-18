@@ -14,4 +14,8 @@ module.exports = withBundleAnalyzer({
   images: {
     domains: ['tailwindui.com', 'images.unsplash.com', 'picsum.photos','lh3.googleusercontent.com', 's.gravatar.com'],
   },
+  env: {
+    AUTH0_BASE_URL: process.env.AUTH0_BASE_URL,
+    HASURA_GRAPHQL_URL: process.env.HASURA_GRAPHQL_URL,
+  }
 });

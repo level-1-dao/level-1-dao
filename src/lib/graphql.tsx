@@ -30,14 +30,35 @@ export const GET_USERS = gql`
 `;
 
 export const UPDATE_SETTINGS = gql`
-  mutation updateSettings(
-    $id: String
-    $newsletter: Boolean!
-    $journeyUpdates: Boolean!
+  mutation updateNotificationSettings(
+    $id: String!
+    $newsletter: Boolean
+    $journeyUpdates: Boolean
+    $connectedWalletAddress: String
+    $username: String
+    $country: String
   ) {
     update_users(
       where: { id: { _eq: $id } }
-      _set: { newsletter: $newsletter, journeyUpdates: $journeyUpdates }
+      _set: { 
+        newsletter: $newsletter,
+        journeyUpdates: $journeyUpdates,
+        connectedWalletAddress: $connectedWalletAddress,
+      }
+    ) {
+      affected_rows
+    }
+  }
+`;
+
+export const UPDATE_LINKED_WALLET_ADDRESS = gql`
+  mutation updateNotificationSettings(
+    $id: String!
+    $wallet: String
+  ) {
+    update_users(
+      where: { id: { _eq: $id } }
+      _set: { connectedWalletAddress: $wallet }
     ) {
       affected_rows
     }

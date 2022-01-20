@@ -4,23 +4,26 @@ import { useMutation } from "../../lib/apollo";
 import { UPDATE_SETTINGS } from "../../lib/graphql";
 
 const ProfileForm = ({ user }) => {
+  const [loading, setLoading] = useState(false);
   const [newsletter, setNewsletter] = useState(user.newsletter || false);
   const [journeyUpdates, setJourneyUpdates] = useState(
     user.journeyUpdates || false
   );
+  const [walletAddress, setWalletAddress] = useState(user.connectedWalletAddress || "");
 
   const {
     load: updateSettings,
-    loading,
     error,
   } = useMutation(UPDATE_SETTINGS, {
     onCompleted: (data) => {
       // TODO - show alert/toast
       console.log("update setting ", data);
+      setLoading(false);
     },
     onError: (error) => {
       // TODO - show alert/toast
       console.log("update setting error", error);
+      setLoading(false);
     },
   });
 
@@ -31,8 +34,10 @@ const ProfileForm = ({ user }) => {
         id: user.id,
         newsletter: newsletter,
         journeyUpdates: journeyUpdates,
+        connectedWalletAddress: walletAddress,
       },
     });
+    setLoading(true);
   };
 
   return (
@@ -128,8 +133,8 @@ const ProfileForm = ({ user }) => {
               id="street-address"
               autoComplete="street-address"
               className="input input-bordered w-full"
-              disabled
-              value={user.walletAddress}
+              onChange={(e) => setWalletAddress(e.target.value)}
+              value={walletAddress}
             />
           </div>
         </div>

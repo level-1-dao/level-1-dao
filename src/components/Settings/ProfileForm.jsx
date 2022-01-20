@@ -67,17 +67,18 @@ const ProfileForm = ({ user }) => {
           </div>
         </div>
         <div className="sm:col-span-3">
-          <label htmlFor="name" className="block font-medium mb-2">
-            Name
+          <label htmlFor="username" className="block font-medium mb-2">
+            Username
           </label>
           <div className="mt-1">
             <input
               type="text"
-              name="name"
-              id="name"
-              autoComplete="given-name"
+              name="username"
+              id="username"
+              autoComplete="username"
               className="input input-bordered w-full"
               onChange={(e) => setUsername(e.target.value)}
+              disabled
               value={username}
             />
           </div>
@@ -132,6 +133,7 @@ const ProfileForm = ({ user }) => {
               autoComplete="street-address"
               className="input input-bordered w-full"
               onChange={(e) => setWalletAddress(e.target.value)}
+              disabled
               value={walletAddress}
             />
           </div>

@@ -10,6 +10,7 @@ const ProfileForm = ({ user }) => {
     user.journeyUpdates || false
   );
   const [walletAddress, setWalletAddress] = useState(user.connectedWalletAddress || "");
+  const [username, setUsername] = useState(user.username || "");
 
   const {
     load: updateSettings,
@@ -35,6 +36,7 @@ const ProfileForm = ({ user }) => {
         newsletter: newsletter,
         journeyUpdates: journeyUpdates,
         connectedWalletAddress: walletAddress,
+        username: username,
       },
     });
     setLoading(true);
@@ -75,12 +77,8 @@ const ProfileForm = ({ user }) => {
               id="name"
               autoComplete="given-name"
               className="input input-bordered w-full"
-              disabled
-              value={
-                user.firstName
-                  ? `${user.firstName} ${user.lastName}`
-                  : user.username
-              }
+              onChange={(e) => setUsername(e.target.value)}
+              value={username}
             />
           </div>
         </div>

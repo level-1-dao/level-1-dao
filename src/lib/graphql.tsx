@@ -64,3 +64,15 @@ export const UPDATE_LINKED_WALLET_ADDRESS = gql`
     }
   }
 `;
+
+export const ADD_USER_LEARNING_JOURNEY = gql`
+  mutation addUserLearningJourney($id: String!, $journeyId: String!) {
+    insert_learningJourneys(
+      objects: { user_id: $id, journey_id: $journeyId }
+      onConflct: ignore
+    ) {
+      affected_rows
+    }
+  }
+`;
+

@@ -4,7 +4,6 @@ import { useMutation } from "../../lib/apollo";
 import { UPDATE_SETTINGS } from "../../lib/graphql";
 
 const ProfileForm = ({ user }) => {
-  const [loading, setLoading] = useState(false);
   const [newsletter, setNewsletter] = useState(user.newsletter || false);
   const [journeyUpdates, setJourneyUpdates] = useState(
     user.journeyUpdates || false
@@ -14,17 +13,18 @@ const ProfileForm = ({ user }) => {
 
   const {
     load: updateSettings,
+    loading,
     error,
   } = useMutation(UPDATE_SETTINGS, {
     onCompleted: (data) => {
       // TODO - show alert/toast
       console.log("update setting ", data);
-      setLoading(false);
+      return;
     },
     onError: (error) => {
       // TODO - show alert/toast
       console.log("update setting error", error);
-      setLoading(false);
+      return;
     },
   });
 
@@ -39,7 +39,6 @@ const ProfileForm = ({ user }) => {
         username: username,
       },
     });
-    setLoading(true);
   };
 
   return (

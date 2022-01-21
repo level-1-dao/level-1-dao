@@ -20,6 +20,7 @@
     "@headlessui/react": "1.4.2",
     "@heroicons/react": "1.0.5",
     "@metamask/eth-sig-util": "^4.0.0",
+    "@opengsn/gsn": "^2.1.0",
     "@superfluid-finance/js-sdk": "^0.5.8",
     "@tailwindcss/aspect-ratio": "0.3.0",
     "@tailwindcss/forms": "0.3.4",
@@ -40,7 +41,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.0.2",
-    "@openzeppelin/contracts": "^4.4.0",
+    "@openzeppelin/contracts": "^4.4.2",
     "@types/next": "^9.0.0",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",

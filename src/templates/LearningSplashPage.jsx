@@ -1,13 +1,14 @@
-import {React} from 'react';
-import Link from 'next/link';
+import { React } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-import Testimonial from '../components/Testimonial';
+import Testimonial from "../components/Testimonial";
 
 import {
   CashIcon,
   ChartSquareBarIcon,
   TicketIcon,
-} from '@heroicons/react/outline';
+} from "@heroicons/react/outline";
 
 const LearningSplashPage = () => {
   return (
@@ -18,13 +19,19 @@ const LearningSplashPage = () => {
       </div>
       <h1 className="text-6xl font-bold">GitcoinDAO Onboarding</h1>
       {/* <Instructor /> */}
-      <div className="instructor-container flex space-x-2">
+      <div className="guide-container flex space-x-2">
         <div className="avatar">
           <div className="rounded-full w-14 h-14">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" />
+            <Image
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+              alt="guide avatar"
+              width={150}
+              height={150}
+              layout="responsive"
+            />
           </div>
         </div>
-        <div className="instructor-text">
+        <div className="guide-text">
           <h5 className="text-sm">
             <span className="text-gray-500">Guide</span>
           </h5>
@@ -42,7 +49,7 @@ const LearningSplashPage = () => {
         {/* <NumbersCompleted /> */}
         <div className="numbers-completed-container flex space-x-2">
           <ChartSquareBarIcon className="h-6 w-6" aria-hidden="true" />
-          <p>734 people completed this lesson</p>
+          <p>734 people completed this learning journey</p>
         </div>
         {/* <UpdatedOn /> */}
         <div className="updated-on-container flex space-x-2">

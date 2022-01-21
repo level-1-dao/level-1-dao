@@ -1,5 +1,5 @@
-import NavBar from '../../components/NavBar';
-import Profile from './Profile';
+import NavBar from "../../components/NavBar";
+import Profile from "./Profile";
 
 const index = () => {
   return (

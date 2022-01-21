@@ -1,36 +1,32 @@
-import React from 'react';
-import {useRouter} from 'next/router';
-import Image from 'next/image';
-import {Input, Feed, GoodCompany, GuideNotes} from '../components/LearnWith';
+import React from "react";
+import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 
-const LearningModule = ({curriculum, triggerModal}) => {
-  const router = useRouter();
-
+const LearningModule = ({ curriculum, triggerModal }) => {
   return (
     <div className="px-2 sm:px-4">
       {/* <VideoPlayer /> */}
-      {curriculum.contentType === 'video' && (
+      {curriculum.contentType === "video" && (
         <div className="video-container">
           <ReactPlayer url={curriculum.link} />
         </div>
       )}
-      {curriculum.contentType === 'text' && (
+      {curriculum.contentType === "text" && (
         <div className="text-container">
           <p>{curriculum.content}</p>
         </div>
       )}
-      {curriculum.contentType === 'image' && (
+      {curriculum.contentType === "image" && (
         <div className="relative">
           <img
-            src={`${router.basePath}/assets/images/${curriculum.link}`}
-            layout="fill"
-            alt="content"
+            src={`/assets/images/${curriculum.link}`}
+            layout="responsive"
+            alt="image content"
           />
         </div>
       )}
-      {curriculum.contentType === 'quiz' && (
+      {curriculum.contentType === "quiz" && (
         <div className="quiz-container">
           <div className="p-10 card bg-base-200">
             <div className="form-control">

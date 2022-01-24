@@ -2,6 +2,8 @@ import { React } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Testimonial from "../components/Testimonial";
+import { useMutation } from "../lib/apollo";
+import { ADD_USER_LEARNING_JOURNEYS } from "../lib/graphql";
 
 import {
   CashIcon,
@@ -9,7 +11,38 @@ import {
   TicketIcon,
 } from "@heroicons/react/outline";
 
-const LearningSplashPage = () => {
+const LearningSplashPage = ({ userId, learningJourneyId }) => {
+
+  const {
+    load: startLevel,
+    loading,
+    error,
+  } = useMutation(ADD_USER_LEARNING_JOURNEYS, {
+    onCompleted: (data) => {
+      // TODO - show alert/toast
+      console.log("update user learning journey ", data);
+      return;
+    },
+    onError: (error) => {
+      // TODO - show alert/toast
+      console.log("update user learning journey error", error);
+      return;
+    },
+  });
+  
+const goToLevel = () => {
+  // If user has not started level yet
+  startLevel({
+    variables: {
+      id: userId,
+      learningJourneyId: learningJourneyId,
+      progress: 0,
+      title: "My First Learning Journey",
+    },
+  });
+  //Add function for continuing level
+}
+
   return (
     <div>
       <div className="badge badge-info flex">
@@ -64,11 +97,12 @@ const LearningSplashPage = () => {
             <span className="text-sm">Bookmark</span>
           </a>
         </Link>
-        <Link href="/learning/go">
-          <a className="btn btn-primary">
+        {/* Start level button */}
+        <div className="start-level">
+          <div className="btn btn-primary" onClick={goToLevel}>
             <span className="text-sm">Start this Level1</span>
-          </a>
-        </Link>
+          </div>
+        </div>
       </div>
       {/* <Details /> */}
       <div className="details my-4">

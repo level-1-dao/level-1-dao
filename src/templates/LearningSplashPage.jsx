@@ -1,4 +1,4 @@
-import { React } from "react";
+import { React, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Testimonial from "../components/Testimonial";
@@ -10,7 +10,22 @@ import {
 } from "@heroicons/react/outline";
 import { StartButton } from "../components/StartLevel";
 
-const LearningSplashPage = ({ userId, learningJourneyId }) => {
+const LearningSplashPage = ({ user, learningJourneyId }) => {
+  const [started, setStarted] = useState(false);
+
+  const checkIfUserHasStartedLevel = (learningJourneyId, userLearningJourneys) => {
+    userLearningJourneys.map((userLearningJourney) => {
+      if (userLearningJourney.learningJourneyId === learningJourneyId) {
+        console.log("user has started this level");
+        setStarted(true);
+        return;
+      }
+    });
+  }
+
+  useEffect(() => {
+    checkIfUserHasStartedLevel(learningJourneyId, user.learningJourneys);
+  }, [user.learningJourneys]);
 
   return (
     <div>
@@ -67,7 +82,7 @@ const LearningSplashPage = ({ userId, learningJourneyId }) => {
           </a>
         </Link>
         {/* Start level button */}
-        <StartButton userId={userId} learningJourneyId={learningJourneyId} started />
+        <StartButton userId={user.id} learningJourneyId={learningJourneyId} started={started} />
       </div>
       {/* <Details /> */}
       <div className="details my-4">

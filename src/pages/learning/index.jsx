@@ -13,6 +13,7 @@ import { useQuery } from "@apollo/client";
 const LearningLandingPage = () => {
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
+  console.log(user);
 
   return(
     <div className="h-full">
@@ -23,7 +24,7 @@ const LearningLandingPage = () => {
             description="Your first steps to contributing to the GitcoinDAO"
           />
         }
-        leftColumn={loading ? <Loading /> : <LearningSplashPage userId={user.id} learningJourneyId="5cbc223b-57d2-439e-8744-f8b97bc455cd" /> }
+        leftColumn={loading ? <Loading /> : <LearningSplashPage user={user} learningJourneyId="5cbc223b-57d2-439e-8744-f8b97bc455cd" /> }
         rightColumn={
           <div className="flex flex-col space-y-4 items-center w-full px-4">
             {/* <AccessInfo /> */}

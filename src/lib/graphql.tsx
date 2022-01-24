@@ -21,6 +21,7 @@ export const GET_USERS = gql`
       journeyUpdates
       learningJourneys {
         id
+        learningJourneyId
         title
         created_at
         updated_at

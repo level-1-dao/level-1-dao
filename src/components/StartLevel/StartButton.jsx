@@ -2,6 +2,7 @@ import { useMutation } from "../../lib/apollo";
 import { ADD_USER_LEARNING_JOURNEYS } from "../../lib/graphql";
 
 const StartButton = ({ userId, learningJourneyId, started }) => {
+    console.log("started is equal to: " + started);
 
     const {
       load: startLevel,
@@ -35,9 +36,13 @@ const StartButton = ({ userId, learningJourneyId, started }) => {
 
   return (
     <div className="start-level">
-      <div className="btn btn-primary" onClick={goToLevel}>
-        <span className="text-sm">Start this Level1</span>
-      </div>
+      <button className="btn btn-primary" onClick={goToLevel}>
+        <span className="text-sm">
+          {
+            started ? "Continue this Level1" : "Start this Level1"
+          }
+        </span>
+      </button>
     </div>
   );
 };

@@ -44,6 +44,7 @@ export const UPDATE_SETTINGS = gql`
         newsletter: $newsletter,
         journeyUpdates: $journeyUpdates,
         connectedWalletAddress: $connectedWalletAddress,
+        username: $username,
       }
     ) {
       affected_rows

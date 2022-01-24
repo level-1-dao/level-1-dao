@@ -87,3 +87,28 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
   }
 `;
 
+export const UPDATE_USER_LEARNING_JOURNEY = gql`
+  mutation updateUserLearningJourney(
+    $id: uuid!,
+    $progress: Int!,
+    $updated_at: timestamptz!,
+    $mintedNft: String!,
+    $receivedTokens: String!,
+  ) {
+    update_learningJourneys(
+      where: { id: { _eq: $id } }
+      _set: {
+        progress: $progress,
+        updated_at: $updated_at,
+        mintedNft: $mintedNft,
+        receivedTokens: $receivedTokens,
+      }
+    ) {
+      affected_rows
+    }
+  }
+`;
+
+
+
+

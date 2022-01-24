@@ -2,46 +2,15 @@ import { React } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Testimonial from "../components/Testimonial";
-import { useMutation } from "../lib/apollo";
-import { ADD_USER_LEARNING_JOURNEYS } from "../lib/graphql";
 
 import {
   CashIcon,
   ChartSquareBarIcon,
   TicketIcon,
 } from "@heroicons/react/outline";
+import { StartButton } from "../components/StartLevel";
 
 const LearningSplashPage = ({ userId, learningJourneyId }) => {
-
-  const {
-    load: startLevel,
-    loading,
-    error,
-  } = useMutation(ADD_USER_LEARNING_JOURNEYS, {
-    onCompleted: (data) => {
-      // TODO - show alert/toast
-      console.log("update user learning journey ", data);
-      return;
-    },
-    onError: (error) => {
-      // TODO - show alert/toast
-      console.log("update user learning journey error", error);
-      return;
-    },
-  });
-  
-const goToLevel = () => {
-  // If user has not started level yet
-  startLevel({
-    variables: {
-      id: userId,
-      learningJourneyId: learningJourneyId,
-      progress: 0,
-      title: "My First Learning Journey",
-    },
-  });
-  //Add function for continuing level
-}
 
   return (
     <div>
@@ -98,11 +67,7 @@ const goToLevel = () => {
           </a>
         </Link>
         {/* Start level button */}
-        <div className="start-level">
-          <div className="btn btn-primary" onClick={goToLevel}>
-            <span className="text-sm">Start this Level1</span>
-          </div>
-        </div>
+        <StartButton userId={userId} learningJourneyId={learningJourneyId} started />
       </div>
       {/* <Details /> */}
       <div className="details my-4">

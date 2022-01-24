@@ -11,13 +11,13 @@ import {
 import { StartButton } from "../components/StartLevel";
 
 const LearningSplashPage = ({ user, learningJourneyId }) => {
-  const [started, setStarted] = useState(false);
+  const [userLearningJourneyId, setUserLearningJourneyId] = useState(null);
 
   const checkIfUserHasStartedLevel = (learningJourneyId, userLearningJourneys) => {
     userLearningJourneys.map((userLearningJourney) => {
       if (userLearningJourney.learningJourneyId === learningJourneyId) {
         console.log("user has started this level");
-        setStarted(true);
+        setUserLearningJourneyId(userLearningJourney.id);
         return;
       }
     });
@@ -82,7 +82,7 @@ const LearningSplashPage = ({ user, learningJourneyId }) => {
           </a>
         </Link>
         {/* Start level button */}
-        <StartButton userId={user.id} learningJourneyId={learningJourneyId} started={started} />
+        <StartButton userId={user.id} learningJourneyId={learningJourneyId} userLearningJourneyId={userLearningJourneyId} />
       </div>
       {/* <Details /> */}
       <div className="details my-4">

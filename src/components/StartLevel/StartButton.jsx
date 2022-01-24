@@ -1,27 +1,44 @@
 import { useMutation } from "../../lib/apollo";
-import { ADD_USER_LEARNING_JOURNEYS } from "../../lib/graphql";
+import { ADD_USER_LEARNING_JOURNEYS, UPDATE_USER_LEARNING_JOURNEY_PROGRESS } from "../../lib/graphql";
 
-const StartButton = ({ userId, learningJourneyId, userLearningJourneyId }) => {
+const StartButton = ({ userId, learningJourneyId, userLearningJourneyData }) => {
 
-    const {
-      load: startLevel,
-      loading,
-      error,
-    } = useMutation(ADD_USER_LEARNING_JOURNEYS, {
-      onCompleted: (data) => {
-        // TODO - show alert/toast
-        console.log("update user learning journey ", data);
-        return;
-      },
-      onError: (error) => {
-        // TODO - show alert/toast
-        console.log("update user learning journey error", error);
-        return;
-      },
-    });
+  const {
+    load: continueLevel,
+    loading: loadingContinueLevel,
+    error: errorContinueLevel,
+  } = useMutation(UPDATE_USER_LEARNING_JOURNEY_PROGRESS, {
+    onCompleted: (data) => {
+      // TODO - show alert/toast
+      console.log("continue user learning journey ", data);
+      return;
+    },
+    onError: (errorContinueLevel) => {
+      // TODO - show alert/toast
+      console.log("continue user learning journey error", errorContinueLevel);
+      return;
+    },
+  });
+
+  const {
+    load: startLevel,
+    loading: loadingStartLevel,
+    error: errorStartLevel,
+  } = useMutation(ADD_USER_LEARNING_JOURNEYS, {
+    onCompleted: (data) => {
+      // TODO - show alert/toast
+      console.log("add user learning journey ", data);
+      return;
+    },
+    onError: (errorStartLevel) => {
+      // TODO - show alert/toast
+      console.log("add user learning journey error", errorStartLevel);
+      return;
+    },
+  });
     
   const goToLevel = () => {
-    if ( !userLearningJourneyId ) {
+    if ( !userLearningJourneyData ) {
     startLevel({
       variables: {
         id: userId,
@@ -30,16 +47,24 @@ const StartButton = ({ userId, learningJourneyId, userLearningJourneyId }) => {
         title: "My First Learning Journey",
       },
     });
+    } else {
+    continueLevel({
+      variables: {
+        id: userLearningJourneyData.id,
+        updatedAt: new Date(),
+        progress: userLearningJourneyData.progress,
+        receivedTokens: userLearningJourneyData.receivedTokens,
+      }
+    });
     }
-    //Add function for continuing level
-  }
+  };
 
   return (
     <div className="start-level">
-      <button className="btn btn-primary" onClick={() => goToLevel()}>
+      <button className="btn btn-primary" onClick={() => goToLevel()} disabled={loadingContinueLevel || loadingStartLevel}>
         <span className="text-sm">
           {
-            userLearningJourneyId ? "Continue this Level1" : "Start this Level1"
+            userLearningJourneyData ? "Continue this Level1" : "Start this Level1"
           }
         </span>
       </button>

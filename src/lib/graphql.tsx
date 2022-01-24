@@ -25,6 +25,9 @@ export const GET_USERS = gql`
         title
         created_at
         updated_at
+        progress
+        receivedTokens
+        mintedNft
       }
     }
   }
@@ -87,21 +90,21 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
   }
 `;
 
-export const UPDATE_USER_LEARNING_JOURNEY = gql`
+export const UPDATE_USER_LEARNING_JOURNEY_PROGRESS = gql`
   mutation updateUserLearningJourney(
     $id: uuid!,
-    $progress: Int!,
-    $updated_at: timestamptz!,
-    $mintedNft: String!,
-    $receivedTokens: String!,
+    $progress: Int,
+    $updatedAt: timestamptz!,
+    $receivedTokens: Int,
+    $mintedNft: String,
   ) {
     update_learningJourneys(
       where: { id: { _eq: $id } }
       _set: {
         progress: $progress,
-        updated_at: $updated_at,
-        mintedNft: $mintedNft,
+        updated_at: $updatedAt,
         receivedTokens: $receivedTokens,
+        mintedNft: $mintedNft
       }
     ) {
       affected_rows

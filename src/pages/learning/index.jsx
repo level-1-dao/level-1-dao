@@ -24,7 +24,7 @@ const LearningLandingPage = () => {
             description="Your first steps to contributing to the GitcoinDAO"
           />
         }
-        leftColumn={loading ? <Loading /> : <LearningSplashPage userId={user.id} learningJourneyId="200" /> }
+        leftColumn={loading ? <Loading /> : <LearningSplashPage userId={user.id} learningJourneyId="5cbc223b-57d2-439e-8744-f8b97bc455cd" /> }
         rightColumn={
           <div className="flex flex-col space-y-4 items-center w-full px-4">
             {/* <AccessInfo /> */}

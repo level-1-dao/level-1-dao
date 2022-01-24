@@ -13,7 +13,6 @@ import { useQuery } from "@apollo/client";
 const LearningLandingPage = () => {
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
-  console.log(user);
 
   return(
     <div className="h-full">

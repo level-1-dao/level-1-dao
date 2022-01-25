@@ -1,7 +1,10 @@
 import { useMutation } from "../../lib/apollo";
 import { ADD_USER_LEARNING_JOURNEYS, UPDATE_USER_LEARNING_JOURNEY_PROGRESS } from "../../lib/graphql";
+import { useRouter } from 'next/router';
+
 
 const StartButton = ({ userId, learningJourneyId, userLearningJourneyData }) => {
+  const router = useRouter()
 
   const {
     load: continueLevel,
@@ -56,6 +59,13 @@ const StartButton = ({ userId, learningJourneyId, userLearningJourneyData }) => 
         receivedTokens: userLearningJourneyData.receivedTokens,
       }
     });
+    router.push({
+      pathname: '/learning/journey/[levelId]',
+      query: {
+        levelId: learningJourneyId,
+        step: userLearningJourneyData.progress,
+      },
+      });
     }
   };
 

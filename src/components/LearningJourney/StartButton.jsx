@@ -65,7 +65,7 @@ const StartButton = ({ user, learningJourneyId }) => {
     if (!userLearningJourneyData) {
       startLevel({
         variables: {
-          id: user.id,
+          userId: user.id,
           learningJourneyId: learningJourneyData.id,
           progress: 0,
           title: "My First Learning Journey",

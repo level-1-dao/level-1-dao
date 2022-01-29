@@ -69,14 +69,14 @@ export const UPDATE_LINKED_WALLET_ADDRESS = gql`
 
 export const ADD_USER_LEARNING_JOURNEYS = gql`
   mutation addUserLearningJourney(
-    $id: String!
+    $userId: String!
     $learningJourneyId: uuid!
     $progress: Int!
     $title: String!
   ) {
     insert_learningJourneys(
       objects: {
-        userId: $id
+        userId: $userId
         learningJourneyId: $learningJourneyId
         progress: $progress
         title: $title

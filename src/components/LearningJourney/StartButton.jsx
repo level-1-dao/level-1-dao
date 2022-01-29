@@ -4,10 +4,8 @@ import {
   ADD_USER_LEARNING_JOURNEYS,
   UPDATE_USER_LEARNING_JOURNEY_PROGRESS,
 } from "../../lib/graphql";
-import { useRouter } from "next/router";
 
-const StartButton = ({ user, learningJourneyId }) => {
-  const router = useRouter();
+const StartButton = ({ user, learningJourneyId, handleStart }) => {
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
 
   const checkIfUserHasStartedLevel = (
@@ -80,13 +78,7 @@ const StartButton = ({ user, learningJourneyId }) => {
           receivedTokens: userLearningJourneyData.receivedTokens,
         },
       });
-      router.push({
-        pathname: "/learning/journey/[levelId]",
-        query: {
-          levelId: learningJourneyId,
-          step: userLearningJourneyData.progress,
-        },
-      });
+      handleStart();
     }
   };
 

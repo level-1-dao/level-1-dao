@@ -1,14 +1,17 @@
+import { Fragment, useState } from "react";
 import { Meta } from "../../layout/Meta.tsx";
 import AppPageTwoColumn from "../../layout/AppPageTwoColumn";
 import { NFT } from "../../components/NFT";
 import Curriculum from "../../components/Curriculum";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
+import Testimonial from "../../components/Testimonial";
 import GitcoinCurriculumData from "../../mockData/GitcoinCurriculumData";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { GET_USERS } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import LearningJourneySplashHeader from "../../templates/LearningJourneySplashHeader";
+import LearningJourneyDetails from "../../templates/LearningJourneyDetails";
 
 const learningJourneyData = {
   id: "5cbc223b-57d2-439e-8744-f8b97bc455cd",
@@ -22,28 +25,53 @@ const learningJourneyData = {
 };
 
 const LearningLandingPage = ({ id }) => {
+  const [started, setStarted] = useState(false);
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
+
+  const handleStart = () => {
+    setStarted(true);
+  };
 
   return (
     <div className="h-full">
       <AppPageTwoColumn
         meta={
           <Meta
-            title="GitcoinDAO Level1"
-            description="Your first steps to contributing to the GitcoinDAO"
+            title={learningJourneyData.title}
+            description={learningJourneyData.description}
           />
         }
         leftColumn={
           loading ? (
             <Loading />
-          ) : (
-            <div>
+          ) : !started ? (
+            <Fragment>
               <LearningJourneySplashHeader
                 user={user}
                 learningJourneyData={learningJourneyData}
+                handleStart={handleStart}
               />
-            </div>
+              <LearningJourneyDetails
+                learningJourneyData={learningJourneyData}
+              />
+              <div className="grid gap-4 grid-cols-2">
+                <Testimonial
+                  avatar="https://picsum.photos/id/338/200/300"
+                  name="Cary Ann"
+                  role="Completed"
+                  testimonial="This was great. I learned a lot and I'm really excited to continue learning."
+                />
+                <Testimonial
+                  avatar="https://picsum.photos/id/433/200/300"
+                  name="James Dean"
+                  role="In progress"
+                  testimonial="Thank you for putting this information in easy to absorb bite sizes. I'm excited to see what comes next!"
+                />
+              </div>
+            </Fragment>
+          ) : (
+            <div> </div>
           )
         }
         rightColumn={

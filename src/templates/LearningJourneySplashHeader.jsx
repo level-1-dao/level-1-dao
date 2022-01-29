@@ -9,6 +9,7 @@ const LearningJourneySplashHeader = ({
   learningJourneyData,
   user,
   userLearningJourneyData,
+  handleStart,
 }) => {
   console.log(userLearningJourneyData);
   return (
@@ -43,7 +44,11 @@ const LearningJourneySplashHeader = ({
           </a>
         </Link>
         {/* Start level button */}
-        <StartButton user={user} learningJourneyId={learningJourneyData.id} />
+        <StartButton
+          user={user}
+          learningJourneyId={learningJourneyData.id}
+          handleStart={handleStart}
+        />
       </div>
     </div>
   );

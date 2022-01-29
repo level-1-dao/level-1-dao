@@ -8,12 +8,15 @@ import {
   ChartSquareBarIcon,
   TicketIcon,
 } from "@heroicons/react/outline";
-import { StartButton } from "../components/StartLevel";
+import { StartButton } from "../components/LearningJourney";
 
 const LearningSplashPage = ({ user, learningJourneyId }) => {
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
 
-  const checkIfUserHasStartedLevel = (learningJourneyId, userLearningJourneys) => {
+  const checkIfUserHasStartedLevel = (
+    learningJourneyId,
+    userLearningJourneys
+  ) => {
     userLearningJourneys.map((userLearningJourney) => {
       if (userLearningJourney.learningJourneyId === learningJourneyId) {
         console.log("user has started this level");
@@ -21,11 +24,11 @@ const LearningSplashPage = ({ user, learningJourneyId }) => {
         return;
       }
     });
-  }
+  };
 
   useEffect(() => {
     checkIfUserHasStartedLevel(learningJourneyId, user.learningJourneys);
-  }, [user.learningJourneys]);
+  });
 
   return (
     <div>
@@ -82,7 +85,7 @@ const LearningSplashPage = ({ user, learningJourneyId }) => {
           </a>
         </Link>
         {/* Start level button */}
-        <StartButton userId={user.id} learningJourneyId={learningJourneyId} userLearningJourneyData={userLearningJourneyData} />
+        <StartButton user={user} learningJourneyId={learningJourneyId} />
       </div>
       {/* <Details /> */}
       <div className="details my-4">

@@ -44,11 +44,11 @@ export const UPDATE_SETTINGS = gql`
   ) {
     update_users(
       where: { id: { _eq: $id } }
-      _set: { 
-        newsletter: $newsletter,
-        journeyUpdates: $journeyUpdates,
-        connectedWalletAddress: $connectedWalletAddress,
-        username: $username,
+      _set: {
+        newsletter: $newsletter
+        journeyUpdates: $journeyUpdates
+        connectedWalletAddress: $connectedWalletAddress
+        username: $username
       }
     ) {
       affected_rows
@@ -57,10 +57,7 @@ export const UPDATE_SETTINGS = gql`
 `;
 
 export const UPDATE_LINKED_WALLET_ADDRESS = gql`
-  mutation updateNotificationSettings(
-    $id: String!
-    $wallet: String
-  ) {
+  mutation updateNotificationSettings($id: String!, $wallet: String) {
     update_users(
       where: { id: { _eq: $id } }
       _set: { connectedWalletAddress: $wallet }
@@ -72,16 +69,16 @@ export const UPDATE_LINKED_WALLET_ADDRESS = gql`
 
 export const ADD_USER_LEARNING_JOURNEYS = gql`
   mutation addUserLearningJourney(
-    $id: String!,
-    $learningJourneyId: uuid!,
-    $progress: Int!,
-    $title: String!,
+    $id: String!
+    $learningJourneyId: uuid!
+    $progress: Int!
+    $title: String!
   ) {
     insert_learningJourneys(
-      objects: { 
-        userId: $id,
-        learningJourneyId: $learningJourneyId 
-        progress: $progress,
+      objects: {
+        userId: $id
+        learningJourneyId: $learningJourneyId
+        progress: $progress
         title: $title
       }
     ) {
@@ -92,18 +89,18 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
 
 export const UPDATE_USER_LEARNING_JOURNEY_PROGRESS = gql`
   mutation updateUserLearningJourney(
-    $id: uuid!,
-    $progress: Int,
-    $updatedAt: timestamptz!,
-    $receivedTokens: Int,
-    $mintedNft: String,
+    $id: uuid!
+    $progress: Int
+    $updatedAt: timestamptz!
+    $receivedTokens: Int
+    $mintedNft: String
   ) {
     update_learningJourneys(
       where: { id: { _eq: $id } }
       _set: {
-        progress: $progress,
-        updated_at: $updatedAt,
-        receivedTokens: $receivedTokens,
+        progress: $progress
+        updated_at: $updatedAt
+        receivedTokens: $receivedTokens
         mintedNft: $mintedNft
       }
     ) {
@@ -111,7 +108,3 @@ export const UPDATE_USER_LEARNING_JOURNEY_PROGRESS = gql`
     }
   }
 `;
-
-
-
-

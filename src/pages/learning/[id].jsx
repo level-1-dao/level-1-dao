@@ -1,6 +1,5 @@
 import { Meta } from "../../layout/Meta.tsx";
 import AppPageTwoColumn from "../../layout/AppPageTwoColumn";
-import LearningSplashPage from "../../templates/LearningSplashPage";
 import { NFT } from "../../components/NFT";
 import Curriculum from "../../components/Curriculum";
 import Loading from "../../components/Loading";
@@ -12,7 +11,7 @@ import { useQuery } from "@apollo/client";
 import LearningJourneySplashHeader from "../../templates/LearningJourneySplashHeader";
 
 const learningJourneyData = {
-  id: "1",
+  id: "5cbc223b-57d2-439e-8744-f8b97bc455cd",
   title: "GitcoinDAO Onboarding",
   description: "Learn how to use GitcoinDAO",
   guide: "UUID",
@@ -22,10 +21,9 @@ const learningJourneyData = {
   numberCompleted: 734,
 };
 
-const LearningLandingPage = () => {
+const LearningLandingPage = ({ id }) => {
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
-  console.log(user);
 
   return (
     <div className="h-full">
@@ -42,10 +40,6 @@ const LearningLandingPage = () => {
           ) : (
             <div>
               <LearningJourneySplashHeader
-                user={user}
-                learningJourneyData={learningJourneyData}
-              />
-              <LearningSplashPage
                 user={user}
                 learningJourneyData={learningJourneyData}
               />

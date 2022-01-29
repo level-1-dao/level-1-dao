@@ -1,11 +1,11 @@
 import Link from "next/link";
-import StartButton from "../components/LearningJourney/StartButton";
+import StartButton from "../../components/LearningJourney/StartButton";
 import { ChartSquareBarIcon, TicketIcon } from "@heroicons/react/outline";
-import { TokensOnCompletionBadge } from "../components/LearningJourney";
-import { Avatar } from "../components/Guide";
-import UpdatedOn from "../components/LearningJourney/UpdatedOn";
+import { TokensOnCompletionBadge } from "../../components/LearningJourney";
+import { Avatar } from "../../components/Guide";
+import UpdatedOn from "../../components/LearningJourney/UpdatedOn";
 
-const LearningJourneySplashHeader = ({
+const SplashHeader = ({
   learningJourneyData,
   user,
   userLearningJourneyData,
@@ -54,4 +54,4 @@ const LearningJourneySplashHeader = ({
   );
 };
 
-export default LearningJourneySplashHeader;
+export default SplashHeader;

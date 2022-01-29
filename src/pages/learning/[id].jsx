@@ -10,8 +10,8 @@ import GitcoinCurriculumData from "../../mockData/GitcoinCurriculumData";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { GET_USERS } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
-import LearningJourneySplashHeader from "../../templates/LearningJourneySplashHeader";
-import LearningJourneyDetails from "../../templates/LearningJourneyDetails";
+import SplashHeader from "../../templates/LearningJourney/SplashHeader";
+import Details from "../../templates/LearningJourney/Details";
 
 const learningJourneyData = {
   id: "5cbc223b-57d2-439e-8744-f8b97bc455cd",
@@ -47,14 +47,12 @@ const LearningLandingPage = ({ id }) => {
             <Loading />
           ) : !started ? (
             <Fragment>
-              <LearningJourneySplashHeader
+              <SplashHeader
                 user={user}
                 learningJourneyData={learningJourneyData}
                 handleStart={handleStart}
               />
-              <LearningJourneyDetails
-                learningJourneyData={learningJourneyData}
-              />
+              <Details learningJourneyData={learningJourneyData} />
               <div className="grid gap-4 grid-cols-2">
                 <Testimonial
                   avatar="https://picsum.photos/id/338/200/300"

@@ -1,4 +1,4 @@
-const LearningJourneyDetails = ({ learningJourneyData }) => {
+const Details = ({ learningJourneyData }) => {
   return (
     <div className="details my-4">
       <h2 className="text-xl font-bold">Overview</h2>
@@ -21,4 +21,4 @@ const LearningJourneyDetails = ({ learningJourneyData }) => {
   );
 };
 
-export default LearningJourneyDetails;
+export default Details;

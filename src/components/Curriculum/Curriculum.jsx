@@ -3,13 +3,13 @@ import {
   VideoCameraIcon,
   LinkIcon,
   CashIcon,
-} from '@heroicons/react/solid';
+} from "@heroicons/react/solid";
 
 const convertToMinutes = (time) => {
   if (time === 0) {
-    return '0 min';
+    return "0 min";
   }
-  if (typeof time === 'string') {
+  if (typeof time === "string") {
     return time;
   }
   const minutes = Math.floor(time / 60);
@@ -17,7 +17,7 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({curriculum, active}) => {
+const Curriculum = ({ curriculum, active }) => {
   return (
     <div className="curriculum w-full">
       <h2 className="text-xl mb-4">Learning content:</h2>
@@ -26,14 +26,14 @@ const Curriculum = ({curriculum, active}) => {
           <div
             key={item.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              active === item.id ? 'bg-accent text-accent-content' : ''
+              active === item.id ? "bg-accent text-accent-content" : ""
             }`}
           >
             <div className="curriculum_id">{item.id}</div>
             <div className="curriculum__content-type">
-              {item.contentType === 'video' ? (
+              {item.contentType === "video" ? (
                 <VideoCameraIcon className="w-6 h-6" />
-              ) : item.contentType === 'quiz' ? (
+              ) : item.contentType === "quiz" ? (
                 <ClipboardListIcon className="w-6 h-6" />
               ) : (
                 <LinkIcon className="w-6 h-6" />
@@ -50,7 +50,7 @@ const Curriculum = ({curriculum, active}) => {
                 <div className="justify-end">
                   <div
                     className={`badge ${
-                      active !== item.id ? 'badge-info' : ''
+                      active !== item.id ? "badge-info" : ""
                     }`}
                   >
                     <CashIcon className="h-4 w-4 mr-1" />

@@ -1,2 +1,2 @@
-import Curriculum from './Curriculum';
+import Curriculum from "./Curriculum";
 export default Curriculum;

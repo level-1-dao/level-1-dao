@@ -1,17 +1,18 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Meta } from "../../layout/Meta.tsx";
 import AppPageTwoColumn from "../../layout/AppPageTwoColumn";
-import { NFT } from "../../components/NFT";
-import Curriculum from "../../components/Curriculum";
+import { NFT } from "../../components/NFT"; // remove this line
+import Curriculum from "../../components/Curriculum"; // remove this line
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import Testimonial from "../../components/Testimonial";
-import GitcoinCurriculumData from "../../mockData/GitcoinCurriculumData";
+import GitcoinCurriculumData from "../../mockData/GitcoinCurriculumData"; // remove this line
+import SplashHeader from "../../templates/LearningJourney/SplashHeader";
+import Details from "../../templates/LearningJourney/Details";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { GET_USERS } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
-import SplashHeader from "../../templates/LearningJourney/SplashHeader";
-import Details from "../../templates/LearningJourney/Details";
 
 const learningJourneyData = {
   id: "5cbc223b-57d2-439e-8744-f8b97bc455cd",
@@ -24,10 +25,29 @@ const learningJourneyData = {
   numberCompleted: 734,
 };
 
-const LearningLandingPage = ({ id }) => {
+const LearningLandingPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
   const [started, setStarted] = useState(false);
+  const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
+
+  const checkIfUserHasStartedLevel = (
+    learningJourneyId,
+    userLearningJourneys
+  ) => {
+    userLearningJourneys.map((userLearningJourney) => {
+      if (userLearningJourney.learningJourneyId === learningJourneyId) {
+        setUserLearningJourneyData(userLearningJourney);
+        return;
+      }
+    });
+  };
+
+  useEffect(() => {
+    !loading && checkIfUserHasStartedLevel(id, user.learningJourneys);
+  });
 
   const handleStart = () => {
     setStarted(true);
@@ -50,6 +70,7 @@ const LearningLandingPage = ({ id }) => {
               <SplashHeader
                 user={user}
                 learningJourneyData={learningJourneyData}
+                userLearningJourneyData={userLearningJourneyData}
                 handleStart={handleStart}
               />
               <Details learningJourneyData={learningJourneyData} />
@@ -74,30 +95,33 @@ const LearningLandingPage = ({ id }) => {
         }
         rightColumn={
           <div className="flex flex-col space-y-4 items-center w-full px-4">
-            {/* <AccessInfo /> */}
-            <div
-              className="flex items-center w-full bg-cover card bg-base-200"
-              style={{
-                backgroundImage:
-                  "url(https://s.gitcoin.co/static/v2/card/thumb.0a0be2e5841a.jpg)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              <div className="card glass lg:card-side text-neutral-content">
-                <div className="max-w-md card-body">
-                  <p>
-                    This learning module is available to GitcoinDAO members.
-                  </p>
-                  <div className="card-actions">
-                    <button className="btn btn-sm glass rounded-full">
-                      Learn More
-                    </button>
+            {!started && (
+              <Fragment>
+                <div
+                  className="flex items-center w-full bg-cover card bg-base-200"
+                  style={{
+                    backgroundImage:
+                      "url(https://s.gitcoin.co/static/v2/card/thumb.0a0be2e5841a.jpg)",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div className="card glass lg:card-side text-neutral-content">
+                    <div className="max-w-md card-body">
+                      <p>
+                        This learning module is available to GitcoinDAO members.
+                      </p>
+                      <div className="card-actions">
+                        <button className="btn btn-sm glass rounded-full">
+                          Learn More
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <NFT />
+                <NFT />
+              </Fragment>
+            )}
             <Curriculum curriculum={GitcoinCurriculumData} />
           </div>
         }

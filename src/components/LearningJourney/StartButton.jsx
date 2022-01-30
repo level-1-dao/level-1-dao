@@ -1,30 +1,16 @@
-import { useState, useEffect } from "react";
 import { useMutation } from "../../lib/apollo";
 import {
   ADD_USER_LEARNING_JOURNEYS,
   UPDATE_USER_LEARNING_JOURNEY_PROGRESS,
 } from "../../lib/graphql";
 
-const StartButton = ({ user, learningJourneyId, handleStart }) => {
-  const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
-
-  const checkIfUserHasStartedLevel = (
-    learningJourneyId,
-    userLearningJourneys
-  ) => {
-    userLearningJourneys.map((userLearningJourney) => {
-      if (userLearningJourney.learningJourneyId === learningJourneyId) {
-        console.log("user has started this level");
-        setUserLearningJourneyData(userLearningJourney);
-        return;
-      }
-    });
-  };
-
-  useEffect(() => {
-    checkIfUserHasStartedLevel(learningJourneyId, user.learningJourneys);
-  });
-
+const StartButton = ({
+  userId,
+  learningJourneyId,
+  learningJourneyTitle,
+  handleStart,
+  userLearningJourneyData,
+}) => {
   const {
     load: continueLevel,
     loading: loadingContinueLevel,
@@ -63,10 +49,10 @@ const StartButton = ({ user, learningJourneyId, handleStart }) => {
     if (!userLearningJourneyData) {
       startLevel({
         variables: {
-          userId: user.id,
-          learningJourneyId: learningJourneyData.id,
+          userId: userId,
+          learningJourneyId: learningJourneyId,
           progress: 0,
-          title: "My First Learning Journey",
+          title: learningJourneyTitle,
         },
       });
     } else {

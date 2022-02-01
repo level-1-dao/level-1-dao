@@ -17,8 +17,8 @@ Learn by doing helps humxns retain information. Level1 prioritizes interactive s
 - **Seen:**
 Learners and guides give their most valued resource, time. We see and appreciate this at every point in the Level1 experience.
 
-- **Beginners:**
-We seek those taking the first steps in their learning journey. This means prioritizing the voices of those new and asking foundational questions.
+- **Begin:**
+We seek those taking the first steps in their learning journey. We create space for beginner perspectives.
 
 # Hypothesis
 Centralized learning platforms allow learners to connect with instructors in a 1 (instructor) to many (students) format. This mimics most top-down education institutions and is familiar to those teaching and learning. This centralized structure, although familiar, is limited in that learnings flow from few to many. This means that the teaching style and biases are projected on to learners. It also means relationships in this 1-to-many format can be superficial as it is difficult for an instructor to maintain meaningful relationships with so many students.

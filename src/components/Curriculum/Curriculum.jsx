@@ -17,7 +17,7 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({ curriculum, active }) => {
+const Curriculum = ({ curriculum, progress, started }) => {
   return (
     <div className="curriculum w-full">
       <h2 className="text-xl mb-4">Learning content:</h2>
@@ -26,10 +26,10 @@ const Curriculum = ({ curriculum, active }) => {
           <div
             key={item.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              active === item.id ? "bg-accent text-accent-content" : ""
+              progress === item.id && started && "bg-accent text-accent-content"
             }`}
           >
-            <div className="curriculum_id">{item.id}</div>
+            <div className="curriculum_id">{item.id + 1}</div>
             <div className="curriculum__content-type">
               {item.contentType === "video" ? (
                 <VideoCameraIcon className="w-6 h-6" />
@@ -50,7 +50,7 @@ const Curriculum = ({ curriculum, active }) => {
                 <div className="justify-end">
                   <div
                     className={`badge ${
-                      active !== item.id ? "badge-info" : ""
+                      progress !== item.id && started ? "badge-info" : ""
                     }`}
                   >
                     <CashIcon className="h-4 w-4 mr-1" />

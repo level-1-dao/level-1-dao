@@ -1,15 +1,15 @@
-import {Fragment, useState} from 'react';
-import {Listbox, Transition} from '@headlessui/react';
-import {PaperClipIcon, TagIcon} from '@heroicons/react/solid';
+import { Fragment, useState } from "react";
+import { Listbox, Transition } from "@headlessui/react";
+import { PaperClipIcon, TagIcon } from "@heroicons/react/solid";
 
 const labels = [
-  {name: 'Reflection', value: 'reflection'},
-  {name: 'Now I know', value: 'nowIKnow'},
-  {name: 'Wish I knew', value: 'question'},
+  { name: "Reflection", value: "reflection" },
+  { name: "Now I know", value: "nowIKnow" },
+  { name: "Wish I knew", value: "question" },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 const Input = () => {
@@ -26,8 +26,8 @@ const Input = () => {
           name="description"
           id="description"
           className="textarea textarea-ghost w-full text-xl"
-          placeholder="Share a reflection with others..."
-          defaultValue={''}
+          placeholder="What did you learn?"
+          defaultValue={""}
         />
 
         {/* Spacer element to match the height of the toolbar */}
@@ -35,25 +35,24 @@ const Input = () => {
           <div className="py-2">
             <div className="h-9" />
           </div>
-          <div className="h-px" />
+          {/* <div className="h-px" />
           <div className="py-2">
             <div className="py-px">
               <div className="h-9" />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
       <div className="absolute bottom-0 inset-x-px">
-        {/* Actions: These are just examples to demonstrate the concept, replace/wire these up however makes sense for your project. */}
-        <div className="flex flex-nowrap justify-end py-2 px-2 space-x-2 sm:px-3">
+        {/* <div className="flex flex-nowrap justify-end py-2 px-2 space-x-2 sm:px-3">
           <Listbox
             as="div"
             value={labelled}
             onChange={setLabelled}
             className="flex-shrink-0"
           >
-            {({open}) => (
+            {({ open }) => (
               <>
                 <Listbox.Label className="sr-only">Add a label</Listbox.Label>
                 <div className="relative">
@@ -64,11 +63,11 @@ const Input = () => {
                     />
                     <span
                       className={classNames(
-                        labelled.value === null ? '' : 'text-base-content',
-                        'hidden truncate sm:ml-2 sm:block'
+                        labelled.value === null ? "" : "text-base-content",
+                        "hidden truncate sm:ml-2 sm:block"
                       )}
                     >
-                      {labelled.value === null ? 'Label' : labelled.name}
+                      {labelled.value === null ? "Label" : labelled.name}
                     </span>
                   </Listbox.Button>
 
@@ -83,10 +82,10 @@ const Input = () => {
                       {labels.map((label) => (
                         <Listbox.Option
                           key={label.value}
-                          className={({active}) =>
+                          className={({ active }) =>
                             classNames(
-                              active ? 'bg-accent' : 'bg-base-100',
-                              'cursor-default select-none relative py-2 px-3'
+                              active ? "bg-accent" : "bg-base-100",
+                              "cursor-default select-none relative py-2 px-3"
                             )
                           }
                           value={label}
@@ -104,11 +103,11 @@ const Input = () => {
               </>
             )}
           </Listbox>
-        </div>
-        <div className="border-t border-gray-200 px-2 py-2 flex items-center justify-end space-x-3 sm:px-3">
+        </div> */}
+        <div className="border-t border-gray-200 px-2 py-3 flex items-center justify-end space-x-3 sm:px-3">
           <div className="">
             <button type="submit" className="btn btn-primary btn-md">
-              Share
+              Mint your learning badge
             </button>
           </div>
         </div>

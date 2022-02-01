@@ -1,33 +1,33 @@
-import {Fragment} from 'react';
-import {ChatAltIcon, TagIcon, UserCircleIcon} from '@heroicons/react/solid';
+import { Fragment } from "react";
+import { ChatAltIcon, TagIcon, UserCircleIcon } from "@heroicons/react/solid";
 
 const activity = [
   {
     id: 1,
-    type: 'comment',
-    person: {name: 'Eduardo Benz', href: '#'},
+    type: "comment",
+    person: { name: "Eduardo Benz", href: "#" },
     imageUrl:
-      'https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
+      "https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
     comment:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. ',
-    date: '6d ago',
-    tag: 'reflection',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. ",
+    date: "6d ago",
+    tag: "learning",
   },
   {
     id: 2,
-    type: 'comment',
-    person: {name: 'Jason Meyers', href: '#'},
+    type: "comment",
+    person: { name: "Jason Meyers", href: "#" },
     imageUrl:
-      'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
+      "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80",
     comment:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.',
-    date: '2h ago',
-    tag: 'reflection',
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.",
+    date: "2h ago",
+    tag: "learning",
   },
 ];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 const Feed = () => {

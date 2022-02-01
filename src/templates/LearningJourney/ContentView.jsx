@@ -12,7 +12,7 @@ const ContentView = ({ curriculumData, progress, step }) => {
   return (
     <>
       <LearningModule
-        curriculumData={curriculumData[step]}
+        curriculumData={curriculumData[step - 1]}
         triggerModal={handleNftModal}
       />
       <Modal setOpen={handleNftModal} open={nftModalOpen} />

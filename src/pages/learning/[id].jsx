@@ -28,7 +28,7 @@ const learningJourneyData = {
 const LearningLandingPage = () => {
   const router = useRouter();
   const { id, step } = router.query;
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
   const [started, setStarted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
@@ -56,12 +56,11 @@ const LearningLandingPage = () => {
     if (step) {
       setCurrentStep(step);
     }
-  }, []);
+  }, [step]);
 
   const handleStart = () => {
     setStarted(true);
   };
-
   return (
     <div className="h-full">
       <AppPageTwoColumn
@@ -114,6 +113,7 @@ const LearningLandingPage = () => {
             progress={progress}
             started={started}
             step={currentStep}
+            learningJourneyId={id}
           />
         }
       />

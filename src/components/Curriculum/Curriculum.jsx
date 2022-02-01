@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import {
   ClipboardListIcon,
   VideoCameraIcon,
@@ -17,7 +18,15 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({ curriculum, progress, started, step }) => {
+const Curriculum = ({
+  learningJourneyId,
+  curriculum,
+  progress,
+  started,
+  step,
+}) => {
+  const router = useRouter();
+  console.log(learningJourneyId);
   return (
     <div className="curriculum w-full">
       <h2 className="text-xl mb-4">Learning content:</h2>
@@ -26,8 +35,20 @@ const Curriculum = ({ curriculum, progress, started, step }) => {
           <div
             key={item.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              step === item.id && started && "bg-accent text-accent-content"
+              started &&
+              "cursor-pointer hover:bg-accent-focus hover:text-accent-content"
+            } ${
+              step === item.id + 1 && started && "bg-accent text-accent-content"
             }`}
+            onClick={() => {
+              if (started) {
+                router.replace(
+                  `/learning/${learningJourneyId}/?step=${item.id + 1}`,
+                  undefined,
+                  { shallow: true }
+                );
+              }
+            }}
           >
             <div className="curriculum_id">{item.id + 1}</div>
             <div className="curriculum__content-type">

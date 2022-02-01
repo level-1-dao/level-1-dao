@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Modal } from "../../components/NFT";
 import LearningModule from "../../templates/LearningModule";
 
-const ContentView = ({ curriculumData, progress }) => {
+const ContentView = ({ curriculumData, progress, step }) => {
   const [nftModalOpen, setNftModalOpen] = useState(false);
 
   const handleNftModal = (state) => {
@@ -12,7 +12,7 @@ const ContentView = ({ curriculumData, progress }) => {
   return (
     <>
       <LearningModule
-        curriculumData={curriculumData[progress]}
+        curriculumData={curriculumData[step]}
         triggerModal={handleNftModal}
       />
       <Modal setOpen={handleNftModal} open={nftModalOpen} />

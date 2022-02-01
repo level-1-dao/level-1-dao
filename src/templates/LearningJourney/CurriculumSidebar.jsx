@@ -1,7 +1,7 @@
 import { NFT } from "../../components/NFT";
 import Curriculum from "../../components/Curriculum";
 
-const CurriculumSidebar = ({ curriculumData, started, progress }) => {
+const CurriculumSidebar = ({ curriculumData, started, progress, step }) => {
   return (
     <div className="flex flex-col space-y-4 items-center w-full px-4">
       {!started && (
@@ -33,6 +33,7 @@ const CurriculumSidebar = ({ curriculumData, started, progress }) => {
         curriculum={curriculumData}
         started={started}
         progress={progress}
+        step={parseInt(step)}
       />
     </div>
   );

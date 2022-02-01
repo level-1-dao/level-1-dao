@@ -17,7 +17,7 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({ curriculum, progress, started }) => {
+const Curriculum = ({ curriculum, progress, started, step }) => {
   return (
     <div className="curriculum w-full">
       <h2 className="text-xl mb-4">Learning content:</h2>
@@ -26,7 +26,7 @@ const Curriculum = ({ curriculum, progress, started }) => {
           <div
             key={item.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              progress === item.id && started && "bg-accent text-accent-content"
+              step === item.id && started && "bg-accent text-accent-content"
             }`}
           >
             <div className="curriculum_id">{item.id + 1}</div>
@@ -50,7 +50,7 @@ const Curriculum = ({ curriculum, progress, started }) => {
                 <div className="justify-end">
                   <div
                     className={`badge ${
-                      progress !== item.id && started ? "badge-info" : ""
+                      step !== item.id && started ? "badge-info" : ""
                     }`}
                   >
                     <CashIcon className="h-4 w-4 mr-1" />

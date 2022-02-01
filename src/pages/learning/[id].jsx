@@ -27,7 +27,8 @@ const learningJourneyData = {
 
 const LearningLandingPage = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id, step } = router.query;
+  const [currentStep, setCurrentStep] = useState(0);
   const [started, setStarted] = useState(false);
   const [progress, setProgress] = useState(0);
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
@@ -50,6 +51,12 @@ const LearningLandingPage = () => {
   useEffect(() => {
     !loading && checkIfUserHasStartedLevel(id, user.learningJourneys);
   });
+
+  useEffect(() => {
+    if (step) {
+      setCurrentStep(step);
+    }
+  }, []);
 
   const handleStart = () => {
     setStarted(true);
@@ -96,6 +103,7 @@ const LearningLandingPage = () => {
               <ContentView
                 progress={progress}
                 curriculumData={GitcoinCurriculumData}
+                step={currentStep}
               />
             </div>
           )
@@ -105,6 +113,7 @@ const LearningLandingPage = () => {
             curriculumData={GitcoinCurriculumData}
             progress={progress}
             started={started}
+            step={currentStep}
           />
         }
       />

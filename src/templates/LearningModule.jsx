@@ -3,35 +3,35 @@ import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 
 import ReactPlayer from "react-player";
 
-const LearningModule = ({ curriculum, triggerModal }) => {
+const LearningModule = ({ curriculumData, triggerModal }) => {
   return (
     <div className="px-2 sm:px-4">
       {/* <VideoPlayer /> */}
-      {curriculum.contentType === "video" && (
+      {curriculumData.contentType === "video" && (
         <div className="video-container">
-          <ReactPlayer url={curriculum.link} />
+          <ReactPlayer url={curriculumData.link} />
         </div>
       )}
-      {curriculum.contentType === "text" && (
+      {curriculumData.contentType === "text" && (
         <div className="text-container">
-          <p>{curriculum.content}</p>
+          <p>{curriculumData.content}</p>
         </div>
       )}
-      {curriculum.contentType === "image" && (
+      {curriculumData.contentType === "image" && (
         <div className="relative">
           <img
-            src={`/assets/images/${curriculum.link}`}
+            src={`/assets/images/${curriculumData.link}`}
             layout="responsive"
             alt="image content"
           />
         </div>
       )}
-      {curriculum.contentType === "quiz" && (
+      {curriculumData.contentType === "quiz" && (
         <div className="quiz-container">
           <div className="p-10 card bg-base-200">
             <div className="form-control">
               <label className="label">
-                <span className="text-xl">{curriculum.question}</span>
+                <span className="text-xl">{curriculumData.question}</span>
               </label>
               <textarea className="textarea h-24"></textarea>
               <div className="mt-8 flex justify-end">
@@ -49,9 +49,9 @@ const LearningModule = ({ curriculum, triggerModal }) => {
 
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">
-        <GuideNotes notes={curriculum.description} />
-        <GoodCompany />
+        <GuideNotes notes={curriculumData.description} />
         <Input />
+        <GoodCompany />
         <Feed />
       </div>
     </div>

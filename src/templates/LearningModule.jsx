@@ -8,8 +8,13 @@ const LearningModule = ({ curriculumData, triggerModal }) => {
     <div className="px-2 sm:px-4">
       {/* <VideoPlayer /> */}
       {curriculumData.contentType === "video" && (
-        <div className="video-container">
-          <ReactPlayer url={curriculumData.link} />
+        <div className="player-wrapper">
+          <ReactPlayer
+            className="react-player"
+            url={curriculumData.link}
+            width="100%"
+            height="100%"
+          />
         </div>
       )}
       {curriculumData.contentType === "text" && (

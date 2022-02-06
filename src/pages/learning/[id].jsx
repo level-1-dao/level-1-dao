@@ -11,7 +11,7 @@ import CurriculumSidebar from "../../templates/LearningJourney/CurriculumSidebar
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { GET_USERS } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
-import GitcoinCurriculumData from "../../mockData/GitcoinCurriculumData";
+import { GitcoinCurriculumData } from "../../mockData/GitcoinCurriculumData";
 import ContentView from "../../templates/LearningJourney/ContentView";
 
 const learningJourneyData = {

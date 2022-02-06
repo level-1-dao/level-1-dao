@@ -1,3 +1,5 @@
+import { GitcoinCurriculumDataOutcomes } from "../../mockData/GitcoinCurriculumData";
+
 const Details = ({ learningJourneyData }) => {
   return (
     <div className="details my-4">
@@ -9,13 +11,9 @@ const Details = ({ learningJourneyData }) => {
       </p>
       After completing this Level1 you will:
       <ul className="list-disc list-inside">
-        <li>Have an understanding of the values & mission of GitcoinDAO</li>
-        <li>Have an understanding of how they can earn with GitcoinDAO</li>
-        <li>
-          Have an understanding of how to find opportunities and apply to them
-        </li>
-        <li>Have key contacts to go to for help & other questions</li>
-        <li>Have proper access & permissions to get started</li>
+        {GitcoinCurriculumDataOutcomes.map((outcome, i) => (
+          <li key={i}>{outcome}</li>
+        ))}
       </ul>
     </div>
   );

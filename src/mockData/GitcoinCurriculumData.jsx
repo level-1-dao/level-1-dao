@@ -84,4 +84,12 @@ const GitcoinCurriculumData = [
   },
 ];
 
-export default GitcoinCurriculumData;
+const GitcoinCurriculumDataOutcomes = [
+  "Have an understanding of the values & mission of GitcoinDAO",
+  "Have an understanding of how they can earn with GitcoinDAO",
+  "Have an understanding of how to find opportunities and apply to them",
+  "Have key contacts to go to for help & other questions",
+  "Have proper access & permissions to get started",
+];
+
+export { GitcoinCurriculumDataOutcomes, GitcoinCurriculumData };

@@ -1,4 +1,3 @@
-import { HandIcon } from "@heroicons/react/outline";
 import LearningWithData from "../../mockData/LearningWithData";
 import { generateFromString } from "generate-avatar";
 

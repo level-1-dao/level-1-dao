@@ -29,6 +29,13 @@ export const GET_USERS = gql`
         receivedTokens
         mintedNft
       }
+      learningMoments {
+        id
+        learningBitId
+        type
+        moment
+        created_at
+      }
     }
   }
 `;
@@ -125,6 +132,35 @@ export const ADD_LEARNING_MOMENT = gql`
       }
     ) {
       affected_rows
+    }
+  }
+`;
+
+export const GET_LEARNING_MOMENTS = gql`
+  query getLearningMoments($learningBitId: uuid!) {
+    learningMoments(where: { learningBitId: { _eq: $learningBitId } }) {
+      id
+      type
+      moment
+      userId
+      created_at
+    }
+  }
+`;
+
+export const GET_USER_LEARNING_MOMENT = gql`
+  query getUserLearningMoment($userId: String!, $learningBitId: uuid!) {
+    learningMoments(
+      where: {
+        userId: { _eq: $userId }
+        learningBitId: { _eq: $learningBitId }
+      }
+    ) {
+      id
+      type
+      moment
+      userId
+      created_at
     }
   }
 `;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useMutation } from "../../lib/apollo";
 import { useQuery } from "@apollo/client";
 import { ADD_LEARNING_MOMENT, GET_USERS } from "../../lib/graphql";
@@ -7,6 +7,17 @@ const Input = ({ learningBitId }) => {
   const [value, setValue] = useState("");
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
+
+  useEffect(() => {
+    if (user) {
+      const userLearningMoment = user.learningMoments.find(
+        (learningMoment) => learningMoment.learningBitId === learningBitId
+      );
+      if (userLearningMoment) {
+        setValue(userLearningMoment.moment);
+      }
+    }
+  }, [user]);
 
   const {
     load: addLearningMoment,

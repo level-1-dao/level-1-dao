@@ -1,9 +1,18 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { GET_LEARNING_MOMENTS } from "../lib/graphql";
+import Loading from "../components/Loading";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 
 import ReactPlayer from "react-player";
 
 const LearningModule = ({ curriculumData, triggerModal }) => {
+  const { loading, error, data } = useQuery(GET_LEARNING_MOMENTS, {
+    variables: {
+      learningBitId: "31f63a09-2f2a-42e9-833a-75487dbcefd7",
+    },
+  });
+  const learningMoments = data?.learningMoments;
   return (
     <div className="px-2 sm:px-4">
       {/* <VideoPlayer /> */}
@@ -55,9 +64,15 @@ const LearningModule = ({ curriculumData, triggerModal }) => {
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">
         <GuideNotes notes={curriculumData.description} />
-        <Input learningBitId="31f63a09-2f2a-42e9-833a-75487dbcefd7" />
-        <GoodCompany />
-        <Feed />
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Input learningBitId="31f63a09-2f2a-42e9-833a-75487dbcefd7" />
+            <GoodCompany learningMoments={learningMoments} />
+            <Feed learningMoments={learningMoments} />
+          </>
+        )}
       </div>
     </div>
   );

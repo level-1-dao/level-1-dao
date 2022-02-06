@@ -77,8 +77,8 @@ const StartButton = ({
       >
         <span className="text-sm">
           {userLearningJourneyData
-            ? "Continue this Level1"
-            : "Start this Level1"}
+            ? "Continue this learning journey"
+            : "Start this learning journey"}
         </span>
       </button>
     </div>

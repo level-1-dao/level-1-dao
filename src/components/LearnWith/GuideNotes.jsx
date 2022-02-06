@@ -17,9 +17,7 @@ const GuideNotes = ({ notes }) => {
   return (
     <div className="mx-auto max-w-7xl">
       <div className="space-y-12 lg:gap-8">
-        <h2 className="text-3xl font-extrabold tracking-tight">
-          Notes from your guide
-        </h2>
+        <h2 className="text-3xl font-extrabold tracking-tight">Guide notes</h2>
         <div className="lg:col-span-2">
           <ul
             role="list"
@@ -27,28 +25,28 @@ const GuideNotes = ({ notes }) => {
           >
             {people.map((person) => (
               <li key={person.name}>
-                <div className="sm:grid sm:grid-cols-5 sm:items-start sm:gap-6 sm:space-y-2">
-                  <div className="image-container space-y-2 mb-4 sm:col-span-1 grid-cols-2 gap-2 max-w-xs flex sm:flex-col">
-                    <div className="avatar col-span-1">
-                      <div className="rounded-full w-24 h-24">
+                <div className="space-y-2">
+                  <div className="image-container space-x-4 mb-4 max-w-xs flex">
+                    <div className="avatar">
+                      <div className="rounded-full w-20 h-20">
                         <img src={person.imageUrl} alt="Guide's avatar" />
                       </div>
                     </div>
-                    <div className="guide-info col-span-1 space-y-2">
+                    <div className="guide-info space-y-2">
                       <div className="leading-6">
                         <h3 className="font-medium text-primary text-lg">
                           {person.name}
                         </h3>
-                        <p className="text">{person.role}</p>
+                        <p className="text-sm">{person.role}</p>
                       </div>
                       <button className="btn btn-xs btn-outline btn-accent">
                         Message
                         <ChatAltIcon className="ml-2 h-4 w-4" />
                       </button>
-                      <button className="btn btn-xs btn-outline btn-accent">
+                      {/* <button className="btn btn-xs btn-outline btn-accent">
                         High Five
                         <HandIcon className="ml-2 h-4 w-4" />
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                   <div className="sm:col-span-4">

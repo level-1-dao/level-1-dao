@@ -1,6 +1,3 @@
-import { Fragment } from "react";
-import { ChatAltIcon, TagIcon, UserCircleIcon } from "@heroicons/react/solid";
-
 const activity = [
   {
     id: 1,
@@ -11,7 +8,7 @@ const activity = [
     comment:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. ",
     date: "6d ago",
-    tag: "learning",
+    tag: "reflection",
   },
   {
     id: 2,
@@ -22,7 +19,7 @@ const activity = [
     comment:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.",
     date: "2h ago",
-    tag: "learning",
+    tag: "reflection",
   },
 ];
 
@@ -37,16 +34,10 @@ const Feed = () => {
         {activity.map((activityItem, activityItemIdx) => (
           <li key={activityItem.id}>
             <div className="relative pb-8">
-              {activityItemIdx !== activity.length - 1 ? (
-                <span
-                  className="absolute top-5 left-8 -ml-px h-full w-0.5 bg-gray-200"
-                  aria-hidden="true"
-                />
-              ) : null}
               <div className="relative flex items-start space-x-6">
                 <div className="relative">
                   <img
-                    className="h-16 w-16 rounded-full bg-gray-400 flex items-center justify-center ring-4 ring-base-content"
+                    className="h-16 w-16 rounded-full bg-gray-400 flex items-center justify-center"
                     src={activityItem.imageUrl}
                     alt=""
                   />
@@ -62,7 +53,7 @@ const Feed = () => {
                       </a>
                     </div>
                     <p className="mt-0.5 text text-base-content">
-                      Shared a {activityItem.tag}
+                      Minted a {activityItem.tag} learning moment
                     </p>
                   </div>
                   <div className="mt-2 text-lg">

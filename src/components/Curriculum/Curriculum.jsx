@@ -18,18 +18,11 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({
-  learningJourneyId,
-  curriculum,
-  progress,
-  started,
-  step,
-}) => {
+const Curriculum = ({ learningJourneyId, curriculum, started, step }) => {
   const router = useRouter();
-  console.log(learningJourneyId);
   return (
     <div className="curriculum w-full">
-      <h2 className="text-xl mb-4">Learning content:</h2>
+      <h2 className="text-xl mb-4">Learning bits:</h2>
       <div className="curriculum__list space-y-2">
         {curriculum.map((item) => (
           <div
@@ -43,14 +36,14 @@ const Curriculum = ({
             onClick={() => {
               if (started) {
                 router.replace(
-                  `/learning/${learningJourneyId}/?step=${item.id + 1}`,
+                  `/learning/${learningJourneyId}/?bit=${item.id + 1}`,
                   undefined,
                   { shallow: true }
                 );
               }
             }}
           >
-            <div className="curriculum_id">{item.id + 1}</div>
+            <div className="curriculum_id">&#8226;</div>
             <div className="curriculum__content-type">
               {item.contentType === "video" ? (
                 <VideoCameraIcon className="w-6 h-6" />

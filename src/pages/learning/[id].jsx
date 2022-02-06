@@ -27,7 +27,7 @@ const learningJourneyData = {
 
 const LearningLandingPage = () => {
   const router = useRouter();
-  const { id, step } = router.query;
+  const { id, bit } = router.query;
   const [currentStep, setCurrentStep] = useState(1);
   const [started, setStarted] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -53,10 +53,11 @@ const LearningLandingPage = () => {
   });
 
   useEffect(() => {
-    if (step) {
-      setCurrentStep(step);
+    if (bit) {
+      setCurrentStep(bit);
+      setStarted(true);
     }
-  }, [step]);
+  }, [bit]);
 
   const handleStart = () => {
     setStarted(true);

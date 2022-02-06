@@ -108,3 +108,22 @@ export const UPDATE_USER_LEARNING_JOURNEY_PROGRESS = gql`
     }
   }
 `;
+
+export const ADD_LEARNING_MOMENT = gql`
+  mutation addLearningMoment(
+    $userId: String!
+    $type: String!
+    $moment: String!
+    $learningBitId: uuid!
+  ) {
+    update_learningMoments(
+      where: {
+        userId: { _eq: $userId }
+        learningBitId: { _eq: $learningBitId }
+      }
+      _set: { type: $type, moment: $moment }
+    ) {
+      affected_rows
+    }
+  }
+`;

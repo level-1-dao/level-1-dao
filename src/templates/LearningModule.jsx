@@ -55,7 +55,7 @@ const LearningModule = ({ curriculumData, triggerModal }) => {
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">
         <GuideNotes notes={curriculumData.description} />
-        <Input />
+        <Input learningBitId="31f63a09-2f2a-42e9-833a-75487dbcefd7" />
         <GoodCompany />
         <Feed />
       </div>

@@ -116,12 +116,13 @@ export const ADD_LEARNING_MOMENT = gql`
     $moment: String!
     $learningBitId: uuid!
   ) {
-    update_learningMoments(
-      where: {
-        userId: { _eq: $userId }
-        learningBitId: { _eq: $learningBitId }
+    insert_learningMoments(
+      objects: {
+        type: $type
+        moment: $moment
+        userId: $userId
+        learningBitId: $learningBitId
       }
-      _set: { type: $type, moment: $moment }
     ) {
       affected_rows
     }

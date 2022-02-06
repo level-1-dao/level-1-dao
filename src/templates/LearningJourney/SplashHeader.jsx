@@ -44,7 +44,7 @@ const SplashHeader = ({
         </Link>
         {/* Start level button */}
         <StartButton
-          user={user}
+          userId={user.id}
           learningJourneyId={learningJourneyData.id}
           handleStart={handleStart}
           userLearningJourneyData={userLearningJourneyData}

@@ -19,7 +19,7 @@ const Input = ({ learningBitId }) => {
         setLearningMoment(userLearningMoment);
       }
     }
-  }, [user]);
+  }, [user, learningBitId]);
 
   const {
     load: addLearningMoment,

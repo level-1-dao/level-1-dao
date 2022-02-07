@@ -164,3 +164,21 @@ export const GET_USER_LEARNING_MOMENT = gql`
     }
   }
 `;
+
+export const GET_LEARNING_JOURNEY = gql`
+  query getLearningJourney($learningJourneyId: uuid!) {
+    learningJourney(where: { id: { _eq: $learningJourneyId } }) {
+      title
+      fullDescription
+      learningOutcomes
+      created_at
+      updated_at
+      tokensAvailable
+      learningBits {
+        id
+        title
+        time
+      }
+    }
+  }
+`;

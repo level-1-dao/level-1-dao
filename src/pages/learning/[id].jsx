@@ -9,7 +9,7 @@ import SplashHeader from "../../templates/LearningJourney/SplashHeader";
 import Details from "../../templates/LearningJourney/Details";
 import CurriculumSidebar from "../../templates/LearningJourney/CurriculumSidebar";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { GET_USERS } from "../../lib/graphql";
+import { GET_USERS, GET_LEARNING_JOURNEY } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import { GitcoinCurriculumData } from "../../mockData/GitcoinCurriculumData";
 import ContentView from "../../templates/LearningJourney/ContentView";
@@ -33,7 +33,15 @@ const LearningLandingPage = () => {
   const [progress, setProgress] = useState(0);
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
   const { loading, error, data } = useQuery(GET_USERS);
+  const {
+    loading: loadingLearningJourneyData,
+    error: errorGettingLearningJourney,
+    data: learningJourneyDataArray,
+  } = useQuery(GET_LEARNING_JOURNEY, {
+    variables: { learningJourneyId: id },
+  });
   const user = data?.users[0];
+  const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
 
   const checkIfUserHasStartedLevel = (
     learningJourneyId,
@@ -62,62 +70,69 @@ const LearningLandingPage = () => {
   const handleStart = () => {
     setStarted(true);
   };
+
+  console.log(learningJourneyData);
+
   return (
     <div className="h-full">
-      <AppPageTwoColumn
-        meta={
-          <Meta
-            title={learningJourneyData.title}
-            description={learningJourneyData.description}
-          />
-        }
-        leftColumn={
-          loading ? (
-            <Loading />
-          ) : !started ? (
-            <Fragment>
-              <SplashHeader
-                user={user}
-                learningJourneyData={learningJourneyData}
-                userLearningJourneyData={userLearningJourneyData}
-                handleStart={handleStart}
-              />
-              <Details learningJourneyData={learningJourneyData} />
-              <div className="grid gap-4 grid-cols-2">
-                <Testimonial
-                  avatar="https://picsum.photos/id/338/200/300"
-                  name="Cary Ann"
-                  role="Completed"
-                  testimonial="This was great. I learned a lot and I'm really excited to continue learning."
+      {!learningJourneyData ? (
+        <Loading />
+      ) : (
+        <AppPageTwoColumn
+          meta={
+            <Meta
+              title={learningJourneyData.title}
+              description={learningJourneyData.description}
+            />
+          }
+          leftColumn={
+            loading ? (
+              <Loading />
+            ) : !started ? (
+              <Fragment>
+                <SplashHeader
+                  user={user}
+                  learningJourneyData={learningJourneyData}
+                  userLearningJourneyData={userLearningJourneyData}
+                  handleStart={handleStart}
                 />
-                <Testimonial
-                  avatar="https://picsum.photos/id/433/200/300"
-                  name="James Dean"
-                  role="In progress"
-                  testimonial="Thank you for putting this information in easy to absorb bite sizes. I'm excited to see what comes next!"
+                <Details learningJourneyData={learningJourneyData} />
+                <div className="grid gap-4 grid-cols-2">
+                  <Testimonial
+                    avatar="https://picsum.photos/id/338/200/300"
+                    name="Cary Ann"
+                    role="Completed"
+                    testimonial="This was great. I learned a lot and I'm really excited to continue learning."
+                  />
+                  <Testimonial
+                    avatar="https://picsum.photos/id/433/200/300"
+                    name="James Dean"
+                    role="In progress"
+                    testimonial="Thank you for putting this information in easy to absorb bite sizes. I'm excited to see what comes next!"
+                  />
+                </div>
+              </Fragment>
+            ) : (
+              <div>
+                <ContentView
+                  progress={progress}
+                  curriculumData={GitcoinCurriculumData}
+                  step={currentStep}
                 />
               </div>
-            </Fragment>
-          ) : (
-            <div>
-              <ContentView
-                progress={progress}
-                curriculumData={GitcoinCurriculumData}
-                step={currentStep}
-              />
-            </div>
-          )
-        }
-        rightColumn={
-          <CurriculumSidebar
-            curriculumData={GitcoinCurriculumData}
-            progress={progress}
-            started={started}
-            step={currentStep}
-            learningJourneyId={id}
-          />
-        }
-      />
+            )
+          }
+          rightColumn={
+            <CurriculumSidebar
+              curriculumData={GitcoinCurriculumData}
+              progress={progress}
+              started={started}
+              step={currentStep}
+              learningJourneyId={id}
+            />
+          }
+        />
+      )}
     </div>
   );
 };

@@ -182,3 +182,26 @@ export const GET_LEARNING_JOURNEY = gql`
     }
   }
 `;
+
+export const GET_LEARNING_BITS = gql`
+  query getLearningBits($learningJourneyId: uuid!) {
+    learningBits(where: { learningJourneyId: { _eq: $learningJourneyId } }) {
+      id
+      title
+      description
+      tokens
+      contentType
+      content
+      time
+      guideNotes {
+        note
+        userId
+        user {
+          username
+          avatar
+          username
+        }
+      }
+    }
+  }
+`;

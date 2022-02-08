@@ -28,7 +28,7 @@ const learningJourneyData = {
 const LearningLandingPage = () => {
   const router = useRouter();
   const { id, bit } = router.query;
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(null);
   const [started, setStarted] = useState(false);
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
   const { loading, error, data } = useQuery(GET_USERS);
@@ -52,8 +52,6 @@ const LearningLandingPage = () => {
   const handleStart = () => {
     setStarted(true);
   };
-
-  console.log(learningJourneyData);
 
   return (
     <div className="h-full">
@@ -96,10 +94,7 @@ const LearningLandingPage = () => {
               </Fragment>
             ) : (
               <div>
-                <ContentView
-                  curriculumData={GitcoinCurriculumData}
-                  step={currentStep}
-                />
+                <ContentView learningBitId={currentStep} />
               </div>
             )
           }

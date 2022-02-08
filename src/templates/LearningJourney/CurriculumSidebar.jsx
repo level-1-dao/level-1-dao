@@ -5,7 +5,6 @@ const CurriculumSidebar = ({
   learningJourneyId,
   curriculumData,
   started,
-  progress,
   step,
 }) => {
   return (

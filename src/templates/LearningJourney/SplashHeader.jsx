@@ -13,9 +13,7 @@ const SplashHeader = ({
 }) => {
   return (
     <div className="splash-header">
-      <TokensOnCompletionBadge
-        tokens={learningJourneyData.tokensOnCompletion}
-      />
+      <TokensOnCompletionBadge tokens={learningJourneyData.tokensAvailable} />
       <h1 className="text-6xl font-bold">{learningJourneyData.title}</h1>
       <Avatar guideId={learningJourneyData.guide} />
       <div className="details space-y-4 my-4">
@@ -23,13 +21,13 @@ const SplashHeader = ({
           <TicketIcon className="h-6 w-6" aria-hidden="true" />
           <p>Open to members of GitcoinDAO</p>
         </div>
-        <div className="numbers-completed-container flex space-x-2">
+        {/* <div className="numbers-completed-container flex space-x-2">
           <ChartSquareBarIcon className="h-6 w-6" aria-hidden="true" />
           <p>
             {learningJourneyData.numberCompleted} people completed this learning
             journey
           </p>
-        </div>
+        </div> */}
         <UpdatedOn
           updatedOn={learningJourneyData.updated_at}
           createdOn={learningJourneyData.created_at}
@@ -43,13 +41,7 @@ const SplashHeader = ({
           </a>
         </Link>
         {/* Start level button */}
-        <StartButton
-          userId={user.id}
-          learningJourneyId={learningJourneyData.id}
-          handleStart={handleStart}
-          userLearningJourneyData={userLearningJourneyData}
-          learningJourneyTitle={learningJourneyData.title}
-        />
+        <StartButton handleStart={handleStart} />
       </div>
     </div>
   );

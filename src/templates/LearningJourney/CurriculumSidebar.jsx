@@ -38,7 +38,6 @@ const CurriculumSidebar = ({
       <Curriculum
         curriculum={curriculumData}
         started={started}
-        progress={progress}
         step={parseInt(step)}
         learningJourneyId={learningJourneyId}
       />

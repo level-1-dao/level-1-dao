@@ -30,7 +30,6 @@ const LearningLandingPage = () => {
   const { id, bit } = router.query;
   const [currentStep, setCurrentStep] = useState(1);
   const [started, setStarted] = useState(false);
-  const [progress, setProgress] = useState(0);
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
   const { loading, error, data } = useQuery(GET_USERS);
   const {
@@ -42,23 +41,6 @@ const LearningLandingPage = () => {
   });
   const user = data?.users[0];
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
-
-  const checkIfUserHasStartedLevel = (
-    learningJourneyId,
-    userLearningJourneys
-  ) => {
-    userLearningJourneys.map((userLearningJourney) => {
-      if (userLearningJourney.learningJourneyId === learningJourneyId) {
-        setUserLearningJourneyData(userLearningJourney);
-        setProgress(userLearningJourney.progress);
-        return;
-      }
-    });
-  };
-
-  useEffect(() => {
-    !loading && checkIfUserHasStartedLevel(id, user.learningJourneys);
-  });
 
   useEffect(() => {
     if (bit) {
@@ -115,7 +97,6 @@ const LearningLandingPage = () => {
             ) : (
               <div>
                 <ContentView
-                  progress={progress}
                   curriculumData={GitcoinCurriculumData}
                   step={currentStep}
                 />
@@ -124,8 +105,7 @@ const LearningLandingPage = () => {
           }
           rightColumn={
             <CurriculumSidebar
-              curriculumData={GitcoinCurriculumData}
-              progress={progress}
+              curriculumData={learningJourneyData.learningBits}
               started={started}
               step={currentStep}
               learningJourneyId={id}

@@ -3,9 +3,9 @@ import Curriculum from "../../components/Curriculum";
 
 const CurriculumSidebar = ({
   learningJourneyId,
-  curriculumData,
+  learningBits,
   started,
-  step,
+  currentBit,
 }) => {
   return (
     <div className="flex flex-col space-y-4 items-center w-full px-4">
@@ -35,10 +35,10 @@ const CurriculumSidebar = ({
         </>
       )}
       <Curriculum
-        curriculum={curriculumData}
+        learningBits={learningBits}
         started={started}
-        step={parseInt(step)}
         learningJourneyId={learningJourneyId}
+        currentBit={currentBit}
       />
     </div>
   );

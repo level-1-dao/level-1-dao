@@ -70,7 +70,6 @@ const Input = ({ learningBitId }) => {
                 id="description"
                 className="textarea textarea-ghost w-full text-xl"
                 placeholder="I learned..."
-                defaultValue={""}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />

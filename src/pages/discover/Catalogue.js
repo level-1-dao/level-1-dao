@@ -15,7 +15,7 @@ const levels = [
   {
     id: 2,
     name: "Gitcoin DAO Tools",
-    href: "/learning/5cbc223b-57d2-439e-8744-f8b97bc455cd",
+    href: "/journey/5cbc223b-57d2-439e-8744-f8b97bc455cd",
     imageSrc: "/assets/images/logos/GitcoinDAO.png",
     imageAlt: "Gitcoin DAO Logo",
     description:

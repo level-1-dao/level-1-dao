@@ -31,12 +31,12 @@ const Curriculum = ({ learningJourneyId, curriculum, started, step }) => {
               started &&
               "cursor-pointer hover:bg-accent-focus hover:text-accent-content"
             } ${
-              step === item.id + 1 && started && "bg-accent text-accent-content"
+              step === item.id && started && "bg-accent text-accent-content"
             }`}
             onClick={() => {
               if (started) {
                 router.replace(
-                  `/learning/${learningJourneyId}/?bit=${item.id + 1}`,
+                  `/journey/${learningJourneyId}/?bit=${item.id}`,
                   undefined,
                   { shallow: true }
                 );

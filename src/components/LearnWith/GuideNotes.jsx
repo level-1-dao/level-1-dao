@@ -1,4 +1,5 @@
-import { ChatAltIcon, HandIcon } from "@heroicons/react/outline";
+import { Image } from "next/image";
+import { ChatAltIcon } from "@heroicons/react/outline";
 
 const people = [
   {
@@ -13,7 +14,7 @@ const people = [
   // More people...
 ];
 
-const GuideNotes = ({ notes }) => {
+const GuideNotes = ({ guideNoteData }) => {
   return (
     <div className="mx-auto max-w-7xl">
       <div className="space-y-12 lg:gap-8">
@@ -23,42 +24,43 @@ const GuideNotes = ({ notes }) => {
             role="list"
             className="space-y-12 sm:divide-y sm:divide-gray-200 sm:space-y-0 sm:-mt-6 lg:gap-x-8 lg:space-y-0"
           >
-            {people.map((person) => (
-              <li key={person.name}>
-                <div className="space-y-2">
-                  <div className="image-container space-x-4 mb-4 max-w-xs flex">
-                    <div className="avatar">
-                      <div className="rounded-full w-20 h-20">
-                        <img src={person.imageUrl} alt="Guide's avatar" />
-                      </div>
+            <li>
+              <div className="space-y-2">
+                <div className="image-container space-x-4 mb-4 max-w-xs flex">
+                  <div className="avatar">
+                    <div className="rounded-full w-20 h-20">
+                      <img
+                        src={guideNoteData.user.avatar}
+                        alt="Guide's avatar"
+                      />
                     </div>
-                    <div className="guide-info space-y-2">
-                      <div className="leading-6">
-                        <h3 className="font-medium text-primary text-lg">
-                          {person.name}
-                        </h3>
-                        <p className="text-sm">{person.role}</p>
-                      </div>
-                      <button className="btn btn-xs btn-outline btn-accent">
-                        Message
-                        <ChatAltIcon className="ml-2 h-4 w-4" />
-                      </button>
-                      {/* <button className="btn btn-xs btn-outline btn-accent">
+                  </div>
+                  <div className="guide-info space-y-2">
+                    <div className="leading-6">
+                      <h3 className="font-medium text-primary text-lg">
+                        {guideNoteData.user.username}
+                      </h3>
+                      <p className="text-sm">{guideNoteData.role}</p>
+                    </div>
+                    <button className="btn btn-xs btn-outline btn-accent">
+                      Message
+                      <ChatAltIcon className="ml-2 h-4 w-4" />
+                    </button>
+                    {/* <button className="btn btn-xs btn-outline btn-accent">
                         High Five
                         <HandIcon className="ml-2 h-4 w-4" />
                       </button> */}
-                    </div>
                   </div>
-                  <div className="sm:col-span-4">
-                    <div className="space-y-4">
-                      <div className="text-xl">
-                        <p className="">{notes}</p>
-                      </div>
+                </div>
+                <div className="sm:col-span-4">
+                  <div className="space-y-4">
+                    <div className="text-xl">
+                      <p className="">{guideNoteData.note}</p>
                     </div>
                   </div>
                 </div>
-              </li>
-            ))}
+              </div>
+            </li>
           </ul>
         </div>
       </div>

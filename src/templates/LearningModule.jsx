@@ -20,7 +20,7 @@ const LearningModule = ({ curriculumData, triggerModal }) => {
         <div className="player-wrapper">
           <ReactPlayer
             className="react-player"
-            url={curriculumData.link}
+            url={curriculumData.content}
             width="100%"
             height="100%"
           />
@@ -34,36 +34,16 @@ const LearningModule = ({ curriculumData, triggerModal }) => {
       {curriculumData.contentType === "image" && (
         <div className="relative">
           <img
-            src={`/assets/images/${curriculumData.link}`}
+            src={curriculumData.content}
             layout="responsive"
             alt="image content"
           />
         </div>
       )}
-      {curriculumData.contentType === "quiz" && (
-        <div className="quiz-container">
-          <div className="p-10 card bg-base-200">
-            <div className="form-control">
-              <label className="label">
-                <span className="text-xl">{curriculumData.question}</span>
-              </label>
-              <textarea className="textarea h-24"></textarea>
-              <div className="mt-8 flex justify-end">
-                <button
-                  className="btn btn-primary"
-                  onClick={() => triggerModal(true)}
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">
-        <GuideNotes notes={curriculumData.description} />
+        <GuideNotes guideNoteData={curriculumData.guideNotes} />
         {loading ? (
           <Loading />
         ) : (

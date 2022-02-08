@@ -178,15 +178,16 @@ export const GET_LEARNING_JOURNEY = gql`
         id
         title
         time
+        contentType
+        tokens
       }
     }
   }
 `;
 
-export const GET_LEARNING_BITS = gql`
-  query getLearningBits($learningJourneyId: uuid!) {
-    learningBits(where: { learningJourneyId: { _eq: $learningJourneyId } }) {
-      id
+export const GET_LEARNING_BIT = gql`
+  query getLearningBits($learningBitId: uuid!) {
+    learningBits(where: { id: { _eq: $learningBitId } }) {
       title
       description
       tokens
@@ -196,8 +197,8 @@ export const GET_LEARNING_BITS = gql`
       guideNotes {
         note
         userId
+        role
         user {
-          username
           avatar
           username
         }

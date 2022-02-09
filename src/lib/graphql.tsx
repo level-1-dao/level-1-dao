@@ -40,6 +40,18 @@ export const GET_USERS = gql`
   }
 `;
 
+export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
+  subscription subscribeUserLearningMoments {
+    learningMoments {
+      id
+      learningBitId
+      type
+      moment
+      created_at
+    }
+  }
+`;
+
 export const UPDATE_SETTINGS = gql`
   mutation updateNotificationSettings(
     $id: String!

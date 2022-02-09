@@ -69,7 +69,7 @@ const Curriculum = ({
               </div>
               <div className="time-tokens-container flex">
                 <div className="curriculum__item-time text-sm flex-grow">
-                  {convertToMinutes(bit.time)}
+                  {convertToMinutes(parseInt(bit.time))}
                 </div>
                 <div className="justify-end">
                   <div

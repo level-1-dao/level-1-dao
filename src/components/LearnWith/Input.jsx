@@ -2,24 +2,53 @@ import { useState, useEffect } from "react";
 import { useMutation } from "../../lib/apollo";
 import { useQuery } from "@apollo/client";
 import LearningMomentContainer from "./LearningMomentContainer";
-import { ADD_LEARNING_MOMENT, GET_USERS } from "../../lib/graphql";
+import {
+  ADD_LEARNING_MOMENT,
+  GET_USERS,
+  SUBSCRIBE_USER_LEARNING_MOMENTS,
+} from "../../lib/graphql";
 
 const Input = ({ learningBitId }) => {
   const [value, setValue] = useState("");
   const [learningMoment, setLearningMoment] = useState(null);
-  const { loading, error, data } = useQuery(GET_USERS);
+  const { loading, error, data, subscribeToMore } = useQuery(GET_USERS);
   const user = data?.users[0];
 
   useEffect(() => {
     if (user) {
-      const userLearningMoment = user.learningMoments.find(
-        (learningMoment) => learningMoment.learningBitId === learningBitId
-      );
-      if (userLearningMoment) {
-        setLearningMoment(userLearningMoment);
-      }
+      checkForUsersLearningMoment(user, learningBitId);
     }
   }, [user, learningBitId]);
+
+  useEffect(() => {
+    subscribeToLearningMoments();
+  });
+
+  const subscribeToLearningMoments = () => {
+    subscribeToMore({
+      document: SUBSCRIBE_USER_LEARNING_MOMENTS,
+      updateQuery: (prev, { subscriptionData }) => {
+        if (!subscriptionData.data) return prev;
+        const newLearningMoment = subscriptionData.data.learningMoments;
+        const userObject = Object.assign({}, prev, {
+          users: [
+            {
+              ...prev.users[0],
+              learningMoments: newLearningMoment,
+            },
+          ],
+        });
+        return Object.assign({}, prev, {
+          users: [
+            {
+              ...prev.users[0],
+              learningMoments: newLearningMoment,
+            },
+          ],
+        });
+      },
+    });
+  };
 
   const {
     load: addLearningMoment,
@@ -29,6 +58,7 @@ const Input = ({ learningBitId }) => {
     onCompleted: (data) => {
       // TODO - show alert/toast
       console.log("Learning moment saved ", data);
+      checkForUsersLearningMoment(user, learningBitId);
       return;
     },
     onError: (errorContinueLevel) => {
@@ -37,6 +67,17 @@ const Input = ({ learningBitId }) => {
       return;
     },
   });
+
+  const checkForUsersLearningMoment = (user, learningBitId) => {
+    const userLearningMoment = user.learningMoments.find(
+      (learningMoment) => learningMoment.learningBitId === learningBitId
+    );
+    if (userLearningMoment) {
+      setLearningMoment(userLearningMoment);
+    } else {
+      setLearningMoment(null);
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();

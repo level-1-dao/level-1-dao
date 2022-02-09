@@ -22,7 +22,7 @@ const Input = ({ learningBitId }) => {
 
   useEffect(() => {
     subscribeToLearningMoments();
-  });
+  }, []);
 
   const subscribeToLearningMoments = () => {
     subscribeToMore({

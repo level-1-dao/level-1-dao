@@ -35,22 +35,14 @@ const Curriculum = ({
         {learningBits.map((bit) => (
           <div
             key={bit.id}
-            className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              started &&
-              "cursor-pointer hover:bg-accent-focus hover:text-accent-content"
-            } ${
+            className={`curriculum__item flex space-x-4 p-4 rounded items-center cursor-pointer hover:bg-accent-focus hover:text-accent-content
+            ${
               currentBit === bit.id &&
               started &&
               "bg-accent text-accent-content"
             }`}
             onClick={() => {
-              if (started) {
-                router.replace(
-                  `/journey/${learningJourneyId}/?bit=${bit.id}`,
-                  undefined,
-                  { shallow: true }
-                );
-              }
+              router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);
             }}
           >
             <div className="curriculum_id">&#8226;</div>

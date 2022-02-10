@@ -29,11 +29,18 @@ const LearningLandingPage = () => {
     if (bit) {
       setCurrentBitId(bit);
       setStarted(true);
+    } else {
+      setStarted(false);
     }
   }, [bit]);
 
   const handleStart = () => {
     setStarted(true);
+    if (learningJourneyData.learningBits[0]) {
+      router.push(
+        `/journey/${id}/?bit=${learningJourneyData.learningBits[0].id}`
+      );
+    }
   };
 
   return (

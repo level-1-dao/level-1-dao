@@ -207,6 +207,7 @@ export const GET_LEARNING_BIT = gql`
       contentType
       content
       time
+      prompt
       guideNotes {
         note
         userId

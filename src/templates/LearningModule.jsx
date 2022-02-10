@@ -48,6 +48,14 @@ const LearningModule = ({ learningBitData }) => {
           <Loading />
         ) : (
           <>
+            <div className="header">
+              <h2 className="text-xl tracking-tight">Learning prompt</h2>
+              <p className="text-2xl font-extrabold">
+                {learningBitData.prompt
+                  ? learningBitData.prompt
+                  : "Use this as an opportunity to reflect on what you have learned from this content."}
+              </p>
+            </div>
             <Input learningBitId={learningBitData.id} />
             <GoodCompany learningMoments={learningMoments} />
             <Feed learningMoments={learningMoments} />

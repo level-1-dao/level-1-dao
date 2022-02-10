@@ -93,9 +93,6 @@ const Input = ({ learningBitId }) => {
 
   return (
     <>
-      <h2 className="text-3xl font-extrabold tracking-tight">
-        Learning moment
-      </h2>
       {learningMoment ? (
         <LearningMomentContainer user={user} learningMoment={learningMoment} />
       ) : (
@@ -110,7 +107,7 @@ const Input = ({ learningBitId }) => {
                 name="description"
                 id="description"
                 className="textarea textarea-ghost w-full text-xl"
-                placeholder="I learned..."
+                placeholder="Share your reflection..."
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />

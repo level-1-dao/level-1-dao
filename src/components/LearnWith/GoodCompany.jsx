@@ -7,7 +7,7 @@ const GoodCompany = () => {
       <div className="space-y-8 sm:space-y-12">
         <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
           <p className="text-xl text-gray-500">
-            123 amazing humxns have minted a learning moment.
+            123 amazing humxns have minted their learning moment.
           </p>
         </div>
         <ul

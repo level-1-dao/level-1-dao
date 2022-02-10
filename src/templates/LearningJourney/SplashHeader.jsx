@@ -35,11 +35,6 @@ const SplashHeader = ({
       </div>
       {/* <Actions /> */}
       <div className="actions flex space-x-2 my-4">
-        <Link href="#">
-          <a className="btn btn-white btn-outline">
-            <span className="text-sm">Bookmark</span>
-          </a>
-        </Link>
         {/* Start level button */}
         <StartButton handleStart={handleStart} />
       </div>

@@ -1,26 +1,21 @@
-import Link from "next/link";
 import StartButton from "../../components/LearningJourney/StartButton";
 import { ChartSquareBarIcon, TicketIcon } from "@heroicons/react/outline";
 import { TokensOnCompletionBadge } from "../../components/LearningJourney";
 import { Avatar } from "../../components/Guide";
 import UpdatedOn from "../../components/LearningJourney/UpdatedOn";
 
-const SplashHeader = ({
-  learningJourneyData,
-  userLearningJourneyData,
-  user,
-  handleStart,
-}) => {
+const SplashHeader = ({ learningJourneyData, handleStart }) => {
   return (
     <div className="splash-header">
       <TokensOnCompletionBadge tokens={learningJourneyData.tokensAvailable} />
       <h1 className="text-6xl font-bold">{learningJourneyData.title}</h1>
-      <Avatar guideId={learningJourneyData.guide} />
+      <h4 className="text-lg mb-4">Guided by:</h4>
+      <Avatar learningBits={learningJourneyData.learningBits} />
       <div className="details space-y-4 my-4">
-        <div className="access-info-container flex space-x-2">
+        {/* <div className="access-info-container flex space-x-2">
           <TicketIcon className="h-6 w-6" aria-hidden="true" />
           <p>Open to members of GitcoinDAO</p>
-        </div>
+        </div> */}
         {/* <div className="numbers-completed-container flex space-x-2">
           <ChartSquareBarIcon className="h-6 w-6" aria-hidden="true" />
           <p>

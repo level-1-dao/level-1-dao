@@ -4,21 +4,17 @@ export const GET_USERS = gql`
   query getUser {
     users {
       id
-      email
       username
       firstName
       lastName
-      dateJoined
-      lastOnline
       online
-      created_at
-      updated_at
       avatar
-      connectedWalletAddress
       country
-      timezone
-      newsletter
-      journeyUpdates
+      private_info {
+        email
+        updated_at
+        newsletter
+      }
       learningJourneys {
         id
         learningJourneyId
@@ -35,6 +31,43 @@ export const GET_USERS = gql`
         type
         moment
         created_at
+      }
+    }
+  }
+`;
+
+export const GET_USER = gql`
+  query getUserProfile {
+    user_private {
+      userId
+      email
+      updated_at
+      newsletter
+      user_details {
+        username
+        firstName
+        lastName
+        online
+        avatar
+        country
+        connectedWalletAddress
+        learningJourneys {
+          id
+          learningJourneyId
+          title
+          created_at
+          updated_at
+          progress
+          receivedTokens
+          mintedNft
+        }
+        learningMoments {
+          id
+          learningBitId
+          type
+          moment
+          created_at
+        }
       }
     }
   }
@@ -192,6 +225,14 @@ export const GET_LEARNING_JOURNEY = gql`
         time
         contentType
         tokens
+        guideNotes {
+          role
+          userId
+          user {
+            username
+            avatar
+          }
+        }
       }
     }
   }

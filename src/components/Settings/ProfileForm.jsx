@@ -6,10 +6,12 @@ import { UPDATE_SETTINGS } from "../../lib/graphql";
 const ProfileForm = ({ user }) => {
   const [newsletter, setNewsletter] = useState(user.newsletter || false);
   const [journeyUpdates, setJourneyUpdates] = useState(
-    user.journeyUpdates || false
+    user.user_details.journeyUpdates || false
   );
-  const [walletAddress, setWalletAddress] = useState(user.connectedWalletAddress || "");
-  const [username, setUsername] = useState(user.username || "");
+  const [walletAddress, setWalletAddress] = useState(
+    user.user_details.connectedWalletAddress || ""
+  );
+  const [username, setUsername] = useState(user.user_details.username || "");
 
   const {
     load: updateSettings,
@@ -32,7 +34,7 @@ const ProfileForm = ({ user }) => {
     e.preventDefault();
     updateSettings({
       variables: {
-        id: user.id,
+        id: user.userId,
         newsletter: newsletter,
         journeyUpdates: journeyUpdates,
         connectedWalletAddress: walletAddress,
@@ -56,7 +58,7 @@ const ProfileForm = ({ user }) => {
           <div className="avatar">
             <div className="mb-8 rounded-full w-24 h-24">
               <Image
-                src={user.avatar}
+                src={user.user_details.avatar}
                 alt="NFT"
                 layout="responsive"
                 width={200}
@@ -77,7 +79,6 @@ const ProfileForm = ({ user }) => {
               autoComplete="username"
               className="input input-bordered w-full"
               onChange={(e) => setUsername(e.target.value)}
-              disabled
               value={username}
             />
           </div>
@@ -111,7 +112,7 @@ const ProfileForm = ({ user }) => {
               autoComplete="country-name"
               className="select select-bordered w-full max-w-xs"
               disabled
-              value={user.country}
+              value={user.user_details.country}
             >
               <option>United States</option>
               <option>Canada</option>
@@ -132,7 +133,6 @@ const ProfileForm = ({ user }) => {
               autoComplete="street-address"
               className="input input-bordered w-full"
               onChange={(e) => setWalletAddress(e.target.value)}
-              disabled
               value={walletAddress}
             />
           </div>

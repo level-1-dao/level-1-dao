@@ -4,15 +4,15 @@ import { useQuery } from "@apollo/client";
 import LearningMomentContainer from "./LearningMomentContainer";
 import {
   ADD_LEARNING_MOMENT,
-  GET_USERS,
+  GET_USER,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
 } from "../../lib/graphql";
 
 const Input = ({ learningBitId }) => {
   const [value, setValue] = useState("");
   const [learningMoment, setLearningMoment] = useState(null);
-  const { loading, error, data, subscribeToMore } = useQuery(GET_USERS);
-  const user = data?.users[0];
+  const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
+  const user = data?.user_private[0];
 
   useEffect(() => {
     if (user) {
@@ -31,18 +31,25 @@ const Input = ({ learningBitId }) => {
         if (!subscriptionData.data) return prev;
         const newLearningMoment = subscriptionData.data.learningMoments;
         const userObject = Object.assign({}, prev, {
-          users: [
+          user_private: [
             {
-              ...prev.users[0],
-              learningMoments: newLearningMoment,
+              ...prev.user_private[0],
+              user_details: {
+                ...prev.user_private[0].user_details,
+                learningMoments: newLearningMoment,
+              },
             },
           ],
         });
+        console.log(userObject);
         return Object.assign({}, prev, {
-          users: [
+          user_private: [
             {
-              ...prev.users[0],
-              learningMoments: newLearningMoment,
+              ...prev.user_private[0],
+              user_details: {
+                ...prev.user_private[0].user_details,
+                learningMoments: newLearningMoment,
+              },
             },
           ],
         });
@@ -69,7 +76,7 @@ const Input = ({ learningBitId }) => {
   });
 
   const checkForUsersLearningMoment = (user, learningBitId) => {
-    const userLearningMoment = user.learningMoments.find(
+    const userLearningMoment = user.user_details.learningMoments.find(
       (learningMoment) => learningMoment.learningBitId === learningBitId
     );
     if (userLearningMoment) {
@@ -83,7 +90,7 @@ const Input = ({ learningBitId }) => {
     e.preventDefault();
     addLearningMoment({
       variables: {
-        userId: user.id,
+        userId: user.userId,
         learningBitId: learningBitId,
         moment: value,
         type: "reflection",

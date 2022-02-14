@@ -8,7 +8,7 @@ import SplashHeader from "../../templates/LearningJourney/SplashHeader";
 import Details from "../../templates/LearningJourney/Details";
 import CurriculumSidebar from "../../templates/LearningJourney/CurriculumSidebar";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { GET_USERS, GET_LEARNING_JOURNEY } from "../../lib/graphql";
+import { GET_USER, GET_LEARNING_JOURNEY } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
 
@@ -18,11 +18,11 @@ const LearningLandingPage = () => {
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
   const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
-  const { loading, error, data } = useQuery(GET_USERS);
+  const { loading, error, data } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
   });
-  const user = data?.users[0];
+  const user = data?.user_private[0];
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
 
   useEffect(() => {

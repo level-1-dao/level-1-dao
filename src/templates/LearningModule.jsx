@@ -1,6 +1,10 @@
-import React from "react";
-import { useQuery } from "@apollo/client";
-import { GET_LEARNING_MOMENTS } from "../lib/graphql";
+import { useEffect } from "react";
+import Link from "next/link";
+import { useSubscription } from "@apollo/client";
+import {
+  GET_LEARNING_MOMENTS,
+  SUBSCRIBE_LEARNING_MOMENTS,
+} from "../lib/graphql";
 import Loading from "../components/Loading";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
@@ -8,12 +12,13 @@ import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 import ReactPlayer from "react-player";
 
 const LearningModule = ({ learningBitData }) => {
-  const { loading, error, data } = useQuery(GET_LEARNING_MOMENTS, {
+  const { loading, error, data } = useSubscription(SUBSCRIBE_LEARNING_MOMENTS, {
     variables: {
       learningBitId: learningBitData.id,
     },
   });
   const learningMoments = data?.learningMoments;
+
   return (
     <div className="px-2 sm:px-4 space-y-4">
       <h2 className="text-3xl font-extrabold tracking-tight">Content</h2>
@@ -28,11 +33,6 @@ const LearningModule = ({ learningBitData }) => {
           />
         </div>
       )}
-      {learningBitData.contentType === "text" && (
-        <div className="text-container">
-          <p>{learningBitData.content}</p>
-        </div>
-      )}
       {learningBitData.contentType === "image" && (
         <div className="relative">
           <img
@@ -45,6 +45,15 @@ const LearningModule = ({ learningBitData }) => {
       {learningBitData.contentType === "link" && (
         <div className="relative">
           <LinkPreview url={learningBitData.content} />
+        </div>
+      )}
+
+      {/* Direct link to content */}
+      {learningBitData.content && (
+        <div className="link-to-content">
+          <Link href={learningBitData.content}>
+            <a target="_blank">{learningBitData.content}</a>
+          </Link>
         </div>
       )}
 

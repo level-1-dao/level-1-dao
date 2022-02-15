@@ -73,18 +73,6 @@ export const GET_USER = gql`
   }
 `;
 
-export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
-  subscription subscribeUserLearningMoments {
-    learningMoments {
-      id
-      learningBitId
-      type
-      moment
-      created_at
-    }
-  }
-`;
-
 export const UPDATE_SETTINGS = gql`
   mutation updateNotificationSettings(
     $id: String!
@@ -189,6 +177,26 @@ export const GET_LEARNING_MOMENTS = gql`
       moment
       userId
       created_at
+      user {
+        username
+        avatar
+      }
+    }
+  }
+`;
+
+export const SUBSCRIBE_LEARNING_MOMENTS = gql`
+  subscription subscribeLearningMoments($learningBitId: uuid!) {
+    learningMoments(where: { learningBitId: { _eq: $learningBitId } }) {
+      id
+      learningBitId
+      type
+      moment
+      created_at
+      user {
+        username
+        avatar
+      }
     }
   }
 `;
@@ -205,6 +213,18 @@ export const GET_USER_LEARNING_MOMENT = gql`
       type
       moment
       userId
+      created_at
+    }
+  }
+`;
+
+export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
+  subscription subscribeUserLearningMoments {
+    learningMoments {
+      id
+      learningBitId
+      type
+      moment
       created_at
     }
   }

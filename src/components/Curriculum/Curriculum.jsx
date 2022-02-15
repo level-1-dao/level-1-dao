@@ -1,8 +1,9 @@
 import { useRouter } from "next/router";
 import {
-  ClipboardListIcon,
   VideoCameraIcon,
+  PhotographIcon,
   LinkIcon,
+  DocumentTextIcon,
   CashIcon,
 } from "@heroicons/react/solid";
 
@@ -49,8 +50,10 @@ const Curriculum = ({
             <div className="curriculum__content-type">
               {bit.contentType === "video" ? (
                 <VideoCameraIcon className="w-6 h-6" />
-              ) : bit.contentType === "quiz" ? (
-                <ClipboardListIcon className="w-6 h-6" />
+              ) : bit.contentType === "image" ? (
+                <PhotographIcon className="w-6 h-6" />
+              ) : bit.contentType === "text" ? (
+                <DocumentTextIcon className="w-6 h-6" />
               ) : (
                 <LinkIcon className="w-6 h-6" />
               )}

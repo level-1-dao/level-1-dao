@@ -41,7 +41,6 @@ const Input = ({ learningBitId }) => {
             },
           ],
         });
-        console.log(userObject);
         return Object.assign({}, prev, {
           user_private: [
             {

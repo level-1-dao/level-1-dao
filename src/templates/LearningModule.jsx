@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_LEARNING_MOMENTS } from "../lib/graphql";
 import Loading from "../components/Loading";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 
 import ReactPlayer from "react-player";
@@ -14,8 +15,9 @@ const LearningModule = ({ learningBitData }) => {
   });
   const learningMoments = data?.learningMoments;
   return (
-    <div className="px-2 sm:px-4">
-      {/* <VideoPlayer /> */}
+    <div className="px-2 sm:px-4 space-y-4">
+      <h2 className="text-3xl font-extrabold tracking-tight">Content</h2>
+      {/* <ContentPlayer /> */}
       {learningBitData.contentType === "video" && (
         <div className="player-wrapper">
           <ReactPlayer
@@ -40,6 +42,16 @@ const LearningModule = ({ learningBitData }) => {
           />
         </div>
       )}
+      {learningBitData.contentType === "link" && (
+        <div className="relative">
+          <LinkPreview url={learningBitData.content} />
+        </div>
+      )}
+
+      {/* Description */}
+      <div className="description-container text-lg">
+        <p>{learningBitData.description}</p>
+      </div>
 
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">

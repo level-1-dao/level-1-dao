@@ -114,7 +114,7 @@ const Input = ({ learningBitId }) => {
                 name="description"
                 id="description"
                 className="textarea textarea-ghost w-full text-xl"
-                placeholder="Share your reflection..."
+                placeholder="Share a learning reflection..."
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
@@ -131,12 +131,12 @@ const Input = ({ learningBitId }) => {
                       }`}
                     >
                       {!addLearningMomentLoading
-                        ? "Mint your learning moment"
-                        : "Minting"}
+                        ? "Share reflection"
+                        : "Sharing"}
                     </button>
                   ) : (
                     <button type="submit" className="btn btn-primary btn-md">
-                      Log-in to mint your learning moment
+                      Log-in to share reflection
                     </button>
                   )}
                 </div>

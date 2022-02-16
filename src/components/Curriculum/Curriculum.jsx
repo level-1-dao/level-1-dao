@@ -4,7 +4,7 @@ import {
   PhotographIcon,
   LinkIcon,
   DocumentTextIcon,
-  CashIcon,
+  CheckCircleIcon,
 } from "@heroicons/react/solid";
 
 const convertToMinutes = (time) => {
@@ -22,11 +22,23 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
+const checkForUsersLearningMoment = (user, learningBitId) => {
+  const userLearningMoment = user.user_details.learningMoments.find(
+    (learningMoment) => learningMoment.learningBitId === learningBitId
+  );
+  if (userLearningMoment) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 const Curriculum = ({
   learningJourneyId,
   learningBits,
   started,
   currentBit,
+  user,
 }) => {
   const router = useRouter();
   return (
@@ -66,16 +78,17 @@ const Curriculum = ({
                 <div className="curriculum__item-time text-sm flex-grow">
                   {convertToMinutes(parseInt(bit.time))}
                 </div>
-                <div className="justify-end">
-                  <div
-                    className={`badge ${
-                      currentBit !== bit.id && started ? "badge-info" : ""
-                    }`}
-                  >
-                    <CashIcon className="h-4 w-4 mr-1" />
-                    {bit.tokens}
+                {checkForUsersLearningMoment(user, bit.id) && (
+                  <div className="completed-check justify-end">
+                    <div
+                      className={`badge ${
+                        currentBit !== bit.id && started ? "badge-info" : ""
+                      }`}
+                    >
+                      reflection shared
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

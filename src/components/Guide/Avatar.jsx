@@ -15,7 +15,7 @@ const Avatar = ({ learningBits }) => {
   return (
     <div className="guide-container flex space-x-4">
       {uniqueGuidesArray.map((guide) => (
-        <>
+        <div key={guide.id}>
           <div className="avatar">
             <div className="rounded-full w-14 h-14">
               <Image
@@ -41,7 +41,7 @@ const Avatar = ({ learningBits }) => {
               <span className="text-gray-500">{guide.guideNotes.role}</span>
             </h5>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

@@ -21,14 +21,44 @@ const LearningLandingPage = () => {
   const { id, bit } = router.query;
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
-  const { loading, error, data } = useQuery(GET_USER);
+  const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
   });
   const user = data?.user_private[0];
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
 
-  console.log("user", user);
+  const subscribeToLearningMoments = () => {
+    subscribeToMore({
+      document: SUBSCRIBE_USER_LEARNING_MOMENTS,
+      updateQuery: (prev, { subscriptionData }) => {
+        if (!subscriptionData.data) return prev;
+        const newLearningMoment = subscriptionData.data.learningMoments;
+        const userObject = Object.assign({}, prev, {
+          user_private: [
+            {
+              ...prev.user_private[0],
+              user_details: {
+                ...prev.user_private[0].user_details,
+                learningMoments: newLearningMoment,
+              },
+            },
+          ],
+        });
+        return Object.assign({}, prev, {
+          user_private: [
+            {
+              ...prev.user_private[0],
+              user_details: {
+                ...prev.user_private[0].user_details,
+                learningMoments: newLearningMoment,
+              },
+            },
+          ],
+        });
+      },
+    });
+  };
 
   useEffect(() => {
     if (bit) {
@@ -38,6 +68,10 @@ const LearningLandingPage = () => {
       setStarted(false);
     }
   }, [bit]);
+
+  useEffect(() => {
+    subscribeToLearningMoments();
+  }, []);
 
   const handleStart = () => {
     setStarted(true);
@@ -84,6 +118,7 @@ const LearningLandingPage = () => {
               started={started}
               learningJourneyId={id}
               currentBit={currentBitId}
+              user={user}
             />
           }
         />

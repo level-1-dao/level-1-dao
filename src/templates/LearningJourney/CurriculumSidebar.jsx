@@ -6,39 +6,32 @@ const CurriculumSidebar = ({
   learningBits,
   started,
   currentBit,
+  user,
 }) => {
+  const checkIfJourneyComplete = (user, learningBits) => {
+    const userLearningMoments = user.user_details.learningMoments;
+    const userLearningMomentsIds = userLearningMoments.map(
+      (learningMoment) => learningMoment.learningBitId
+    );
+    const userLearningBits = learningBits.filter(
+      (learningBit) =>
+        userLearningMomentsIds.includes(learningBit.id) &&
+        learningBit.learningMomentId !== null
+    );
+    if (userLearningBits.length === learningBits.length) {
+      return true;
+    }
+    return false;
+  };
   return (
     <div className="flex flex-col space-y-4 items-center w-full px-4">
-      {!started && (
-        <>
-          <div
-            className="flex items-center w-full bg-cover card bg-base-200"
-            style={{
-              backgroundImage:
-                "url(https://s.gitcoin.co/static/v2/card/thumb.0a0be2e5841a.jpg)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="card glass lg:card-side text-neutral-content">
-              <div className="max-w-md card-body">
-                <p>This learning module is available to GitcoinDAO members.</p>
-                <div className="card-actions">
-                  <button className="btn btn-sm glass rounded-full">
-                    Learn More
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <NFT />
-        </>
-      )}
+      {checkIfJourneyComplete(user, learningBits) && <NFT />}
       <Curriculum
         learningBits={learningBits}
         started={started}
         learningJourneyId={learningJourneyId}
         currentBit={currentBit}
+        user={user}
       />
     </div>
   );

@@ -1,12 +1,12 @@
-import {useRouter} from 'next/router';
-import Image from 'next/image';
+import { useRouter } from "next/router";
+import Image from "next/image";
 
 const NFT = () => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center rounded-lg border border-base-content text-base-content">
-      <div className="relative w-48 h-auto">
+    <div className="flex cursor-pointer items-center rounded-lg shadow-2xl text-primary-content bg-primary hover:bg-primary-focus w-full">
+      <div className="relative w-16 h-auto">
         <Image
           src={`${router.basePath}/assets/images/thunderbolt.png`}
           alt="NFT"
@@ -16,8 +16,9 @@ const NFT = () => {
           priority={true}
         />
       </div>
-      <div className="p-4 font-bold">
-        <p>Receive GitcoinDAO NFT badge on completion.</p>
+      <div className="p-4">
+        <p className="text-xs">You have completed this Level1 journey!</p>
+        <p className="font-bold">Mint your learning badge.</p>
       </div>
     </div>
   );

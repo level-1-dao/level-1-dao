@@ -8,7 +8,11 @@ import SplashHeader from "../../templates/LearningJourney/SplashHeader";
 import Details from "../../templates/LearningJourney/Details";
 import CurriculumSidebar from "../../templates/LearningJourney/CurriculumSidebar";
 import { withPageAuthRequired } from "@auth0/nextjs-auth0";
-import { GET_USER, GET_LEARNING_JOURNEY } from "../../lib/graphql";
+import {
+  GET_USER,
+  GET_LEARNING_JOURNEY,
+  SUBSCRIBE_USER_LEARNING_MOMENTS,
+} from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
 
@@ -17,13 +21,14 @@ const LearningLandingPage = () => {
   const { id, bit } = router.query;
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
-  const [userLearningJourneyData, setUserLearningJourneyData] = useState(null);
   const { loading, error, data } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
   });
   const user = data?.user_private[0];
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
+
+  console.log("user", user);
 
   useEffect(() => {
     if (bit) {
@@ -63,7 +68,6 @@ const LearningLandingPage = () => {
                 <SplashHeader
                   user={user}
                   learningJourneyData={learningJourneyData}
-                  userLearningJourneyData={userLearningJourneyData}
                   handleStart={handleStart}
                 />
                 <Details learningJourneyData={learningJourneyData} />

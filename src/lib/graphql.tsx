@@ -260,7 +260,10 @@ export const GET_LEARNING_JOURNEY = gql`
 
 export const GET_LEARNING_BIT = gql`
   query getLearningBits($learningBitId: uuid!) {
-    learningBits(where: { id: { _eq: $learningBitId } }) {
+    learningBits(
+      where: { id: { _eq: $learningBitId } }
+      order_by: { position: desc }
+    ) {
       id
       title
       description

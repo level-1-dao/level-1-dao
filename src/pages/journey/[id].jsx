@@ -83,7 +83,7 @@ const LearningLandingPage = () => {
   };
 
   return (
-    <div className="h-full">
+    <div className="h-full bg-base-100">
       {!learningJourneyData ? (
         <Loading />
       ) : (

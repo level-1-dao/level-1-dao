@@ -4,7 +4,6 @@ import {
   PhotographIcon,
   LinkIcon,
   DocumentTextIcon,
-  CheckCircleIcon,
 } from "@heroicons/react/solid";
 
 const convertToMinutes = (time) => {

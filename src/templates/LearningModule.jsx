@@ -64,11 +64,11 @@ const LearningModule = ({ learningBitData }) => {
 
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">
-        <GuideNotes guideNoteData={learningBitData.guideNotes} />
         {loading ? (
           <Loading />
         ) : (
           <>
+            <GuideNotes guideNoteData={learningBitData.guideNotes} />
             <div className="header">
               <h2 className="text-xl tracking-tight">Learning prompt</h2>
               <p className="text-2xl font-extrabold">

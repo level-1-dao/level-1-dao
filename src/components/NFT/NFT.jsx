@@ -1,11 +1,14 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-const NFT = () => {
+const NFT = ({ setFinishedJourney }) => {
   const router = useRouter();
 
   return (
-    <div className="flex cursor-pointer items-center rounded-lg shadow-2xl text-primary-content bg-primary hover:bg-primary-focus w-full">
+    <div
+      onClick={() => setFinishedJourney(true)}
+      className="flex cursor-pointer items-center rounded-lg shadow-2xl text-primary-content bg-primary hover:bg-primary-focus w-full"
+    >
       <div className="relative w-16 h-auto">
         <Image
           src={`${router.basePath}/assets/images/thunderbolt.png`}

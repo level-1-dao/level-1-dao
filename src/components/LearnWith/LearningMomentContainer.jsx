@@ -1,8 +1,38 @@
+import dateFormat from "dateformat";
+
 const LearningMomenContainer = ({ user, learningMoment }) => {
   return (
-    <div className="mt-12 shadow-lg relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
-      <blockquote className="relative bg-white rounded-lg shadow-lg">
+    <div className="mt-12 shadow-lg relative text-base max-w-md mx-auto lg:mt-0">
+      <blockquote className="relative bg-base-100 rounded-lg shadow-lg">
         <div className="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-8">
+          <div className="learner-info">
+            <div className="md:flex md:justify-center">
+              <div className="md:flex-shrink-0">
+                <img
+                  className="mx-auto h-10 w-10 rounded-full"
+                  src={user.user_details.avatar}
+                  alt="user's avatar"
+                />
+              </div>
+              <div className="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
+                <div className="text-base font-medium text-gray-900">
+                  {user.user_details.username}
+                </div>
+
+                <svg
+                  className="hidden md:block mx-1 h-5 w-5 text-indigo-600"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M11 0h3L9 20H6l5-20z" />
+                </svg>
+
+                <div className="text-base font-medium text-gray-500">
+                  Reflection
+                </div>
+              </div>
+            </div>
+          </div>
           <div className="relative text-2xl text-gray-700 font-medium mt-8">
             <svg
               className="absolute top-0 left-0 transform -translate-x-3 -translate-y-2 h-8 w-8 text-gray-200"
@@ -15,22 +45,17 @@ const LearningMomenContainer = ({ user, learningMoment }) => {
             <p className="relative">{learningMoment.moment}</p>
           </div>
         </div>
-        <cite className="relative flex items-center sm:items-start gradient-background  rounded-b-lg not-italic py-5 px-6 sm:py-5 sm:pl-12 sm:pr-10 sm:mt-10">
-          <div className="relative rounded-full border-2 border-white sm:absolute sm:top-0 sm:transform sm:-translate-y-1/2">
-            <img
-              className="w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-indigo-300"
-              src={user.user_details.avatar}
-              alt=""
-            />
-          </div>
-          <span className="relative ml-4 text-indigo-300 font-semibold leading-6 sm:ml-24 sm:pl-1">
+        <cite className="relative flex items-center gradient-background  rounded-b-lg not-italic py-5 px-6 sm:py-5 sm:pl-12 sm:pr-10 sm:mt-10">
+          <span className="relative text-indigo-300 font-semibold leading-6">
             <h3 className="text-base sm:text-lg text-indigo-50 font-bold">
-              Proof of Learning Momement
+              Your shared Learning Momement
             </h3>
             <p className="text-white font-semibold sm:inline">
               {user.username}
             </p>{" "}
-            <p className="sm:inline">Minted on {learningMoment.created_at}</p>
+            <p className="sm:inline">
+              {dateFormat(learningMoment.created_at, "mmmm dS yyyy")}
+            </p>
           </span>
         </cite>
       </blockquote>

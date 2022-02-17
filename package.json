@@ -25,6 +25,7 @@
     "@tailwindcss/aspect-ratio": "0.3.0",
     "@tailwindcss/forms": "0.3.4",
     "daisyui": "1.16.2",
+    "dateformat": "5.0.2",
     "dotenv": "^10.0.0",
     "ethers": "^5.5.2",
     "generate-avatar": "1.4.10",

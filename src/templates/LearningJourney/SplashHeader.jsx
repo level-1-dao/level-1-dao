@@ -9,6 +9,13 @@ const SplashHeader = ({ learningJourneyData, handleStart }) => {
     <div className="splash-header">
       <TokensOnCompletionBadge tokens={learningJourneyData.tokensAvailable} />
       <h1 className="text-6xl font-bold">{learningJourneyData.title}</h1>
+      <UpdatedOn
+        updatedOn={learningJourneyData.updated_at}
+        createdOn={learningJourneyData.created_at}
+      />
+      <div className="actions flex space-x-2 my-4">
+        <StartButton handleStart={handleStart} />
+      </div>
       <h4 className="text-lg mb-4">Guided by:</h4>
       <Avatar learningBits={learningJourneyData.learningBits} />
       <div className="details space-y-4 my-4">
@@ -23,15 +30,6 @@ const SplashHeader = ({ learningJourneyData, handleStart }) => {
             journey
           </p>
         </div> */}
-        <UpdatedOn
-          updatedOn={learningJourneyData.updated_at}
-          createdOn={learningJourneyData.created_at}
-        />
-      </div>
-      {/* <Actions /> */}
-      <div className="actions flex space-x-2 my-4">
-        {/* Start level button */}
-        <StartButton handleStart={handleStart} />
       </div>
     </div>
   );

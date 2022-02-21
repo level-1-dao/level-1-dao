@@ -20,7 +20,8 @@ const LearningModule = ({ learningBitData }) => {
   const learningMoments = data?.learningMoments;
 
   return (
-    <div className="px-2 sm:px-4 space-y-4 bg-base-200">
+    <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded">
+      <GuideNotes guideNoteData={learningBitData.guideNotes} />
       <h2 className="text-3xl font-extrabold tracking-tight">Content</h2>
       {/* <ContentPlayer /> */}
       {learningBitData.contentType === "video" && (
@@ -68,7 +69,6 @@ const LearningModule = ({ learningBitData }) => {
           <Loading />
         ) : (
           <>
-            <GuideNotes guideNoteData={learningBitData.guideNotes} />
             <div className="header">
               <h2 className="text-xl tracking-tight">Learning prompt</h2>
               <p className="text-2xl font-extrabold">

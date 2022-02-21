@@ -42,16 +42,15 @@ const Curriculum = ({
   const router = useRouter();
   return (
     <div className="curriculum w-full">
-      <h2 className="text-xl mb-4">Learning bits:</h2>
       <div className="curriculum__list space-y-2">
         {learningBits.map((bit) => (
           <div
             key={bit.id}
-            className={`curriculum__item flex space-x-4 p-4 rounded items-center cursor-pointer hover:bg-accent-focus hover:text-accent-content
+            className={`curriculum__item flex space-x-4 p-4 rounded items-center cursor-pointer hover:bg-primary-focus hover:text-primary-content
             ${
               currentBit === bit.id &&
               started &&
-              "bg-accent text-accent-content"
+              "bg-primary text-primary-content"
             }`}
             onClick={() => {
               router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);

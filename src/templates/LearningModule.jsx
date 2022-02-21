@@ -20,7 +20,7 @@ const LearningModule = ({ learningBitData }) => {
   const learningMoments = data?.learningMoments;
 
   return (
-    <div className="px-2 sm:px-4 space-y-4">
+    <div className="px-2 sm:px-4 space-y-4 bg-base-200">
       <h2 className="text-3xl font-extrabold tracking-tight">Content</h2>
       {/* <ContentPlayer /> */}
       {learningBitData.contentType === "video" && (
@@ -64,7 +64,7 @@ const LearningModule = ({ learningBitData }) => {
 
       {/* Learn with */}
       <div className="learn-with-container space-y-12 py-12">
-        {loading ? (
+        {loading && learningMoments ? (
           <Loading />
         ) : (
           <>

@@ -1,7 +1,8 @@
 import { generateFromString } from "generate-avatar";
 
 const GoodCompany = ({ learningMoments }) => {
-  const learningMomentsCount = learningMoments.length;
+  console.log("learningMoments", learningMoments);
+  const learningMomentsCount = learningMoments ? learningMoments.length : 0;
   return (
     <div className="max-w-7xl">
       <div className="space-y-8 sm:space-y-12">
@@ -12,6 +13,7 @@ const GoodCompany = ({ learningMoments }) => {
               : "Be the first to share your reflection"}
           </p>
         </div>
+        {learningMomentsCount > 0 && (
         <ul
           role="list"
           className="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6"
@@ -46,6 +48,7 @@ const GoodCompany = ({ learningMoments }) => {
             );
           })}
         </ul>
+        )}
       </div>
     </div>
   );

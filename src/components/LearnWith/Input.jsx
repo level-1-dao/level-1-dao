@@ -103,7 +103,7 @@ const Input = ({ learningBitId }) => {
         <LearningMomentContainer user={user} learningMoment={learningMoment} />
       ) : (
         <form action="#" className="space-y-8" onSubmit={handleSubmit}>
-          <div className="relative text-xl border border-gray-300 rounded-lg shadow-sm overflow-hidden group focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+          <div className="bg-base-100 relative text-xl border border-gray-300 rounded-lg shadow-sm overflow-hidden group focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
             <div className="p-6">
               <label htmlFor="description" className="sr-only">
                 Learning moment input

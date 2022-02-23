@@ -20,8 +20,9 @@ const Avatar = ({ learningBits }) => {
             <div className="rounded-full w-14 h-14">
               <Image
                 src={
-                  guide.guideNotes.user && guide.guideNotes.user.avatar
-                    ? guide.guideNotes.user.avatar
+                  guide.guideNotes.guide_info &&
+                  guide.guideNotes.guide_info.avatar
+                    ? guide.guideNotes.guide_info.avatar
                     : `data:image/svg+xml;utf8,${generateFromString(
                         guide.guideNotes.userId
                       )}`
@@ -35,7 +36,7 @@ const Avatar = ({ learningBits }) => {
           </div>
           <div className="guide-text">
             <p className="text-lg">
-              <span>{guide.guideNotes.user.username}</span>
+              <span>{guide.guideNotes.guide_info.username}</span>
             </p>
             <h5 className="text-sm">
               <span className="text-gray-500">{guide.guideNotes.role}</span>

@@ -15,9 +15,9 @@ const GuideNotes = ({ guideNoteData }) => {
               <div className="space-y-4">
                 <div className="guide-info space-x-4 w-full flex">
                   <div className="avatar">
-                    <div className="rounded-full w-20 h-20">
+                    <div className="rounded-full w-16 h-16">
                       <img
-                        src={guideNoteData.user.avatar}
+                        src={guideNoteData.guide_info.avatar}
                         alt="Guide's avatar"
                       />
                     </div>
@@ -25,7 +25,7 @@ const GuideNotes = ({ guideNoteData }) => {
                   <div className="guide-info space-y-2 flex items-center w-full justify-between">
                     <div className="leading-6">
                       <h3 className="font-medium text-primary text-2xl">
-                        {guideNoteData.user.username}
+                        {guideNoteData.guide_info.username}
                       </h3>
                       <p className="text-base">{guideNoteData.role}</p>
                     </div>

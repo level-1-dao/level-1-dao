@@ -177,7 +177,7 @@ export const GET_LEARNING_MOMENTS = gql`
       moment
       userId
       created_at
-      user {
+      user_info {
         username
         avatar
       }
@@ -193,7 +193,7 @@ export const SUBSCRIBE_LEARNING_MOMENTS = gql`
       type
       moment
       created_at
-      user {
+      user_info {
         username
         avatar
       }
@@ -248,7 +248,7 @@ export const GET_LEARNING_JOURNEY = gql`
         guideNotes {
           role
           userId
-          user {
+          guide_info {
             username
             avatar
           }
@@ -276,7 +276,7 @@ export const GET_LEARNING_BIT = gql`
         note
         userId
         role
-        user {
+        guide_info {
           avatar
           username
         }

@@ -7,9 +7,9 @@ const NFT = ({ setFinishedJourney }) => {
   return (
     <div
       onClick={() => setFinishedJourney(true)}
-      className="flex cursor-pointer items-center rounded-lg shadow-2xl text-secondary-content bg-secondary hover:bg-secondary-focus w-full"
+      className="flex hazy-candy-floss-background cursor-pointer items-center rounded-lg text-secondary-content shadow-lg hover:shadow-2xl w-full"
     >
-      <div className="relative w-16 h-auto">
+      {/* <div className="relative w-16 h-auto">
         <Image
           src={`${router.basePath}/assets/images/thunderbolt.png`}
           alt="NFT"
@@ -18,10 +18,10 @@ const NFT = ({ setFinishedJourney }) => {
           height={100}
           priority={true}
         />
-      </div>
-      <div className="p-4">
-        <p className="text-xs">You have completed this Level1 journey!</p>
-        <p className="font-bold">Mint your learning badge.</p>
+      </div> */}
+      <div className="p-4 shine">
+        <p className="text-base">You have completed this Level1 journey!</p>
+        <p className="font-bold text-lg">Mint your learning badge.</p>
       </div>
     </div>
   );

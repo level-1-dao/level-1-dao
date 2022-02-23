@@ -72,7 +72,7 @@ const LearningModule = ({ learningBitData }) => {
       </div>
 
       <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded">
-        <div className="learn-with-container space-y-12 py-12">
+        <div className="learn-with-container space-y-12">
           {loading && learningMoments ? (
             <Loading />
           ) : (

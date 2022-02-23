@@ -9,7 +9,6 @@ import { GET_USERS } from "../../lib/graphql";
 function Profile() {
   const { loading, error, data } = useQuery(GET_USERS);
   const user = data?.users[0];
-  console.log("user", user);
   return (
     <div className="relative sm:py-4">
       <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-24 lg:items-start">

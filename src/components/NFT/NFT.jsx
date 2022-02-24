@@ -7,7 +7,7 @@ const NFT = ({ setFinishedJourney }) => {
   return (
     <div
       onClick={() => setFinishedJourney(true)}
-      className="flex hazy-candy-floss-background cursor-pointer items-center rounded-lg text-secondary-content shadow-lg hover:shadow-2xl w-full"
+      className="flex hazy-candy-floss-background cursor-pointer items-center rounded-lg text-secondary-content shadow-lg hover:shadow-2xl w-full border border-gray-400"
     >
       {/* <div className="relative w-16 h-auto">
         <Image

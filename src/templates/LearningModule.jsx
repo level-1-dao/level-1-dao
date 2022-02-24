@@ -23,7 +23,7 @@ const LearningModule = ({ learningBitData }) => {
 
   return (
     <div className="space-y-8">
-      <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded">
+      <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">
         <GuideNotes guideNoteData={learningBitData.guideNotes} />
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
@@ -71,14 +71,14 @@ const LearningModule = ({ learningBitData }) => {
         </div>
       </div>
 
-      <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded">
+      <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">
         <div className="learn-with-container space-y-12">
           {loading && learningMoments ? (
             <Loading />
           ) : (
             <>
               <div className="header">
-                <h2 className="text-xl tracking-tight">Learning prompt</h2>
+                <h2 className="text-xl tracking-tight">Reflection prompt</h2>
                 <p className="text-2xl font-extrabold">
                   {learningBitData.prompt
                     ? learningBitData.prompt

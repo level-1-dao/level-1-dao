@@ -101,7 +101,7 @@ const CurriculumSidebar = ({
   }
 
   return (
-    <div className="flex flex-col space-y-4 items-center w-full p-4 rounded bg-base-200">
+    <div className="flex flex-col space-y-4 items-center w-full p-4 rounded bg-base-200 border border-gray-400">
       {checkIfJourneyComplete(user, learningBits) && (
         <NFT setFinishedJourney={setFinishedJourney} />
       )}

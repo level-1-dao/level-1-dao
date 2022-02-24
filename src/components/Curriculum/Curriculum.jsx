@@ -46,11 +46,11 @@ const Curriculum = ({
         {learningBits.map((bit) => (
           <div
             key={bit.id}
-            className={`curriculum__item flex space-x-4 p-4 rounded items-center cursor-pointer hover:bg-primary-focus hover:text-primary-content
+            className={`curriculum__item flex space-x-4 p-4 rounded items-center cursor-pointer hover:bg-accent hover:text-accent-content
             ${
               currentBit === bit.id &&
               started &&
-              "bg-primary text-primary-content"
+              "bg-accent-focus text-accent-content"
             }`}
             onClick={() => {
               router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);

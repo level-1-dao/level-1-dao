@@ -88,24 +88,13 @@ a:hover {
   background-size: 200%;
 }
 
-.shiny-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30rem;
-  height: 40rem;
-  padding: 2rem;
-  background-color: #000e4a;
-  background-color: #e8f3ff;
-}
 .shiny-card__text {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-image: url("https://t4.ftcdn.net/jpg/02/92/69/73/360_F_292697304_THQBWq1bpjVZJcED2gOZ3IneLBwLdwDx.jpg");
 }
-.shiny-card .mask {
+.shiny-card .mask, .background-mask {
   display: block;
-  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.4);
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.4), -1px -2px rgba(175, 175, 175, 0.4);
   letter-spacing: 2px;
-  line-height: 7rem;
 }

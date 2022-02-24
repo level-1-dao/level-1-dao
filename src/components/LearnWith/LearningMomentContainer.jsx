@@ -6,7 +6,8 @@ const LearningMomenContainer = ({ user, learningMoment }) => {
   };
   return (
     <>
-      <div className="mt-12 shadow-lg relative text-base max-w-md mx-auto lg:mt-0 bg-base-100">
+      <div className="relative mt-12 shadow-lg rounded-xl relative text-base max-w-md mx-auto lg:mt-0 bg-base-100 border border-gray-300">
+        <div className="hazy-candy-floss-background absolute duration-1000 -inset-4 transitiona-all opacity-20 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200"></div>
         <blockquote className="relative bg-base-100 rounded-lg shadow-lg">
           <div className="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-8">
             <div className="learner-info">
@@ -21,18 +22,6 @@ const LearningMomenContainer = ({ user, learningMoment }) => {
                 <div className="mt-3 text-center md:mt-0 md:ml-4 md:flex md:items-center">
                   <div className="text-base font-medium text-base-content">
                     {user.user_details.username}
-                  </div>
-
-                  <svg
-                    className="hidden md:block mx-1 h-5 w-5 text-indigo-600"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M11 0h3L9 20H6l5-20z" />
-                  </svg>
-
-                  <div className="text-base font-medium text-base-content">
-                    Reflection
                   </div>
                 </div>
               </div>
@@ -51,10 +40,10 @@ const LearningMomenContainer = ({ user, learningMoment }) => {
               </p>
             </div>
           </div>
-          <cite className="relative flex items-center justify-center gradient-background  rounded-b-lg not-italic py-5 px-6 sm:py-5 sm:pl-12 sm:pr-10 sm:mt-10 text-center">
-            <span className="relative text-indigo-300 font-semibold leading-6">
+          <cite className="relative flex items-center justify-center hazy-candy-floss-background rounded-b-lg not-italic py-5 px-6 sm:py-5 sm:pl-12 sm:pr-10 sm:mt-10 text-center">
+            <span className="relative text-indigo-400 font-semibold leading-6 background-mask">
               <h3 className="text-base sm:text-lg text-indigo-50 font-bold">
-                Shared Learning Momement
+                Learning Reflection
               </h3>
               <p className="text-white font-semibold sm:inline">
                 {user.username}

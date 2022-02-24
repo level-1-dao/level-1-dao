@@ -66,7 +66,7 @@ const LearningModule = ({ learningBitData }) => {
         </div>
 
         {/* Description */}
-        <div className="description-container text-lg p-4 bg-accent rounded-lg">
+        <div className="description-container text-lg p-4 bg-primary rounded-lg">
           <p className="text-accent-content">{learningBitData.description}</p>
         </div>
       </div>

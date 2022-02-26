@@ -30,7 +30,7 @@ const GuideNotes = ({ guideNoteData }) => {
                   <div className="avatar">
                     <div className="rounded-full w-20 h-20">
                       <img
-                        src={guideNoteData.user.avatar}
+                        src={guideNoteData.user?.avatar}
                         alt="Guide's avatar"
                       />
                     </div>
@@ -38,7 +38,7 @@ const GuideNotes = ({ guideNoteData }) => {
                   <div className="guide-info space-y-2">
                     <div className="leading-6">
                       <h3 className="font-medium text-primary text-lg">
-                        {guideNoteData.user.username}
+                        {guideNoteData.user?.username}
                       </h3>
                       <p className="text-sm">{guideNoteData.role}</p>
                     </div>

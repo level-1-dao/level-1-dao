@@ -11,6 +11,7 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import { GET_USERS, GET_LEARNING_JOURNEY } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
+import NavBar from "../../components/NavBar";
 
 const LearningLandingPage = () => {
   const router = useRouter();
@@ -38,6 +39,7 @@ const LearningLandingPage = () => {
 
   return (
     <div className="h-full">
+      <NavBar />
       {!learningJourneyData ? (
         <Loading />
       ) : (

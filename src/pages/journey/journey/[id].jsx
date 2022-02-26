@@ -7,7 +7,7 @@ import Learn2Earn from "../../../../build/contracts/Learn2Earn.json";
 import Level1Completion from "../../../../build/contracts/Level1Completion.json";
 import { Modal } from "../../../components/NFT";
 import PopUp from "../../../components/FinishLevel/Modal";
-import GitcoinCurriculumData from "../../../mockData/GitcoinCurriculumData";
+import { GitcoinCurriculumData } from "../../../mockData/GitcoinCurriculumData";
 import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 import { MoveStep } from "../../../components/LearningJourney";
 

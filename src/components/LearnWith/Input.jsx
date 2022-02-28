@@ -65,6 +65,7 @@ const Input = ({ learningBitId }) => {
       // TODO - show alert/toast
       console.log("Learning moment saved ", data);
       checkForUsersLearningMoment(user, learningBitId);
+      setValue("");
       return;
     },
     onError: (errorContinueLevel) => {
@@ -95,6 +96,7 @@ const Input = ({ learningBitId }) => {
         type: "reflection",
       },
     });
+    return;
   };
 
   return (

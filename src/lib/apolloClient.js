@@ -5,11 +5,12 @@ import { setContext } from "@apollo/client/link/context";
 import { onError } from "@apollo/client/link/error";
 import { WebSocketLink } from "@apollo/client/link/ws";
 import { SubscriptionClient } from 'subscriptions-transport-ws'
+import { expireToken } from "./tokenExpired";
 
 let accessToken = null
 
 const requestAccessToken = async () => {
-  if (accessToken) return   
+  if (accessToken) return
   const res = await fetch(`${process.env.AUTH0_BASE_URL}/api/auth/token`)
   if (res.ok) {
     const json = await res.json()
@@ -21,7 +22,7 @@ const requestAccessToken = async () => {
 
 // remove cached token on 401 from the server
 const resetTokenLink = onError(({ networkError }) => {
-  if (networkError && networkError.name === 'ServerError' && networkError.statusCode === 401) {
+  if (networkError) {
     accessToken = null
   }
 })
@@ -36,7 +37,7 @@ const createHttpLink = (headers) => {
   return httpLink;
 }
 
-const createWSLink = () => { 
+const createWSLink = () => {
   const url = `wss://${process.env.HASURA_GRAPHQL_URL}`;
   return new WebSocketLink(
     new SubscriptionClient(`wss://${process.env.HASURA_GRAPHQL_URL}`, {
@@ -48,6 +49,11 @@ const createWSLink = () => {
           headers: {
             authorization: accessToken ? `Bearer ${accessToken}` : '',
           },
+        }
+      },
+      connectionCallback: (err) => {
+        if (err && (err.includes("JWTExpired") || err.includes("JWSError"))) {
+          expireToken();
         }
       },
     })

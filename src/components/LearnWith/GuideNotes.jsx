@@ -1,5 +1,7 @@
 import { Image } from "next/image";
 import { ChatAltIcon } from "@heroicons/react/outline";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const GuideNotes = ({ guideNoteData }) => {
   return (
@@ -43,7 +45,9 @@ const GuideNotes = ({ guideNoteData }) => {
                   <div className="space-y-4">
                     <div className="text-lg p-4 bg-primary rounded-lg">
                       <p className="text-accent-content">
-                        {guideNoteData.note}
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {guideNoteData.note}
+                        </ReactMarkdown>
                       </p>
                     </div>
                   </div>

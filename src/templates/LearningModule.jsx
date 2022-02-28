@@ -8,6 +8,8 @@ import {
 import Loading from "../components/Loading";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import ReactPlayer from "react-player";
 
@@ -67,7 +69,11 @@ const LearningModule = ({ learningBitData }) => {
 
         {/* Description */}
         <div className="description-container text-lg p-4 bg-primary rounded-lg">
-          <p className="text-accent-content">{learningBitData.description}</p>
+          <p className="text-accent-content">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {learningBitData.description}
+            </ReactMarkdown>
+          </p>
         </div>
       </div>
 

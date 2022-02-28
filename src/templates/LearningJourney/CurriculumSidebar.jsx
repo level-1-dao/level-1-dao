@@ -5,6 +5,7 @@ import { createAlchemyWeb3 } from "@alch/alchemy-web3";
 import Level1Completion from "../../../build/contracts/Level1Completion.json";
 import Learn2Earn from "../../../build/contracts/Learn2Earn.json";
 import Curriculum from "../../components/Curriculum";
+import { Progress } from "../../components/LearningJourney";
 
 const CurriculumSidebar = ({
   learningJourneyId,
@@ -18,6 +19,8 @@ const CurriculumSidebar = ({
   const [addingTokens, setAddingTokens] = useState(false);
   const [mintComplete, setMintComplete] = useState(false);
   const [addTokensComplete, setAddTokensComplete] = useState(false);
+  const todoLearningBits = learningBits.length;
+  let completedLearningBits = 0;
 
   const checkIfJourneyComplete = (user, learningBits) => {
     const userLearningMoments = user.user_details.learningMoments;
@@ -29,6 +32,7 @@ const CurriculumSidebar = ({
         userLearningMomentsIds.includes(learningBit.id) &&
         learningBit.learningMomentId !== null
     );
+    completedLearningBits = userLearningBits.length;
     if (userLearningBits.length === learningBits.length) {
       return true;
     }
@@ -102,8 +106,10 @@ const CurriculumSidebar = ({
 
   return (
     <div className="flex flex-col space-y-4 items-center w-full p-4 rounded bg-base-200 border border-gray-400">
-      {checkIfJourneyComplete(user, learningBits) && (
+      {checkIfJourneyComplete(user, learningBits) ? (
         <NFT setFinishedJourney={setFinishedJourney} />
+      ) : (
+        <Progress todo={todoLearningBits} completed={completedLearningBits} />
       )}
       <PopUp
         setOpen={setFinishedJourney}

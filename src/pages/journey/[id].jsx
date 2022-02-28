@@ -15,6 +15,7 @@ import {
 } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
+import NavBar from "../../components/NavBar";
 
 const LearningLandingPage = () => {
   const router = useRouter();
@@ -84,6 +85,7 @@ const LearningLandingPage = () => {
 
   return (
     <div className="h-full bg-base-100">
+      <NavBar />
       {!learningJourneyData ? (
         <Loading />
       ) : (

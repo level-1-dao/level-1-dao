@@ -41,8 +41,10 @@ const GuideNotes = ({ guideNoteData }) => {
                 </div>
                 <div className="sm:col-span-4">
                   <div className="space-y-4">
-                    <div className="text-xl">
-                      <p className="">{guideNoteData.note}</p>
+                    <div className="text-lg p-4 bg-primary rounded-lg">
+                      <p className="text-accent-content">
+                        {guideNoteData.note}
+                      </p>
                     </div>
                   </div>
                 </div>

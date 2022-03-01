@@ -239,12 +239,13 @@ export const GET_LEARNING_JOURNEY = gql`
       created_at
       updated_at
       tokensAvailable
-      learningBits {
+      learningBits(order_by: { position: asc }) {
         id
         title
         time
         contentType
         tokens
+        position
         guideNotes {
           role
           userId
@@ -262,7 +263,7 @@ export const GET_LEARNING_BIT = gql`
   query getLearningBits($learningBitId: uuid!) {
     learningBits(
       where: { id: { _eq: $learningBitId } }
-      order_by: { position: desc }
+      order_by: { position: asc }
     ) {
       id
       title

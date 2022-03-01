@@ -69,11 +69,11 @@ const LearningModule = ({ learningBitData }) => {
 
         {/* Description */}
         <div className="description-container text-lg p-4 bg-primary rounded-lg">
-          <p className="text-accent-content">
+          <div className="text-accent-content">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {learningBitData.description}
             </ReactMarkdown>
-          </p>
+          </div>
         </div>
       </div>
 

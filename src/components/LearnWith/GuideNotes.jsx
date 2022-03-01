@@ -49,8 +49,9 @@ const GuideNotes = ({ guideNoteData }) => {
                     <div className="text-lg p-4 bg-primary rounded-lg">
                       <div className="text-accent-content">
                         <ReactMarkdown
-                          remarkPlugins={[remarkGfm, remarkBreaks]}
+                          remarkPlugins={[remarkGfm]}
                           className="markdown-body prose"
+                          linkTarget="_blank"
                         >
                           {escapedNote}
                         </ReactMarkdown>

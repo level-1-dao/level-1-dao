@@ -6,8 +6,7 @@ const GuideNotes = ({ guideNoteData }) => {
   return (
     <div className="mx-auto max-w-7xl">
       <div className="space-y-12 lg:gap-8">
-        <h2 className="text-3xl font-extrabold tracking-tight">Guide notes</h2>
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 mt-8">
           <ul
             role="list"
             className="space-y-12 sm:divide-y sm:divide-gray-200 sm:space-y-0 sm:-mt-6 lg:gap-x-8 lg:space-y-0"
@@ -23,17 +22,17 @@ const GuideNotes = ({ guideNoteData }) => {
                       />
                     </div>
                   </div>
-                  <div className="guide-info space-y-2">
+                  <div className="guide-info flex space-y-2 items-center">
                     <div className="leading-6">
                       <h3 className="font-medium text-primary text-lg">
                         {guideNoteData.guide_info?.username}
                       </h3>
                       <p className="text-sm">{guideNoteData.role}</p>
                     </div>
-                    <button className="btn btn-xs btn-outline btn-accent">
+                    {/* <button className="btn btn-xs btn-outline btn-accent">
                       Message
                       <ChatAltIcon className="ml-2 h-4 w-4" />
-                    </button>
+                    </button> */}
                     {/* <button className="btn btn-xs btn-outline btn-accent">
                         High Five
                         <HandIcon className="ml-2 h-4 w-4" />

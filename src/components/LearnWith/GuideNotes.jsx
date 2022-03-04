@@ -1,12 +1,8 @@
 import { Image } from "next/image";
 import { ChatAltIcon } from "@heroicons/react/outline";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import remarkBreaks from "remark-breaks";
+import { MarkdownContent } from "../LearningJourney";
 
 const GuideNotes = ({ guideNoteData }) => {
-  const escapedNote = guideNoteData.note.replace(/\\n/g, "\n");
-
   return (
     <div className="mx-auto max-w-7xl">
       <div className="space-y-12 lg:gap-8">
@@ -48,13 +44,7 @@ const GuideNotes = ({ guideNoteData }) => {
                   <div className="space-y-4">
                     <div className="text-lg p-4 bg-primary rounded-lg">
                       <div className="text-accent-content">
-                        <ReactMarkdown
-                          remarkPlugins={[remarkGfm]}
-                          className="markdown-body prose"
-                          linkTarget="_blank"
-                        >
-                          {escapedNote}
-                        </ReactMarkdown>
+                        <MarkdownContent content={guideNoteData.note} />
                       </div>
                     </div>
                   </div>

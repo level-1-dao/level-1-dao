@@ -12,6 +12,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import ReactPlayer from "react-player";
+import { MarkdownContent } from "../components/LearningJourney";
 
 const LearningModule = ({ learningBitData }) => {
   const { loading, error, data } = useSubscription(SUBSCRIBE_LEARNING_MOMENTS, {
@@ -70,9 +71,7 @@ const LearningModule = ({ learningBitData }) => {
         {/* Description */}
         <div className="description-container text-lg p-4 bg-primary rounded-lg">
           <div className="text-accent-content">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {learningBitData.description}
-            </ReactMarkdown>
+            <MarkdownContent content={learningBitData.description} />
           </div>
         </div>
       </div>

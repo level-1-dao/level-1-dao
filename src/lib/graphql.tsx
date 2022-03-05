@@ -227,6 +227,7 @@ export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
       type
       moment
       created_at
+      userId
     }
   }
 `;

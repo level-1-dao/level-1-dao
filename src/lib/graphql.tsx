@@ -67,6 +67,7 @@ export const GET_USER = gql`
           type
           moment
           created_at
+          userId
         }
       }
     }

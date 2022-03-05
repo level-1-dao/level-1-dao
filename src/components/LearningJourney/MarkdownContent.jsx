@@ -9,7 +9,7 @@ const MarkdownContent = ({ content }) => {
       <div className="lg:col-span-2">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          className="markdown-body prose"
+          className="markdown-body"
           linkTarget="_blank"
         >
           {escapedContent}

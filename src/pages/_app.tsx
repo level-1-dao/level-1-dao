@@ -3,6 +3,7 @@ import { UserProvider } from "@auth0/nextjs-auth0";
 import { withApollo } from "../lib/withApollo";
 import useTokenExpiredEvent from "../../hooks/useTokenExpiredEvent";
 import "../styles/main.css";
+import "../styles/markdown-styles.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useTokenExpiredEvent();

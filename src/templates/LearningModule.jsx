@@ -1,15 +1,10 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { useSubscription } from "@apollo/client";
-import {
-  GET_LEARNING_MOMENTS,
-  SUBSCRIBE_LEARNING_MOMENTS,
-} from "../lib/graphql";
+import { SUBSCRIBE_LEARNING_MOMENTS } from "../lib/graphql";
 import Loading from "../components/Loading";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 import ReactPlayer from "react-player";
 import { MarkdownContent } from "../components/LearningJourney";

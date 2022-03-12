@@ -23,7 +23,9 @@ const convertToMinutes = (time) => {
 
 const checkForUsersLearningMoment = (user, learningBitId) => {
   const userLearningMoment = user.user_details.learningMoments.find(
-    (learningMoment) => learningMoment.learningBitId === learningBitId
+    (learningMoment) =>
+      learningMoment.learningBitId === learningBitId &&
+      user.userId === learningMoment.userId
   );
   if (userLearningMoment) {
     return true;

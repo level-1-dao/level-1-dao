@@ -46,3 +46,55 @@ a:hover {
 	linear-gradient(290deg, rgba(90, 90, 226, 0.55), rgba(212, 89, 89, 0.43)),
 	url("data:image/svg+xml,%3Csvg viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='3.38' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
+
+.rainbow-background {
+  background: linear-gradient(90deg, #44FF9A -0.55%, #44B0FF 22.86%, #8B44FF 48.36%, #FF6644 73.33%, #EBFF70 99.34%);
+}
+
+.hazy-candy-floss-background {
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+  background-size: 200% auto;
+  transition: 0.5s;
+}
+
+.hazy-candy-floss-background:hover {
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 45%, #fbc2eb 100%);
+  transition: 0.5s;
+}
+
+.shine {
+  background: rgb(75, 19, 75) -webkit-gradient(linear, left top, right top, from(rgb(37, 12, 41)), from(rgb(37, 12, 41)), color-stop(0.5, rgb(245, 53, 252))) 0 0 no-repeat;
+  -webkit-background-size: 70px;
+  color: rgba(255, 255, 255, 0.212);
+  -webkit-background-clip: text;
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+  text-shadow: 0 0px 0px rgba(225, 68, 240, 0.5);
+}
+
+@-webkit-keyframes shine {
+  0%, 10% {
+    background-position: -200px;
+  }
+  100% {
+    background-position: 400px;
+  }
+}
+
+/* shiny card styles */
+#holographic {
+  background-color: #74EBD5;
+  background-size: 200%;
+}
+
+.shiny-card__text {
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-image: url("https://t4.ftcdn.net/jpg/02/92/69/73/360_F_292697304_THQBWq1bpjVZJcED2gOZ3IneLBwLdwDx.jpg");
+}
+.shiny-card .mask, .background-mask {
+  display: block;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.4), -1px -2px rgba(175, 175, 175, 0.4);
+  letter-spacing: 2px;
+}

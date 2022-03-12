@@ -5,17 +5,17 @@ const levels = [
   {
     id: 1,
     name: "Aragon Ambassador Program",
-    href: "#",
+    learningJourneyId: "/journey/2bb58c9f-5180-47d8-9995-09d6bd451389",
     imageSrc: "/assets/images/logos/Aragon-wallpaper.png",
     imageAlt: "Aragon Network DAO Join the Fight",
     description:
       "An interactive introduction to the Aragon Network DAO and the Ambassador program.",
-    comingSoon: true,
+    comingSoon: false,
   },
   {
     id: 2,
     name: "Gitcoin DAO Tools",
-    href: "/journey/5cbc223b-57d2-439e-8744-f8b97bc455cd",
+    learningJourneyId: "/journey/5cbc223b-57d2-439e-8744-f8b97bc455cd",
     imageSrc: "/assets/images/logos/GitcoinDAO.png",
     imageAlt: "Gitcoin DAO Logo",
     description:
@@ -25,7 +25,7 @@ const levels = [
   {
     id: 3,
     name: "Bankless DAO",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/Bankless-stones.png",
     imageAlt: "Bankless DAO Logo",
     description:
@@ -35,7 +35,7 @@ const levels = [
   {
     id: 4,
     name: "She256 Fellowships",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/she256.svg",
     imageAlt: "She256 Logo",
     description:
@@ -45,7 +45,7 @@ const levels = [
   {
     id: 5,
     name: "Harmony",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/harmony-logo.png",
     imageAlt: "Harmony Logo",
     description:
@@ -55,7 +55,7 @@ const levels = [
   {
     id: 6,
     name: "Mintgate",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/mintgate-logo.jpeg",
     imageAlt: "Mintgate Logo",
     description:
@@ -68,7 +68,7 @@ const emergingLevels = [
   {
     id: 1,
     name: "Trauma Informed",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/culture.jpeg",
     imageAlt: "Aragon Network DAO Join the Fight",
     description:
@@ -78,7 +78,7 @@ const emergingLevels = [
   {
     id: 2,
     name: "Mental Health First Aid",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/mental-health-matters.png",
     imageAlt: "Gitcoin DAO Logo",
     description:
@@ -88,7 +88,7 @@ const emergingLevels = [
   {
     id: 3,
     name: "Growth Mindset",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/growth-mindset.png",
     imageAlt: "Bankless DAO Logo",
     description:
@@ -101,7 +101,7 @@ const microLevels = [
   {
     id: 1,
     name: "Discord",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/discord-logo.jpeg",
     imageAlt: "Aragon Network DAO Join the Fight",
     description:
@@ -111,7 +111,7 @@ const microLevels = [
   {
     id: 2,
     name: "Git: Version Control",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/git-logo.jpeg",
     imageAlt: "Git Logo",
     description:
@@ -121,7 +121,7 @@ const microLevels = [
   {
     id: 3,
     name: "Wallets",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/wallet.png",
     imageAlt: "Wallet image",
     description:
@@ -131,7 +131,7 @@ const microLevels = [
   {
     id: 4,
     name: "NFTs",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/nft-lego-logo.png",
     imageAlt: "NFT Cover",
     description:
@@ -141,7 +141,7 @@ const microLevels = [
   {
     id: 5,
     name: "POAPs",
-    href: "#",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/poap-wallpaper.jpeg",
     imageAlt: "Harmony Logo",
     description:
@@ -161,7 +161,7 @@ const Catalogue = () => {
         </p>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-24">
           {levels.map((level) => (
-            <Link key={level.id} href={level.href}>
+            <Link key={level.id} href={level.learningJourneyId}>
               <a className="group">
                 <div className="relative bg-gray-300 w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
                   <Image
@@ -198,7 +198,7 @@ const Catalogue = () => {
         </p>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 xl:gap-x-24">
           {emergingLevels.map((level) => (
-            <Link key={level.id} href={level.href}>
+            <Link key={level.id} href={level.learningJourneyId}>
               <a className="group">
                 <div className="relative w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
                   <Image
@@ -238,7 +238,7 @@ const Catalogue = () => {
         </p>
         <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 xl:gap-x-12">
           {microLevels.map((level) => (
-            <Link key={level.id} href={level.href}>
+            <Link key={level.id} href={level.learningJourneyId}>
               <a className="group">
                 <div className="relative w-full h-36 rounded-lg overflow-hidden group-hover:opacity-75">
                   <Image

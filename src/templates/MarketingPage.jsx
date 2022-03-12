@@ -1,11 +1,11 @@
-import {useRouter} from 'next/router';
-import NavBar from '../components/NavBar';
+import { useRouter } from "next/router";
+import NavBar from "../components/NavBar";
 
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
 const MarketingPage = () => {
@@ -18,7 +18,7 @@ const MarketingPage = () => {
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-2/3 sm:px-8 xl:pr-16">
             <h1 className="text-6xl uppercase tracking-tight font-extrabold sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-              <span className="block">Activate community</span>{' '}
+              <span className="block">Activate community</span>{" "}
               <span className="text-accent">super powers</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg sm:text-2xl md:mt-5 md:max-w-3xl">

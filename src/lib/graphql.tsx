@@ -4,21 +4,17 @@ export const GET_USERS = gql`
   query getUser {
     users {
       id
-      email
       username
       firstName
       lastName
-      dateJoined
-      lastOnline
       online
-      created_at
-      updated_at
       avatar
-      connectedWalletAddress
       country
-      timezone
-      newsletter
-      journeyUpdates
+      private_info {
+        email
+        updated_at
+        newsletter
+      }
       learningJourneys {
         id
         learningJourneyId
@@ -40,14 +36,40 @@ export const GET_USERS = gql`
   }
 `;
 
-export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
-  subscription subscribeUserLearningMoments {
-    learningMoments {
-      id
-      learningBitId
-      type
-      moment
-      created_at
+export const GET_USER = gql`
+  query getUserProfile {
+    user_private {
+      userId
+      email
+      updated_at
+      newsletter
+      user_details {
+        username
+        firstName
+        lastName
+        online
+        avatar
+        country
+        connectedWalletAddress
+        learningJourneys {
+          id
+          learningJourneyId
+          title
+          created_at
+          updated_at
+          progress
+          receivedTokens
+          mintedNft
+        }
+        learningMoments {
+          id
+          learningBitId
+          type
+          moment
+          created_at
+          userId
+        }
+      }
     }
   }
 `;
@@ -156,6 +178,26 @@ export const GET_LEARNING_MOMENTS = gql`
       moment
       userId
       created_at
+      user_info {
+        username
+        avatar
+      }
+    }
+  }
+`;
+
+export const SUBSCRIBE_LEARNING_MOMENTS = gql`
+  subscription subscribeLearningMoments($learningBitId: uuid!) {
+    learningMoments(where: { learningBitId: { _eq: $learningBitId } }) {
+      id
+      learningBitId
+      type
+      moment
+      created_at
+      user_info {
+        username
+        avatar
+      }
     }
   }
 `;
@@ -177,6 +219,19 @@ export const GET_USER_LEARNING_MOMENT = gql`
   }
 `;
 
+export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
+  subscription subscribeUserLearningMoments {
+    learningMoments {
+      id
+      learningBitId
+      type
+      moment
+      created_at
+      userId
+    }
+  }
+`;
+
 export const GET_LEARNING_JOURNEY = gql`
   query getLearningJourney($learningJourneyId: uuid!) {
     learningJourney(where: { id: { _eq: $learningJourneyId } }) {
@@ -186,12 +241,21 @@ export const GET_LEARNING_JOURNEY = gql`
       created_at
       updated_at
       tokensAvailable
-      learningBits {
+      learningBits(order_by: { position: asc }) {
         id
         title
         time
         contentType
         tokens
+        position
+        guideNotes {
+          role
+          userId
+          guide_info {
+            username
+            avatar
+          }
+        }
       }
     }
   }
@@ -199,7 +263,10 @@ export const GET_LEARNING_JOURNEY = gql`
 
 export const GET_LEARNING_BIT = gql`
   query getLearningBits($learningBitId: uuid!) {
-    learningBits(where: { id: { _eq: $learningBitId } }) {
+    learningBits(
+      where: { id: { _eq: $learningBitId } }
+      order_by: { position: asc }
+    ) {
       id
       title
       description
@@ -207,11 +274,12 @@ export const GET_LEARNING_BIT = gql`
       contentType
       content
       time
+      prompt
       guideNotes {
         note
         userId
         role
-        user {
+        guide_info {
           avatar
           username
         }

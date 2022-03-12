@@ -4,15 +4,15 @@ import { useQuery } from "@apollo/client";
 import LearningMomentContainer from "./LearningMomentContainer";
 import {
   ADD_LEARNING_MOMENT,
-  GET_USERS,
+  GET_USER,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
 } from "../../lib/graphql";
 
 const Input = ({ learningBitId }) => {
   const [value, setValue] = useState("");
   const [learningMoment, setLearningMoment] = useState(null);
-  const { loading, error, data, subscribeToMore } = useQuery(GET_USERS);
-  const user = data?.users[0];
+  const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
+  const user = data?.user_private[0];
 
   useEffect(() => {
     if (user) {
@@ -31,18 +31,24 @@ const Input = ({ learningBitId }) => {
         if (!subscriptionData.data) return prev;
         const newLearningMoment = subscriptionData.data.learningMoments;
         const userObject = Object.assign({}, prev, {
-          users: [
+          user_private: [
             {
-              ...prev.users[0],
-              learningMoments: newLearningMoment,
+              ...prev.user_private[0],
+              user_details: {
+                ...prev.user_private[0].user_details,
+                learningMoments: newLearningMoment,
+              },
             },
           ],
         });
         return Object.assign({}, prev, {
-          users: [
+          user_private: [
             {
-              ...prev.users[0],
-              learningMoments: newLearningMoment,
+              ...prev.user_private[0],
+              user_details: {
+                ...prev.user_private[0].user_details,
+                learningMoments: newLearningMoment,
+              },
             },
           ],
         });
@@ -59,6 +65,7 @@ const Input = ({ learningBitId }) => {
       // TODO - show alert/toast
       console.log("Learning moment saved ", data);
       checkForUsersLearningMoment(user, learningBitId);
+      setValue("");
       return;
     },
     onError: (errorContinueLevel) => {
@@ -69,8 +76,10 @@ const Input = ({ learningBitId }) => {
   });
 
   const checkForUsersLearningMoment = (user, learningBitId) => {
-    const userLearningMoment = user.learningMoments.find(
-      (learningMoment) => learningMoment.learningBitId === learningBitId
+    const userLearningMoment = user.user_details.learningMoments.find(
+      (learningMoment) =>
+        learningMoment.learningBitId === learningBitId &&
+        user.userId === learningMoment.userId
     );
     if (userLearningMoment) {
       setLearningMoment(userLearningMoment);
@@ -83,24 +92,22 @@ const Input = ({ learningBitId }) => {
     e.preventDefault();
     addLearningMoment({
       variables: {
-        userId: user.id,
+        userId: user.userId,
         learningBitId: learningBitId,
         moment: value,
         type: "reflection",
       },
     });
+    return;
   };
 
   return (
     <>
-      <h2 className="text-3xl font-extrabold tracking-tight">
-        Learning moment
-      </h2>
       {learningMoment ? (
         <LearningMomentContainer user={user} learningMoment={learningMoment} />
       ) : (
         <form action="#" className="space-y-8" onSubmit={handleSubmit}>
-          <div className="relative text-xl border border-gray-300 rounded-lg shadow-sm overflow-hidden group focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
+          <div className="bg-base-100 relative text-xl border border-gray-300 rounded-lg shadow-sm overflow-hidden group focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">
             <div className="p-6">
               <label htmlFor="description" className="sr-only">
                 Learning moment input
@@ -110,7 +117,7 @@ const Input = ({ learningBitId }) => {
                 name="description"
                 id="description"
                 className="textarea textarea-ghost w-full text-xl"
-                placeholder="I learned..."
+                placeholder="Share a learning reflection..."
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
@@ -127,12 +134,12 @@ const Input = ({ learningBitId }) => {
                       }`}
                     >
                       {!addLearningMomentLoading
-                        ? "Mint your learning moment"
-                        : "Minting"}
+                        ? "Share reflection"
+                        : "Sharing"}
                     </button>
                   ) : (
                     <button type="submit" className="btn btn-primary btn-md">
-                      Log-in to mint your learning moment
+                      Log-in to share reflection
                     </button>
                   )}
                 </div>

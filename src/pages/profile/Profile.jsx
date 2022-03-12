@@ -4,11 +4,11 @@ import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
 import { ProfileForm } from "../../components/Settings";
-import { GET_USERS } from "../../lib/graphql";
+import { GET_USER } from "../../lib/graphql";
 
 function Profile() {
-  const { loading, error, data } = useQuery(GET_USERS);
-  const user = data?.users[0];
+  const { loading, error, data } = useQuery(GET_USER);
+  const user = data?.user_private[0];
   return (
     <div className="relative sm:py-4">
       <div className="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-1 lg:gap-24 lg:items-start">

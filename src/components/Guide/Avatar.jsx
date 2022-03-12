@@ -1,29 +1,49 @@
 import Image from "next/image";
+import { generateFromString } from "generate-avatar";
 
-const Avatar = ({ guideId }) => {
-  // Get guide info from API
-  // Include loading state
+const Avatar = ({ learningBits }) => {
+  const uniqueGuidesArray = [];
+  learningBits.filter(function (item) {
+    var i = uniqueGuidesArray.findIndex(
+      (x) => x.guideNotes.userId == item.guideNotes.userId
+    );
+    if (i <= -1) {
+      uniqueGuidesArray.push(item);
+    }
+    return null;
+  });
   return (
-    <div className="guide-container flex space-x-2">
-      <div className="avatar">
-        <div className="rounded-full w-14 h-14">
-          <Image
-            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-            alt="guide avatar"
-            width={150}
-            height={150}
-            layout="responsive"
-          />
+    <div className="guide-container flex space-x-4">
+      {uniqueGuidesArray.map((guide) => (
+        <div key={guide.id}>
+          <div className="avatar">
+            <div className="rounded-full w-14 h-14">
+              <Image
+                src={
+                  guide.guideNotes.guide_info &&
+                  guide.guideNotes.guide_info.avatar
+                    ? guide.guideNotes.guide_info.avatar
+                    : `data:image/svg+xml;utf8,${generateFromString(
+                        guide.guideNotes.userId
+                      )}`
+                }
+                alt="guide avatar"
+                width={150}
+                height={150}
+                layout="responsive"
+              />
+            </div>
+          </div>
+          <div className="guide-text">
+            <p className="text-lg">
+              <span>{guide.guideNotes.guide_info.username}</span>
+            </p>
+            <h5 className="text-sm">
+              <span className="text-gray-500">{guide.guideNotes.role}</span>
+            </h5>
+          </div>
         </div>
-      </div>
-      <div className="guide-text">
-        <h5 className="text-sm">
-          <span className="text-gray-500">Guide</span>
-        </h5>
-        <p className="text-lg">
-          <span>Leslie Alexander</span>
-        </p>
-      </div>
+      ))}
     </div>
   );
 };

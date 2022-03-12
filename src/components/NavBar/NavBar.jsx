@@ -1,16 +1,16 @@
-import {Fragment, useState} from "react";
-import {Disclosure, Menu, Transition} from "@headlessui/react";
+import { Fragment, useState } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   SparklesIcon,
   MenuIcon,
   XIcon,
   LoginIcon,
 } from "@heroicons/react/outline";
-import {useUser} from "@auth0/nextjs-auth0";
+import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
 import Image from "next/image";
 import Slideout from "../NavBar/Slideout";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -19,7 +19,7 @@ function classNames(...classes) {
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
-  const {user, isLoading} = useUser();
+  const { user, isLoading } = useUser();
   const router = useRouter();
 
   const connectWallet = () => {
@@ -28,7 +28,7 @@ const NavBar = () => {
 
   return (
     <Disclosure as="nav" className="bg-white shadow">
-      {({open}) => (
+      {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
             <div className="flex justify-between h-16">
@@ -111,7 +111,7 @@ const NavBar = () => {
                     >
                       <Menu.Items className="z-40 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
-                          {({active}) => (
+                          {({ active }) => (
                             <Link href="/profile">
                               <a
                                 className={classNames(
@@ -125,7 +125,7 @@ const NavBar = () => {
                           )}
                         </Menu.Item>
                         <Menu.Item>
-                          {({active}) => (
+                          {({ active }) => (
                             <Link href="#">
                               <a
                                 className={classNames(
@@ -139,7 +139,7 @@ const NavBar = () => {
                           )}
                         </Menu.Item>
                         <Menu.Item>
-                          {({active}) => (
+                          {({ active }) => (
                             <Link href="/api/auth/logout">
                               <a
                                 className={classNames(

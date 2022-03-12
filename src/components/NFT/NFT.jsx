@@ -1,23 +1,17 @@
-import {useRouter} from 'next/router';
-import Image from 'next/image';
+import { useRouter } from "next/router";
+import Image from "next/image";
 
-const NFT = () => {
+const NFT = ({ setFinishedJourney }) => {
   const router = useRouter();
 
   return (
-    <div className="flex items-center rounded-lg border border-base-content text-base-content">
-      <div className="relative w-48 h-auto">
-        <Image
-          src={`${router.basePath}/assets/images/thunderbolt.png`}
-          alt="NFT"
-          layout="responsive"
-          width={100}
-          height={100}
-          priority={true}
-        />
-      </div>
-      <div className="p-4 font-bold">
-        <p>Receive GitcoinDAO NFT badge on completion.</p>
+    <div
+      onClick={() => setFinishedJourney(true)}
+      className="flex hazy-candy-floss-background cursor-pointer items-center rounded-lg text-secondary-content shadow-lg hover:shadow-2xl w-full border border-gray-400"
+    >
+      <div className="p-4 shine">
+        <p className="text-base">You have completed this Level1 journey!</p>
+        <p className="font-bold text-lg">Mint your learning badge.</p>
       </div>
     </div>
   );

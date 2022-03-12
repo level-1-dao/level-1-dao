@@ -121,6 +121,7 @@ const LearningLandingPage = () => {
               learningJourneyId={id}
               currentBit={currentBitId}
               user={user}
+              learningJourneyName={learningJourneyData.title}
             />
           }
         />

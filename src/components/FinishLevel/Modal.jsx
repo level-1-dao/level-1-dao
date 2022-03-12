@@ -6,6 +6,7 @@ import { CheckIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
 const PopUp = ({
+  learningJourneyName,
   open,
   setOpen,
   mintNft,
@@ -53,24 +54,22 @@ const PopUp = ({
           >
             <div className="inline-block align-bottom bg-base-100 text-base-content rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
               <div className="text-center sm:mt-5">
-                <Dialog.Title as="h3" className="text-2xl leading-6 font-bold">
-                  Congrats!
+                <Dialog.Title as="h3" className="text-2xl font-bold">
+                  You&#39;ve completed the {learningJourneyName} learning
+                  journey!
                 </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-lg">
-                    You&#39;ve finished you&#39;re first Level1!
-                  </p>
-                  <br />
+                {/* <div className="mt-2">
                   <p className="text-base">
                     You learned with 4 other people. Received 5 high fives and
                     gave out 8 high fives.
                   </p>
-                </div>
-                <div className="mt-12">
+                </div> */}
+                <div className="mt-4">
                   <p className="text-lg font-bold">
-                    Along your journey, you collected
+                    We have an NFT to celebrate your wonderful learning
+                    reflections.
                   </p>
-                  <div className="lg:grid p-6 lg:grid-cols-2 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
+                  <div className="lg:grid p-6 lg:grid-cols-1 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
                     <div className="flex-col items-center justify-center">
                       <div className="mx-auto relative h-32 w-32">
                         <Image
@@ -79,9 +78,11 @@ const PopUp = ({
                           layout="fill"
                         />
                       </div>
-                      <p className="text-lg">Helpful Husky NFT</p>
+                      <p className="text-lg">
+                        Level1 Learning Journey Completion NFT
+                      </p>
                     </div>
-                    <div className="flex-col items-center justify-center">
+                    {/* <div className="flex-col items-center justify-center">
                       <div className="mx-auto relative h-32 w-32">
                         <Image
                           src="/assets/images/L1-token.png"
@@ -90,12 +91,11 @@ const PopUp = ({
                         />
                       </div>
                       <p className="text-lg">90 Level1 Tokens</p>
-                    </div>
+                    </div> */}
                   </div>
                   <br />
                   <p className="text-base">
-                    Let&#39;s mint your NFT and add your Level1 tokens to your
-                    wallet.
+                    Click below to mint your sweet NFT.
                   </p>
                 </div>
               </div>
@@ -117,11 +117,11 @@ const PopUp = ({
                     </svg>
                     <label>
                       Make sure your wallet is connected to the Rinkeby Test
-                      Network for demo.
+                      Network for this demo.
                     </label>
                   </div>
                 </div>
-                <button
+                {/* <button
                   type="button"
                   className={
                     `btn btn-primary btn-outline btn-block` +
@@ -136,7 +136,7 @@ const PopUp = ({
                 >
                   {addTokensComplete ? "Tokens Added" : "Add Tokens"}
                   {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
-                </button>
+                </button> */}
                 <button
                   type="button"
                   className={

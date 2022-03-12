@@ -9,6 +9,7 @@ import { Progress } from "../../components/LearningJourney";
 
 const CurriculumSidebar = ({
   learningJourneyId,
+  learningJourneyName,
   learningBits,
   started,
   currentBit,
@@ -122,6 +123,7 @@ const CurriculumSidebar = ({
         addingTokens={addingTokens}
         mintComplete={mintComplete}
         addTokensComplete={addTokensComplete}
+        learningJourneyName={learningJourneyName}
       />
       <Curriculum
         learningBits={learningBits}

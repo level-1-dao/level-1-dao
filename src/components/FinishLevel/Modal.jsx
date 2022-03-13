@@ -150,7 +150,7 @@ const PopUp = ({
                   {mintComplete ? "Minted NFT" : "Mint NFT"}
                   {mintComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button> */}
-                <MintNFT />
+                <MintNFT metaData="https://gateway.pinata.cloud/ipfs/QmVMGy29WB4EJRWzEeHT7oEmhLh5KLMFRuYkPTutdRHRq9" />
               </div>
               {addTokensComplete && (
                 <div className="text-center mt-4">

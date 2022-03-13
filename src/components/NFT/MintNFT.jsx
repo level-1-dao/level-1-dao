@@ -20,7 +20,7 @@ import relayHubDeployed from "../../rinkebyAddresses/RelayHub.json";
 import Loading from "../Loading";
 const HttpProvider = require("web3-providers-http");
 
-const MintNFT = ({ walletAddress }) => {
+const MintNFT = ({ metaData }) => {
   const [relayProvider, setRelayProvider] = useState("");
   const [oneTimeAccount, setOneTimeAccount] = useState();
 
@@ -159,7 +159,7 @@ const MintNFT = ({ walletAddress }) => {
       setErrorMessage("");
       Level1CompletionContractEphemeral.awardCertificate(
         userSubmittedAddress,
-        "https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N"
+        metaData
       )
         .then((result) => {
           console.log(result, "award result");
@@ -331,6 +331,7 @@ const MintNFT = ({ walletAddress }) => {
         <>
           <p style={{ color: "white" }}>Token Image:</p>
           <img src={poapTokenURI} alt={"poap token img"} />
+          <p>{poapTokenURI}</p>
         </>
       ) : null}
 

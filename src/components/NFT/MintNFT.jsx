@@ -160,12 +160,9 @@ const MintNFT = ({ metaData }) => {
 
         .catch((error) => {
           setLoading(false);
-          console.log(error.data.message, "award error");
-          if (error.message.includes("awarded")) {
-            setErrorMessage("learner has already been awarded this token");
-          } else {
-            setErrorMessage(error);
-          }
+          console.log(error, "award error");
+          setRelayMessage("Minting error");
+          setErrorMessage("learner has already been awarded this token");
         });
     } else {
       setErrorMessage("Please enter a valid ethereum address");

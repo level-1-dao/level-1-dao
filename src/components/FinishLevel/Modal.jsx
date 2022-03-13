@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { CheckIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import MintNFT from "../../nft_utils/mintNFT";
 
 const PopUp = ({
   learningJourneyName,
@@ -137,7 +138,7 @@ const PopUp = ({
                   {addTokensComplete ? "Tokens Added" : "Add Tokens"}
                   {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
                 </button> */}
-                <button
+                {/* <button
                   type="button"
                   className={
                     `btn btn-accent btn-outline btn-block` +
@@ -148,7 +149,8 @@ const PopUp = ({
                 >
                   {mintComplete ? "Minted NFT" : "Mint NFT"}
                   {mintComplete && <CheckIcon className="h-6 w-6 ml-2" />}
-                </button>
+                </button> */}
+                <MintNFT />
               </div>
               {addTokensComplete && (
                 <div className="text-center mt-4">

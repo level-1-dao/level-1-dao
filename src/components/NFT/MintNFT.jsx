@@ -159,7 +159,7 @@ const MintNFT = ({ walletAddress }) => {
       setErrorMessage("");
       Level1CompletionContractEphemeral.awardCertificate(
         userSubmittedAddress,
-        "https://random.imagecdn.app/500/150"
+        "https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N"
       )
         .then((result) => {
           console.log(result, "award result");

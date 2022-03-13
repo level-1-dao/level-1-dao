@@ -2,7 +2,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { CheckIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import MintNFT from "../NFT/MintNFT";
 
@@ -67,8 +66,7 @@ const PopUp = ({
                 </div> */}
                 <div className="mt-4">
                   <p className="text-lg font-bold">
-                    We have an NFT to celebrate your wonderful learning
-                    reflections.
+                    We have an NFT to celebrate your wonderful learning journey.
                   </p>
                   <div className="lg:grid p-6 lg:grid-cols-1 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
                     <div className="flex-col items-center justify-center">

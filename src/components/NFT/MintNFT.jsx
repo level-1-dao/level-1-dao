@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import { useState, useEffect } from "react";
+import { CheckIcon } from "@heroicons/react/solid";
 
 //ABIs
 import Level1Completion from "../../build/Level1Completion.json";
@@ -18,6 +19,7 @@ import whitelistDeployed from "../../deployedContractAddresses/WhitelistPaymaste
 import relayHubDeployed from "../../rinkebyAddresses/RelayHub.json";
 
 import Loading from "../Loading";
+import Link from "next/link";
 const HttpProvider = require("web3-providers-http");
 
 const MintNFT = ({ metaData }) => {
@@ -127,7 +129,8 @@ const MintNFT = ({ metaData }) => {
 
   async function awardPOAP() {
     if (ethers.utils.isAddress(userSubmittedAddress)) {
-      setRelayMessage("Relay Sent. Waiting for response...");
+      setLoading(true);
+      setRelayMessage("Minting started...");
       setErrorMessage("");
       Level1CompletionContractEphemeral.awardCertificate(
         userSubmittedAddress,
@@ -137,7 +140,6 @@ const MintNFT = ({ metaData }) => {
           console.log(result, "award result");
           setRelayMessage("");
           setProofOfTxn(result);
-          setLoading(true);
           relayProvider.waitForTransaction(result.hash).then(async () => {
             const newTokenID =
               await Level1CompletionContractEphemeral.tokenOfOwnerByIndex(
@@ -147,7 +149,6 @@ const MintNFT = ({ metaData }) => {
             const newTokenURI =
               await Level1CompletionContractEphemeral.tokenURI(newTokenID);
             setPAOPTokenID(newTokenID);
-            setUserSubmittedAddress("");
             setLoading(false);
             console.log({
               userSubmittedAddress: userSubmittedAddress,
@@ -172,40 +173,49 @@ const MintNFT = ({ metaData }) => {
   }
 
   return (
-    <div className="container">
+    <div className="container text-center">
       <input
         name="userAddress"
         type="text"
         placeholder="enter ethereum address here"
         onChange={(e) => setUserSubmittedAddress(e.target.value)}
         value={userSubmittedAddress || ""}
-        className="input input-bordered w-full max-w-xs mb-4 text-center"
+        className="input input-bordered w-full mb-4 text-center"
+        disabled={poapTokenID}
       />
 
       <button
-        className="btn btn-accent btn-outline btn-block w-full max-w-xs mb-4"
+        type="button"
+        className={
+          `btn btn-accent btn-outline btn-block mb-4` +
+          (loading ? " loading" : poapTokenID ? " btn-success" : "")
+        }
         onClick={awardPOAP}
+        disabled={poapTokenID}
       >
-        Mint NFT
+        {poapTokenID ? "Minted NFT" : "Mint NFT"}
+        {poapTokenID && <CheckIcon className="h-6 w-6 ml-2" />}
       </button>
       {relayMessage ? <p>{relayMessage}</p> : null}
 
       {proofOfTxn ? (
-        <p style={{ color: "white", fontSize: "25px" }}>
-          Transaction Hash: {proofOfTxn.hash}
+        <p>
+          <Link href={"https://rinkeby.etherscan.io/tx/" + proofOfTxn.hash}>
+            <a target="_blank" className="text-accent">
+              Transaction {!poapTokenID ? "in process" : "completed"}
+            </a>
+          </Link>
         </p>
-      ) : null}
-      {loading ? (
-        <div style={{ marginTop: "30px" }}>
-          <Loading />
-          <p>Waiting for transaction to mine...</p>
-        </div>
       ) : null}
 
       {poapTokenID ? (
         <>
-          <p>Transaction Success!</p>
-          <p>New Token ID: {poapTokenID.toNumber()}</p>
+          <p>
+            <Link href={"https://testnets.opensea.io/" + userSubmittedAddress}>
+              <a target="_blank">View on OpenSea</a>
+            </Link>{" "}
+          </p>
+          <p>(can take a minute to show up)</p>
         </>
       ) : null}
 

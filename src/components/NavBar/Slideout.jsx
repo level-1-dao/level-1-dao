@@ -1,36 +1,36 @@
-import {Fragment} from 'react';
-import {Dialog, Transition} from '@headlessui/react';
-import {SparklesIcon} from '@heroicons/react/outline';
+import { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { SparklesIcon } from "@heroicons/react/outline";
 
-import Link from 'next/link';
+import Link from "next/link";
 
 const wallets = [
   {
-    name: 'Metamask',
-    imageUrl: 'https://opensea.io/static/images/logos/metamask-alternative.png',
+    name: "Metamask",
+    imageUrl: "https://opensea.io/static/images/logos/metamask-alternative.png",
     comingSoon: false,
   },
   {
-    name: 'Coinbase Wallet',
+    name: "Coinbase Wallet",
     imageUrl:
-      'https://storage.opensea.io/static/wallets/walletlink/walletlink-alternative.png',
+      "https://storage.opensea.io/static/wallets/walletlink/walletlink-alternative.png",
     comingSoon: true,
   },
   {
-    name: 'Wallet Connect',
+    name: "Wallet Connect",
     imageUrl:
-      'https://storage.opensea.io/static/wallets/walletconnect/walletconnect-alternative.png',
+      "https://storage.opensea.io/static/wallets/walletconnect/walletconnect-alternative.png",
     comingSoon: true,
   },
   {
-    name: 'Formatic',
+    name: "Formatic",
     imageUrl:
-      'https://storage.googleapis.com/opensea-static/logos/fortmatic-alternative.png',
+      "https://storage.googleapis.com/opensea-static/logos/fortmatic-alternative.png",
     comingSoon: true,
   },
 ];
 
-const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
+const Slideout = ({ open, setOpen, walletConnected, connectWallet }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -58,7 +58,7 @@ const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
                       <div className="flex items-center justify-between">
                         <Dialog.Title className="text-lg flex font-medium text-white">
                           <SparklesIcon className="w-6 h-6 mr-2" />
-                          Collect Level1 Tokens While You Learn
+                          Coming soon - Collect Level1 Tokens While You Learn
                         </Dialog.Title>
                       </div>
                       <div className="mt-1">
@@ -68,12 +68,12 @@ const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
                           cool completion NFTs.
                         </p>
                         <br />
-                        <p className="text-sm">
-                          Unsure what a wallet is?{' '}
+                        {/* <p className="text-sm">
+                          Unsure what a wallet is?{" "}
                           <Link href="/discover#micro">
                             <a>We have Level1 for that</a>
                           </Link>
-                        </p>
+                        </p> */}
                       </div>
                     </div>
                   )}
@@ -116,6 +116,10 @@ const Slideout = ({open, setOpen, walletConnected, connectWallet}) => {
                     ) : (
                       <div className="space-y-6">
                         <div>
+                          <p className="text-accent font-medium">
+                            This is an example of a connected wallet experience.
+                          </p>
+                          <div className="divider"></div>
                           <p className="text-sm font-medium text-gray-500">
                             Wallet address:
                           </p>

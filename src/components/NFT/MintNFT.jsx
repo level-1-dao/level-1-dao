@@ -2,8 +2,8 @@ import { ethers } from "ethers";
 import { useState, useEffect } from "react";
 
 //ABIs
-import Level1Completion from "../build/Level1Completion.json";
-import RelayHub from "../build/RelayHub.json";
+import Level1Completion from "../../build/Level1Completion.json";
+import RelayHub from "../../build/RelayHub.json";
 
 //GSN provider
 
@@ -11,13 +11,13 @@ import { RelayProvider } from "@opengsn/provider/dist/RelayProvider";
 
 //Address
 
-import level1CompletionDeployed from "../deployedContractAddresses/Level1Completion.json";
+import level1CompletionDeployed from "../../deployedContractAddresses/Level1Completion.json";
 
-import whitelistDeployed from "../deployedContractAddresses/WhitelistPaymaster.json";
+import whitelistDeployed from "../../deployedContractAddresses/WhitelistPaymaster.json";
 
-import relayHubDeployed from "../rinkebyAddresses/RelayHub.json";
+import relayHubDeployed from "../../rinkebyAddresses/RelayHub.json";
 
-import Loading from "../components/Loading";
+import Loading from "../Loading";
 const HttpProvider = require("web3-providers-http");
 
 const MintNFT = ({ walletAddress }) => {
@@ -294,7 +294,7 @@ const MintNFT = ({ walletAddress }) => {
         placeholder="enter ethereum address here"
         onChange={(e) => setUserSubmittedAddress(e.target.value)}
         value={userSubmittedAddress || ""}
-        className="input input-bordered w-full max-w-xs mb-4"
+        className="input input-bordered w-full max-w-xs mb-4 text-center"
       />
 
       <button

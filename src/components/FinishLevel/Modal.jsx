@@ -4,7 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { CheckIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import MintNFT from "../../nft_utils/mintNFT";
+import MintNFT from "../NFT/MintNFT";
 
 const PopUp = ({
   learningJourneyName,

@@ -298,8 +298,7 @@ const MintNFT = ({ walletAddress }) => {
       />
 
       <button
-        className="btn btn-accent btn-outline btn-block"
-        style={{ fontSize: "40px", width: "50%" }}
+        className="btn btn-accent btn-outline btn-block w-full max-w-xs mb-4"
         onClick={awardPOAP}
       >
         Mint NFT

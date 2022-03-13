@@ -23,6 +23,9 @@ module.exports = withBundleAnalyzer({
   env: {
     AUTH0_BASE_URL: process.env.AUTH0_BASE_URL,
     HASURA_GRAPHQL_URL: process.env.HASURA_GRAPHQL_URL,
+    REACT_APP_PRIVATE_KEY: process.env.REACT_APP_PRIVATE_KEY,
+    REACT_APP_ALCHEMY_URL: process.env.REACT_APP_ALCHEMY_URL,
+    REACT_APP_ALCHEMY_API_KEY: process.env.REACT_APP_ALCHEMY_API_KEY,
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {

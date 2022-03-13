@@ -101,7 +101,7 @@ const PopUp = ({
                 </div>
               </div>
               <div className="space-y-2 mt-5 sm:mt-6">
-                <div className="alert alert-warning">
+                {/* <div className="alert alert-warning">
                   <div className="flex-1">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ const PopUp = ({
                       Network for this demo.
                     </label>
                   </div>
-                </div>
+                </div> */}
                 {/* <button
                   type="button"
                   className={

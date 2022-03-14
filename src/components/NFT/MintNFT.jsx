@@ -191,7 +191,7 @@ const MintNFT = ({ metaData }) => {
         disabled={poapTokenID}
       >
         {poapTokenID ? "Minted NFT" : "Mint NFT"}
-        {poapTokenID && <CheckIcon className="h-6 w-6 ml-2" />}
+        {poapTokenID ? <CheckIcon className="h-6 w-6 ml-2" /> : null}
       </button>
       {relayMessage ? <p>{relayMessage}</p> : null}
 

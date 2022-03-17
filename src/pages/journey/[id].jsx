@@ -22,6 +22,9 @@ const LearningLandingPage = () => {
   const { id, bit } = router.query;
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
+  const [completed, setCompleted] = useState(false);
+  let completedLearningBits = 0;
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
@@ -61,6 +64,36 @@ const LearningLandingPage = () => {
     });
   };
 
+  const checkIfJourneyComplete = (user, learningBits) => {
+    const userLearningMoments = user.user_details.learningMoments.filter(
+      (learningMoment) => user.userId === learningMoment.userId
+    );
+    const userLearningMomentsIds = userLearningMoments.map(
+      (learningMoment) => learningMoment.learningBitId
+    );
+    const userLearningBits = learningBits.filter(
+      (learningBit) =>
+        userLearningMomentsIds.includes(learningBit.id) &&
+        learningBit.learningMomentId !== null
+    );
+    completedLearningBits = userLearningBits.length;
+    console.log(completedLearningBits);
+    if (completedLearningBits > 0) {
+      setInProgress(true);
+    }
+    if (completedLearningBits === learningBits.length) {
+      setCompleted(true);
+      return;
+    }
+    return;
+  };
+
+  useEffect(() => {
+    user &&
+      learningJourneyData &&
+      checkIfJourneyComplete(user, learningJourneyData?.learningBits);
+  }, [user, learningJourneyData]);
+
   useEffect(() => {
     if (bit) {
       setCurrentBitId(bit);
@@ -86,7 +119,7 @@ const LearningLandingPage = () => {
   return (
     <div className="h-full bg-base-100">
       <NavBar />
-      {!learningJourneyData ? (
+      {!learningJourneyData || !user ? (
         <Loading />
       ) : (
         <AppPageTwoColumn
@@ -105,6 +138,7 @@ const LearningLandingPage = () => {
                   user={user}
                   learningJourneyData={learningJourneyData}
                   handleStart={handleStart}
+                  inProgress={inProgress}
                 />
                 <Details learningJourneyData={learningJourneyData} />
               </Fragment>

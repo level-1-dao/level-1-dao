@@ -112,14 +112,12 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
   mutation addUserLearningJourney(
     $userId: String!
     $learningJourneyId: uuid!
-    $progress: Int!
     $title: String!
   ) {
-    insert_learningJourneys(
+    insert_mintedLearningJourneys(
       objects: {
         userId: $userId
         learningJourneyId: $learningJourneyId
-        progress: $progress
         title: $title
       }
     ) {
@@ -131,15 +129,13 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
 export const UPDATE_USER_LEARNING_JOURNEY_PROGRESS = gql`
   mutation updateUserLearningJourney(
     $id: uuid!
-    $progress: Int
     $updatedAt: timestamptz!
     $receivedTokens: Int
     $mintedNft: String
   ) {
-    update_learningJourneys(
+    update_mintedLearningJourneys(
       where: { id: { _eq: $id } }
       _set: {
-        progress: $progress
         updated_at: $updatedAt
         receivedTokens: $receivedTokens
         mintedNft: $mintedNft

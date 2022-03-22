@@ -44,7 +44,7 @@ const PopUp = ({ learningJourneyName, open, setOpen }) => {
           >
             <div className="inline-block align-bottom bg-base-100 text-base-content rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
               <div className="text-center sm:mt-5">
-                <Dialog.Title as="h3" className="text-2xl font-bold">
+                <Dialog.Title as="h3" className="text-xl font-bold">
                   You&#39;ve completed the {learningJourneyName} learning
                   journey!
                 </Dialog.Title>
@@ -55,21 +55,18 @@ const PopUp = ({ learningJourneyName, open, setOpen }) => {
                   </p>
                 </div> */}
                 <div className="mt-4">
-                  <p className="text-lg font-bold">
+                  <p className="font-bold">
                     We have an NFT to celebrate your wonderful learning journey.
                   </p>
-                  <div className="lg:grid p-6 lg:grid-cols-1 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
+                  <div className="lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
                     <div className="flex-col items-center justify-center">
-                      <div className="mx-auto relative h-32 w-32">
+                      <div className="mx-auto relative h-60 w-60">
                         <Image
-                          src="/assets/images/Husky-First-NFT.png"
+                          src="/assets/images/nft-placeholders/level1-completion-nft-placeholder.png"
                           alt="NFT"
                           layout="fill"
                         />
                       </div>
-                      <p className="text-lg">
-                        Level1 Learning Journey Completion NFT
-                      </p>
                     </div>
                     {/* <div className="flex-col items-center justify-center">
                       <div className="mx-auto relative h-32 w-32">
@@ -84,12 +81,12 @@ const PopUp = ({ learningJourneyName, open, setOpen }) => {
                   </div>
                   <br />
                   <p className="text-base">
-                    Click below to mint your sweet NFT.
+                    Enter your wallet address to mint your completion NFT.
                   </p>
                 </div>
               </div>
               <div className="space-y-2 mt-5 sm:mt-6">
-                <MintNFT metaData="https://gateway.pinata.cloud/ipfs/QmVMGy29WB4EJRWzEeHT7oEmhLh5KLMFRuYkPTutdRHRq9" />
+                <MintNFT metaData="https://gateway.pinata.cloud/ipfs/QmZuD7NRnz9ms3MYoEUMxC6gLyjBDcwcQSVx6tYn8oC1sE" />
               </div>
             </div>
           </Transition.Child>

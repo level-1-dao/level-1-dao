@@ -3,12 +3,14 @@ import { NFT } from "../../components/NFT";
 import PopUp from "../../components/FinishLevel/Modal";
 import Curriculum from "../../components/Curriculum";
 import { Progress } from "../../components/LearningJourney";
+import Confetti from "react-confetti";
 
 const CurriculumSidebar = ({
   learningJourneyId,
   learningJourneyName,
   learningBits,
   started,
+  inProgress,
   currentBit,
   user,
 }) => {
@@ -38,7 +40,15 @@ const CurriculumSidebar = ({
   return (
     <div className="flex flex-col space-y-4 items-center w-full p-4 rounded bg-base-200 border border-gray-400">
       {checkIfJourneyComplete(user, learningBits) ? (
-        <NFT setFinishedJourney={setFinishedJourney} />
+        <>
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            numberOfPieces={500}
+            recycle={false}
+          />
+          <NFT setFinishedJourney={setFinishedJourney} />
+        </>
       ) : (
         <Progress todo={todoLearningBits} completed={completedLearningBits} />
       )}
@@ -50,6 +60,7 @@ const CurriculumSidebar = ({
       <Curriculum
         learningBits={learningBits}
         started={started}
+        inProgress={inProgress}
         learningJourneyId={learningJourneyId}
         currentBit={currentBit}
         user={user}

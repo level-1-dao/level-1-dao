@@ -19,10 +19,7 @@ const CurriculumSidebar = ({
   let completedLearningBits = 0;
 
   const checkIfJourneyComplete = (user, learningBits) => {
-    const userLearningMoments = user.user_details.learningMoments.filter(
-      (learningMoment) => user.userId === learningMoment.userId
-    );
-    const userLearningMomentsIds = userLearningMoments.map(
+    const userLearningMomentsIds = user.user_learning_moments.map(
       (learningMoment) => learningMoment.learningBitId
     );
     const userLearningBits = learningBits.filter(

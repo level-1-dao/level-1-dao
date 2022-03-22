@@ -85,7 +85,7 @@ const Curriculum = ({
                   <div className="completed-check justify-end">
                     <div
                       className={`badge ${
-                        currentBit !== bit.id && started ? "badge-info" : ""
+                        !started || currentBit !== bit.id ? "badge-info" : ""
                       }`}
                     >
                       reflection shared

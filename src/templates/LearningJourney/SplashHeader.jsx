@@ -7,9 +7,11 @@ import UpdatedOn from "../../components/LearningJourney/UpdatedOn";
 const SplashHeader = ({
   user,
   learningJourneyData,
+  learningJourneyId,
   handleStart,
   inProgress,
 }) => {
+  console.log(learningJourneyData);
   return (
     <div className="splash-header">
       <TokensOnCompletionBadge tokens={learningJourneyData.tokensAvailable} />
@@ -20,8 +22,8 @@ const SplashHeader = ({
       />
       <div className="actions flex space-x-2 my-4">
         <StartButton
-          userId={user.id}
-          learningJourneyId={learningJourneyData.id}
+          userId={user.userId}
+          learningJourneyId={learningJourneyId}
           handleStart={handleStart}
           inProgress={inProgress}
           learningJourneyTitle={learningJourneyData.title}

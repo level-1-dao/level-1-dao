@@ -11,7 +11,6 @@ const SplashHeader = ({
   handleStart,
   inProgress,
 }) => {
-  console.log(learningJourneyData);
   return (
     <div className="splash-header">
       <TokensOnCompletionBadge tokens={learningJourneyData.tokensAvailable} />

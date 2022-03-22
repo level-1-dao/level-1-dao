@@ -1,41 +1,5 @@
 import { gql } from "@apollo/client";
 
-export const GET_USERS = gql`
-  query getUser {
-    users {
-      id
-      username
-      firstName
-      lastName
-      online
-      avatar
-      country
-      private_info {
-        email
-        updated_at
-        newsletter
-      }
-      learningJourneys {
-        id
-        learningJourneyId
-        title
-        created_at
-        updated_at
-        progress
-        receivedTokens
-        mintedNft
-      }
-      learningMoments {
-        id
-        learningBitId
-        type
-        moment
-        created_at
-      }
-    }
-  }
-`;
-
 export const GET_USER = gql`
   query getUserProfile {
     user_private {
@@ -43,6 +7,13 @@ export const GET_USER = gql`
       email
       updated_at
       newsletter
+      user_learning_moments {
+        id
+        learningBitId
+        type
+        moment
+        created_at
+      }
       user_details {
         username
         firstName
@@ -51,24 +22,6 @@ export const GET_USER = gql`
         avatar
         country
         connectedWalletAddress
-        learningJourneys {
-          id
-          learningJourneyId
-          title
-          created_at
-          updated_at
-          progress
-          receivedTokens
-          mintedNft
-        }
-        learningMoments {
-          id
-          learningBitId
-          type
-          moment
-          created_at
-          userId
-        }
       }
     }
   }
@@ -216,14 +169,13 @@ export const GET_USER_LEARNING_MOMENT = gql`
 `;
 
 export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
-  subscription subscribeUserLearningMoments {
-    learningMoments {
+  subscription subscribeUserLearningMoments($userId: String!) {
+    learningMoments(where: { userId: { _eq: $userId } }) {
       id
       learningBitId
       type
       moment
       created_at
-      userId
     }
   }
 `;

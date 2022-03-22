@@ -30,33 +30,21 @@ const LearningLandingPage = () => {
     variables: { learningJourneyId: id },
   });
   const user = data?.user_private[0];
+  console.log("user", user?.userId);
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
 
   const subscribeToLearningMoments = () => {
     subscribeToMore({
       document: SUBSCRIBE_USER_LEARNING_MOMENTS,
+      variables: { userId: user?.userId },
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newLearningMoment = subscriptionData.data.learningMoments;
-        const userObject = Object.assign({}, prev, {
-          user_private: [
-            {
-              ...prev.user_private[0],
-              user_details: {
-                ...prev.user_private[0].user_details,
-                learningMoments: newLearningMoment,
-              },
-            },
-          ],
-        });
         return Object.assign({}, prev, {
           user_private: [
             {
               ...prev.user_private[0],
-              user_details: {
-                ...prev.user_private[0].user_details,
-                learningMoments: newLearningMoment,
-              },
+              user_learning_moments: newLearningMoment,
             },
           ],
         });
@@ -65,10 +53,7 @@ const LearningLandingPage = () => {
   };
 
   const checkIfJourneyComplete = (user, learningBits) => {
-    const userLearningMoments = user.user_details.learningMoments.filter(
-      (learningMoment) => user.userId === learningMoment.userId
-    );
-    const userLearningMomentsIds = userLearningMoments.map(
+    const userLearningMomentsIds = user.user_learning_moments.map(
       (learningMoment) => learningMoment.learningBitId
     );
     const userLearningBits = learningBits.filter(
@@ -104,8 +89,8 @@ const LearningLandingPage = () => {
   }, [bit]);
 
   useEffect(() => {
-    subscribeToLearningMoments();
-  }, []);
+    user && subscribeToLearningMoments();
+  }, [user]);
 
   const handleStart = () => {
     setStarted(true);
@@ -137,6 +122,7 @@ const LearningLandingPage = () => {
                 <SplashHeader
                   user={user}
                   learningJourneyData={learningJourneyData}
+                  learningJourneyId={id}
                   handleStart={handleStart}
                   inProgress={inProgress}
                 />
@@ -152,6 +138,7 @@ const LearningLandingPage = () => {
             <CurriculumSidebar
               learningBits={learningJourneyData.learningBits}
               started={started}
+              inProgress={inProgress}
               learningJourneyId={id}
               currentBit={currentBitId}
               user={user}

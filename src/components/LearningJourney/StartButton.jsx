@@ -10,29 +10,11 @@ const StartButton = ({
   learningJourneyTitle,
   inProgress,
   handleStart,
-  userLearningJourneyData,
 }) => {
   const {
-    load: continueLevel,
-    loading: loadingContinueLevel,
-    error: errorContinueLevel,
-  } = useMutation(UPDATE_USER_LEARNING_JOURNEY_PROGRESS, {
-    onCompleted: (data) => {
-      // TODO - show alert/toast
-      console.log("continue user learning journey ", data);
-      return;
-    },
-    onError: (errorContinueLevel) => {
-      // TODO - show alert/toast
-      console.log("continue user learning journey error", errorContinueLevel);
-      return;
-    },
-  });
-
-  const {
     load: startLevel,
-    loading: loadingStartLevel,
-    error: errorStartLevel,
+    loading,
+    error,
   } = useMutation(ADD_USER_LEARNING_JOURNEYS, {
     onCompleted: (data) => {
       // TODO - show alert/toast
@@ -55,16 +37,8 @@ const StartButton = ({
           title: learningJourneyTitle,
         },
       });
-    } else {
-      continueLevel({
-        variables: {
-          id: userLearningJourneyData.id,
-          updatedAt: new Date(),
-          receivedTokens: userLearningJourneyData.receivedTokens,
-        },
-      });
-      handleStart();
     }
+    handleStart();
   };
 
   return (
@@ -72,7 +46,7 @@ const StartButton = ({
       <button
         className="btn btn-primary"
         onClick={() => goToLevel()}
-        disabled={loadingContinueLevel || loadingStartLevel}
+        disabled={loading}
       >
         <span className="text-sm">
           {inProgress

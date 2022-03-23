@@ -7,13 +7,6 @@ export const GET_USER = gql`
       email
       updated_at
       newsletter
-      user_learning_moments {
-        id
-        learningBitId
-        type
-        moment
-        created_at
-      }
       user_details {
         username
         firstName
@@ -22,6 +15,20 @@ export const GET_USER = gql`
         avatar
         country
         connectedWalletAddress
+      }
+      user_learning_moments {
+        id
+        learningBitId
+        type
+        moment
+        created_at
+      }
+      user_learning_journeys {
+        id
+        learningJourneyId
+        mintedNft
+        receivedTokens
+        completed
       }
     }
   }

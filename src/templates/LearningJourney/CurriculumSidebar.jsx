@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NFT } from "../../components/NFT";
 import PopUp from "../../components/FinishLevel/Modal";
 import Curriculum from "../../components/Curriculum";
@@ -14,11 +14,50 @@ const CurriculumSidebar = ({
   currentBit,
   user,
 }) => {
-  const [finishedJourney, setFinishedJourney] = useState(false);
-  const todoLearningBits = learningBits.length;
-  let completedLearningBits = 0;
+  const [completed, setCompleted] = useState(false);
+  const [mintedNft, setMintedNft] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [confetti, setConfetti] = useState(false);
+  const [completedLearningBits, setCompletedLearningBits] = useState(-1);
+  const learningBitsLength = learningBits.length;
 
-  const checkIfJourneyComplete = (user, learningBits) => {
+  const allowMintNftOnCompletion = (
+    numberOfLearningBitsCompletedByUser,
+    learningBitsLength
+  ) => {
+    console.log("completedLearningBits", completedLearningBits);
+    console.log(
+      "numberOfLearningBitsCompletedByUser",
+      numberOfLearningBitsCompletedByUser
+    );
+    if (numberOfLearningBitsCompletedByUser === learningBitsLength) {
+      if (
+        completedLearningBits !== numberOfLearningBitsCompletedByUser &&
+        completedLearningBits > -1
+      ) {
+        console.log("trigger confetti");
+        setConfetti(true);
+        setModalOpen(true);
+      }
+      setCompleted(true);
+    } else {
+      setCompleted(false);
+    }
+    setCompletedLearningBits(numberOfLearningBitsCompletedByUser);
+    return;
+  };
+
+  const checkIfUserMintedNFT = (user, learningBits) => {
+    const userLearningJourney = user.user_learning_journeys?.find(
+      (learningJourney) =>
+        learningJourney.learningJourneyId === learningJourneyId
+    );
+    if (userLearningJourney?.minted) {
+      setMintedNft(true);
+    }
+  };
+
+  const getNumberOfLearningBitsCompletedByUser = (user, learningBits) => {
     const userLearningMomentsIds = user.user_learning_moments.map(
       (learningMoment) => learningMoment.learningBitId
     );
@@ -27,31 +66,41 @@ const CurriculumSidebar = ({
         userLearningMomentsIds.includes(learningBit.id) &&
         learningBit.learningMomentId !== null
     );
-    completedLearningBits = userLearningBits.length;
-    if (userLearningBits.length === learningBits.length) {
-      return true;
-    }
-    return false;
+    return userLearningBits.length;
   };
+
+  useEffect(() => {
+    user &&
+      allowMintNftOnCompletion(
+        getNumberOfLearningBitsCompletedByUser(user, learningBits),
+        learningBitsLength
+      );
+  }, [user]);
 
   return (
     <div className="flex flex-col space-y-4 items-center w-full p-4 rounded bg-base-200 border border-gray-400">
-      {checkIfJourneyComplete(user, learningBits) ? (
+      {completed ? (
         <>
-          <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
-            numberOfPieces={500}
-            recycle={false}
-          />
-          <NFT setFinishedJourney={setFinishedJourney} />
+          {confetti && (
+            <Confetti
+              width={window.innerWidth}
+              height={
+                document.body.scrollHeight > window.innerHeight
+                  ? document.body.scrollHeight
+                  : window.innerHeight
+              }
+              numberOfPieces={500}
+              recycle={false}
+            />
+          )}
+          <NFT setModalOpen={setModalOpen} />
         </>
       ) : (
-        <Progress todo={todoLearningBits} completed={completedLearningBits} />
+        <Progress todo={learningBitsLength} completed={completedLearningBits} />
       )}
       <PopUp
-        setOpen={setFinishedJourney}
-        open={finishedJourney}
+        setOpen={setModalOpen}
+        open={modalOpen}
         learningJourneyName={learningJourneyName}
       />
       <Curriculum

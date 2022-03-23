@@ -30,7 +30,6 @@ const LearningLandingPage = () => {
     variables: { learningJourneyId: id },
   });
   const user = data?.user_private[0];
-  console.log("user", user?.userId);
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
 
   const subscribeToLearningMoments = () => {
@@ -52,23 +51,12 @@ const LearningLandingPage = () => {
     });
   };
 
-  const checkIfJourneyComplete = (user, learningBits) => {
-    const userLearningMomentsIds = user.user_learning_moments.map(
-      (learningMoment) => learningMoment.learningBitId
+  const checkIfJourneyInProgress = (user, learningBits) => {
+    const userLearningJourney = user.user_learning_journeys?.find(
+      (learningJourney) => learningJourney.learningJourneyId === id
     );
-    const userLearningBits = learningBits.filter(
-      (learningBit) =>
-        userLearningMomentsIds.includes(learningBit.id) &&
-        learningBit.learningMomentId !== null
-    );
-    completedLearningBits = userLearningBits.length;
-    console.log(completedLearningBits);
-    if (completedLearningBits > 0) {
+    if (userLearningJourney) {
       setInProgress(true);
-    }
-    if (completedLearningBits === learningBits.length) {
-      setCompleted(true);
-      return;
     }
     return;
   };
@@ -76,7 +64,7 @@ const LearningLandingPage = () => {
   useEffect(() => {
     user &&
       learningJourneyData &&
-      checkIfJourneyComplete(user, learningJourneyData?.learningBits);
+      checkIfJourneyInProgress(user, learningJourneyData?.learningBits);
   }, [user, learningJourneyData]);
 
   useEffect(() => {
@@ -94,6 +82,7 @@ const LearningLandingPage = () => {
 
   const handleStart = () => {
     setStarted(true);
+    setInProgress(true);
     if (learningJourneyData.learningBits[0]) {
       router.push(
         `/journey/${id}/?bit=${learningJourneyData.learningBits[0].id}`

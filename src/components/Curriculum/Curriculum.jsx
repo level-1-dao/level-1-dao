@@ -48,9 +48,8 @@ const Curriculum = ({
           <div
             key={bit.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              inProgress ||
-              (started &&
-                "cursor-pointer hover:bg-accent hover:text-accent-content")
+              (inProgress || started) &&
+              "cursor-pointer hover:bg-accent hover:text-accent-content"
             }
             ${
               currentBit === bit.id &&
@@ -58,9 +57,8 @@ const Curriculum = ({
               "bg-accent-focus text-accent-content"
             }`}
             onClick={() => {
-              inProgress ||
-                (started &&
-                  router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`));
+              (inProgress || started) &&
+                router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);
             }}
           >
             <div className="curriculum_id">&#8226;</div>

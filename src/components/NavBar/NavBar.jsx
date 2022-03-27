@@ -73,9 +73,10 @@ const NavBar = () => {
               </div>
               <div className="hidden lg:ml-4 lg:flex lg:items-center">
                 <div className="relative">
-                  {!walletConnected && (
+                  {/* TODO: Bring this code back when wallet connect is available */}
+                  {/* {!walletConnected && (
                     <div className="h-2 w-2 rounded-full bg-info absolute top-0 right-0"></div>
-                  )}
+                  )} */}
                   <button
                     type="button"
                     className="flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

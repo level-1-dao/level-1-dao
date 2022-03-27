@@ -1,4 +1,4 @@
-import NavBar from "../../components/NavBar";
+import NavBar, { Footer } from "../../components/NavBar";
 
 const stats = [
   { label: "Founded", value: "During the DAO Global Hackathon 2021" },
@@ -148,6 +148,7 @@ const index = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

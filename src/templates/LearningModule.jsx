@@ -69,23 +69,25 @@ const LearningModule = ({ learningBitData }) => {
             <MarkdownContent content={learningBitData.description} />
           </div>
         </div>
-      </div>
-
-      <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">
+        <div className="divider py-4"></div>
         <div className="learn-with-container space-y-12">
           {loading && learningMoments ? (
             <Loading />
           ) : (
             <>
               <div className="header">
-                <h2 className="text-xl tracking-tight">Reflection prompt</h2>
-                <p className="text-2xl font-extrabold">
-                  {learningBitData.prompt
-                    ? learningBitData.prompt
-                    : "Use this as an opportunity to reflect on what you have learned from this content."}
-                </p>
+                <h2 className="text-xl tracking-tight">
+                  Participate in this learning bit by sharing your reflection.
+                </h2>
+                <div className="input-container">
+                  <p className="text-2xl font-extrabold my-4">
+                    {learningBitData.prompt
+                      ? learningBitData.prompt
+                      : "Use this as an opportunity to reflect on what you have learned from this content."}
+                  </p>
+                  <Input learningBitId={learningBitData.id} />
+                </div>
               </div>
-              <Input learningBitId={learningBitData.id} />
               <GoodCompany learningMoments={learningMoments} />
               <Feed learningMoments={learningMoments} />
             </>

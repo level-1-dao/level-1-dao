@@ -8,8 +8,8 @@ const GoodCompany = ({ learningMoments }) => {
         <div className="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
           <p className="text-xl text-gray-500">
             {learningMomentsCount > 0
-              ? `${learningMomentsCount} amazing humxns have shared their reflection`
-              : "Be the first to share your reflection"}
+              ? `${learningMomentsCount} amazing humxns have added their reflection`
+              : "Be the first to add your reflection"}
           </p>
         </div>
         {learningMomentsCount > 0 && (

@@ -4,7 +4,6 @@ import { CheckIcon } from "@heroicons/react/solid";
 
 //ABIs
 import Level1Completion from "../../build/Level1Completion.json";
-import RelayHub from "../../build/RelayHub.json";
 
 //GSN provider
 
@@ -16,9 +15,6 @@ import level1CompletionDeployed from "../../deployedContractAddresses/Level1Comp
 
 import whitelistDeployed from "../../deployedContractAddresses/WhitelistPaymaster.json";
 
-import relayHubDeployed from "../../rinkebyAddresses/RelayHub.json";
-
-import Loading from "../Loading";
 import Link from "next/link";
 const HttpProvider = require("web3-providers-http");
 

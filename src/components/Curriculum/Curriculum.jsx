@@ -22,7 +22,7 @@ const convertToMinutes = (time) => {
 };
 
 const checkForUsersLearningMoment = (user, learningBitId) => {
-  const userLearningMoment = user.user_details.learningMoments.find(
+  const userLearningMoment = user.user_learning_moments?.find(
     (learningMoment) => learningMoment.learningBitId === learningBitId
   );
   if (userLearningMoment) {
@@ -36,6 +36,7 @@ const Curriculum = ({
   learningJourneyId,
   learningBits,
   started,
+  inProgress,
   currentBit,
   user,
 }) => {
@@ -46,14 +47,18 @@ const Curriculum = ({
         {learningBits.map((bit) => (
           <div
             key={bit.id}
-            className={`curriculum__item flex space-x-4 p-4 rounded items-center cursor-pointer hover:bg-accent hover:text-accent-content
+            className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
+              (inProgress || started) &&
+              "cursor-pointer hover:bg-accent hover:text-accent-content"
+            }
             ${
               currentBit === bit.id &&
               started &&
               "bg-accent-focus text-accent-content"
             }`}
             onClick={() => {
-              router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);
+              (inProgress || started) &&
+                router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);
             }}
           >
             <div className="curriculum_id">&#8226;</div>
@@ -80,7 +85,7 @@ const Curriculum = ({
                   <div className="completed-check justify-end">
                     <div
                       className={`badge ${
-                        currentBit !== bit.id && started ? "badge-info" : ""
+                        !started || currentBit !== bit.id ? "badge-info" : ""
                       }`}
                     >
                       reflection shared

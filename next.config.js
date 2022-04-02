@@ -1,21 +1,36 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
 });
 
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   trailingSlash: true,
-  basePath: '',
+  basePath: "",
   // The starter code load resources from `public` folder with `router.basePath` in React components.
   // So, the source code is "basePath-ready".
   // You can remove `basePath` if you don't need it.
   reactStrictMode: true,
   images: {
-    domains: ['tailwindui.com', 'images.unsplash.com', 'picsum.photos','lh3.googleusercontent.com', 's.gravatar.com'],
+    domains: [
+      "tailwindui.com",
+      "images.unsplash.com",
+      "picsum.photos",
+      "lh3.googleusercontent.com",
+      "s.gravatar.com",
+    ],
   },
   env: {
     AUTH0_BASE_URL: process.env.AUTH0_BASE_URL,
     HASURA_GRAPHQL_URL: process.env.HASURA_GRAPHQL_URL,
-  }
+    REACT_APP_PRIVATE_KEY: process.env.REACT_APP_PRIVATE_KEY,
+    REACT_APP_ALCHEMY_URL: process.env.REACT_APP_ALCHEMY_URL,
+    REACT_APP_ALCHEMY_API_KEY: process.env.REACT_APP_ALCHEMY_API_KEY,
+  },
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
+    }
+    return config;
+  },
 });

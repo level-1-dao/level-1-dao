@@ -1,47 +1,46 @@
-import NavBar from '../../components/NavBar';
+import NavBar from "../../components/NavBar";
 
 const stats = [
-  {label: 'Founded', value: 'During the DAO Global Hackathon 2021'},
-  {label: 'Core contributors', value: '2'},
-  {label: 'Level1s', value: '1'},
-  {label: 'Tokens Issued', value: '424'},
+  { label: "Founded", value: "During the DAO Global Hackathon 2021" },
+  { label: "Maintainers", value: "3" },
+  { label: "Level1s", value: "2" },
+  { label: "Tokens Issued", value: "TBD" },
 ];
 
 const people = [
   {
-    name: 'Adam Jackson',
+    name: "Ray Kanani",
     imageUrl:
-      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-    bio: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
-  },
-  {
-    name: 'Ray Kanani',
-    imageUrl:
-      'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
-    bio: 'Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.',
+      "https://lh3.googleusercontent.com/Kb8Oopt8JVxcB_ZdN1_jRJYG-mC4PYJdp473zRaoLZhaEjMFf6rVreS1WZxspdsuXqCeJP3oYBWtg7kzKoYpXyNyfx66jdb7G00iDB4=w600",
+    bio: "Ray is a humxn that cares about the wellbeing of others. He spends his time thinking about how to create healing, compassioniate experiences that are accessible to all.",
   },
 ];
 
 const values = [
   {
-    name: 'Safe',
+    name: "Safe",
     description:
-      'In order for learning to occur, learners must feel safe to explore. This means creating low-stakes environments without worry of judgement, loss, or harm.',
+      "In order for learning to occur, learners must feel safe to explore. This means creating low-stakes environments without worry of judgement, loss, or harm.",
   },
   {
-    name: 'Guided',
+    name: "Guided",
     description:
-      'We learn better together. We priortize opportunities for humxns to directly help each other over coded experiences.',
+      "We learn better together. We prioritize opportunities for humxns to directly help each other over automated experiences.",
   },
   {
-    name: 'Play',
+    name: "Playful",
     description:
-      'Learn by doing is a great way for humxns to retain information. Level1s all have interactive learning experiences.',
+      "Learn by doing is a great way for humxns to retain information. Level1 prioritizes interactive self-paced learning experiences.",
   },
   {
-    name: 'Seen',
+    name: "Observant",
     description:
-      'Learners, guides and content creators give their most valued resource to this space, time. We see and appreciate this at every touchpoint.',
+      "Learners and guides give their most valued resource to Level1, their time. We work to witness and appreciate this at every point in the experience.",
+  },
+  {
+    name: "Fresh",
+    description:
+      "The perspective and energy a beginners mind brings is what fuels the Level1 platform. We actively seek and value the beginner.",
   },
 ];
 
@@ -118,7 +117,7 @@ const index = () => {
             {/* Team */}
             <div className="space-y-12">
               <h2 className="text-2xl text-primary font-extrabold tracking-tight">
-                Team
+                Level1 Maintainers
               </h2>
               <ul role="list" className="space-y-12">
                 {people.map((person) => (

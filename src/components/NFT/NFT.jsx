@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 
-const NFT = ({ setFinishedJourney }) => {
+const NFT = ({ setModalOpen }) => {
   const router = useRouter();
 
   return (
     <div
-      onClick={() => setFinishedJourney(true)}
+      onClick={() => setModalOpen(true)}
       className="flex hazy-candy-floss-background cursor-pointer items-center rounded-lg text-secondary-content shadow-lg hover:shadow-2xl w-full border border-gray-400"
     >
       <div className="p-4 shine">

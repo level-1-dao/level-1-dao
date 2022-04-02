@@ -1,30 +1,64 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NFT } from "../../components/NFT";
 import PopUp from "../../components/FinishLevel/Modal";
-import { createAlchemyWeb3 } from "@alch/alchemy-web3";
-import Level1Completion from "../../../build/contracts/Level1Completion.json";
-import Learn2Earn from "../../../build/contracts/Learn2Earn.json";
 import Curriculum from "../../components/Curriculum";
 import { Progress } from "../../components/LearningJourney";
+import Confetti from "react-confetti";
 
 const CurriculumSidebar = ({
   learningJourneyId,
+  learningJourneyName,
   learningBits,
   started,
+  inProgress,
   currentBit,
   user,
 }) => {
-  const [finishedJourney, setFinishedJourney] = useState(false);
-  const [minting, setMinting] = useState(false);
-  const [addingTokens, setAddingTokens] = useState(false);
-  const [mintComplete, setMintComplete] = useState(false);
-  const [addTokensComplete, setAddTokensComplete] = useState(false);
-  const todoLearningBits = learningBits.length;
-  let completedLearningBits = 0;
+  const [completed, setCompleted] = useState(false);
+  const [mintedNft, setMintedNft] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [confetti, setConfetti] = useState(false);
+  const [completedLearningBits, setCompletedLearningBits] = useState(-1);
+  const learningBitsLength = learningBits.length;
 
-  const checkIfJourneyComplete = (user, learningBits) => {
-    const userLearningMoments = user.user_details.learningMoments;
-    const userLearningMomentsIds = userLearningMoments.map(
+  const allowMintNftOnCompletion = (
+    numberOfLearningBitsCompletedByUser,
+    learningBitsLength
+  ) => {
+    console.log("completedLearningBits", completedLearningBits);
+    console.log(
+      "numberOfLearningBitsCompletedByUser",
+      numberOfLearningBitsCompletedByUser
+    );
+    if (numberOfLearningBitsCompletedByUser === learningBitsLength) {
+      if (
+        completedLearningBits !== numberOfLearningBitsCompletedByUser &&
+        completedLearningBits > -1
+      ) {
+        console.log("trigger confetti");
+        setConfetti(true);
+        setModalOpen(true);
+      }
+      setCompleted(true);
+    } else {
+      setCompleted(false);
+    }
+    setCompletedLearningBits(numberOfLearningBitsCompletedByUser);
+    return;
+  };
+
+  const checkIfUserMintedNFT = (user, learningBits) => {
+    const userLearningJourney = user.user_learning_journeys?.find(
+      (learningJourney) =>
+        learningJourney.learningJourneyId === learningJourneyId
+    );
+    if (userLearningJourney?.minted) {
+      setMintedNft(true);
+    }
+  };
+
+  const getNumberOfLearningBitsCompletedByUser = (user, learningBits) => {
+    const userLearningMomentsIds = user.user_learning_moments.map(
       (learningMoment) => learningMoment.learningBitId
     );
     const userLearningBits = learningBits.filter(
@@ -32,98 +66,47 @@ const CurriculumSidebar = ({
         userLearningMomentsIds.includes(learningBit.id) &&
         learningBit.learningMomentId !== null
     );
-    completedLearningBits = userLearningBits.length;
-    if (userLearningBits.length === learningBits.length) {
-      return true;
-    }
-    return false;
+    return userLearningBits.length;
   };
 
-  const web3 = createAlchemyWeb3(
-    "https://eth-rinkeby.alchemyapi.io/v2/XW3eK_0nzE7TCKgZ589OxC94gNQrYJyW"
-  );
-
-  const id = web3.eth.net.getId();
-
-  const deployedNetwork = Learn2Earn.networks[4];
-  let learn2EarnInstance = new web3.eth.Contract(
-    Learn2Earn.abi,
-    deployedNetwork.address
-  );
-
-  const level1NFTDeployedNetwork = Level1Completion.networks[4];
-  let level1NFTInstance = new web3.eth.Contract(
-    Level1Completion.abi,
-    level1NFTDeployedNetwork.address
-  );
-
-  async function awardUser() {
-    setAddingTokens(true);
-    try {
-      const learnerAddress = await web3.eth.getAccounts();
-      const levelOneAward = await learn2EarnInstance.methods
-        .awardUser(learnerAddress[0], 90)
-        .send({
-          from: learnerAddress[0],
-        });
-      if (levelOneAward.status) {
-        setAddTokensComplete(true);
-        setAddingTokens(false);
-      }
-      return levelOneAward.status;
-    } catch (error) {
-      console.log(error);
-      setAddingTokens(false);
-      return;
-    }
-    return;
-  }
-
-  async function awardNFT() {
-    setMinting(true);
-    try {
-      const learnerAddress = await web3.eth.getAccounts();
-      const nftAward = await level1NFTInstance.methods
-        .awardCertificate(
-          learnerAddress[0],
-          "https://gateway.pinata.cloud/ipfs/QmaLQ22ExEhxLenfCdu5k3pGUDQPH9bAf4Q8axmbokd38N"
-        )
-        .send({
-          from: learnerAddress[0],
-        });
-      if (nftAward.status) {
-        setMintComplete(true);
-        setMinting(false);
-      }
-      return nftAward.status;
-    } catch (error) {
-      console.log(error);
-      setMinting(false);
-      return;
-    }
-    return;
-  }
+  useEffect(() => {
+    user &&
+      allowMintNftOnCompletion(
+        getNumberOfLearningBitsCompletedByUser(user, learningBits),
+        learningBitsLength
+      );
+  }, [user]);
 
   return (
     <div className="flex flex-col space-y-4 items-center w-full p-4 rounded bg-base-200 border border-gray-400">
-      {checkIfJourneyComplete(user, learningBits) ? (
-        <NFT setFinishedJourney={setFinishedJourney} />
+      {completed ? (
+        <>
+          {confetti && (
+            <Confetti
+              width={window.innerWidth}
+              height={
+                document.body.scrollHeight > window.innerHeight
+                  ? document.body.scrollHeight
+                  : window.innerHeight
+              }
+              numberOfPieces={500}
+              recycle={false}
+            />
+          )}
+          <NFT setModalOpen={setModalOpen} />
+        </>
       ) : (
-        <Progress todo={todoLearningBits} completed={completedLearningBits} />
+        <Progress todo={learningBitsLength} completed={completedLearningBits} />
       )}
       <PopUp
-        setOpen={setFinishedJourney}
-        open={finishedJourney}
-        awardTokens={awardUser}
-        mintNft={awardNFT}
-        minting={minting}
-        addingTokens={addingTokens}
-        mintComplete={mintComplete}
-        addTokensComplete={addTokensComplete}
+        setOpen={setModalOpen}
+        open={modalOpen}
+        learningJourneyName={learningJourneyName}
       />
       <Curriculum
         learningBits={learningBits}
         started={started}
+        inProgress={inProgress}
         learningJourneyId={learningJourneyId}
         currentBit={currentBit}
         user={user}

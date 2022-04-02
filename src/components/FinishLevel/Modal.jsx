@@ -2,19 +2,10 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
-import { CheckIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import MintNFT from "../NFT/MintNFT";
 
-const PopUp = ({
-  open,
-  setOpen,
-  mintNft,
-  awardTokens,
-  minting,
-  addingTokens,
-  mintComplete,
-  addTokensComplete,
-}) => {
+const PopUp = ({ learningJourneyName, open, setOpen }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -53,35 +44,31 @@ const PopUp = ({
           >
             <div className="inline-block align-bottom bg-base-100 text-base-content rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
               <div className="text-center sm:mt-5">
-                <Dialog.Title as="h3" className="text-2xl leading-6 font-bold">
-                  Congrats!
+                <Dialog.Title as="h3" className="text-xl font-bold">
+                  You&#39;ve completed the {learningJourneyName} learning
+                  journey!
                 </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-lg">
-                    You&#39;ve finished you&#39;re first Level1!
-                  </p>
-                  <br />
+                {/* <div className="mt-2">
                   <p className="text-base">
                     You learned with 4 other people. Received 5 high fives and
                     gave out 8 high fives.
                   </p>
-                </div>
-                <div className="mt-12">
-                  <p className="text-lg font-bold">
-                    Along your journey, you collected
+                </div> */}
+                <div className="mt-4">
+                  <p className="font-bold">
+                    We have an NFT to celebrate your wonderful learning journey.
                   </p>
-                  <div className="lg:grid p-6 lg:grid-cols-2 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
+                  <div className="lg:grid lg:grid-cols-1 lg:items-start lg:gap-x-4 lg:gap-y-12 lg:space-y-0">
                     <div className="flex-col items-center justify-center">
-                      <div className="mx-auto relative h-32 w-32">
+                      <div className="mx-auto relative h-60 w-60">
                         <Image
-                          src="/assets/images/Husky-First-NFT.png"
+                          src="/assets/images/nft-placeholders/level1-completion-nft-placeholder.png"
                           alt="NFT"
                           layout="fill"
                         />
                       </div>
-                      <p className="text-lg">Helpful Husky NFT</p>
                     </div>
-                    <div className="flex-col items-center justify-center">
+                    {/* <div className="flex-col items-center justify-center">
                       <div className="mx-auto relative h-32 w-32">
                         <Image
                           src="/assets/images/L1-token.png"
@@ -90,73 +77,17 @@ const PopUp = ({
                         />
                       </div>
                       <p className="text-lg">90 Level1 Tokens</p>
-                    </div>
+                    </div> */}
                   </div>
                   <br />
                   <p className="text-base">
-                    Let&#39;s mint your NFT and add your Level1 tokens to your
-                    wallet.
+                    Enter your wallet address to mint your completion NFT.
                   </p>
                 </div>
               </div>
               <div className="space-y-2 mt-5 sm:mt-6">
-                <div className="alert alert-warning">
-                  <div className="flex-1">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      className="w-6 h-6 mx-2 stroke-current"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                      ></path>
-                    </svg>
-                    <label>
-                      Make sure your wallet is connected to the Rinkeby Test
-                      Network for demo.
-                    </label>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className={
-                    `btn btn-primary btn-outline btn-block` +
-                    (addingTokens
-                      ? " loading"
-                      : addTokensComplete
-                      ? " opacity-50 "
-                      : "")
-                  }
-                  onClick={() => awardTokens()}
-                  disabled={addTokensComplete}
-                >
-                  {addTokensComplete ? "Tokens Added" : "Add Tokens"}
-                  {addTokensComplete && <CheckIcon className="h-6 w-6 ml-2" />}
-                </button>
-                <button
-                  type="button"
-                  className={
-                    `btn btn-accent btn-outline btn-block` +
-                    (minting ? " loading" : mintComplete ? " opacity-50 " : "")
-                  }
-                  onClick={() => mintNft()}
-                  disabled={mintComplete}
-                >
-                  {mintComplete ? "Minted NFT" : "Mint NFT"}
-                  {mintComplete && <CheckIcon className="h-6 w-6 ml-2" />}
-                </button>
+                <MintNFT metaData="https://gateway.pinata.cloud/ipfs/QmZuD7NRnz9ms3MYoEUMxC6gLyjBDcwcQSVx6tYn8oC1sE" />
               </div>
-              {addTokensComplete && (
-                <div className="text-center mt-4">
-                  <Link href="/discover">
-                    <a className="text-info">Discover more Level1s</a>
-                  </Link>
-                </div>
-              )}
             </div>
           </Transition.Child>
         </div>

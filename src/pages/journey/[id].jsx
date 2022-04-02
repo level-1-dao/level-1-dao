@@ -22,6 +22,9 @@ const LearningLandingPage = () => {
   const { id, bit } = router.query;
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
+  const [inProgress, setInProgress] = useState(false);
+  const [completed, setCompleted] = useState(false);
+  let completedLearningBits = 0;
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
@@ -32,34 +35,37 @@ const LearningLandingPage = () => {
   const subscribeToLearningMoments = () => {
     subscribeToMore({
       document: SUBSCRIBE_USER_LEARNING_MOMENTS,
+      variables: { userId: user?.userId },
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newLearningMoment = subscriptionData.data.learningMoments;
-        const userObject = Object.assign({}, prev, {
-          user_private: [
-            {
-              ...prev.user_private[0],
-              user_details: {
-                ...prev.user_private[0].user_details,
-                learningMoments: newLearningMoment,
-              },
-            },
-          ],
-        });
         return Object.assign({}, prev, {
           user_private: [
             {
               ...prev.user_private[0],
-              user_details: {
-                ...prev.user_private[0].user_details,
-                learningMoments: newLearningMoment,
-              },
+              user_learning_moments: newLearningMoment,
             },
           ],
         });
       },
     });
   };
+
+  const checkIfJourneyInProgress = (user, learningBits) => {
+    const userLearningJourney = user.user_learning_journeys?.find(
+      (learningJourney) => learningJourney.learningJourneyId === id
+    );
+    if (userLearningJourney) {
+      setInProgress(true);
+    }
+    return;
+  };
+
+  useEffect(() => {
+    user &&
+      learningJourneyData &&
+      checkIfJourneyInProgress(user, learningJourneyData?.learningBits);
+  }, [user, learningJourneyData]);
 
   useEffect(() => {
     if (bit) {
@@ -71,11 +77,12 @@ const LearningLandingPage = () => {
   }, [bit]);
 
   useEffect(() => {
-    subscribeToLearningMoments();
-  }, []);
+    user && subscribeToLearningMoments();
+  }, [user]);
 
   const handleStart = () => {
     setStarted(true);
+    setInProgress(true);
     if (learningJourneyData.learningBits[0]) {
       router.push(
         `/journey/${id}/?bit=${learningJourneyData.learningBits[0].id}`
@@ -86,7 +93,7 @@ const LearningLandingPage = () => {
   return (
     <div className="h-full bg-base-100">
       <NavBar />
-      {!learningJourneyData ? (
+      {!learningJourneyData || !user ? (
         <Loading />
       ) : (
         <AppPageTwoColumn
@@ -104,7 +111,9 @@ const LearningLandingPage = () => {
                 <SplashHeader
                   user={user}
                   learningJourneyData={learningJourneyData}
+                  learningJourneyId={id}
                   handleStart={handleStart}
+                  inProgress={inProgress}
                 />
                 <Details learningJourneyData={learningJourneyData} />
               </Fragment>
@@ -118,9 +127,11 @@ const LearningLandingPage = () => {
             <CurriculumSidebar
               learningBits={learningJourneyData.learningBits}
               started={started}
+              inProgress={inProgress}
               learningJourneyId={id}
               currentBit={currentBitId}
               user={user}
+              learningJourneyName={learningJourneyData.title}
             />
           }
         />

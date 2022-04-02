@@ -1,41 +1,5 @@
 import { gql } from "@apollo/client";
 
-export const GET_USERS = gql`
-  query getUser {
-    users {
-      id
-      username
-      firstName
-      lastName
-      online
-      avatar
-      country
-      private_info {
-        email
-        updated_at
-        newsletter
-      }
-      learningJourneys {
-        id
-        learningJourneyId
-        title
-        created_at
-        updated_at
-        progress
-        receivedTokens
-        mintedNft
-      }
-      learningMoments {
-        id
-        learningBitId
-        type
-        moment
-        created_at
-      }
-    }
-  }
-`;
-
 export const GET_USER = gql`
   query getUserProfile {
     user_private {
@@ -51,24 +15,20 @@ export const GET_USER = gql`
         avatar
         country
         connectedWalletAddress
-        learningJourneys {
-          id
-          learningJourneyId
-          title
-          created_at
-          updated_at
-          progress
-          receivedTokens
-          mintedNft
-        }
-        learningMoments {
-          id
-          learningBitId
-          type
-          moment
-          created_at
-          userId
-        }
+      }
+      user_learning_moments {
+        id
+        learningBitId
+        type
+        moment
+        created_at
+      }
+      user_learning_journeys {
+        id
+        learningJourneyId
+        mintedNft
+        receivedTokens
+        completed
       }
     }
   }
@@ -112,14 +72,12 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
   mutation addUserLearningJourney(
     $userId: String!
     $learningJourneyId: uuid!
-    $progress: Int!
     $title: String!
   ) {
-    insert_learningJourneys(
+    insert_mintedLearningJourneys(
       objects: {
         userId: $userId
         learningJourneyId: $learningJourneyId
-        progress: $progress
         title: $title
       }
     ) {
@@ -131,15 +89,13 @@ export const ADD_USER_LEARNING_JOURNEYS = gql`
 export const UPDATE_USER_LEARNING_JOURNEY_PROGRESS = gql`
   mutation updateUserLearningJourney(
     $id: uuid!
-    $progress: Int
     $updatedAt: timestamptz!
     $receivedTokens: Int
     $mintedNft: String
   ) {
-    update_learningJourneys(
+    update_mintedLearningJourneys(
       where: { id: { _eq: $id } }
       _set: {
-        progress: $progress
         updated_at: $updatedAt
         receivedTokens: $receivedTokens
         mintedNft: $mintedNft
@@ -220,14 +176,13 @@ export const GET_USER_LEARNING_MOMENT = gql`
 `;
 
 export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
-  subscription subscribeUserLearningMoments {
-    learningMoments {
+  subscription subscribeUserLearningMoments($userId: String!) {
+    learningMoments(where: { userId: { _eq: $userId } }) {
       id
       learningBitId
       type
       moment
       created_at
-      userId
     }
   }
 `;

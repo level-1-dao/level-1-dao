@@ -1,7 +1,6 @@
 import { generateFromString } from "generate-avatar";
 
 const GoodCompany = ({ learningMoments }) => {
-  console.log("learningMoments", learningMoments);
   const learningMomentsCount = learningMoments ? learningMoments.length : 0;
   return (
     <div className="max-w-7xl">

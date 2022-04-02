@@ -4,7 +4,13 @@ import { TokensOnCompletionBadge } from "../../components/LearningJourney";
 import { Avatar } from "../../components/Guide";
 import UpdatedOn from "../../components/LearningJourney/UpdatedOn";
 
-const SplashHeader = ({ learningJourneyData, handleStart }) => {
+const SplashHeader = ({
+  user,
+  learningJourneyData,
+  learningJourneyId,
+  handleStart,
+  inProgress,
+}) => {
   return (
     <div className="splash-header">
       <TokensOnCompletionBadge tokens={learningJourneyData.tokensAvailable} />
@@ -14,7 +20,13 @@ const SplashHeader = ({ learningJourneyData, handleStart }) => {
         createdOn={learningJourneyData.created_at}
       />
       <div className="actions flex space-x-2 my-4">
-        <StartButton handleStart={handleStart} />
+        <StartButton
+          userId={user.userId}
+          learningJourneyId={learningJourneyId}
+          handleStart={handleStart}
+          inProgress={inProgress}
+          learningJourneyTitle={learningJourneyData.title}
+        />
       </div>
       <h4 className="text-lg mb-4">Guided by:</h4>
       <Avatar learningBits={learningJourneyData.learningBits} />

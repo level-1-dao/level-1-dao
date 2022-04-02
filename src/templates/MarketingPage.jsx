@@ -17,7 +17,7 @@ const MarketingPage = () => {
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-2/3 sm:px-8 xl:pr-16">
-            <h1 className="text-6xl uppercase tracking-tight font-extrabold sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+            <h1 className="uppercase tracking-tight font-extrabold text-3xl md:text-5xl xl:text-6xl">
               <span className="block">Activate community</span>{" "}
               <span className="text-accent">super powers</span>
             </h1>

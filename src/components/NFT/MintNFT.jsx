@@ -67,7 +67,7 @@ const MintNFT = ({ metaData }) => {
       };
 
       let httpweb3provider = new HttpProvider(
-        "https://eth-rinkeby.alchemyapi.io/v2/lUClO9NkAFshlkgvnVQD0IwrkYIRCHU_"
+        process.env.REACT_APP_ALCHEMY_URL
       );
       setLocalHttpProvider(httpweb3provider);
 
@@ -93,22 +93,6 @@ const MintNFT = ({ metaData }) => {
     }
 
     async function createContractObjects() {
-      //create new instance of relayHub for owner use with regular signer. *NOT* one time signer
-
-      const regularProvider = new ethers.providers.AlchemyProvider(
-        "rinkeby",
-        process.env.REACT_APP_ALCHEMY_API_KEY
-      );
-      const ownerWalletWithProvider = new ethers.Wallet(
-        process.env.REACT_APP_PRIVATE_KEY,
-        regularProvider
-      );
-      const relayContractSign = await new ethers.Contract(
-        relayHubDeployed.address,
-        RelayHub.abi,
-        ownerWalletWithProvider
-      );
-
       //create new instance of Level1Completion contract
       const Level1CompletionAddress = level1CompletionDeployed.address;
       const Level1CompletionContract = await new ethers.Contract(

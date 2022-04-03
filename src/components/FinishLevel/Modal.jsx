@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MintNFT from "../NFT/MintNFT";
 
-const PopUp = ({ learningJourneyName, open, setOpen }) => {
+const PopUp = ({ learningJourneyName, open, setOpen, nftMetaData }) => {
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
@@ -86,7 +86,12 @@ const PopUp = ({ learningJourneyName, open, setOpen }) => {
                 </div>
               </div>
               <div className="space-y-2 mt-5 sm:mt-6">
-                <MintNFT metaData="https://gateway.pinata.cloud/ipfs/QmZuD7NRnz9ms3MYoEUMxC6gLyjBDcwcQSVx6tYn8oC1sE" />
+                <MintNFT
+                  metaData={
+                    nftMetaData ||
+                    "https://gateway.pinata.cloud/ipfs/QmZgtS6ajGcUeLpoVsy1jTQTFvc37W6vKkPRmy6hNaveev"
+                  }
+                />
               </div>
             </div>
           </Transition.Child>

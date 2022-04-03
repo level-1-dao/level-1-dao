@@ -126,6 +126,7 @@ const LearningLandingPage = () => {
           rightColumn={
             <CurriculumSidebar
               learningBits={learningJourneyData.learningBits}
+              nftMetaData={learningJourneyData.nft}
               started={started}
               inProgress={inProgress}
               learningJourneyId={id}

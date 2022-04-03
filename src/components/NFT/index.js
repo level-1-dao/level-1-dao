@@ -1,2 +1,3 @@
-import NFT from './NFT';
-export default NFT;
+import NFT from "./NFT";
+import Modal from "./Modal";
+export { NFT, Modal };

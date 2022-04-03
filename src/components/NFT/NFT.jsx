@@ -1,18 +1,17 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+import Image from "next/image";
 
-const NFT = () => {
+const NFT = ({ setModalOpen }) => {
   const router = useRouter();
 
   return (
-    <div className="card lg:card-side bordered bg-primary">
-      <figure>
-        <img
-          className="h-20 w-20"
-          src={`${router.basePath}/assets/images/token.png`}
-        />
-      </figure>
-      <div className="p-4 font-bold">
-        <p>Receive "Level1: What is a DAO" NFT badge on completion</p>
+    <div
+      onClick={() => setModalOpen(true)}
+      className="flex hazy-candy-floss-background cursor-pointer items-center rounded-lg text-secondary-content shadow-lg hover:shadow-2xl w-full border border-gray-400"
+    >
+      <div className="p-4 shine">
+        <p className="text-base">You have completed this Level1 journey!</p>
+        <p className="font-bold text-lg">Mint your learning badge.</p>
       </div>
     </div>
   );

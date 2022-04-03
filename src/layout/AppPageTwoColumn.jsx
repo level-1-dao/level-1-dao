@@ -1,11 +1,10 @@
-import Header from '../components/Header';
+import NavBar from '../components/NavBar';
 
 const AppPageTwoColumn = (props) => {
   return (
     <>
       <div className="h-full">
         {props.meta}
-        <Header />
         <main className="mt-12 pb-8">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">

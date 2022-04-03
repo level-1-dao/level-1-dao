@@ -1,15 +1,19 @@
+import { useRouter } from "next/router";
 import {
-  ClipboardListIcon,
   VideoCameraIcon,
-  AnnotationIcon,
-  CashIcon,
-} from '@heroicons/react/solid';
+  PhotographIcon,
+  LinkIcon,
+  DocumentTextIcon,
+} from "@heroicons/react/solid";
 
 const convertToMinutes = (time) => {
   if (time === 0) {
-    return '0 min';
+    return "0 min";
   }
-  if (typeof time === 'string') {
+  if (!time) {
+    return "--";
+  }
+  if (typeof time === "string") {
     return time;
   }
   const minutes = Math.floor(time / 60);
@@ -17,42 +21,77 @@ const convertToMinutes = (time) => {
   return `${minutes}m ${seconds < 10 ? `0${seconds}` : seconds}s`;
 };
 
-const Curriculum = ({ curriculum, active }) => {
+const checkForUsersLearningMoment = (user, learningBitId) => {
+  const userLearningMoment = user.user_learning_moments?.find(
+    (learningMoment) => learningMoment.learningBitId === learningBitId
+  );
+  if (userLearningMoment) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+const Curriculum = ({
+  learningJourneyId,
+  learningBits,
+  started,
+  inProgress,
+  currentBit,
+  user,
+}) => {
+  const router = useRouter();
   return (
     <div className="curriculum w-full">
-      <h2 className="text-xl mb-4">Learning content:</h2>
       <div className="curriculum__list space-y-2">
-        {curriculum.map((item) => (
+        {learningBits.map((bit) => (
           <div
-            key={item.id}
+            key={bit.id}
             className={`curriculum__item flex space-x-4 p-4 rounded items-center ${
-              active === item.id ? 'bg-primary' : ''
+              (inProgress || started) &&
+              "cursor-pointer hover:bg-accent hover:text-accent-content"
+            }
+            ${
+              currentBit === bit.id &&
+              started &&
+              "bg-accent-focus text-accent-content"
             }`}
+            onClick={() => {
+              (inProgress || started) &&
+                router.push(`/journey/${learningJourneyId}/?bit=${bit.id}`);
+            }}
           >
-            <div className="curriculum_id">{item.id}</div>
+            <div className="curriculum_id">&#8226;</div>
             <div className="curriculum__content-type">
-              {item.contentType === 'video' ? (
+              {bit.contentType === "video" ? (
                 <VideoCameraIcon className="w-6 h-6" />
-              ) : item.contentType === 'quiz' ? (
-                <ClipboardListIcon className="w-6 h-6" />
+              ) : bit.contentType === "image" ? (
+                <PhotographIcon className="w-6 h-6" />
+              ) : bit.contentType === "text" ? (
+                <DocumentTextIcon className="w-6 h-6" />
               ) : (
-                <AnnotationIcon className="w-6 h-6" />
+                <LinkIcon className="w-6 h-6" />
               )}
             </div>
             <div className="curriculum_title-runtime w-full">
               <div className="curriculum__item-title text-lg font-bold">
-                {item.title}
+                {bit.title}
               </div>
               <div className="time-tokens-container flex">
                 <div className="curriculum__item-time text-sm flex-grow">
-                  {convertToMinutes(item.time)}
+                  {convertToMinutes(parseInt(bit.time))}
                 </div>
-                <div className="justify-end">
-                  <div className="badge badge-info">
-                    <CashIcon className="h-4 w-4 mr-1" />
-                    {item.tokens}
+                {checkForUsersLearningMoment(user, bit.id) && (
+                  <div className="completed-check justify-end">
+                    <div
+                      className={`badge ${
+                        !started || currentBit !== bit.id ? "badge-info" : ""
+                      }`}
+                    >
+                      reflection shared
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

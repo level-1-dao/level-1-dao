@@ -44,6 +44,7 @@ const Curriculum = ({
   return (
     <div className="curriculum w-full">
       <div className="curriculum__list space-y-2">
+        <p>Learning bits:</p>
         {learningBits.map((bit) => (
           <div
             key={bit.id}

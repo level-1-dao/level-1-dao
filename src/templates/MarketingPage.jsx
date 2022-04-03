@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import NavBar from "../components/NavBar";
+import NavBar, { Footer } from "../components/NavBar";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -22,9 +22,8 @@ const MarketingPage = () => {
               <span className="text-accent">super powers</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg sm:text-2xl md:mt-5 md:max-w-3xl">
-              A fun and friendly learning and development platform designed for
-              decentralized communities to tap into the full awesomeness of
-              their membership.
+              An accessible learning platform that allows community members to
+              create interactive learning journeys for each other.
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">
@@ -55,6 +54,7 @@ const MarketingPage = () => {
           />
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

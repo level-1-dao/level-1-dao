@@ -13,6 +13,7 @@ const CurriculumSidebar = ({
   inProgress,
   currentBit,
   user,
+  nftMetaData,
 }) => {
   const [completed, setCompleted] = useState(false);
   const [mintedNft, setMintedNft] = useState(false);
@@ -102,6 +103,7 @@ const CurriculumSidebar = ({
         setOpen={setModalOpen}
         open={modalOpen}
         learningJourneyName={learningJourneyName}
+        nftMetaData={nftMetaData}
       />
       <Curriculum
         learningBits={learningBits}

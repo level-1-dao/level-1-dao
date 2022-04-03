@@ -1,5 +1,3 @@
-import NavBar from '../components/NavBar';
-
 const AppPageTwoColumn = (props) => {
   return (
     <>

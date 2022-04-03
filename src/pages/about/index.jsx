@@ -1,4 +1,4 @@
-import NavBar from "../../components/NavBar";
+import NavBar, { Footer } from "../../components/NavBar";
 
 const stats = [
   { label: "Founded", value: "During the DAO Global Hackathon 2021" },
@@ -13,6 +13,12 @@ const people = [
     imageUrl:
       "https://lh3.googleusercontent.com/Kb8Oopt8JVxcB_ZdN1_jRJYG-mC4PYJdp473zRaoLZhaEjMFf6rVreS1WZxspdsuXqCeJP3oYBWtg7kzKoYpXyNyfx66jdb7G00iDB4=w600",
     bio: "Ray is a humxn that cares about the wellbeing of others. He spends his time thinking about how to create healing, compassioniate experiences that are accessible to all.",
+  },
+  {
+    name: "Muhammad Raza",
+    imageUrl:
+      "https://pbs.twimg.com/media/FHP86WpWUAEr-0G?format=png&name=small",
+    bio: "Muhammad Raza is an experienced Software Engineer. Who takes pride in providing the best software to help save the environment, health, safety, and quality. He is passionate about learning web3 and machine learning. He lives in the GTA area with his wife and three kids. When he is not writing code, he enjoys gardening, fly fishing, and taking long drives up to the north.",
   },
 ];
 
@@ -148,6 +154,7 @@ const index = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

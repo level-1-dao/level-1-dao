@@ -1,4 +1,5 @@
-import NavBar from './NavBar';
-import Slideout from './Slideout';
+import NavBar from "./NavBar";
+import Slideout from "./Slideout";
+import Footer from "./Footer";
 export default NavBar;
-export {Slideout};
+export { Slideout, Footer };

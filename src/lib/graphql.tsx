@@ -196,6 +196,7 @@ export const GET_LEARNING_JOURNEY = gql`
       created_at
       updated_at
       tokensAvailable
+      nft
       learningBits(order_by: { position: asc }) {
         id
         title

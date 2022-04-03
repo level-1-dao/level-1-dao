@@ -23,7 +23,7 @@ const Feed = ({ learningMoments }) => {
                           </div>
                         </div>
                       </div>
-                      <div className="mt-2 text-lg">
+                      <div className="mt-2 text-lg p-4 bg-primary rounded-lg text-accent-content">
                         <p>{learningMoment.moment}</p>
                       </div>
                     </div>

@@ -3,17 +3,14 @@ import NavBar, { Footer } from "../components/NavBar";
 
 import Image from "next/image";
 import Link from "next/link";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { Meta } from "../layout/Meta";
 
 const MarketingPage = () => {
   const router = useRouter();
   return (
     <div className="relative bg-base">
+      <Meta title="Level1" description="Community-Led Onboarding" />
       <NavBar />
-
       <main className="lg:relative">
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-2/3 sm:px-8 xl:pr-16">

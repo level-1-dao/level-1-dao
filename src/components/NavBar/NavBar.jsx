@@ -5,6 +5,7 @@ import {
   MenuIcon,
   XIcon,
   LoginIcon,
+  ChatAlt2Icon,
 } from "@heroicons/react/outline";
 import { useUser } from "@auth0/nextjs-auth0";
 import Link from "next/link";
@@ -73,18 +74,26 @@ const NavBar = () => {
               </div>
               <div className="hidden lg:ml-4 lg:flex lg:items-center">
                 <div className="relative">
+                  <Link href="https://discord.gg/w64Hv3ZQ">
+                    <a
+                      target="_blank"
+                      className="btn btn-xs btn-accent btn-outline"
+                    >
+                      Beta: Share feedback on Discord
+                    </a>
+                  </Link>
                   {/* TODO: Bring this code back when wallet connect is available */}
                   {/* {!walletConnected && (
                     <div className="h-2 w-2 rounded-full bg-info absolute top-0 right-0"></div>
                   )} */}
-                  <button
+                  {/* <button
                     type="button"
                     className="flex-shrink-0 bg-white p-1 text-gray-400 rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     <span className="sr-only">View notifications</span>
                     <SparklesIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
+                  </button> */}
                 </div>
                 {/* Profile dropdown */}
                 {user ? (

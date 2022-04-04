@@ -15,12 +15,12 @@ const levels = [
   {
     id: 2,
     name: "Gitcoin DAO Tools",
-    learningJourneyId: "/journey/5cbc223b-57d2-439e-8744-f8b97bc455cd",
+    learningJourneyId: "#",
     imageSrc: "/assets/images/logos/GitcoinDAO.png",
     imageAlt: "Gitcoin DAO Logo",
     description:
       "A short interactive learning module to help you get familiar with the GitcoinDAO tools.",
-    comingSoon: false,
+    comingSoon: true,
   },
   {
     id: 3,

@@ -7,12 +7,7 @@ const Index = () => {
 
   return (
     <MarketingPage
-      meta={
-        <Meta
-          title="Level1"
-          description="A fun and friendly space for DAO onboarding"
-        />
-      }
+      meta={<Meta title="Level1" description="Community-Led Onboarding" />}
     ></MarketingPage>
   );
 };

@@ -20,6 +20,11 @@ const people = [
       "https://pbs.twimg.com/media/FHP86WpWUAEr-0G?format=png&name=small",
     bio: "Muhammad Raza is an experienced Software Engineer. Who takes pride in providing the best software to help save the environment, health, safety, and quality. He is passionate about learning web3 and machine learning. He lives in the GTA area with his wife and three kids. When he is not writing code, he enjoys gardening, fly fishing, and taking long drives up to the north.",
   },
+  {
+    name: "Peter Sparacino",
+    imageUrl: "https://level1-learning.s3.us-east-2.amazonaws.com/peter.png",
+    bio: "Peter Sparacino is a blockchain and web3 developer from NYC who is avid about building high-quality projects that utilize the full potential of web3.  Apart from code he knocks around NYC, and sometimes the world, engaged in all sorts of hijinks and endeavors.",
+  },
 ];
 
 const values = [

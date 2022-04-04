@@ -1,8 +1,8 @@
-import { NextSeo } from 'next-seo';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { NextSeo } from "next-seo";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-import { AppConfig } from '../utils/AppConfig';
+import { AppConfig } from "../utils/AppConfig";
 
 type IMetaProps = {
   title: string;
@@ -49,14 +49,30 @@ const Meta = (props: IMetaProps) => {
       </Head>
       <NextSeo
         title={props.title}
-        description={props.description}
-        canonical={props.canonical}
+        description={AppConfig.description}
+        canonical="https://L1-1.com/"
         openGraph={{
           title: props.title,
-          description: props.description,
-          url: props.canonical,
+          description: AppConfig.description,
+          url: "https://L1-1.com/",
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
+          images: [
+            {
+              url: "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire.png",
+              width: 1200,
+              height: 630,
+              alt: "Level1",
+              type: "image/png",
+            },
+            {
+              url: "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire-Square.png",
+              width: 900,
+              height: 800,
+              alt: "Level1",
+              type: "image/png",
+            },
+          ],
         }}
       />
     </>

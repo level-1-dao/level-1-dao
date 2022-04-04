@@ -1,8 +1,8 @@
-import { NextSeo } from 'next-seo';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { NextSeo } from "next-seo";
+import Head from "next/head";
+import { useRouter } from "next/router";
 
-import { AppConfig } from '../utils/AppConfig';
+import { AppConfig } from "../utils/AppConfig";
 
 type IMetaProps = {
   title: string;
@@ -50,13 +50,29 @@ const Meta = (props: IMetaProps) => {
       <NextSeo
         title={props.title}
         description={props.description}
-        canonical={props.canonical}
+        canonical="https://L1-1.com/"
         openGraph={{
           title: props.title,
-          description: props.description,
-          url: props.canonical,
+          description: AppConfig.description,
+          url: "https://L1-1.com/",
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
+          images: [
+            {
+              url: "https://gateway.pinata.cloud/ipfs/QmRt332v8AYDc8fyex2rLxu4M5K6mEhLXD2mebZu9jnxeD",
+              width: 1200,
+              height: 630,
+              alt: "Level1 Social Attire",
+              type: "image/jpeg",
+            },
+            {
+              url: "https://gateway.pinata.cloud/ipfs/QmYH7EPgJ7c3iNeGySCtDS1X3LgfBFATwzHxKXLCKhqDtV",
+              width: 900,
+              height: 800,
+              alt: "Level1 Social Attire",
+              type: "image/jpeg",
+            },
+          ],
         }}
       />
     </>

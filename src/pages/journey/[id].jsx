@@ -143,13 +143,5 @@ const LearningLandingPage = () => {
 
 export default withPageAuthRequired(LearningLandingPage, {
   onRedirecting: () => <Loading />,
-  onError: (error) => (
-    <ErrorMessage>
-      <Meta
-        title={learningJourneyData.title}
-        description={learningJourneyData.description}
-      />
-      {error.message}
-    </ErrorMessage>
-  ),
+  onError: (error) => <ErrorMessage>{error.message}</ErrorMessage>,
 });

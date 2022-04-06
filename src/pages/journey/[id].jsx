@@ -24,7 +24,7 @@ const LearningLandingPage = () => {
   const [started, setStarted] = useState(false);
   const [inProgress, setInProgress] = useState(false);
   const [completed, setCompleted] = useState(false);
-  let completedLearningBits = 0;
+  // let completedLearningBits = 0;
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
@@ -93,7 +93,7 @@ const LearningLandingPage = () => {
   return (
     <div className="h-full bg-base-100">
       <NavBar />
-      {!learningJourneyData || !user ? (
+      {!learningJourneyData ? (
         <Loading />
       ) : (
         <AppPageTwoColumn
@@ -104,12 +104,10 @@ const LearningLandingPage = () => {
             />
           }
           leftColumn={
-            loading ? (
-              <Loading />
-            ) : !started ? (
+            !started ? (
               <Fragment>
                 <SplashHeader
-                  user={user}
+                  user={user ? user : null}
                   learningJourneyData={learningJourneyData}
                   learningJourneyId={id}
                   handleStart={handleStart}
@@ -131,7 +129,7 @@ const LearningLandingPage = () => {
               inProgress={inProgress}
               learningJourneyId={id}
               currentBit={currentBitId}
-              user={user}
+              user={user ? user : null}
               learningJourneyName={learningJourneyData.title}
             />
           }
@@ -141,7 +139,9 @@ const LearningLandingPage = () => {
   );
 };
 
-export default withPageAuthRequired(LearningLandingPage, {
-  onRedirecting: () => <Loading />,
-  onError: (error) => <ErrorMessage>{error.message}</ErrorMessage>,
-});
+export default LearningLandingPage;
+
+// export default withPageAuthRequired(LearningLandingPage, {
+//   onRedirecting: () => <Loading />,
+//   onError: (error) => <ErrorMessage>{error.message}</ErrorMessage>,
+// });

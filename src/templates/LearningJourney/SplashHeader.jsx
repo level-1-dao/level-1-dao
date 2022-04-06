@@ -21,7 +21,7 @@ const SplashHeader = ({
       />
       <div className="actions flex space-x-2 my-4">
         <StartButton
-          userId={user.userId}
+          userId={user?.userId}
           learningJourneyId={learningJourneyId}
           handleStart={handleStart}
           inProgress={inProgress}

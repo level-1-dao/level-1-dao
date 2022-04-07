@@ -10,6 +10,7 @@ import {
   GET_USER,
   GET_LEARNING_JOURNEY,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
+  ADD_USER_LEARNING_JOURNEYS,
 } from "../../lib/graphql";
 import { useQuery, useMutation } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
@@ -27,6 +28,8 @@ const LearningLandingPage = () => {
   });
   const user = data?.user_private[0];
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
+
+  const [addUserLearningJourney] = useMutation(ADD_USER_LEARNING_JOURNEYS);
 
   const subscribeToLearningMoments = () => {
     subscribeToMore({
@@ -52,7 +55,18 @@ const LearningLandingPage = () => {
       (learningJourney) => learningJourney.learningJourneyId === id
     );
     if (userLearningJourney) {
-      console.log("user has started this journey");
+      console.log("continuing this journey");
+      setInProgress(true);
+      return;
+    } else if (!inProgress && started) {
+      console.log("starting learning journey");
+      addUserLearningJourney({
+        variables: {
+          userId: user.userId,
+          learningJourneyId: id,
+          title: learningJourneyData.title,
+        },
+      });
       setInProgress(true);
     }
     return;
@@ -61,7 +75,7 @@ const LearningLandingPage = () => {
   useEffect(() => {
     user && checkIfJourneyInProgress(user);
     user && subscribeToLearningMoments();
-  }, [user]);
+  }, [user, started]);
 
   useEffect(() => {
     if (bit && user) {
@@ -74,7 +88,6 @@ const LearningLandingPage = () => {
 
   const handleStart = () => {
     setStarted(true);
-    setInProgress(true);
     if (!user && learningJourneyData.learningBits[0]) {
       router.push(
         "/api/auth/login?returnTo=" +

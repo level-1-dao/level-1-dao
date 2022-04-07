@@ -24,7 +24,7 @@ const SplashHeader = ({
             ? "Continue this learning journey"
             : user
             ? "Start this learning journey"
-            : "Log-in to start this learning journey"}
+            : "Log-in and start this learning journey"}
         </StartButton>
       </div>
       <h4 className="text-lg mb-4">Guided by:</h4>

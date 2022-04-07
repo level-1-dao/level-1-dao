@@ -64,7 +64,7 @@ const LearningLandingPage = () => {
         variables: {
           userId: user.userId,
           learningJourneyId: id,
-          title: learningJourneyData.title,
+          title: learningJourneyData?.title,
         },
       });
       setInProgress(true);
@@ -73,9 +73,9 @@ const LearningLandingPage = () => {
   };
 
   useEffect(() => {
-    user && checkIfJourneyInProgress(user);
+    user && learningJourneyData && checkIfJourneyInProgress(user);
     user && subscribeToLearningMoments();
-  }, [user, started]);
+  }, [user, started, learningJourneyData]);
 
   useEffect(() => {
     if (bit && user) {

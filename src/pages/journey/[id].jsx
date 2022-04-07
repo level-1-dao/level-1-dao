@@ -112,7 +112,9 @@ const LearningLandingPage = () => {
           meta={
             <Meta
               title={learningJourneyData.title}
-              description={learningJourneyData.description}
+              description={learningJourneyData.fullDescription}
+              image={learningJourneyData.metaData?.image || null}
+              squareImage={learningJourneyData.metaData?.squareImage || null}
             />
           }
           leftColumn={
@@ -128,7 +130,10 @@ const LearningLandingPage = () => {
               </Fragment>
             ) : (
               <div>
-                <ContentView learningBitId={bit} />
+                <ContentView
+                  learningJourneyTitle={learningJourneyData.title}
+                  learningBitId={bit}
+                />
               </div>
             )
           }

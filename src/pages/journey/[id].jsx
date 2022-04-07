@@ -89,15 +89,10 @@ const LearningLandingPage = () => {
   const handleStart = () => {
     setStarted(true);
     if (!user && learningJourneyData.learningBits[0]) {
-      router.push(
-        "/api/auth/login?returnTo=" +
-          router.asPath +
-          "/?bit=" +
-          (bit || learningJourneyData.learningBits[0].id)
-      );
+      router.push("/api/auth/login?returnTo=" + router.asPath);
     } else {
       router.push(
-        `/journey/${id}/?bit=${bit || learningJourneyData.learningBits[0].id}`
+        `/journey/${id}/?bit=${learningJourneyData.learningBits[0].id}`
       );
     }
   };

@@ -3,17 +3,15 @@ import { useRouter } from "next/router";
 import { Meta } from "../../layout/Meta.tsx";
 import AppPageTwoColumn from "../../layout/AppPageTwoColumn";
 import Loading from "../../components/Loading";
-import ErrorMessage from "../../components/ErrorMessage";
 import SplashHeader from "../../templates/LearningJourney/SplashHeader";
 import Details from "../../templates/LearningJourney/Details";
 import CurriculumSidebar from "../../templates/LearningJourney/CurriculumSidebar";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import {
   GET_USER,
   GET_LEARNING_JOURNEY,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
 } from "../../lib/graphql";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
 import NavBar from "../../components/NavBar";
 
@@ -23,8 +21,6 @@ const LearningLandingPage = () => {
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
   const [inProgress, setInProgress] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  // let completedLearningBits = 0;
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
@@ -51,41 +47,44 @@ const LearningLandingPage = () => {
     });
   };
 
-  const checkIfJourneyInProgress = (user, learningBits) => {
+  const checkIfJourneyInProgress = (user) => {
     const userLearningJourney = user.user_learning_journeys?.find(
       (learningJourney) => learningJourney.learningJourneyId === id
     );
     if (userLearningJourney) {
+      console.log("user has started this journey");
       setInProgress(true);
     }
     return;
   };
 
   useEffect(() => {
-    user &&
-      learningJourneyData &&
-      checkIfJourneyInProgress(user, learningJourneyData?.learningBits);
-  }, [user, learningJourneyData]);
+    user && checkIfJourneyInProgress(user);
+    user && subscribeToLearningMoments();
+  }, [user]);
 
   useEffect(() => {
-    if (bit) {
+    if (bit && user) {
       setCurrentBitId(bit);
       setStarted(true);
     } else {
       setStarted(false);
     }
-  }, [bit]);
-
-  useEffect(() => {
-    user && subscribeToLearningMoments();
-  }, [user]);
+  }, [bit, user]);
 
   const handleStart = () => {
     setStarted(true);
     setInProgress(true);
-    if (learningJourneyData.learningBits[0]) {
+    if (!user && learningJourneyData.learningBits[0]) {
       router.push(
-        `/journey/${id}/?bit=${learningJourneyData.learningBits[0].id}`
+        "/api/auth/login?returnTo=" +
+          router.asPath +
+          "/?bit=" +
+          (bit || learningJourneyData.learningBits[0].id)
+      );
+    } else {
+      router.push(
+        `/journey/${id}/?bit=${bit || learningJourneyData.learningBits[0].id}`
       );
     }
   };
@@ -109,7 +108,6 @@ const LearningLandingPage = () => {
                 <SplashHeader
                   user={user ? user : null}
                   learningJourneyData={learningJourneyData}
-                  learningJourneyId={id}
                   handleStart={handleStart}
                   inProgress={inProgress}
                 />
@@ -141,6 +139,7 @@ const LearningLandingPage = () => {
 
 export default LearningLandingPage;
 
+// Leaving this here for reference if needed again
 // export default withPageAuthRequired(LearningLandingPage, {
 //   onRedirecting: () => <Loading />,
 //   onError: (error) => <ErrorMessage>{error.message}</ErrorMessage>,

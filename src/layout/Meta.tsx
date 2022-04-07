@@ -8,6 +8,8 @@ type IMetaProps = {
   title: string;
   description: string;
   canonical?: string;
+  image?: string;
+  squareImage?: string;
 };
 
 const Meta = (props: IMetaProps) => {
@@ -65,13 +67,17 @@ const Meta = (props: IMetaProps) => {
           type: "website",
           images: [
             {
-              url: "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire.png",
+              url:
+                props.image ||
+                "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire.png",
               width: 1200,
               height: 630,
               alt: "Level1",
             },
             {
-              url: "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire-Square.png",
+              url:
+                props.squareImage ||
+                "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire-Square.png",
               width: 900,
               height: 800,
               alt: "Level1",

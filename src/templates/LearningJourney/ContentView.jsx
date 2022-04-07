@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 import LearningModule from "../../templates/LearningModule";
 import Loading from "../../components/Loading";
 
-const ContentView = ({ learningBitId }) => {
+const ContentView = ({ learningBitId, learningJourneyTitle }) => {
   const {
     loading: loadingLearningBitData,
     error: errorGettingLearningBit,
@@ -18,7 +18,10 @@ const ContentView = ({ learningBitId }) => {
       {loadingLearningBitData && <Loading />}
       {!loadingLearningBitData && !errorGettingLearningBit && (
         <>
-          <LearningModule learningBitData={learningBitData} />
+          <LearningModule
+            learningJourneyTitle={learningJourneyTitle}
+            learningBitData={learningBitData}
+          />
         </>
       )}
     </>

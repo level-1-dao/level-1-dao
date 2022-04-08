@@ -18,6 +18,7 @@ module.exports = withBundleAnalyzer({
       "picsum.photos",
       "lh3.googleusercontent.com",
       "s.gravatar.com",
+      "cdn.discordapp.com",
     ],
   },
   env: {

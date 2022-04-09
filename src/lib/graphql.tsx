@@ -197,6 +197,7 @@ export const GET_LEARNING_JOURNEY = gql`
       updated_at
       tokensAvailable
       nft
+      metaData
       learningBits(order_by: { position: asc }) {
         id
         title

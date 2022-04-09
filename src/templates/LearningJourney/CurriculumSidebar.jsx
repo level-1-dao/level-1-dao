@@ -26,11 +26,6 @@ const CurriculumSidebar = ({
     numberOfLearningBitsCompletedByUser,
     learningBitsLength
   ) => {
-    console.log("completedLearningBits", completedLearningBits);
-    console.log(
-      "numberOfLearningBitsCompletedByUser",
-      numberOfLearningBitsCompletedByUser
-    );
     if (numberOfLearningBitsCompletedByUser === learningBitsLength) {
       if (
         completedLearningBits !== numberOfLearningBitsCompletedByUser &&
@@ -49,7 +44,7 @@ const CurriculumSidebar = ({
   };
 
   const checkIfUserMintedNFT = (user, learningBits) => {
-    const userLearningJourney = user.user_learning_journeys?.find(
+    const userLearningJourney = user?.user_learning_journeys?.find(
       (learningJourney) =>
         learningJourney.learningJourneyId === learningJourneyId
     );
@@ -59,7 +54,7 @@ const CurriculumSidebar = ({
   };
 
   const getNumberOfLearningBitsCompletedByUser = (user, learningBits) => {
-    const userLearningMomentsIds = user.user_learning_moments.map(
+    const userLearningMomentsIds = user?.user_learning_moments.map(
       (learningMoment) => learningMoment.learningBitId
     );
     const userLearningBits = learningBits.filter(
@@ -111,7 +106,7 @@ const CurriculumSidebar = ({
         inProgress={inProgress}
         learningJourneyId={learningJourneyId}
         currentBit={currentBit}
-        user={user}
+        user={user ? user : null}
       />
     </div>
   );

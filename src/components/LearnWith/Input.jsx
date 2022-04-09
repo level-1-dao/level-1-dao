@@ -21,12 +21,13 @@ const Input = ({ learningBitId }) => {
   }, [user, learningBitId]);
 
   useEffect(() => {
-    subscribeToLearningMoments();
-  }, []);
+    user && subscribeToLearningMoments();
+  }, [user]);
 
   const subscribeToLearningMoments = () => {
     subscribeToMore({
       document: SUBSCRIBE_USER_LEARNING_MOMENTS,
+      variables: { userId: user?.userId },
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newLearningMoment = subscriptionData.data.learningMoments;

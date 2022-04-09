@@ -8,6 +8,8 @@ type IMetaProps = {
   title: string;
   description: string;
   canonical?: string;
+  image?: string;
+  squareImage?: string;
 };
 
 const Meta = (props: IMetaProps) => {
@@ -48,29 +50,37 @@ const Meta = (props: IMetaProps) => {
         />
       </Head>
       <NextSeo
-        title={props.title}
+        title={props.title ? props.title : AppConfig.title}
         description={AppConfig.description}
         canonical="https://L1-1.com/"
+        twitter={{
+          cardType: "summary_large_image",
+        }}
         openGraph={{
-          title: props.title,
-          description: AppConfig.description,
+          title: props.title ? props.title : AppConfig.title,
+          description: props.description
+            ? props.description
+            : AppConfig.description,
           url: "https://L1-1.com/",
           locale: AppConfig.locale,
           site_name: AppConfig.site_name,
+          type: "website",
           images: [
             {
-              url: "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire.png",
+              url:
+                props.image ||
+                "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire.png",
               width: 1200,
               height: 630,
               alt: "Level1",
-              type: "image/png",
             },
             {
-              url: "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire-Square.png",
+              url:
+                props.squareImage ||
+                "https://level1-learning.s3.us-east-2.amazonaws.com/Level1-Social-Attire-Square.png",
               width: 900,
               height: 800,
               alt: "Level1",
-              type: "image/png",
             },
           ],
         }}

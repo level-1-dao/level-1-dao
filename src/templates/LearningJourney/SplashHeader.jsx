@@ -7,7 +7,6 @@ import UpdatedOn from "../../components/LearningJourney/UpdatedOn";
 const SplashHeader = ({
   user,
   learningJourneyData,
-  learningJourneyId,
   handleStart,
   inProgress,
 }) => {
@@ -20,13 +19,13 @@ const SplashHeader = ({
         createdOn={learningJourneyData.created_at}
       />
       <div className="actions flex space-x-2 my-4">
-        <StartButton
-          userId={user.userId}
-          learningJourneyId={learningJourneyId}
-          handleStart={handleStart}
-          inProgress={inProgress}
-          learningJourneyTitle={learningJourneyData.title}
-        />
+        <StartButton handleStart={handleStart}>
+          {inProgress
+            ? "Continue this learning journey"
+            : user
+            ? "Start this learning journey"
+            : "Log-in and start this learning journey"}
+        </StartButton>
       </div>
       <h4 className="text-lg mb-4">Guided by:</h4>
       <Avatar learningBits={learningJourneyData.learningBits} />

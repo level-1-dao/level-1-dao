@@ -3,17 +3,16 @@ import { useRouter } from "next/router";
 import { Meta } from "../../layout/Meta.tsx";
 import AppPageTwoColumn from "../../layout/AppPageTwoColumn";
 import Loading from "../../components/Loading";
-import ErrorMessage from "../../components/ErrorMessage";
 import SplashHeader from "../../templates/LearningJourney/SplashHeader";
 import Details from "../../templates/LearningJourney/Details";
 import CurriculumSidebar from "../../templates/LearningJourney/CurriculumSidebar";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 import {
   GET_USER,
   GET_LEARNING_JOURNEY,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
+  ADD_USER_LEARNING_JOURNEYS,
 } from "../../lib/graphql";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 import ContentView from "../../templates/LearningJourney/ContentView";
 import NavBar from "../../components/NavBar";
 
@@ -23,14 +22,14 @@ const LearningLandingPage = () => {
   const [currentBitId, setCurrentBitId] = useState(null);
   const [started, setStarted] = useState(false);
   const [inProgress, setInProgress] = useState(false);
-  const [completed, setCompleted] = useState(false);
-  let completedLearningBits = 0;
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const { data: learningJourneyDataArray } = useQuery(GET_LEARNING_JOURNEY, {
     variables: { learningJourneyId: id },
   });
   const user = data?.user_private[0];
   const learningJourneyData = learningJourneyDataArray?.learningJourney[0];
+
+  const [addUserLearningJourney] = useMutation(ADD_USER_LEARNING_JOURNEYS);
 
   const subscribeToLearningMoments = () => {
     subscribeToMore({
@@ -51,39 +50,47 @@ const LearningLandingPage = () => {
     });
   };
 
-  const checkIfJourneyInProgress = (user, learningBits) => {
+  const checkIfJourneyInProgress = (user) => {
     const userLearningJourney = user.user_learning_journeys?.find(
       (learningJourney) => learningJourney.learningJourneyId === id
     );
     if (userLearningJourney) {
+      console.log("continuing this journey");
+      setInProgress(true);
+      return;
+    } else if (!inProgress && started) {
+      console.log("starting learning journey");
+      addUserLearningJourney({
+        variables: {
+          userId: user.userId,
+          learningJourneyId: id,
+          title: learningJourneyData?.title,
+        },
+      });
       setInProgress(true);
     }
     return;
   };
 
   useEffect(() => {
-    user &&
-      learningJourneyData &&
-      checkIfJourneyInProgress(user, learningJourneyData?.learningBits);
-  }, [user, learningJourneyData]);
+    user && learningJourneyData && checkIfJourneyInProgress(user);
+    user && subscribeToLearningMoments();
+  }, [user, started, learningJourneyData]);
 
   useEffect(() => {
-    if (bit) {
+    if (bit && user) {
       setCurrentBitId(bit);
       setStarted(true);
     } else {
       setStarted(false);
     }
-  }, [bit]);
-
-  useEffect(() => {
-    user && subscribeToLearningMoments();
-  }, [user]);
+  }, [bit, user]);
 
   const handleStart = () => {
     setStarted(true);
-    setInProgress(true);
-    if (learningJourneyData.learningBits[0]) {
+    if (!user && learningJourneyData.learningBits[0]) {
+      router.push("/api/auth/login?returnTo=" + router.asPath);
+    } else {
       router.push(
         `/journey/${id}/?bit=${learningJourneyData.learningBits[0].id}`
       );
@@ -93,25 +100,24 @@ const LearningLandingPage = () => {
   return (
     <div className="h-full bg-base-100">
       <NavBar />
-      {!learningJourneyData || !user ? (
+      {!learningJourneyData ? (
         <Loading />
       ) : (
         <AppPageTwoColumn
           meta={
             <Meta
               title={learningJourneyData.title}
-              description={learningJourneyData.description}
+              description={learningJourneyData.fullDescription}
+              image={learningJourneyData.metaData?.image || null}
+              squareImage={learningJourneyData.metaData?.squareImage || null}
             />
           }
           leftColumn={
-            loading ? (
-              <Loading />
-            ) : !started ? (
+            !started ? (
               <Fragment>
                 <SplashHeader
-                  user={user}
+                  user={user ? user : null}
                   learningJourneyData={learningJourneyData}
-                  learningJourneyId={id}
                   handleStart={handleStart}
                   inProgress={inProgress}
                 />
@@ -119,7 +125,10 @@ const LearningLandingPage = () => {
               </Fragment>
             ) : (
               <div>
-                <ContentView learningBitId={bit} />
+                <ContentView
+                  learningJourneyTitle={learningJourneyData.title}
+                  learningBitId={bit}
+                />
               </div>
             )
           }
@@ -131,7 +140,7 @@ const LearningLandingPage = () => {
               inProgress={inProgress}
               learningJourneyId={id}
               currentBit={currentBitId}
-              user={user}
+              user={user ? user : null}
               learningJourneyName={learningJourneyData.title}
             />
           }
@@ -141,15 +150,10 @@ const LearningLandingPage = () => {
   );
 };
 
-export default withPageAuthRequired(LearningLandingPage, {
-  onRedirecting: () => <Loading />,
-  onError: (error) => (
-    <ErrorMessage>
-      <Meta
-        title={learningJourneyData.title}
-        description={learningJourneyData.description}
-      />
-      {error.message}
-    </ErrorMessage>
-  ),
-});
+export default LearningLandingPage;
+
+// Leaving this here for reference if needed again
+// export default withPageAuthRequired(LearningLandingPage, {
+//   onRedirecting: () => <Loading />,
+//   onError: (error) => <ErrorMessage>{error.message}</ErrorMessage>,
+// });

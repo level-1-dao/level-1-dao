@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useSubscription } from "@apollo/client";
 import { SUBSCRIBE_LEARNING_MOMENTS } from "../lib/graphql";
 import Loading from "../components/Loading";
+import { Meta } from "../layout/Meta";
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 
 import ReactPlayer from "react-player";
 import { MarkdownContent } from "../components/LearningJourney";
 
-const LearningModule = ({ learningBitData }) => {
+const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
   const { loading, error, data } = useSubscription(SUBSCRIBE_LEARNING_MOMENTS, {
     variables: {
       learningBitId: learningBitData.id,
@@ -21,6 +22,10 @@ const LearningModule = ({ learningBitData }) => {
 
   return (
     <div className="space-y-8">
+      <Meta
+        title={`${learningJourneyTitle} | ${learningBitData.title}`}
+        description={learningBitData.guideNotes?.note || null}
+      />
       <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">
         <GuideNotes guideNoteData={learningBitData.guideNotes} />
         <div className="card bg-base-100 shadow-xl">
@@ -43,6 +48,7 @@ const LearningModule = ({ learningBitData }) => {
                   url={learningBitData.content}
                   width="100%"
                   height="100%"
+                  controls
                 />
               </div>
             )}

@@ -19,8 +19,8 @@ const MarketingPage = () => {
               <span className="text-accent">super powers</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg sm:text-2xl md:mt-5 md:max-w-3xl">
-              An accessible learning platform that allows community members to
-              create interactive learning journeys for each other.
+              An accessible onboarding platform that allows community members to
+              share curated learning journeys for each other.
             </p>
             <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
               <div className="rounded-md shadow">

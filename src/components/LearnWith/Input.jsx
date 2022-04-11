@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "../../lib/apollo";
 import { useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
 import LearningMomentContainer from "./LearningMomentContainer";
 import {
   ADD_LEARNING_MOMENT,
@@ -9,10 +10,15 @@ import {
 } from "../../lib/graphql";
 
 const Input = ({ learningBitId }) => {
+  const router = useRouter();
   const [value, setValue] = useState("");
   const [learningMoment, setLearningMoment] = useState(null);
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
   const user = data?.user_private[0];
+
+  const handleLogIn = () => {
+    router.push("/api/auth/login?returnTo=" + router.asPath);
+  };
 
   useEffect(() => {
     if (user) {
@@ -89,6 +95,10 @@ const Input = ({ learningBitId }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!user) {
+      handleLogIn();
+      return;
+    }
     addLearningMoment({
       variables: {
         userId: user.userId,

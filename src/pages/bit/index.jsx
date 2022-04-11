@@ -2,7 +2,7 @@ import Link from "next/link";
 import { GET_ALL_LEARNING_BITS } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import LearningBitCard from "../../templates/discover/LearningBitCard";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/NavBar";
 
 const DiscoverLearningBitsLandingPage = () => {
   const { data, loading, error } = useQuery(GET_ALL_LEARNING_BITS);

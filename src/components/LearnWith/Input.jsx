@@ -129,6 +129,7 @@ const Input = ({ learningBitId }) => {
                 placeholder="Add your reflection..."
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
+                disabled={!user}
               />
             </div>
 

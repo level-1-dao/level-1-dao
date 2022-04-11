@@ -1,5 +1,5 @@
 import NavBar from "../../components/NavBar";
-import Catalogue from "./Catalogue";
+import Catalogue from "../../templates/discover/Catalogue";
 import { Meta } from "../../layout/Meta";
 
 const index = () => {

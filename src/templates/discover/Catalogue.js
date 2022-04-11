@@ -4,7 +4,7 @@ import Link from "next/link";
 const levels = [
   {
     id: 1,
-    name: "Aragon Ambassador Program",
+    name: "Aragon Community Learning Journey",
     learningJourneyId: "/journey/2bb58c9f-5180-47d8-9995-09d6bd451389",
     imageSrc: "/assets/images/logos/Aragon-wallpaper.png",
     imageAlt: "Aragon Network DAO Join the Fight",

@@ -12,11 +12,13 @@ const Guides = ({ learningBits }) => {
     return null;
   });
   return (
-    <div className="guide-container flex space-x-4">
-      {uniqueGuidesArray.map((guide) => (
-        <Avatar key={guide.id} guide={guide} />
+    <ul className="guide-container flex space-x-4">
+      {uniqueGuidesArray.map((guide, index) => (
+        <li key={index}>
+          <Avatar guide={guide} />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

@@ -1,11 +1,16 @@
 import Image from "next/image";
 import { generateFromString } from "generate-avatar";
 
-const Avatar = ({ guide }) => {
+const Avatar = ({ guide, size }) => {
+  console.log(size);
   return (
-    <div key={guide.id}>
+    <div className="flex space-x-2 items-center">
       <div className="avatar">
-        <div className="rounded-full w-14 h-14">
+        <div
+          className={`rounded-full ${
+            size === "small" ? "w-10 h-10" : "w-14 h-14"
+          }`}
+        >
           <Image
             src={
               guide.guide_info?.avatar
@@ -20,7 +25,7 @@ const Avatar = ({ guide }) => {
         </div>
       </div>
       <div className="guide-text">
-        <p className="text-lg">
+        <p className={`${size === "small" ? "tex-base" : "text-lg"}`}>
           <span>{guide.guide_info.username}</span>
         </p>
         <h5 className="text-sm">

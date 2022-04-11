@@ -29,6 +29,14 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
         description={learningBitData.guideNotes?.note || null}
       />
       <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">
+        <div className="py-4">
+          <h2 className="text-xs font-semibold text-primary tracking-wide uppercase">
+            Learning Bit
+          </h2>
+          <p className="mt-1 text-2xl font-extrabold sm:tracking-tight text-base-content">
+            {learningBitData.title}
+          </p>
+        </div>
         <GuideNotes guideNoteData={learningBitData.guideNotes} />
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">

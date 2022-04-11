@@ -37,7 +37,9 @@ const LearningLandingPage = () => {
   return (
     <div className="h-full bg-base-100">
       <NavBar />
-      <ContentView learningBitId={id} />
+      <div className="container max-w-4xl sm:p-12 mx-auto sm:px-4">
+        <ContentView learningBitId={id} />
+      </div>
     </div>
   );
 };

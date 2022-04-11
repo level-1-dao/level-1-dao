@@ -2,7 +2,7 @@ import Link from "next/link";
 import { GET_ALL_LEARNING_BITS } from "../../lib/graphql";
 import { useQuery } from "@apollo/client";
 import LearningBitCard from "../../templates/discover/LearningBitCard";
-import Navbar from "../../components/Navbar";
+import NavBar from "../../components/Navbar";
 
 const DiscoverLearningBitsLandingPage = () => {
   const { data, loading, error } = useQuery(GET_ALL_LEARNING_BITS);
@@ -11,9 +11,8 @@ const DiscoverLearningBitsLandingPage = () => {
   console.log(data);
   return (
     <div>
-      <Navbar />
-      <h1>Learning Bits</h1>
-      <div className="container p-4 mx-auto">
+      <NavBar />
+      <div className="container p-4 py-12 mx-auto">
         <ul
           role="list"
           className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8"

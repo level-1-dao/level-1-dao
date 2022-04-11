@@ -23,7 +23,9 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
   return (
     <div className="space-y-8">
       <Meta
-        title={`${learningJourneyTitle} | ${learningBitData.title}`}
+        title={`${learningJourneyTitle ? learningJourneyTitle : "Level1"} | ${
+          learningBitData.title
+        }`}
         description={learningBitData.guideNotes?.note || null}
       />
       <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">

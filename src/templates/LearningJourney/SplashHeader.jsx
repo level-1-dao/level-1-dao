@@ -1,7 +1,7 @@
 import StartButton from "../../components/LearningJourney/StartButton";
 import { ChartSquareBarIcon, TicketIcon } from "@heroicons/react/outline";
 import { TokensOnCompletionBadge } from "../../components/LearningJourney";
-import { Avatar } from "../../components/Guide";
+import Guides from "../../templates/LearningJourney/Guides";
 import UpdatedOn from "../../components/LearningJourney/UpdatedOn";
 
 const SplashHeader = ({
@@ -28,7 +28,7 @@ const SplashHeader = ({
         </StartButton>
       </div>
       <h4 className="text-lg mb-4">Guided by:</h4>
-      <Avatar learningBits={learningJourneyData.learningBits} />
+      <Guides learningBits={learningJourneyData.learningBits} />
       <div className="details space-y-4 my-4">
         {/* <div className="access-info-container flex space-x-2">
           <TicketIcon className="h-6 w-6" aria-hidden="true" />

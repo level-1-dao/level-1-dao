@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useSubscription } from "@apollo/client";
+import * as loom from "@loomhq/loom-embed";
+import EmbedContainer from "react-oembed-container";
 import { SUBSCRIBE_LEARNING_MOMENTS } from "../lib/graphql";
 import Loading from "../components/Loading";
 import { Meta } from "../layout/Meta";
@@ -11,6 +13,7 @@ import ReactPlayer from "react-player";
 import { MarkdownContent } from "../components/LearningJourney";
 
 const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
+  const [loomIframe, setLoomIframe] = useState(null);
   const { loading, error, data } = useSubscription(SUBSCRIBE_LEARNING_MOMENTS, {
     variables: {
       learningBitId: learningBitData.id,
@@ -19,6 +22,13 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
   const learningMoments = data?.learningMoments;
 
   const capitalize = (s) => (s && s[0].toUpperCase() + s.slice(1)) || "";
+
+  // TODO: move to seperate Loom viewer component
+  const getLoomLinkEmbed = async (loomLink) => {
+    const loomData = await loom.oembed(loomLink);
+    setLoomIframe(loomData.html);
+    return;
+  };
 
   return (
     <div className="space-y-8">
@@ -62,6 +72,19 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
                 />
               </div>
             )}
+            {learningBitData.contentType === "loom" &&
+              getLoomLinkEmbed(learningBitData.content) &&
+              (!loomIframe ? (
+                <Loading />
+              ) : (
+                <EmbedContainer markup={loomIframe}>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: loomIframe,
+                    }}
+                  />
+                </EmbedContainer>
+              ))}
             {learningBitData.contentType === "image" && (
               <div className="relative w-full">
                 <img
@@ -80,11 +103,13 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
         </div>
 
         {/* Description */}
-        <div className="description-container text-lg p-4 bg-primary rounded-lg">
-          <div className="text-accent-content">
-            <MarkdownContent content={learningBitData.description} />
+        {learningBitData.description && (
+          <div className="description-container text-lg p-4 bg-primary rounded-lg">
+            <div className="text-accent-content">
+              <MarkdownContent content={learningBitData.description} />
+            </div>
           </div>
-        </div>
+        )}
         <div className="divider py-4"></div>
         <div className="learn-with-container space-y-12">
           {loading && learningMoments ? (
@@ -93,7 +118,7 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
             <>
               <div className="header">
                 <h2 className="text-xl tracking-tight">
-                  Participate in this learning bit by sharing your reflection.
+                  Contribute to this learning bit:
                 </h2>
                 <div className="input-container">
                   <p className="text-2xl font-extrabold my-4">

@@ -149,7 +149,7 @@ const Input = ({ learningBitId }) => {
                     </button>
                   ) : (
                     <button type="submit" className="btn btn-primary btn-md">
-                      Log-in to share reflection
+                      Log-in to add reflection
                     </button>
                   )}
                 </div>

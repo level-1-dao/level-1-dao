@@ -34,11 +34,16 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
             {learningBitData.title}
           </p>
         </div>
-        <GuideNotes guideNoteData={learningBitData.guideNotes} />
-        <ContentContainer
-          contentType={learningBitData.contentType}
-          content={learningBitData.content}
-        />
+        {learningBitData.guideNotes.note && (
+          <GuideNotes guideNoteData={learningBitData.guideNotes} />
+        )}
+        {learningBitData.contentType !== "prompt" &&
+          learningBitData.content && (
+            <ContentContainer
+              contentType={learningBitData.contentType}
+              content={learningBitData.content}
+            />
+          )}
 
         {/* Description */}
         {learningBitData.description && (

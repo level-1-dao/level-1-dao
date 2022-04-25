@@ -3,6 +3,7 @@ import MoveStep from "./MoveStep";
 import TokensOnCompletionBadge from "./TokensOnCompletionBadge";
 import Progress from "./Progress";
 import MarkdownContent from "./MarkdownContent";
+import ContentContainer from "./ContentContainer";
 
 export {
   StartButton,
@@ -10,4 +11,5 @@ export {
   TokensOnCompletionBadge,
   Progress,
   MarkdownContent,
+  ContentContainer,
 };

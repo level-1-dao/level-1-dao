@@ -1,34 +1,21 @@
-import { useState } from "react";
-import Link from "next/link";
 import { useSubscription } from "@apollo/client";
-import * as loom from "@loomhq/loom-embed";
-import EmbedContainer from "react-oembed-container";
 import { SUBSCRIBE_LEARNING_MOMENTS } from "../lib/graphql";
 import Loading from "../components/Loading";
 import { Meta } from "../layout/Meta";
-import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { Input, Feed, GoodCompany, GuideNotes } from "../components/LearnWith";
 
-import ReactPlayer from "react-player";
-import { MarkdownContent } from "../components/LearningJourney";
+import {
+  ContentContainer,
+  MarkdownContent,
+} from "../components/LearningJourney";
 
 const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
-  const [loomIframe, setLoomIframe] = useState(null);
   const { loading, error, data } = useSubscription(SUBSCRIBE_LEARNING_MOMENTS, {
     variables: {
       learningBitId: learningBitData.id,
     },
   });
   const learningMoments = data?.learningMoments;
-
-  const capitalize = (s) => (s && s[0].toUpperCase() + s.slice(1)) || "";
-
-  // TODO: move to seperate Loom viewer component
-  const getLoomLinkEmbed = async (loomLink) => {
-    const loomData = await loom.oembed(loomLink);
-    setLoomIframe(loomData.html);
-    return;
-  };
 
   return (
     <div className="space-y-8">
@@ -48,59 +35,10 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
           </p>
         </div>
         <GuideNotes guideNoteData={learningBitData.guideNotes} />
-        <div className="card bg-base-100 shadow-xl">
-          <div className="card-body">
-            {learningBitData.content && (
-              <div className="link-to-content">
-                {capitalize(learningBitData.contentType)} source:
-                <Link href={learningBitData.content}>
-                  <a target="_blank"> {learningBitData.content}</a>
-                </Link>
-              </div>
-            )}
-          </div>
-          <figure>
-            {/* <ContentPlayer /> */}
-            {learningBitData.contentType === "video" && (
-              <div className="player-wrapper">
-                <ReactPlayer
-                  className="react-player"
-                  url={learningBitData.content}
-                  width="100%"
-                  height="100%"
-                  controls
-                />
-              </div>
-            )}
-            {learningBitData.contentType === "loom" &&
-              getLoomLinkEmbed(learningBitData.content) &&
-              (!loomIframe ? (
-                <Loading />
-              ) : (
-                <EmbedContainer markup={loomIframe}>
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: loomIframe,
-                    }}
-                  />
-                </EmbedContainer>
-              ))}
-            {learningBitData.contentType === "image" && (
-              <div className="relative w-full">
-                <img
-                  src={learningBitData.content}
-                  alt="image content"
-                  className="w-full"
-                />
-              </div>
-            )}
-            {learningBitData.contentType === "link" && (
-              <div className="relative p-4">
-                <LinkPreview url={learningBitData.content} />
-              </div>
-            )}
-          </figure>
-        </div>
+        <ContentContainer
+          contentType={learningBitData.contentType}
+          content={learningBitData.content}
+        />
 
         {/* Description */}
         {learningBitData.description && (

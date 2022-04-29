@@ -23,7 +23,9 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
         title={`${learningJourneyTitle ? learningJourneyTitle : "Level1"} | ${
           learningBitData.title
         }`}
-        description={learningBitData.guideNotes?.note || null}
+        description={
+          learningBitData.guideNotes?.note || learningBitData.prompt || null
+        }
       />
       <div className="px-2 sm:px-4 space-y-4 bg-base-200 p-4 rounded border border-gray-400">
         <div className="py-4">

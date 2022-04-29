@@ -244,3 +244,59 @@ export const GET_LEARNING_BIT = gql`
     }
   }
 `;
+
+export const GET_ALL_LEARNING_BITS = gql`
+  query getAllLearningBits {
+    learningBits(order_by: { position: asc }) {
+      id
+      title
+      description
+      tokens
+      contentType
+      content
+      time
+      prompt
+      learningJourney {
+        id
+        title
+      }
+      guideNotes {
+        note
+        userId
+        role
+        guide_info {
+          avatar
+          username
+        }
+      }
+    }
+  }
+`;
+
+export const GET_LEARNING_BITS_BY_USER = gql`
+  query getLearningBitsByUser($userId: String!) {
+    learningBits(where: { userId: { _eq: $userId } }) {
+      id
+      title
+      description
+      tokens
+      contentType
+      content
+      time
+      prompt
+      learningJourney {
+        id
+        title
+      }
+      guideNotes {
+        note
+        userId
+        role
+        guide_info {
+          avatar
+          username
+        }
+      }
+    }
+  }
+`;

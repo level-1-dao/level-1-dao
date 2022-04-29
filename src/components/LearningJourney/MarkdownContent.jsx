@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 const MarkdownContent = ({ content }) => {
-  const escapedContent = content.replace(/\\n/g, "\n");
+  const escapedContent = content?.replace(/\\n/g, "\n");
 
   return (
     <div className="space-y-12 lg:gap-8">

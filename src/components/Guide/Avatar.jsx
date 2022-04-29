@@ -1,49 +1,37 @@
 import Image from "next/image";
 import { generateFromString } from "generate-avatar";
 
-const Avatar = ({ learningBits }) => {
-  const uniqueGuidesArray = [];
-  learningBits.filter(function (item) {
-    var i = uniqueGuidesArray.findIndex(
-      (x) => x.guideNotes.userId == item.guideNotes.userId
-    );
-    if (i <= -1) {
-      uniqueGuidesArray.push(item);
-    }
-    return null;
-  });
+const Avatar = ({ guide, size }) => {
+  console.log(size);
   return (
-    <div className="guide-container flex space-x-4">
-      {uniqueGuidesArray.map((guide) => (
-        <div key={guide.id}>
-          <div className="avatar">
-            <div className="rounded-full w-14 h-14">
-              <Image
-                src={
-                  guide.guideNotes.guide_info &&
-                  guide.guideNotes.guide_info.avatar
-                    ? guide.guideNotes.guide_info.avatar
-                    : `data:image/svg+xml;utf8,${generateFromString(
-                        guide.guideNotes.userId
-                      )}`
-                }
-                alt="guide avatar"
-                width={150}
-                height={150}
-                layout="responsive"
-              />
-            </div>
-          </div>
-          <div className="guide-text">
-            <p className="text-lg">
-              <span>{guide.guideNotes.guide_info.username}</span>
-            </p>
-            <h5 className="text-sm">
-              <span className="text-gray-500">{guide.guideNotes.role}</span>
-            </h5>
-          </div>
+    <div className="flex space-x-2 items-center">
+      <div className="avatar">
+        <div
+          className={`rounded-full ${
+            size === "small" ? "w-10 h-10" : "w-14 h-14"
+          }`}
+        >
+          <Image
+            src={
+              guide.guide_info?.avatar
+                ? guide.guide_info.avatar
+                : `data:image/svg+xml;utf8,${generateFromString(guide.id)}`
+            }
+            alt="guide avatar"
+            width={150}
+            height={150}
+            layout="responsive"
+          />
         </div>
-      ))}
+      </div>
+      <div className="guide-text">
+        <p className={`${size === "small" ? "tex-base" : "text-lg"}`}>
+          <span>{guide.guide_info.username}</span>
+        </p>
+        <h5 className="text-sm">
+          <span className="text-gray-500">{guide.role}</span>
+        </h5>
+      </div>
     </div>
   );
 };

@@ -13,6 +13,8 @@ const ContentView = ({ learningBitId, learningJourneyTitle }) => {
   });
   const learningBitData = learningBitDataArray?.learningBits[0];
 
+  console.log(learningBitDataArray);
+
   return (
     <>
       {loadingLearningBitData && <Loading />}

@@ -9,7 +9,7 @@ import {
   SUBSCRIBE_USER_LEARNING_MOMENTS,
 } from "../../lib/graphql";
 
-const Input = ({ learningBitId }) => {
+const Input = ({ learningBitId, learningPromptId, promptType }) => {
   const router = useRouter();
   const [value, setValue] = useState("");
   const [learningMoment, setLearningMoment] = useState(null);
@@ -22,7 +22,7 @@ const Input = ({ learningBitId }) => {
 
   useEffect(() => {
     if (user) {
-      checkForUsersLearningMoment(user, learningBitId);
+      checkForUsersLearningMoment(user, learningBitId, learningPromptId);
     }
   }, [user, learningBitId]);
 
@@ -37,25 +37,27 @@ const Input = ({ learningBitId }) => {
       updateQuery: (prev, { subscriptionData }) => {
         if (!subscriptionData.data) return prev;
         const newLearningMoment = subscriptionData.data.learningMoments;
-        const userObject = Object.assign({}, prev, {
-          user_private: [
-            {
-              ...prev.user_private[0],
-              user_details: {
-                ...prev.user_private[0].user_details,
-                learningMoments: newLearningMoment,
-              },
-            },
-          ],
-        });
+        // use this to check against old and new object
+        // const userObject = Object.assign({}, prev, {
+        //   user_private: [
+        //     {
+        //       ...prev.user_private[0],
+        //       user_details: {
+        //         ...prev.user_private[0].user_details,
+        //       },
+        //       user_learning_moments: newLearningMoment,
+        //     },
+        //   ],
+        // });
+        // console.log("new userObject", userObject);
         return Object.assign({}, prev, {
           user_private: [
             {
               ...prev.user_private[0],
               user_details: {
                 ...prev.user_private[0].user_details,
-                learningMoments: newLearningMoment,
               },
+              user_learning_moments: newLearningMoment,
             },
           ],
         });
@@ -71,7 +73,7 @@ const Input = ({ learningBitId }) => {
     onCompleted: (data) => {
       // TODO - show alert/toast
       console.log("Learning moment saved ", data);
-      checkForUsersLearningMoment(user, learningBitId);
+      checkForUsersLearningMoment(user, learningBitId, learningPromptId);
       setValue("");
       return;
     },
@@ -82,10 +84,22 @@ const Input = ({ learningBitId }) => {
     },
   });
 
-  const checkForUsersLearningMoment = (user, learningBitId) => {
-    const userLearningMoment = user.user_learning_moments.find(
-      (learningMoment) => learningMoment.learningBitId === learningBitId
-    );
+  const checkForUsersLearningMoment = (
+    user,
+    learningBitId,
+    learningPromptId
+  ) => {
+    let userLearningMoment;
+    console.log(user.user_learning_moments);
+    if (learningPromptId) {
+      userLearningMoment = user.user_learning_moments.find(
+        (learningMoment) => learningMoment.promptId === learningPromptId
+      );
+    } else {
+      userLearningMoment = user.user_learning_moments.find(
+        (learningMoment) => learningMoment.learningBitId === learningBitId
+      );
+    }
     if (userLearningMoment) {
       setLearningMoment(userLearningMoment);
     } else {
@@ -104,7 +118,8 @@ const Input = ({ learningBitId }) => {
         userId: user.userId,
         learningBitId: learningBitId,
         moment: value,
-        type: "reflection",
+        type: promptType ? promptType : "reflection",
+        promptId: learningPromptId ? learningPromptId : null,
       },
     });
     return;

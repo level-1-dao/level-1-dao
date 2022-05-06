@@ -22,6 +22,7 @@ export const GET_USER = gql`
         type
         moment
         created_at
+        promptId
       }
       user_learning_journeys {
         id
@@ -112,6 +113,7 @@ export const ADD_LEARNING_MOMENT = gql`
     $type: String!
     $moment: String!
     $learningBitId: uuid!
+    $promptId: uuid
   ) {
     insert_learningMoments(
       objects: {
@@ -119,6 +121,7 @@ export const ADD_LEARNING_MOMENT = gql`
         moment: $moment
         userId: $userId
         learningBitId: $learningBitId
+        promptId: $promptId
       }
     ) {
       affected_rows
@@ -134,6 +137,7 @@ export const GET_LEARNING_MOMENTS = gql`
       moment
       userId
       created_at
+      promptId
       user_info {
         username
         avatar
@@ -150,6 +154,7 @@ export const SUBSCRIBE_LEARNING_MOMENTS = gql`
       type
       moment
       created_at
+      promptId
       user_info {
         username
         avatar
@@ -183,6 +188,7 @@ export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
       type
       moment
       created_at
+      promptId
     }
   }
 `;
@@ -240,6 +246,11 @@ export const GET_LEARNING_BIT = gql`
           avatar
           username
         }
+      }
+      learningPrompts {
+        prompt
+        type
+        id
       }
     }
   }

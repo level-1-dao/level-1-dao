@@ -1,3 +1,4 @@
 import NFT from "./NFT";
 import Modal from "./Modal";
-export { NFT, Modal };
+import POAP from "./POAP";
+export { NFT, Modal, POAP };

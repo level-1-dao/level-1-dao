@@ -1,9 +1,6 @@
 import dateFormat from "dateformat";
 
 const LearningMomenContainer = ({ user, learningMoment }) => {
-  const mouseMove = (e) => {
-    console.log(e);
-  };
   return (
     <>
       <div className="relative mt-12 shadow-lg hazy-candy-floss-background rounded-xl relative text-base max-w-md mx-auto lg:mt-0 border border-gray-300">

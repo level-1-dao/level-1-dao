@@ -192,6 +192,9 @@ export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
       moment
       created_at
       promptId
+      poap {
+        link
+      }
     }
   }
 `;

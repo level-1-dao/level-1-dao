@@ -23,6 +23,9 @@ export const GET_USER = gql`
         moment
         created_at
         promptId
+        poap {
+          link
+        }
       }
       user_learning_journeys {
         id
@@ -251,6 +254,11 @@ export const GET_LEARNING_BIT = gql`
         prompt
         type
         id
+        poaps_aggregate {
+          aggregate {
+            count
+          }
+        }
       }
     }
   }
@@ -307,6 +315,24 @@ export const GET_LEARNING_BITS_BY_USER = gql`
           avatar
           username
         }
+      }
+    }
+  }
+`;
+
+export const SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT_BY_LEARNINGBIT = gql`
+  query subscribeToPoapsAvailableCountByLearningBit($learningPromptId: uuid!) {
+    poaps(where: { id: { _eq: $learningPromptId }, userId: { _eq: null } }) {
+      poaps_aggregate {
+        aggregate {
+          count
+        }
+      }
+      poaps(
+        where: { id: { _eq: $learningPromptId }, userId: { _eq: null } }
+        limit: 1
+      ) {
+        id
       }
     }
   }

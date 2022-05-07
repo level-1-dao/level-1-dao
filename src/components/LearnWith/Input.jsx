@@ -91,7 +91,6 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
     learningPromptId
   ) => {
     let userLearningMoment;
-    console.log(user.user_learning_moments);
     if (learningPromptId) {
       userLearningMoment = user.user_learning_moments.find(
         (learningMoment) => learningMoment.promptId === learningPromptId

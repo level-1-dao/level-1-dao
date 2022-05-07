@@ -8,6 +8,7 @@ import {
   GET_USER,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
 } from "../../lib/graphql";
+import { POAP } from "../NFT";
 
 const Input = ({ learningBitId, learningPromptId, promptType }) => {
   const router = useRouter();
@@ -128,7 +129,13 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
   return (
     <>
       {learningMoment ? (
-        <LearningMomentContainer user={user} learningMoment={learningMoment} />
+        <>
+          <LearningMomentContainer
+            user={user}
+            learningMoment={learningMoment}
+          />
+          {learningMoment.poap[0] && <POAP poap={learningMoment.poap} />}
+        </>
       ) : (
         <form action="#" className="space-y-8" onSubmit={handleSubmit}>
           <div className="bg-base-100 relative text-xl border border-gray-300 rounded-lg shadow-sm overflow-hidden group focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">

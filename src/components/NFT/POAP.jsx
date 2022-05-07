@@ -1,5 +1,4 @@
 const POAP = ({ poap }) => {
-  console.log(poap);
   return (
     <div>
       <h1>POAP</h1>

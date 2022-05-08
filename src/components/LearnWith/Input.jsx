@@ -128,13 +128,15 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
   return (
     <>
       {learningMoment ? (
-        <>
+        <div className="md:flex items-center">
           <LearningMomentContainer
             user={user}
             learningMoment={learningMoment}
           />
-          {learningMoment.poap[0] && <POAP poap={learningMoment.poap} />}
-        </>
+          <div className="py-20 px-20">
+            {learningMoment.poap[0] && <POAP poap={learningMoment.poap} />}
+          </div>
+        </div>
       ) : (
         <form action="#" className="space-y-8" onSubmit={handleSubmit}>
           <div className="bg-base-100 relative text-xl border border-gray-300 rounded-lg shadow-sm overflow-hidden group focus-within:border-indigo-500 focus-within:ring-1 focus-within:ring-indigo-500">

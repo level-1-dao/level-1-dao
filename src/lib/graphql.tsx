@@ -323,19 +323,30 @@ export const GET_LEARNING_BITS_BY_USER = gql`
   }
 `;
 
-export const SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT_BY_LEARNINGBIT = gql`
-  query subscribeToPoapsAvailableCountByLearningBit($learningPromptId: uuid!) {
-    poaps(where: { id: { _eq: $learningPromptId }, userId: { _eq: null } }) {
-      poaps_aggregate {
-        aggregate {
-          count
-        }
+export const SUBSCRIBE_TO_POAP_AVAILABLE = gql`
+  subscription subscribeToPoapsAvailable($learningPromptId: uuid!) {
+    poaps(
+      where: {
+        learningPromptId: { _eq: $learningPromptId }
+        userId: { _is_null: true }
       }
-      poaps(
-        where: { id: { _eq: $learningPromptId }, userId: { _eq: null } }
-        limit: 1
-      ) {
-        id
+      limit: 1
+    ) {
+      id
+    }
+  }
+`;
+
+export const SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT = gql`
+  subscription MySubscription($learningPromptId: uuid!) {
+    poaps_aggregate(
+      where: {
+        userId: { _is_null: true }
+        learningPromptId: { _eq: $learningPromptId }
+      }
+    ) {
+      aggregate {
+        count(distinct: true)
       }
     }
   }

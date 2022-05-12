@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { useMutation } from "../../lib/apollo";
-import { useQuery } from "@apollo/client";
+import { useQuery, useSubscription } from "@apollo/client";
 import { useRouter } from "next/router";
 import LearningMomentContainer from "./LearningMomentContainer";
 import {
   ADD_LEARNING_MOMENT,
   GET_USER,
   SUBSCRIBE_USER_LEARNING_MOMENTS,
+  SUBSCRIBE_TO_POAP_AVAILABLE,
+  SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT,
 } from "../../lib/graphql";
 import { POAP } from "../NFT";
 
@@ -15,6 +17,22 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
   const [value, setValue] = useState("");
   const [learningMoment, setLearningMoment] = useState(null);
   const { loading, error, data, subscribeToMore } = useQuery(GET_USER);
+  //subscribe to POAPS
+  const {
+    data: poapAvailable,
+    loading: poapAvailableLoading,
+    error: poapAvailableError,
+  } = useSubscription(SUBSCRIBE_TO_POAP_AVAILABLE, {
+    variables: {
+      learningPromptId: learningPromptId,
+    },
+  });
+  const { data: poapsAvailableCount, loading: poapsAvailableCountLoading } =
+    useSubscription(SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT, {
+      variables: {
+        learningPromptId: learningPromptId,
+      },
+    });
   const user = data?.user_private[0];
 
   const handleLogIn = () => {

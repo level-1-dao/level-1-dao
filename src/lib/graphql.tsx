@@ -128,6 +128,9 @@ export const ADD_LEARNING_MOMENT = gql`
       }
     ) {
       affected_rows
+      returning {
+        id
+      }
     }
   }
 `;
@@ -328,7 +331,7 @@ export const SUBSCRIBE_TO_POAP_AVAILABLE = gql`
     poaps(
       where: {
         learningPromptId: { _eq: $learningPromptId }
-        userId: { _is_null: true }
+        learningMomentId: { _is_null: true }
       }
       limit: 1
     ) {
@@ -341,13 +344,24 @@ export const SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT = gql`
   subscription MySubscription($learningPromptId: uuid!) {
     poaps_aggregate(
       where: {
-        userId: { _is_null: true }
         learningPromptId: { _eq: $learningPromptId }
+        learningMomentId: { _is_null: true }
       }
     ) {
       aggregate {
         count(distinct: true)
       }
+    }
+  }
+`;
+
+export const UPDATE_POAP = gql`
+  mutation updatePoap($id: uuid, $userId: String, $learningMomentId: uuid) {
+    update_poaps(
+      where: { id: { _eq: $id } }
+      _set: { learningMomentId: $learningMomentId, userId: $userId }
+    ) {
+      affected_rows
     }
   }
 `;

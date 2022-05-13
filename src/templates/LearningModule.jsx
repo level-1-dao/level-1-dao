@@ -15,7 +15,18 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
       learningBitId: learningBitData.id,
     },
   });
-  const learningMoments = data?.learningMoments;
+
+  let learningMoments;
+
+  const learningPromptArray = learningBitData.learningPrompts;
+
+  if (learningPromptArray.length > 0) {
+    learningMoments = data?.learningMoments.filter(
+      (moment) => moment.promptId === learningPromptArray[0].id
+    );
+  } else {
+    learningMoments = data?.learningMoments;
+  }
 
   return (
     <div className="space-y-8">
@@ -67,11 +78,25 @@ const LearningModule = ({ learningBitData, learningJourneyTitle }) => {
                 </h2>
                 <div className="input-container">
                   <p className="text-2xl font-extrabold my-4">
-                    {learningBitData.prompt
+                    {learningPromptArray.length > 0
+                      ? learningBitData.learningPrompts[0]?.prompt
+                      : learningBitData.prompt
                       ? learningBitData.prompt
                       : "Use this as an opportunity to reflect on what you have learned from this content."}
                   </p>
-                  <Input learningBitId={learningBitData.id} />
+                  <Input
+                    learningBitId={learningBitData.id}
+                    learningPromptId={
+                      learningPromptArray.length > 0
+                        ? learningBitData.learningPrompts[0]?.id
+                        : null
+                    }
+                    promptType={
+                      learningPromptArray.length > 0
+                        ? learningBitData.learningPrompts[0]?.type
+                        : null
+                    }
+                  />
                 </div>
               </div>
               <GoodCompany learningMoments={learningMoments} />

@@ -4,19 +4,15 @@ import LearningModule from "../../templates/LearningModule";
 import Loading from "../../components/Loading";
 
 const ContentView = ({ learningBitId, learningJourneyTitle }) => {
-  const {
-    loading: loadingLearningBitData,
-    error: errorGettingLearningBit,
-    data: learningBitDataArray,
-  } = useQuery(GET_LEARNING_BIT, {
+  const { loading, error, data } = useQuery(GET_LEARNING_BIT, {
     variables: { learningBitId: learningBitId },
   });
-  const learningBitData = learningBitDataArray?.learningBits[0];
+  const learningBitData = data?.learningBits[0];
 
   return (
     <>
-      {loadingLearningBitData && <Loading />}
-      {!loadingLearningBitData && !errorGettingLearningBit && (
+      {loading && <Loading />}
+      {!loading && !error && (
         <>
           <LearningModule
             learningJourneyTitle={learningJourneyTitle}

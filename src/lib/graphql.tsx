@@ -22,6 +22,10 @@ export const GET_USER = gql`
         type
         moment
         created_at
+        promptId
+        poap {
+          link
+        }
       }
       user_learning_journeys {
         id
@@ -112,6 +116,7 @@ export const ADD_LEARNING_MOMENT = gql`
     $type: String!
     $moment: String!
     $learningBitId: uuid!
+    $promptId: uuid
   ) {
     insert_learningMoments(
       objects: {
@@ -119,9 +124,13 @@ export const ADD_LEARNING_MOMENT = gql`
         moment: $moment
         userId: $userId
         learningBitId: $learningBitId
+        promptId: $promptId
       }
     ) {
       affected_rows
+      returning {
+        id
+      }
     }
   }
 `;
@@ -134,6 +143,7 @@ export const GET_LEARNING_MOMENTS = gql`
       moment
       userId
       created_at
+      promptId
       user_info {
         username
         avatar
@@ -150,6 +160,7 @@ export const SUBSCRIBE_LEARNING_MOMENTS = gql`
       type
       moment
       created_at
+      promptId
       user_info {
         username
         avatar
@@ -183,6 +194,10 @@ export const SUBSCRIBE_USER_LEARNING_MOMENTS = gql`
       type
       moment
       created_at
+      promptId
+      poap {
+        link
+      }
     }
   }
 `;
@@ -241,6 +256,16 @@ export const GET_LEARNING_BIT = gql`
           username
         }
       }
+      learningPrompts {
+        prompt
+        type
+        id
+        poaps_aggregate {
+          aggregate {
+            count
+          }
+        }
+      }
     }
   }
 `;
@@ -297,6 +322,46 @@ export const GET_LEARNING_BITS_BY_USER = gql`
           username
         }
       }
+    }
+  }
+`;
+
+export const SUBSCRIBE_TO_POAP_AVAILABLE = gql`
+  subscription subscribeToPoapsAvailable($learningPromptId: uuid!) {
+    poaps(
+      where: {
+        learningPromptId: { _eq: $learningPromptId }
+        learningMomentId: { _is_null: true }
+      }
+      limit: 1
+    ) {
+      id
+    }
+  }
+`;
+
+export const SUBSCRIBE_TO_POAPS_AVAILABLE_COUNT = gql`
+  subscription MySubscription($learningPromptId: uuid!) {
+    poaps_aggregate(
+      where: {
+        learningPromptId: { _eq: $learningPromptId }
+        learningMomentId: { _is_null: true }
+      }
+    ) {
+      aggregate {
+        count(distinct: true)
+      }
+    }
+  }
+`;
+
+export const UPDATE_POAP = gql`
+  mutation updatePoap($id: uuid, $userId: String, $learningMomentId: uuid) {
+    update_poaps(
+      where: { id: { _eq: $id } }
+      _set: { learningMomentId: $learningMomentId, userId: $userId }
+    ) {
+      affected_rows
     }
   }
 `;

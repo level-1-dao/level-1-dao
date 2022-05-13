@@ -2,7 +2,6 @@ import Image from "next/image";
 import { generateFromString } from "generate-avatar";
 
 const Avatar = ({ guide, size }) => {
-  console.log(size);
   return (
     <div className="flex space-x-2 items-center">
       <div className="avatar">

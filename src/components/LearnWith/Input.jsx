@@ -30,6 +30,10 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
       learningPromptId: learningPromptId,
     },
   });
+  console.log("poaps are loading " + poapAvailableLoading);
+  console.log("poaps have error " + poapAvailableError);
+  console.log(poapAvailable);
+
   const {
     data: poapsAvailableAggregate,
     loading: poapsAvailableAggregateLoading,
@@ -39,11 +43,10 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
     },
   });
   const user = data?.user_private[0];
-  const poap = poapAvailable?.poaps[0].id;
+  console.log("poaps available " + JSON.stringify(poapsAvailableAggregate));
+  const poap = poapAvailable?.poaps[0]?.id;
   const poapsAvailableCount =
     poapsAvailableAggregate?.poaps_aggregate.aggregate.count;
-
-  console.log(poap);
 
   const handleLogIn = () => {
     router.push("/api/auth/login?returnTo=" + router.asPath);

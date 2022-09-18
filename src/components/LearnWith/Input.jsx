@@ -30,6 +30,10 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
       learningPromptId: learningPromptId,
     },
   });
+  console.log("poaps are loading " + poapAvailableLoading);
+  console.log("poaps have error " + poapAvailableError);
+  console.log(poapAvailable);
+
   const {
     data: poapsAvailableAggregate,
     loading: poapsAvailableAggregateLoading,
@@ -39,11 +43,10 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
     },
   });
   const user = data?.user_private[0];
-  const poap = poapAvailable?.poaps[0].id;
+  console.log("poaps available " + JSON.stringify(poapsAvailableAggregate));
+  const poap = poapAvailable?.poaps[0]?.id;
   const poapsAvailableCount =
     poapsAvailableAggregate?.poaps_aggregate.aggregate.count;
-
-  console.log(poap);
 
   const handleLogIn = () => {
     router.push("/api/auth/login?returnTo=" + router.asPath);
@@ -94,20 +97,20 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
     });
   };
 
-  const {
-    load: updatePoap,
-    loading: updatePoapLoading,
-    error: updatePoapError,
-  } = useMutation(UPDATE_POAP, {
-    onCompleted: (data) => {
-      console.log("POAP updated ", data);
-      return;
-    },
-    onError: (errorContinueLevel) => {
-      console.log("POAP update error :(", errorContinueLevel);
-      return;
-    },
-  });
+  // const {
+  //   load: updatePoap,
+  //   loading: updatePoapLoading,
+  //   error: updatePoapError,
+  // } = useMutation(UPDATE_POAP, {
+  //   onCompleted: (data) => {
+  //     console.log("POAP updated ", data);
+  //     return;
+  //   },
+  //   onError: (errorContinueLevel) => {
+  //     console.log("POAP update error :(", errorContinueLevel);
+  //     return;
+  //   },
+  // });
 
   const {
     load: addLearningMoment,
@@ -234,7 +237,7 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
               </div>
             </div>
           </form>
-          {poapsAvailableCount > 1 && (
+          {/* {poapsAvailableCount > 1 && (
             <div className="rounded-lg bg-purple-100 p-4 mt-2">
               <div className="flex">
                 <div className="flex-shrink-0">
@@ -250,7 +253,7 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </>
       )}
     </>

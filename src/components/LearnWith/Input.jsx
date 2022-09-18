@@ -97,20 +97,20 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
     });
   };
 
-  // const {
-  //   load: updatePoap,
-  //   loading: updatePoapLoading,
-  //   error: updatePoapError,
-  // } = useMutation(UPDATE_POAP, {
-  //   onCompleted: (data) => {
-  //     console.log("POAP updated ", data);
-  //     return;
-  //   },
-  //   onError: (errorContinueLevel) => {
-  //     console.log("POAP update error :(", errorContinueLevel);
-  //     return;
-  //   },
-  // });
+  const {
+    load: updatePoap,
+    loading: updatePoapLoading,
+    error: updatePoapError,
+  } = useMutation(UPDATE_POAP, {
+    onCompleted: (data) => {
+      console.log("POAP updated ", data);
+      return;
+    },
+    onError: (errorContinueLevel) => {
+      console.log("POAP update error :(", errorContinueLevel);
+      return;
+    },
+  });
 
   const {
     load: addLearningMoment,
@@ -237,7 +237,7 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
               </div>
             </div>
           </form>
-          {/* {poapsAvailableCount > 1 && (
+          {poapsAvailableCount > 1 && (
             <div className="rounded-lg bg-purple-100 p-4 mt-2">
               <div className="flex">
                 <div className="flex-shrink-0">
@@ -253,7 +253,7 @@ const Input = ({ learningBitId, learningPromptId, promptType }) => {
                 </div>
               </div>
             </div>
-          )} */}
+          )}
         </>
       )}
     </>
